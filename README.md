@@ -8,7 +8,9 @@
     <img src="https://img.shields.io/badge/java-1.8-blue.svg" />  
     <img src="https://img.shields.io/badge/Mybatis-3.2.2-rgb(243, 156, 18).svg" />
     <img src="https://img.shields.io/badge/Oracle11g 6-rgb(243, 156, 18).svg" />
-    font-awesome 4.7.0
+    <img src="https://img.shields.io/badge/font-awesome 4.7.0 6-rgb(243, 156, 18).svg" />
+    <img src="https://img.shields.io/badge/bootstrap 4.3.7 6-rgb(243, 156, 18).svg" />
+  
  
 </p>
 
