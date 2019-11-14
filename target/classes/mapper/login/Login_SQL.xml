@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="loginInfo">
-	<select id="login" parameterType="first.loginAction.model.UserInfo" resultType="hashmap"> 
-		 SELECT FIRST_NAME,LAST_NAME
+	
+	<resultMap id="userInfoModel" type="first.loginAction.model.UserInfo">
+		<result property ="first_name" column="FIRST_NAME" />
+		<result property ="last_name" column="LAST_NAME" />
+	</resultMap>
+
+	<select id="login" parameterType="first.loginAction.model.UserInfo" resultMap="userInfoModel">
+	 SELECT FIRST_NAME,LAST_NAME
 		 FROM USER_INFO
 		 WHERE EMAIL = #{email}
 		 AND PASSWORD = #{password}
 	</select>
+	
 </mapper>
 
 

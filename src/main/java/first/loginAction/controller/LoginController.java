@@ -1,8 +1,5 @@
 package first.loginAction.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -23,13 +20,15 @@ public class LoginController {
 
 	@RequestMapping(value = "/login/login.do")
 	public ModelAndView loginUser(UserInfo info) throws Exception {
-		System.out.println(info.toString());
-		ModelAndView mv = new ModelAndView("/login/loginSuccess");
+		ModelAndView mv = new ModelAndView("/login/loginSuccesMain");
+		
 		UserInfo userInfo = loginService.login(info);
+		
+		System.out.println(" 타기전 : " + info.toString());
 
-		if ( userInfo == null ) System.out.println(" null 임 ");
+		if ( userInfo == null  ) System.out.println(" null 임 ");
 		else {
-			System.out.println(userInfo.toString());
+			System.out.println( " else 안 : " + userInfo.toString());
 		}
 
 		mv.addObject("userInfo", userInfo);

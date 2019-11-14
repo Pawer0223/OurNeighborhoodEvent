@@ -1,7 +1,5 @@
 package first.loginAction.model;
 
-import java.sql.Date;
-
 //USER_INFO 
 public class UserInfo {
 
@@ -12,16 +10,10 @@ public class UserInfo {
  private String password;
 
  // 성 
- private String firstName;
+ private String first_name;
 
  // 이름 
- private String lastName;
-
- // 생성일시 
- private Date creationDate;
-
- // 변경일시 
- private Date updateDate;
+ private String last_name;
 
  public String getEmail() {
      return email;
@@ -39,53 +31,35 @@ public class UserInfo {
      this.password = password;
  }
 
- public String getFirstName() {
-     return firstName;
- }
 
- public void setFirstName(String firstName) {
-     this.firstName = firstName;
- }
+ public String getFirst_name() {
+	return first_name;
+}
 
- public String getLastName() {
-     return lastName;
- }
+public void setFirst_name(String first_name) {
+	this.first_name = first_name;
+}
 
- public void setLastName(String lastName) {
-     this.lastName = lastName;
- }
+public String getLast_name() {
+	return last_name;
+}
 
- public Date getCreationDate() {
-     return creationDate;
- }
-
- public void setCreationDate(Date creationDate) {
-     this.creationDate = creationDate;
- }
-
- public Date getUpdateDate() {
-     return updateDate;
- }
-
- public void setUpdateDate(Date updateDate) {
-     this.updateDate = updateDate;
- }
+public void setLast_Name(String last_name) {
+	this.last_name = last_name;
+}
 
  // UserInfo 모델 복사
  public void CopyData(UserInfo param)
  {
      this.email = param.getEmail();
      this.password = param.getPassword();
-     this.firstName = param.getFirstName();
-     this.lastName = param.getLastName();
-     this.creationDate = param.getCreationDate();
-     this.updateDate = param.getUpdateDate();
+     this.first_name = param.getFirst_name();
+     this.last_name = param.getLast_name();
  }
 
 @Override
 public String toString() {
-	return "UserInfo [email=" + email + ", password=" + password + ", firstName=" + firstName + ", lastName=" + lastName
-			+ ", creationDate=" + creationDate + ", updateDate=" + updateDate + "]";
+	return "UserInfo [email=" + email + ", password=" + password + ", first_name=" + first_name + ", last_name=" + last_name+ "]";
 }
  
 }

@@ -10,40 +10,7 @@
 <body>
 
 	<h2>게시판 목록</h2>
-	<table style="border: 1px solid #ccc">
-		<colgroup>
-			<col width="10%" />
-			<col width="*" />
-			<col width="15%" />
-			<col width="20%" />
-		</colgroup>
-		<thead>
-			<tr>
-				<th scope="col">FIRST NAME</th>
-				<th scope="col">LAST NAME</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:choose>
-				<c:when test="${fn:length(userInfo) > 0}">
-					<c:forEach items="${userInfo}" var="row">
-						<tr>
-							<td>${ row.SEQ }</td>
-							<td>${ row.TITLE }</td>
-							<td>${ row.CONTENT }</td>
-							<td>${ row.WRITER }</td>
-						</tr>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<tr>
-						<td colspan="4">조회된 결과가 없습니다.</td>
-					</tr>
-				</c:otherwise>
-			</c:choose>
-		</tbody>
-	</table>
-	
+<h1>${userInfo.first_name} + ${userInfo.last_name} + ${userInfo.email}</h1>	
 	
 	
 </body>
