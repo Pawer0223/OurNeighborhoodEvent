@@ -19,7 +19,11 @@
 
 <title>Login</title>
 </head>
+<!-- 
 
+구현 할 기능 : 실제 google이랑 연동가능하도록.
+
+ -->
 <body>
     <div class="container">
         <div class="row">
@@ -31,7 +35,7 @@
 							<h1>Login</h1>
 						 </div>
 					</div>
-                   <form action="" method="post" name="login">
+                   <form action="login/login.do" method="post" name="login" >
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email address</label>
                               <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">

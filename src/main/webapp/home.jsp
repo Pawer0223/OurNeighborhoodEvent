@@ -38,10 +38,7 @@
             </ul>
             <ul class="navbar-nav flex-row">
                 <li class="nav-item">
-                    <a class="nav-link " href="login.jsp">Login</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link " href="?page=new">Register</a>
+                    <a class="nav-link " href="login.jsp">Login / SignUp</a>
                 </li>
             </ul>
         </div>
