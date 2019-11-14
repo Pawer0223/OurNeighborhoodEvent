@@ -7,9 +7,9 @@
     <img src="https://img.shields.io/badge/spring-4.3.9-green.svg" />
     <img src="https://img.shields.io/badge/java-1.8-blue.svg" />  
     <img src="https://img.shields.io/badge/Mybatis-3.2.2-rgb(243, 156, 18).svg" />
-    <img src="https://img.shields.io/badge/Oracle11g 6-rgb(243, 156, 18).svg" />
-    <img src="https://img.shields.io/badge/font-awesome 4.7.0 6-rgb(243, 156, 18).svg" />
-    <img src="https://img.shields.io/badge/bootstrap 4.3.7 6-rgb(243, 156, 18).svg" />
+    <img src="https://img.shields.io/badge/Oracle11g -rgb(243, 156, 18).svg" />
+    <img src="https://img.shields.io/badge/font-awesome 4.7.0 -rgb(255, 255, 153).svg" />
+    <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 255, 153).svg" />
   
  
 </p>
