@@ -8,8 +8,8 @@
     <img src="https://img.shields.io/badge/java-1.8-blue.svg" />  
     <img src="https://img.shields.io/badge/Mybatis-3.2.2-rgb(243, 156, 18).svg" />
     <img src="https://img.shields.io/badge/Oracle11g -rgb(243, 156, 18).svg" />
-    <img src="https://img.shields.io/badge/font-awesome 4.7.0 -rgb(255, 255, 000).svg" />
-    <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 255, 000).svg" />
+    <img src="https://img.shields.io/badge/font-awesome 4.7.0 -rgb(255, 204, 000).svg" />
+    <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 204, 000).svg" />
   
  
 </p>
