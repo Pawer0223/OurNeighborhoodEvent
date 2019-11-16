@@ -65,7 +65,7 @@
 		        			<div class="col-lg-10 align-items-end" align="center">
 		        				<div class="form-group" style = " width : 70% ">
 		          				<div class="form-field">
-				                <input type="text" class="form-control" placeholder="Search location" >
+				                <input onclick="sample6_execDaumPostcode()" type="text" class="form-control" placeholder="Search location" id="sample6_address" >
 				                <button><span class="ion-ios-search"></span></button>
 				              </div>
 			              </div>
@@ -620,6 +620,10 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="resources/mainPage/js/google-map.js"></script>
   <script src="resources/mainPage/js/main.js"></script>
+  
+  <!--  주소API -->
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="resources/js/mapAPI.js"></script>
     
   </body>
 </html>
