@@ -46,7 +46,7 @@ public class LoginController {
 	@RequestMapping(value = "/login/start.do")
 	public ModelAndView start() throws Exception {
 //		ModelAndView mv = new ModelAndView("/login/home");
-		ModelAndView mv = new ModelAndView("/test/index");
+		ModelAndView mv = new ModelAndView("/main/index");
 		return mv;
 	}
 	

@@ -58,14 +58,14 @@
       <div class="container">
         <div class="row no-gutters slider-text justify-content-center align-items-center">
           <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
-          	<div class="text text-center">
-	            <h1 class="mb-4">&nbsp&nbsp&nbsp&nbsp소소한 행복을 찾아보세요&nbsp</h1>
+          	<div class="text text-center" style = " width : 100%; " >
+ 				<h1 class="mb-4">우리동네를 검색해 주세요</h1>
 	            <form action="#" class="search-location mt-md-5">
 		        		<div class="row justify-content-center">
-		        			<div class="col-lg-10 align-items-end">
-		        				<div class="form-group">
+		        			<div class="col-lg-10 align-items-end" align="center">
+		        				<div class="form-group" style = " width : 70% ">
 		          				<div class="form-field">
-				                <input type="text" class="form-control" placeholder="Search location">
+				                <input type="text" class="form-control" placeholder="Search location" >
 				                <button><span class="ion-ios-search"></span></button>
 				              </div>
 			              </div>
