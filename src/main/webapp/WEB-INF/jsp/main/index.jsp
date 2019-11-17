@@ -42,10 +42,8 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="home.jsp" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="agent.jsp" class="nav-link">Agent</a></li>
 	          <li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
 	          <li class="nav-item"><a href="properties.jsp" class="nav-link">Properties</a></li>
-	          <li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
@@ -105,8 +103,8 @@
             <div class="media block-6 services d-block text-center">
             	<div class="icon d-flex justify-content-center align-items-center"><img src=resources/mainPage/images/happy.png width="100" height="100" ></div>
               <div class="media-body py-md-4">
-                <h3>사장님 기분이 좋은날에 !</h3>
-                <p>우리동네 돈까스집 사장님 결혼기념일을 기분좋게 이웃들과나눌수 있고</p>
+                <h3>사장님 기분에따라 !</h3>
+                <p>사장님 마음대로 이벤트를 등록하고 즐길수 있도록 !</p>
               </div>
             </div>      
           </div>
@@ -115,7 +113,7 @@
             	<div class="icon d-flex justify-content-center align-items-center"><img src=resources/mainPage/images/stock.png width="100" height="100" ></div>
               <div class="media-body py-md-4">
                 <h3>당일 재고가 남은날에 !</h3>
-                <p>사장님은 효율적인 재고처리 이웃들은 저렴한 가격에 맛있는 음식을 !</p>
+                <p>사장님은 효율적인 재고처리를 이웃들은 저렴한 가격에 맛있는 음식을 !</p>
               </div>
             </div>      
           </div>
@@ -123,83 +121,16 @@
             <div class="media block-6 services d-block text-center">
             	<div class="icon d-flex justify-content-center align-items-center"><img src=resources/mainPage/images/give.png width="100" height="100" ></div>
               <div class="media-body py-md-4">
-                <h3>그냥.. 베풀고싶은날에 !</h3>
-                <p>그냥.. 사장님 기분이 좋은날에도 !</p>
+                <h3>베풀고 싶을때 !</h3>
+                <p>따듯한 정을 나누고 싶을 때 !</p>
               </div>
             </div>      
           </div>
         </div>
       </div>
     </section>
-
-    <section class="ftco-section goto-here">
-    	<div class="container">
-    		<div class="row justify-content-center">
-          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">What we offer</span>
-            <h2 class="mb-2">Exclusive Offer For You</h2>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="#" class="img" style="background-image: url(resources/mainPage/images/work-1.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="#">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="#" class="img" style="background-image: url(resources/mainPage/images/work-2.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="#">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="#" class="img" style="background-image: url(resources/mainPage/images/work-3.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="#">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        </div>
-    	</div>
-    </section>
-
-    <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(resources/mainPage/images/bg_2.jpg);">
+    
+        <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(resources/mainPage/images/bg_2.jpg);">
     	<div class="overlay"></div>
     	<div class="container">
     		<div class="row justify-content-start mb-5">
@@ -215,8 +146,8 @@
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>01</span></div>
-		                <h3>Evaluate Property</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>동네 검색</h3>
+		                <p>먼저, 우리동네를 검색해주세요</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -224,8 +155,8 @@
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>02</span></div>
-		                <h3>Meet Your Agent</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>이벤트 검색</h3>
+		                <p>우리동네 이벤트를 찾아주세요</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -233,8 +164,8 @@
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>03</span></div>
-		                <h3>Close the Deal</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>결제</h3>
+		                <p>결제완료시 이벤트 참여완료 !</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -242,8 +173,8 @@
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>04</span></div>
-		                <h3>Have Your Property</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>배달</h3>
+		                <p>배달 아이콘이 있다면 배달 ok !<br>없다면 직접 Pickup !</p>
 		              </div>
 		            </div>      
 		          </div>
@@ -253,6 +184,158 @@
     	</div>
     </section>
 
+    <section class="ftco-section goto-here">
+    	<div class="container">
+    		<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">Event List</span>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="#" class="img" style="background-image: url(resources/mainPage/images/foods/chicken.jpg);"></a>
+        			<div class="text">
+        				<p class="price"  style=" text-align : center ;"><span class="old-price">20,000<small>￦</small></span><span class="orig-price">8,000<small>￦</small></span></p>
+        				<ul class="property_list" style=" text-align : center ;">
+        					<li><img src=resources/mainPage/images/running.gif width="30" height="30" >&nbsp;남은 수량 : 5&nbsp; <img src=resources/mainPage/images/Delivery.png width="20" height="20" ></li>
+        					<li><small>종료 : 물량 소진 시</small></li>
+        				</ul>
+        				<h3 style=" text-align : center ;"><a href="#">오늘은 결혼기념일 3주년</a></h3>
+        				<h6 style=" text-align : center ;"><span class="location">동네 통닭집</span></h6>
+        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="#" class="img" style="background-image: url(resources/mainPage/images/foods/jokbal.jpg);"></a>
+        			<div class="text">
+        				<p class="price"  style=" text-align : center ;"><span class="old-price">30,000<small>￦</small></span><span class="orig-price">17,000<small>￦</small></span></p>
+        				<ul class="property_list" style=" text-align : center ;">
+        					<li><img src=resources/mainPage/images/running.gif width="30" height="30" >&nbsp남은 수량 : 2<br></li>
+        					<li><small>종료 : 물량 소진 시</small></li>
+        				</ul>
+        				<h3 style=" text-align : center ;"><a href="#">당일 삶은족발 2개</a></h3>
+        				<h6 style=" text-align : center ;"><span class="location">동네 족발집</span></h6>
+        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="#" class="img" style="background-image: url(resources/mainPage/images/foods/Jajang.jpg);"></a>
+        			<div class="text">
+        				<p class="price"  style=" text-align : center ;"><span class="old-price">5,500<small>￦</small></span><span class="orig-price">0<small>￦</small></span></p>
+        				<ul class="property_list" style=" text-align : center ;">
+        					<li><img src=resources/mainPage/images/running.gif width="30" height="30" >&nbsp남은 수량 : 2</li>
+        					<li><small>종료 : 2019.11.18</small></li>
+        				</ul>
+        				<h3 style=" text-align : center ;"><a href="#">수능 본 학생 짜장면 제공</a></h3>
+        				<h6 style=" text-align : center ;"><span class="location">동네 중국집</span></h6>
+        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+    
+       <section class="ftco-section testimony-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+          	<span class="subheading">Service Review</span>
+            <h2 class="mb-3">Happy Clients</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">평소 당일 남는 수량의 족발들의 처리가 불편하였는데 좋은 서비스를 제공해주셔서 감사합니다.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">동네 족발집</p>
+		                    <span class="position">종료한 서비스 명</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">저렴한 식사 한끼와 좋은 맛집을 발견할 수 있었습니다.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">강x산</p>
+		                    <span class="position">참여한 이벤트 명</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">맨날 먹던데서만 먹다가 싸고 맛있게 먹엇네요 감사합니다 ㅎㅎ</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_3.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">고x님</p>
+		                    <span class="position">참여한 이벤트 명</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">리뷰내용을 적어주세요1</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">고객님1</p>
+		                    <span class="position">참여한 이벤트 명1</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">리뷰내용을 적어주세요2</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">고객님2</p>
+		                    <span class="position">참여한 이벤트 명2</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="ftco-section ftco-no-pb">
 			<div class="container">
 				<div class="row no-gutters">
@@ -260,10 +343,10 @@
 					</div>
 					<div class="col-md-6 wrap-about py-md-5 ftco-animate">
 	          <div class="heading-section p-md-5">
-	            <h2 class="mb-4">We Put People First.</h2>
+	            <h2 class="mb-4">기획의도</h2>
 
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+	            <p>요즘 많은 배달 사이트들을 활용하여 다양한 할인 및 서비스를 제공하는 여러 프렌차이즈에 비하여 특별한 홍보수단 및 경쟁력이 부족하다고 느낀 주변의 자영업자들을 기획하게 되었습니다.</p>
+	            <p>우리 동네 이벤트를 이용함으로써, 효율적인 재고 처리와 동네의 작은 이벤트들로 소소한 행복을 느낄 수 있기를 바랍니다.</p>
 	          </div>
 					</div>
 				</div>
@@ -277,7 +360,7 @@
             <div class="block-18 py-4 mb-4">
               <div class="text text-border d-flex align-items-center">
                 <strong class="number" data-number="305">0</strong>
-                <span>Area <br>Population</span>
+                <span>Ongoing <br>Event</span>
               </div>
             </div>
           </div>
@@ -285,7 +368,7 @@
             <div class="block-18 py-4 mb-4">
               <div class="text text-border d-flex align-items-center">
                 <strong class="number" data-number="1090">0</strong>
-                <span>Total <br>Properties</span>
+                <span>End <br>Event</span>
               </div>
             </div>
           </div>
@@ -293,7 +376,7 @@
             <div class="block-18 py-4 mb-4">
               <div class="text text-border d-flex align-items-center">
                 <strong class="number" data-number="209">0</strong>
-                <span>Average <br>House</span>
+                <span>Review <br>Count</span>
               </div>
             </div>
           </div>
@@ -301,7 +384,7 @@
             <div class="block-18 py-4 mb-4">
               <div class="text d-flex align-items-center">
                 <strong class="number" data-number="67">0</strong>
-                <span>Total <br>Branches</span>
+                <span>Today<br>hits</span>
               </div>
             </div>
           </div>
@@ -309,231 +392,15 @@
     	</div>
     </section>
 
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Testimonial</span>
-            <h2 class="mb-3">Happy Clients</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_1.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_2.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_3.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_1.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(resources/mainPage/images/person_2.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="ftco-section ftco-agent ftco-no-pt">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Agents</span>
-            <h2 class="mb-4">Our Agents</h2>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="resources/mainPage/images/team-1.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.jsp">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="resources/mainPage/images/team-2.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.jsp">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="resources/mainPage/images/team-3.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.jsp">James Stallon</a></h3>
-								<p class="h-info"><span class="location">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3 ftco-animate">
-        		<div class="agent">
-    					<div class="img">
-		    				<img src="resources/mainPage/images/team-4.jpg" class="img-fluid" alt="Colorlib Template">
-	    				</div>
-	    				<div class="desc">
-	    					<h3><a href="properties.jsp">James Stallon</a></h3>
-								<p class="h-info"><span class="position">Listing</span> <span class="details">&mdash; 10 Properties</span></p>
-	    				</div>
-    				</div>
-        	</div>
-        </div>
-    	</div>
-    </section>
-
-
-    <section class="ftco-section ftco-no-pt">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Blog</span>
-            <h2>Recent Blog</h2>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-3 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <a href="blog-single.jsp" class="block-20 img" style="background-image: url('resources/mainPage/images/image_1.jpg');">
-	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <a href="blog-single.jsp" class="block-20 img" style="background-image: url('resources/mainPage/images/image_2.jpg');">
-	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <a href="blog-single.jsp" class="block-20 img" style="background-image: url('resources/mainPage/images/image_3.jpg');">
-	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <a href="blog-single.jsp" class="block-20 img" style="background-image: url('resources/mainPage/images/image_4.jpg');">
-	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>		
 
     <footer class="ftco-footer ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Uptown</h2>
-              <p>Far far away, behind the word mountains, far from the countries.</p>
+              <h2 class="ftco-heading-2">WooDong2</h2>
+              <p>자영업자들을 위한 효율적인 재고처리 서비스 우리동네 이벤트 입니다.</p>
               <ul class="ftco-footer-social list-unstyled mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -546,7 +413,6 @@
               <h2 class="ftco-heading-2">Community</h2>
               <ul class="list-unstyled">
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Search Properties</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>For Agents</a></li>
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Reviews</a></li>
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>FAQs</a></li>
               </ul>
@@ -557,8 +423,6 @@
               <h2 class="ftco-heading-2">About Us</h2>
               <ul class="list-unstyled">
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Our Story</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Meet the team</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Careers</a></li>
               </ul>
             </div>
           </div>
@@ -567,7 +431,6 @@
               <h2 class="ftco-heading-2">Company</h2>
               <ul class="list-unstyled">
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About Us</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Press</a></li>
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
                 <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Careers</a></li>
               </ul>
@@ -578,9 +441,9 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">경기도 용인시 기흥구 구성로</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">010-4586-8427</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope pr-4"></span><span class="text">gbgo77@naver.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -591,18 +454,14 @@
 	
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
+  <div><small>아이콘 이미지 출처 : 아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></small></div>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
       </div>
     </footer>
-    
-  
-
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
   <script src="resources/mainPage/js/jquery.min.js"></script>
   <script src="resources/mainPage/js/jquery-migrate-3.0.1.min.js"></script>
