@@ -88,43 +88,43 @@
       	<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
           	<span class="subheading">Our Services</span>
-            <h2 class="mb-2">The smartest way to buy a home</h2>
+            <h2 class="mb-2">소소한 행복을 나누다</h2>
           </div>
         </div>
         <div class="row d-flex">
           <div class="col-md-3 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-piggy-bank"></span></div>
+            	<div class="icon d-flex justify-content-center align-items-center"><img src=resources/mainPage/images/soccer.png width="100" height="100" ></div>
               <div class="media-body py-md-4">
-                <h3>No Downpayment</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3>축구경기가 있는날에 !</h3>
+                <p>그냥 볼 수 없는 축구경기, 오늘은 자주시키던 치킨집이아니라 우리동네 치킨집에서 저렴하게 !</p>
               </div>
             </div>      
           </div>
           <div class="col-md-3 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-wallet"></span></div>
+            	<div class="icon d-flex justify-content-center align-items-center"><img src=resources/mainPage/images/happy.png width="100" height="100" ></div>
               <div class="media-body py-md-4">
-                <h3>All Cash Offer</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3>사장님 기분이 좋은날에 !</h3>
+                <p>우리동네 돈까스집 사장님 결혼기념일을 기분좋게 이웃들과나눌수 있고</p>
               </div>
             </div>      
           </div>
           <div class="col-md-3 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-file"></span></div>
+            	<div class="icon d-flex justify-content-center align-items-center"><img src=resources/mainPage/images/stock.png width="100" height="100" ></div>
               <div class="media-body py-md-4">
-                <h3>Experts in Your Corner</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3>당일 재고가 남은날에 !</h3>
+                <p>사장님은 효율적인 재고처리 이웃들은 저렴한 가격에 맛있는 음식을 !</p>
               </div>
             </div>      
           </div>
           <div class="col-md-3 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-locked"></span></div>
+            	<div class="icon d-flex justify-content-center align-items-center"><img src=resources/mainPage/images/give.png width="100" height="100" ></div>
               <div class="media-body py-md-4">
-                <h3>Lokced in Pricing</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3>그냥.. 베풀고싶은날에 !</h3>
+                <p>그냥.. 사장님 기분이 좋은날에도 !</p>
               </div>
             </div>      
           </div>
@@ -591,6 +591,7 @@
 	
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <div>아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon">www.flaticon.com</a></div>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
@@ -624,6 +625,5 @@
   <!--  주소API -->
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script src="resources/js/mapAPI.js"></script>
-    
   </body>
 </html>
