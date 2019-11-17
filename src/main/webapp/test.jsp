@@ -8,6 +8,5 @@
 </head>
 <body>
 
-<img src=resources/mainPage/images/soccer.png>
 </body>
 </html>
