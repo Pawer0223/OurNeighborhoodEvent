@@ -20,12 +20,15 @@ public class LoginController {
 
 	@RequestMapping(value = "/login/login.do")
 	public ModelAndView loginUser(UserInfo info) throws Exception {
+		
 		ModelAndView mv = new ModelAndView("/login/loginSuccesMain");
 
 		UserInfo userInfo = loginService.login(info);
 
 		mv.addObject("userInfo", userInfo);
+		
 		return mv;
+		
 	}
 
 }
