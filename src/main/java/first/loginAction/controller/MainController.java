@@ -13,7 +13,6 @@ public class MainController {
 	// 메인페이지 호출
 	@RequestMapping(value = "/main/start.do")
 	public ModelAndView start() throws Exception {
-		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/index");
 		return mv;
 	}
@@ -21,7 +20,6 @@ public class MainController {
 	// events페이지 이동
 	@RequestMapping(value = "/main/events.do")
 	public ModelAndView events() throws Exception {
-		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/events");
 		return mv;
 	}
@@ -29,7 +27,6 @@ public class MainController {
 	// services페이지 이동
 	@RequestMapping(value = "/main/services.do")
 	public ModelAndView services() throws Exception {
-		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/services");
 		return mv;
 	}

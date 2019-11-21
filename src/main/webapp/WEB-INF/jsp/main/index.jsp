@@ -114,7 +114,7 @@
       </div>
     </section>
     
-        <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(/first/resources/mainPage/images/bg_2.jpg);">
+    <section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(/first/resources/mainPage/images/bg_2.jpg);">
     	<div class="overlay"></div>
     	<div class="container">
     		<div class="row justify-content-start mb-5">
@@ -183,7 +183,6 @@
         				<p class="price"  style=" text-align : center ;"><span class="old-price">20,000<small>￦</small></span><span class="orig-price">8,000<small>￦</small></span></p>
         				<ul class="property_list" style=" text-align : center ;">
         					<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30" >&nbsp;남은 수량 : 5&nbsp; <img src=/first/resources/mainPage/images/Delivery.png width="20" height="20" ></li>
-        					<li><small>종료 : 물량 소진 시</small></li>
         				</ul>
         				<h3 style=" text-align : center ;"><a href="#">오늘은 결혼기념일 3주년</a></h3>
         				<h6 style=" text-align : center ;"><span class="location">동네 통닭집</span></h6>
@@ -200,7 +199,6 @@
         				<p class="price"  style=" text-align : center ;"><span class="old-price">30,000<small>￦</small></span><span class="orig-price">17,000<small>￦</small></span></p>
         				<ul class="property_list" style=" text-align : center ;">
         					<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30" >&nbsp남은 수량 : 2<br></li>
-        					<li><small>종료 : 물량 소진 시</small></li>
         				</ul>
         				<h3 style=" text-align : center ;"><a>당일 삶은족발 2개</a></h3>
         				<h6 style=" text-align : center ;"><span class="location">동네 족발집</span></h6>
@@ -217,7 +215,6 @@
         				<p class="price"  style=" text-align : center ;"><span class="old-price">5,500<small>￦</small></span><span class="orig-price">0<small>￦</small></span></p>
         				<ul class="property_list" style=" text-align : center ;">
         					<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30" >&nbsp남은 수량 : 2</li>
-        					<li><small>종료 : 2019.11.18</small></li>
         				</ul>
         				<h3 style=" text-align : center ;"><a>수능 본 학생 짜장면 제공</a></h3>
         				<h6 style=" text-align : center ;"><span class="location">동네 중국집</span></h6>
