@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import first.loginAction.model.UserInfo;
+import first.actions.model.UserInfo;
 import first.loginAction.service.LoginService;
 
 @Controller

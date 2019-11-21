@@ -1,6 +1,6 @@
 package first.loginAction.service;
 
-import first.loginAction.model.UserInfo;
+import first.actions.model.UserInfo;
 
 public interface LoginService {
 

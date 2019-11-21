@@ -1,4 +1,4 @@
-package first.loginAction.model;
+package first.actions.model;
 
 //USER_INFO 
 public class UserInfo {

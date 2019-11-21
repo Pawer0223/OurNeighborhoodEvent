@@ -1,4 +1,4 @@
-package first.loginAction.model;
+package first.actions.model;
 
 //메뉴 
 public class MenuList {

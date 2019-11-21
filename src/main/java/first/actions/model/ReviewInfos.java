@@ -1,4 +1,4 @@
-package first.loginAction.model;
+package first.actions.model;
 
 //리뷰정보 
 public class ReviewInfos {

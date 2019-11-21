@@ -1,4 +1,4 @@
-package first.loginAction.model;
+package first.actions.model;
 
 //이벤트정보 
 public class EventInfos {
