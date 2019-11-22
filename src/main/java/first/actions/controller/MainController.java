@@ -53,9 +53,9 @@ public class MainController {
 	}
 	
 	// services페이지 이동
-	@RequestMapping(value = "/main/services.do")
-	public ModelAndView services() throws Exception {
-		ModelAndView mv = new ModelAndView("/main/services");
+	@RequestMapping(value = "/main/about.do")
+	public ModelAndView about() throws Exception {
+		ModelAndView mv = new ModelAndView("/main/about");
 		return mv;
 	}
 	
