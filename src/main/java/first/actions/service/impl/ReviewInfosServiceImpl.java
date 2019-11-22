@@ -1,5 +1,8 @@
 package first.actions.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -7,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.ReviewInfosDAO;
+import first.actions.model.ReviewInfos;
 import first.actions.service.ReviewInfosService;
-import first.loginAction.model.UserInfo;
 
 @Service("reviewInfosService")
 public class ReviewInfosServiceImpl implements ReviewInfosService {
@@ -19,8 +22,8 @@ public class ReviewInfosServiceImpl implements ReviewInfosService {
 	private ReviewInfosDAO reviewInfosDAO;
 
 	@Override
-	public UserInfo login(UserInfo info) throws Exception {
-		return null;
+	public List<Map<String, Object>> selectLatestReviews() throws Exception {
+		return reviewInfosDAO.selectLatestReviews();
 	}
 	
 }

@@ -1,9 +1,13 @@
 package first.actions.service;
 
-import first.loginAction.model.UserInfo;
+import java.util.List;
+import java.util.Map;
+
+import first.actions.model.EventInfos;
 
 public interface EventInfosService {
 
-	UserInfo login(UserInfo info) throws Exception;
+	// 최근등록 이벤트 3건만 조회
+	List<Map<String, EventInfos>> selectLatestEvents() throws Exception;
 
 }

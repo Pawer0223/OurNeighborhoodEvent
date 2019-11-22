@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventInfos">
+
+	<resultMap id="LatestEventInfos"
+		type="first.actions.model.EventInfos">
+		<result property="eventSeq" column="EVENT_SEQ" />
+		<result property="ptnNm" column="EVENT_NM" />
+		<result property="eventNm" column="EVENT_NM" />
+		<result property="productPic" column="PRODUCT_PIC" />
+		<result property="originPrice" column="ORIGIN_PRICE" />
+		<result property="eventPrice" column="EVENT_PRICE" />
+		<result property="neighbor" column="NEIGHBOR" />
+		<result property="deliveryYn" column="DELIVERY_YN" />
+	</resultMap>
+
+	<select id="selectLatestEvents" resultType="hashmap">
+		<![CDATA[	  
+		SELECT
+		EVENT_SEQ,PTN_NM,EVENT_NM,PRODUCT_PIC,ORIGIN_PRICE,EVENT_PRICE,AMOUNT,NEIGHBOR,DELIVERY_YN
+		FROM EVENT_INFOS
+		WHERE ROWNUM < 4
+		ORDER BY EVENT_SEQ DESC
+		]]>
+	</select>
+
+
+</mapper>
+
+

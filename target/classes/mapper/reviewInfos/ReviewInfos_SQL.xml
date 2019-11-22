@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reviewInfos">
+
+	<select id="selectLatestReviews" resultType="hashmap">
+		<![CDATA[	  
+		SELECT USER_NM, PROFILE_PIC, EH.EVENT_NM AS EVENT_NM, REVIEW_DESC AS REVIEW_DESC
+		FROM REVIEW_INFOS RV , USER_INFOS UI , EVENT_HIST EH
+		WHERE 1=1
+		AND EH.PART_STATUS = 'COM'
+		AND RV.EVENT_SEQ = EH.EVENT_SEQ
+		AND RV.USER_ID = UI.USER_ID
+		AND ROWNUM < 16
+		ORDER BY RV.REVIEW_SEQ DESC
+		]]>
+	</select>
+
+
+</mapper>

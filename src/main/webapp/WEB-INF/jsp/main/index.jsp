@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="/first/resources/mainPage/css/flaticon.css">
     <link rel="stylesheet" href="/first/resources/mainPage/css/icomoon.css">
     <link rel="stylesheet" href="/first/resources/mainPage/css/style.css">
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
   </head>
   <body>
     
@@ -169,151 +172,90 @@
     </section>
 
     <section class="ftco-section goto-here">
-    	<div class="container">
-    		<div class="row justify-content-center">
-          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">Event List</span>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="#" class="img" style="background-image: url(/first/resources/mainPage/images/foods/chicken.jpg);"></a>
-        			<div class="text">
-        				<p class="price"  style=" text-align : center ;"><span class="old-price">20,000<small>￦</small></span><span class="orig-price">8,000<small>￦</small></span></p>
-        				<ul class="property_list" style=" text-align : center ;">
-        					<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30" >&nbsp;남은 수량 : 5&nbsp; <img src=/first/resources/mainPage/images/Delivery.png width="20" height="20" ></li>
-        				</ul>
-        				<h3 style=" text-align : center ;"><a href="#">오늘은 결혼기념일 3주년</a></h3>
-        				<h6 style=" text-align : center ;"><span class="location">동네 통닭집</span></h6>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="#" class="img" style="background-image: url(/first/resources/mainPage/images/foods/jokbal.jpg);"></a>
-        			<div class="text">
-        				<p class="price"  style=" text-align : center ;"><span class="old-price">30,000<small>￦</small></span><span class="orig-price">17,000<small>￦</small></span></p>
-        				<ul class="property_list" style=" text-align : center ;">
-        					<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30" >&nbsp남은 수량 : 2<br></li>
-        				</ul>
-        				<h3 style=" text-align : center ;"><a>당일 삶은족발 2개</a></h3>
-        				<h6 style=" text-align : center ;"><span class="location">동네 족발집</span></h6>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="#" class="img" style="background-image: url(/first/resources/mainPage/images/foods/Jajang.jpg);"></a>
-        			<div class="text">
-        				<p class="price"  style=" text-align : center ;"><span class="old-price">5,500<small>￦</small></span><span class="orig-price">0<small>￦</small></span></p>
-        				<ul class="property_list" style=" text-align : center ;">
-        					<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30" >&nbsp남은 수량 : 2</li>
-        				</ul>
-        				<h3 style=" text-align : center ;"><a>수능 본 학생 짜장면 제공</a></h3>
-        				<h6 style=" text-align : center ;"><span class="location">동네 중국집</span></h6>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        </div>
-    	</div>
-    </section>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+					<span class="subheading">Event List</span>
+				</div>
+			</div>
+			<div class="row">
+				<c:choose>
+					<c:when test="${fn:length(latestEvents) > 0}">
+						<c:forEach items="${latestEvents}" var="row">
+							<div class="col-md-4">
+								<div class="property-wrap ftco-animate">
+									<a href="#" class="img"
+										style="background-image: url(${ row.PRODUCT_PIC });"></a>
+									<div class="text">
+										<p class="price" style="text-align: center;">
+											<span class="old-price">${ row.ORIGIN_PRICE }<small>￦</small></span><span
+												class="orig-price">${ row.EVENT_PRICE }<small>￦</small></span>
+										</p>
+										<ul class="property_list" style="text-align: center;">
+											<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30">&nbsp;남은 수량 : ${ row.AMOUNT }&nbsp; 
+											<c:if test="${ row.DELIVERY_YN eq 'Y' }"><img src=/first/resources/mainPage/images/Delivery.png width="20" height="20"></c:if>
+										</ul>
+										<h3 style="text-align: center;">
+											<a href="#">${ row.EVENT_NM }</a>
+										</h3>
+										<h6 style="text-align: center;">
+											<span class="location">${ row.PTN_NM }</span>
+										</h6>
+										<a href="#"
+											class="d-flex align-items-center justify-content-center btn-custom">
+											<span class="ion-ios-link"></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise><h3 align="center">최근 등록된 이벤트가 없습니다</h3></c:otherwise>
+				</c:choose>
+			</div>
+		</div>
+	</section>
     
-       <section class="ftco-section testimony-section">
+    <section class="ftco-section testimony-section">
       <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Service Review</span>
-            <h2 class="mb-3">Happy Clients</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">평소 당일 남는 수량의 족발들의 처리가 불편하였는데 좋은 서비스를 제공해주셔서 감사합니다.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(/first/resources/mainPage/images/person_1.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">동네 족발집</p>
-		                    <span class="position">종료한 서비스 명</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">저렴한 식사 한끼와 좋은 맛집을 발견할 수 있었습니다.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(/first/resources/mainPage/images/person_2.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">강x산</p>
-		                    <span class="position">참여한 이벤트 명</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">맨날 먹던데서만 먹다가 싸고 맛있게 먹엇네요 감사합니다 ㅎㅎ</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(/first/resources/mainPage/images/person_3.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">고x님</p>
-		                    <span class="position">참여한 이벤트 명</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">리뷰내용을 적어주세요1</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(/first/resources/mainPage/images/person_1.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">고객님1</p>
-		                    <span class="position">참여한 이벤트 명1</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">리뷰내용을 적어주세요2</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(/first/resources/mainPage/images/person_1.jpg)"></div>
-                    	<div class="pl-3">
-		                    <p class="name">고객님2</p>
-		                    <span class="position">참여한 이벤트 명2</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-                
-                
-              </div>
-            </div>
-          </div>
-        </div>
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-7 text-center heading-section ftco-animate">
+					<span class="subheading">Service Review</span>
+					<h2 class="mb-3">Happy Clients</h2>
+				</div>
+			</div>
+
+			<div class="row ftco-animate">
+
+				<div class="col-md-12">
+					<div class="carousel-testimony owl-carousel ftco-owl">
+
+						<c:choose>
+							<c:when test="${fn:length(latestReviews) > 0}">
+								<c:forEach items="${latestReviews}" var="row">
+
+									<div class="item">
+										<div class="testimony-wrap py-4">
+											<div class="text">
+												<p class="mb-4">${ row.REVIEW_DESC }</p>
+												<div class="d-flex align-items-center">
+													<div class="user-img"
+														style="background-image: url(${ row.PROFILE_PIC })"></div>
+													<div class="pl-3">
+														<p class="name">${ row.USER_NM }</p>
+														<span class="position">${ row.EVENT_NM }</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</c:when>
+							<c:otherwise><h3 align="center">최근 후기가 없습니다</h3></c:otherwise>
+						</c:choose>
+					</div>
+				</div>
+			</div>
       </div>
     </section>
 

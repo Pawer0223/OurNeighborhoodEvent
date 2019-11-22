@@ -1,9 +1,12 @@
 package first.actions.service;
 
-import first.loginAction.model.UserInfo;
+import java.util.List;
+import java.util.Map;
+
+import first.actions.model.ReviewInfos;
 
 public interface ReviewInfosService {
 
-	UserInfo login(UserInfo info) throws Exception;
+	List<Map<String, Object>> selectLatestReviews() throws Exception;
 
 }
