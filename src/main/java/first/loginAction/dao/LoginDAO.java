@@ -1,9 +1,9 @@
-package first.actions.dao;
+package first.loginAction.dao;
 
 import org.springframework.stereotype.Repository;
 
-import first.actions.model.UserInfo;
 import first.common.dao.AbstractDAO;
+import first.loginAction.model.UserInfo;
 
 @Repository("loginDAO")
 public class LoginDAO extends AbstractDAO {

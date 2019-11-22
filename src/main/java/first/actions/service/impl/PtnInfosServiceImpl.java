@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.PtnInfosDAO;
-import first.actions.model.UserInfo;
 import first.actions.service.PtnInfosService;
+import first.loginAction.model.UserInfo;
 
 @Service("ptnInfosService")
 public class PtnInfosServiceImpl implements PtnInfosService {

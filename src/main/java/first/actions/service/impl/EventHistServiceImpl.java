@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.EventHistDAO;
-import first.actions.model.UserInfo;
 import first.actions.service.EventHistService;
+import first.loginAction.model.UserInfo;
 
 @Service("eventHistService")
 public class EventHistServiceImpl implements EventHistService {

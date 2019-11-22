@@ -38,6 +38,13 @@ public class MainController {
 		ModelAndView mv = new ModelAndView("/main/contact");
 		return mv;
 	}
+	
+	// test용도
+	@RequestMapping(value = "/main/test.do")
+	public ModelAndView test() throws Exception {
+		ModelAndView mv = new ModelAndView("/main/eventListTemp");
+		return mv;
+	}
 }
 
 

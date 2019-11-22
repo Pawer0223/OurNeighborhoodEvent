@@ -1,6 +1,6 @@
 package first.actions.service;
 
-import first.actions.model.UserInfo;
+import first.loginAction.model.UserInfo;
 
 public interface EventHistService {
 

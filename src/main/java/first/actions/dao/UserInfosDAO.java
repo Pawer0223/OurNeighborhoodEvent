@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 //USER_INFOS에 접근하는 DAO 클래스
 
-@Repository("userInfoDAO")
+@Repository("userInfosDAO")
 public class UserInfosDAO {
 
 }

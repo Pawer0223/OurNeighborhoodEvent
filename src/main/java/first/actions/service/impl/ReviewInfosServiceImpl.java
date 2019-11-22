@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.ReviewInfosDAO;
-import first.actions.model.UserInfo;
 import first.actions.service.ReviewInfosService;
+import first.loginAction.model.UserInfo;
 
 @Service("reviewInfosService")
 public class ReviewInfosServiceImpl implements ReviewInfosService {

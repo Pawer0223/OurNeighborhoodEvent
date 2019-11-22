@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.UserInfosDAO;
-import first.actions.model.UserInfo;
 import first.actions.service.UserInfosService;
+import first.loginAction.model.UserInfo;
 
 @Service("userInfosService")
 public class UserInfosServiceImpl implements UserInfosService {
