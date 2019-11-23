@@ -10,13 +10,10 @@
     <img src="https://img.shields.io/badge/Oracle11g -rgb(243, 156, 18).svg" />
     <img src="https://img.shields.io/badge/font-awesome 4.7.0 -rgb(255, 204, 000).svg" />
     <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 204, 000).svg" />
-  
- 
 </p>
 
 - **Ver. 1.0.0**
-  - 현재 재능 공유 기능만 가능 
-  - 추후 커뮤니티 기능 구현 계획
+  - 결제서비스 연동을 제외한 기본 CRUD기능 구현 완료
   
 ## 우리동네 이벤트란 ??  
 
