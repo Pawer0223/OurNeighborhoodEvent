@@ -181,7 +181,7 @@
 			<div class="row">
 				<c:choose>
 					<c:when test="${fn:length(latestEvents) > 0}">
-						<c:forEach items="${latestEvents}" var="row">
+						<c:forEach items="${latestEvents}" var="row" varStatus ="status">
 							<div class="col-md-4">
 								<div class="property-wrap ftco-animate">
 									<a href="#" class="img"
@@ -196,7 +196,7 @@
 											<c:if test="${ row.DELIVERY_YN eq 'Y' }"><img src=/first/resources/mainPage/images/Delivery.png width="20" height="20"></c:if>
 										</ul>
 										<h3 style="text-align: center;">
-											<a href="#">${ row.EVENT_NM }</a>
+											<a href="#">${ row.EVENT_NM }</a>${status.count}
 										</h3>
 										<h6 style="text-align: center;">
 											<span class="location">${ row.PTN_NM }</span>

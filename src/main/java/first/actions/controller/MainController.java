@@ -48,7 +48,13 @@ public class MainController {
 	// events페이지 이동
 	@RequestMapping(value = "/main/events.do")
 	public ModelAndView events() throws Exception {
+		
 		ModelAndView mv = new ModelAndView("/main/events");
+		
+		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
+
+		mv.addObject("latestEvents", latestEvents);
+		
 		return mv;
 	}
 	
@@ -64,6 +70,13 @@ public class MainController {
 	public ModelAndView contact() throws Exception {
 		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/contact");
+		return mv;
+	}
+	
+	// services페이지 이동
+	@RequestMapping(value = "/main/regist.do")
+	public ModelAndView regist() throws Exception {
+		ModelAndView mv = new ModelAndView("/temp/regist");
 		return mv;
 	}
 }

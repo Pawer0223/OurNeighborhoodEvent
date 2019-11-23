@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="/first/resources/mainPage/css/flaticon.css">
     <link rel="stylesheet" href="/first/resources/mainPage/css/icomoon.css">
     <link rel="stylesheet" href="/first/resources/mainPage/css/style.css">
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+	
   </head>
   <body>
     
@@ -46,173 +50,47 @@
     </section>
 
 		<section class="ftco-section">
+		
     	<div class="container">
+    	
         <div class="row">
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-1.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-2.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-3.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-4.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-5.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-6.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-4.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-5.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-md-4">
-        		<div class="property-wrap ftco-animate">
-        			<a href="properties-single.jsp" class="img" style="background-image: url(/first/resources/mainPage/images/work-6.jpg);"></a>
-        			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
-        				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-        				</ul>
-        				<h3><a href="properties-single.jsp">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="properties-single.jsp" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="ion-ios-link"></span>
-        				</a>
-        			</div>
-        		</div>
-        	</div>
+        		<c:choose>
+					<c:when test="${fn:length(latestEvents) > 0}">
+						<c:forEach items="${latestEvents}" var="row">
+							<div class="col-md-4">
+								<div class="property-wrap ftco-animate">
+									<a href="#" class="img"
+										style="background-image: url(${ row.PRODUCT_PIC });"></a>
+									<div class="text">
+										<p class="price" style="text-align: center;">
+											<span class="old-price">${ row.ORIGIN_PRICE }<small>￦</small></span><span
+												class="orig-price">${ row.EVENT_PRICE }<small>￦</small></span>
+										</p>
+										<ul class="property_list" style="text-align: center;">
+											<li><img src=/first/resources/mainPage/images/running.gif width="30" height="30">&nbsp;남은 수량 : ${ row.AMOUNT }&nbsp; 
+											<c:if test="${ row.DELIVERY_YN eq 'Y' }"><img src=/first/resources/mainPage/images/Delivery.png width="20" height="20"></c:if>
+										</ul>
+										<h3 style="text-align: center;">
+											<a href="#">${ row.EVENT_NM }</a>
+										</h3>
+										<h6 style="text-align: center;">
+											<span class="location">${ row.PTN_NM }</span>
+										</h6>
+										<a href="#"
+											class="d-flex align-items-center justify-content-center btn-custom">
+											<span class="ion-ios-link"></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise><h3 align="center">최근 등록된 이벤트가 없습니다</h3></c:otherwise>
+				</c:choose>
         </div>
+        
+        
+        
         <div class="row mt-5">
           <div class="col text-center">
             <div class="block-27">
