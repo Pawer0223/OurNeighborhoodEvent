@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.UserInfosDAO;
+import first.actions.model.UserInfos;
 import first.actions.service.UserInfosService;
 import first.loginAction.model.UserInfo;
 
@@ -19,8 +20,16 @@ public class UserInfosServiceImpl implements UserInfosService {
 	private UserInfosDAO userInfosDAO;
 
 	@Override
-	public UserInfo login(UserInfo info) throws Exception {
-		return null;
+	public int duplicateCheck(String inputId) throws Exception {
+		return userInfosDAO.duplicateCheck(inputId);
 	}
+
+	@Override
+	public int registUser(UserInfos userInfo) throws Exception {
+		return userInfosDAO.registUser(userInfo);
+	}
+	
+	
+
 	
 }

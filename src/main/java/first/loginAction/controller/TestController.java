@@ -29,14 +29,7 @@ public class TestController {
 	@RequestMapping(value = "/main/test.do")
 	public ModelAndView selectEventList() throws Exception {
 		
-		ModelAndView mv = new ModelAndView("/workingJSP/reviewTemp");
-		
-		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
-		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
-
-
-		mv.addObject("latestEvents", latestEvents);
-		mv.addObject("latestReviews", latestReviews);
+		ModelAndView mv = new ModelAndView("/temp/signUp");
 		
 		return mv;
 	}

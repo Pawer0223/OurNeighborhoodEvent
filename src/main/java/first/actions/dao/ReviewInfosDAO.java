@@ -18,4 +18,5 @@ public class ReviewInfosDAO extends AbstractDAO {
 	public List<Map<String, Object>> selectLatestReviews() {
 		return (List<Map<String, Object>>)selectList("reviewInfos.selectLatestReviews");
 	}
+	
 }

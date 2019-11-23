@@ -8,6 +8,9 @@ public class UserInfos {
 
 	// 사용자PW 
 	private String userPw;
+	
+	// 회원가입시 동일한 값 입력했는지 확인하기위한용도
+	private String userPw2;
 
 	// 사용자명 
 	private String userNm;
@@ -123,29 +126,23 @@ public class UserInfos {
 	public void setLgnErrCnt(Integer lgnErrCnt) {
 		this.lgnErrCnt = lgnErrCnt;
 	}
+	
+	public String getUserPw2() {
+		return userPw2;
+	}
 
-	// UserInfos 모델 복사
-	public void CopyData(UserInfos param)
-	{
-		this.userId = param.getUserId();
-		this.userPw = param.getUserPw();
-		this.userNm = param.getUserNm();
-		this.neighbor = param.getNeighbor();
-		this.userGbnCd = param.getUserGbnCd();
-		this.ptnCd = param.getPtnCd();
-		this.email = param.getEmail();
-		this.profilePic = param.getProfilePic();
-		this.phoneNum = param.getPhoneNum();
-		this.prevPw = param.getPrevPw();
-		this.lgnErrCnt = param.getLgnErrCnt();
+	public void setUserPw2(String userPw2) {
+		this.userPw2 = userPw2;
 	}
 
 	@Override
 	public String toString() {
-		return "UserInfos [userId=" + userId + ", userPw=" + userPw + ", userNm=" + userNm + ", neighbor=" + neighbor
-				+ ", userGbnCd=" + userGbnCd + ", ptnCd=" + ptnCd + ", email=" + email + ", profilePic=" + profilePic
-				+ ", phoneNum=" + phoneNum + ", prevPw=" + prevPw + ", lgnErrCnt=" + lgnErrCnt + "]";
+		return "UserInfos [userId=" + userId + ", userPw=" + userPw + ", userPw2=" + userPw2 + ", userNm=" + userNm
+				+ ", neighbor=" + neighbor + ", userGbnCd=" + userGbnCd + ", ptnCd=" + ptnCd + ", email=" + email
+				+ ", profilePic=" + profilePic + ", phoneNum=" + phoneNum + ", prevPw=" + prevPw + ", lgnErrCnt="
+				+ lgnErrCnt + "]";
 	}
-
+	
+	
 
 }

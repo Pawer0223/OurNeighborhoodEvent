@@ -1,9 +1,12 @@
 package first.actions.service;
 
-import first.loginAction.model.UserInfo;
+import first.actions.model.UserInfos;
 
 public interface UserInfosService {
 
-	UserInfo login(UserInfo info) throws Exception;
+	int duplicateCheck(String inputId) throws Exception;
+	
+	int registUser(UserInfos userInfo) throws Exception;
+	
 
 }
