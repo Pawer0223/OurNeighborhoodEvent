@@ -29,6 +29,8 @@
 
 ## ERD 및 테이블 설명
 
+ <img src="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/ERD.png" />
+
 **1. 사용자정보(USER_INFOS) : 기본 계정정보 테이블**
 
 - 사업자의경우에는 사업자 코드 함께 등록 됨
