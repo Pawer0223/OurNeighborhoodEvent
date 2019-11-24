@@ -76,8 +76,8 @@
 					<tr>
 						<td style="width: 110px;">동네</td>
 						<td colspan="2"><input onclick="sample6_execDaumPostcode()"
-							type="text" class="form-control" placeholder="동네를 검색해주세요"
-							id="sample6_address" name="neighbor"></td>
+							type="text" class="form-control" placeholder="click 동네를 검색해주세요"
+							id="sample6_address" name="neighbor" readonly ></td>
 					</tr>
 					<tr>
 						<td style="text-align: left" colspan="3"><input
@@ -102,8 +102,6 @@
 
 		if (messageContent != null) {
 	%>
-		<h5>messageContent=<%=messageContent %> <br> messageType = <%=messageType %></h5>
-	
 	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="vertical-alignment-helper">
 			<div class="modal-dialog vertical-align-center">
