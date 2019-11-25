@@ -23,28 +23,27 @@ public class UserInfosController {
 	
 
 	@RequestMapping(value = "/userInfos/duplicateCheck.do")
-	public boolean duplicateCheck(String inputId) throws Exception {
+	public void duplicateCheck( HttpServletRequest request, HttpServletResponse reponse) throws Exception {
 		
-		if ( inputId==null ) System.out.println(" null 값임 ");
+		String userId = request.getParameter("userId");
+		
+		
+		
+		if ( userId==null ) System.out.println(" inputId값이 null 값임 ");
 		else {
-			System.out.println( " inputId : " + inputId );
+			System.out.println( " inputId : " + userId );
 		}
 		
-		boolean regPossible = false;
+		int result = userInfosService.duplicateCheck(userId);
 		
-		try {
-			// 없으면 true
-			if ( userInfosService.duplicateCheck(inputId) == 0 ) regPossible=true ;
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println(result);
+		// 없으면 0
+		reponse.getWriter().write(result + "" );
 		
-		
-		return regPossible;
 	}
 	
 	@RequestMapping(value = "/userInfos/userRegist.do")
-	public ModelAndView userRegist( UserInfos userInfo , HttpServletRequest request , HttpServletResponse response) throws Exception {
+	public ModelAndView userRegist( UserInfos userInfo , HttpServletRequest request ) throws Exception {
 		
 		System.out.println(userInfo.toString());
 		
