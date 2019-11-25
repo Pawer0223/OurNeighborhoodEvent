@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="userInfos">
 
+	<resultMap id="userInfosModel" type="first.actions.model.UserInfos">
+		<result property ="uesrNm" column="USER_NM" />
+		<result property ="neighbor" column="NEIGHBOR" />
+		<result property ="userGbnCd" column="USER_GBN_CD" />
+		<result property ="profilePic" column="PROFILE_PIC" />
+	</resultMap>
+
 	<select id="duplicateCheck" parameterType="String" resultType="java.lang.Integer">
 		<![CDATA[	  
 		SELECT 1 FROM USER_INFOS
@@ -29,8 +36,15 @@
 			   	,'' 
 			   	)
 		]]>	
-	
 	</insert>
-
+	
+	<select id="login" parameterType="first.actions.model.UserInfos" resultMap="userInfosModel">
+	<![CDATA[
+	 SELECT USER_ID,USER_NM,NEIGHBOR,USER_GBN_CD,PROFILE_PIC
+		 FROM USER_INFOS
+		 WHERE USER_ID = #{ userId }
+		 AND USER_PW = #{ userPw }
+	]]>
+	</select>
 
 </mapper>

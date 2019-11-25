@@ -20,10 +20,13 @@
 	          <li class="nav-item"><a href="/first/main/events.do" class="nav-link">Events</a></li>
 	          <li class="nav-item"><a href="/first/main/about.do" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="/first/main/contact.do" class="nav-link">Contact</a></li>
+	          <li class="nav-item"><a href="/first//userInfos/loginPage.do" class="nav-link">Login</a></li>
+	          <li class="nav-item"><a href="/first//userInfos/registPage.do" class="nav-link">SignIn</a></li>
 	          <li class="nav-item"><a href="/first/main/test.do" class="nav-link">Event Register</a></li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
+	
 </body>
 </html>

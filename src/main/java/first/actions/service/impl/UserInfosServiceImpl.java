@@ -28,6 +28,12 @@ public class UserInfosServiceImpl implements UserInfosService {
 	public int registUser(UserInfos userInfo) throws Exception {
 		return userInfosDAO.registUser(userInfo);
 	}
+
+	@Override
+	public UserInfos login(UserInfos userInfo) throws Exception {
+		// TODO Auto-generated method stub
+		return userInfosDAO.login(userInfo);
+	}
 	
 	
 

@@ -29,13 +29,12 @@
 			url : '/first/userInfos/duplicateCheck.do' ,
 			data : { userId : userId },
 			success : function(result){
-				alert("result : " + result);
 				if ( result == 1 ){
-					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
-					$('#checkType').attr('class' , 'modal-content panel-success');
-				}else{
 					$('#checkMessage').html('사용할 수 없는 아이디입니다.');
 					$('#checkType').attr('class' , 'modal-content panel-warning');
+				}else{
+					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
+					$('#checkType').attr('class' , 'modal-content panel-success');
 				}
 				$('#checkModal').modal("show"); 
 			}
@@ -62,7 +61,6 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<!-- 변경 고려사항 1 -->
 		<form method="post" action="/first/userInfos/userRegist.do">
 
 			<table class="table table-bordered table-hover"
@@ -156,7 +154,8 @@
 					</div>
 					
 					<div class="modal-body">
-						<%=messageContent%>
+					<%if (messageType.equals("success")){%>
+					<a href="/first/userInfos/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">
