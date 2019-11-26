@@ -3,7 +3,7 @@
 <mapper namespace="userInfos">
 
 	<resultMap id="userInfosModel" type="first.actions.model.UserInfos">
-		<result property ="uesrNm" column="USER_NM" />
+		<result property ="userNm" column="USER_NM" />
 		<result property ="neighbor" column="NEIGHBOR" />
 		<result property ="userGbnCd" column="USER_GBN_CD" />
 		<result property ="profilePic" column="PROFILE_PIC" />
