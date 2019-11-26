@@ -1,9 +1,13 @@
 package first.actions.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import first.actions.model.MenuList;
 import first.actions.model.UserInfos;
+import first.actions.service.MenuListService;
 import first.actions.service.UserInfosService;
 
 @Controller
@@ -21,6 +27,9 @@ public class UserInfosController {
 
 	@Resource(name = "userInfosService")
 	private UserInfosService userInfosService;
+	
+	@Resource(name = "menuListService")
+	private MenuListService menuListService;
 
 	@RequestMapping(value = "/userInfos/registPage.do")
 	public ModelAndView registPage() throws Exception {
@@ -87,7 +96,7 @@ public class UserInfosController {
 	}
 
 	@RequestMapping(value = "/userInfos/login.do")
-	public ModelAndView login( UserInfos userInfo , HttpServletRequest request , HttpSession session) throws Exception {
+	public ModelAndView login( UserInfos userInfo , HttpServletRequest request ) throws Exception {
 
 		if ( userInfo.getUserId() == null || userInfo.getUserPw() == null ) System.out.println("null"); 
 
@@ -97,7 +106,6 @@ public class UserInfosController {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "ID를 입력해 주세요");
 			return mv;
-
 		}
 
 		if ( userInfo.getUserPw().isEmpty() ) {
@@ -114,19 +122,51 @@ public class UserInfosController {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "아이디 또는 PW정보가 올바르지 않습니다.");
 			return mv;
+		}else {
+			// 존재한다면 세션 등록.
+			request.getSession().setAttribute("login" , loginInfo);
+			
+			// 존재한다면 계정등급에맞는 메뉴리스트 조회
+			request.getSession().removeAttribute("menuList");
+			
+			List<Map<String, MenuList>> menuList= null ;
+
+			menuList = menuListService.selectMenu(loginInfo.getUserGbnCd());
+			
+			List<MenuList> m = makeMenu(menuList);
+			
+			request.setAttribute("menuList", m);
+			
+			mv = new ModelAndView("/main/index");
+			
+			return mv;
 		}
 		
-		if ( session.getAttribute("login") != null ) {
-			session.removeAttribute("login");
+
+	}
+	
+	// 메뉴리스트 만들기위한 method
+	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
+		
+		List<MenuList> m = new ArrayList<MenuList>();
+
+		for ( int i = 0; i < menuList.size(); i ++ ) {
+
+			Map<String,MenuList> menus = menuList.get(i);
+
+			Iterator itr = menus.values().iterator();
+
+			MenuList menu = new MenuList();
+
+			while ( itr.hasNext()) {
+				menu.setMenuNm((String)itr.next());
+				menu.setServletHref((String)itr.next());
+			}
+
+			m.add(menu);
 		}
 		
-		session.setAttribute("login" , loginInfo);
-		
-		mv = new ModelAndView("/main/index");
-		
-		return mv;
-
-
+		return m;
 	}
 }
 

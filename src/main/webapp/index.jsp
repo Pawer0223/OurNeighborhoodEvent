@@ -3,4 +3,4 @@
 <jsp:forward page="/main/start.do" />
 <%-- <jsp:forward page="test.jsp" /> --%>
 <%-- <jsp:forward page="/main/about.do" /> --%>
-<%-- <jsp:forward page="/main/test.do" /> --%>
+<%-- <jsp:forward page="/menuList/selectMenu.do" /> --%>

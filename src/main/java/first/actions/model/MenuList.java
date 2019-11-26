@@ -11,6 +11,9 @@ public class MenuList {
 
 	// 메뉴명 
 	private String menuNm;
+	
+	// 서블릿 링크 명
+	private String servletHref;
 
 	public String getUserGbnCd() {
 		return userGbnCd;
@@ -36,18 +39,18 @@ public class MenuList {
 		this.menuNm = menuNm;
 	}
 
-	// MenuList 모델 복사
-	public void CopyData(MenuList param)
-	{
-		this.userGbnCd = param.getUserGbnCd();
-		this.menuCd = param.getMenuCd();
-		this.menuNm = param.getMenuNm();
+	public String getServletHref() {
+		return servletHref;
+	}
+
+	public void setServletHref(String servletHref) {
+		this.servletHref = servletHref;
 	}
 
 	@Override
 	public String toString() {
-		return "MenuList [userGbnCd=" + userGbnCd + ", menuCd=" + menuCd + ", menuNm=" + menuNm + "]";
+		return "MenuList [userGbnCd=" + userGbnCd + ", menuCd=" + menuCd + ", menuNm=" + menuNm + ", servletHref="
+				+ servletHref + "]";
 	}
-
 
 }
