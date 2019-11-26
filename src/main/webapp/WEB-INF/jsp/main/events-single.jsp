@@ -30,7 +30,7 @@
   </head>
   <body>
     
-<%@ include file = "header.jsp" %>
+	<%@ include file = "header.jsp" %>
     <!-- END nav -->
     
     <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('/first/resources/mainPage/resources/mainPage/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
