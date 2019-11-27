@@ -99,9 +99,17 @@
 
 
 - Events<br>
-: 이벤트 리스트 조회, 이벤트 상세검색 및 수정,삭제 가능
+
+1) 이벤트 리스트 조회<br>
+: 한 page 최대 9개 조회, 이후 페이징 처리
 
 ![Events](./readmeSource/events.gif)
+<br>
+
+2) 이벤트 상세 조회<br>
+: 상세내역 조회, 이벤트 설명 및 이벤트 사업자의 최근후기 조회가능
+
+![EventsDetail](./readmeSource/eventsDetail.gif)
 
 
 - About<br>
