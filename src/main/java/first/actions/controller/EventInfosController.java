@@ -11,10 +11,10 @@ public class EventInfosController {
 	
 	Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@RequestMapping(value = "/main/contact3.do")
+	@RequestMapping(value = "/eventInfos/eventDetailInfo.do")
 	public ModelAndView contact() throws Exception {
 		//		ModelAndView mv = new ModelAndView("/login/home");
-		ModelAndView mv = new ModelAndView("/main/contact");
+		ModelAndView mv = new ModelAndView("/main/events-single");
 		return mv;
 	}
 }
