@@ -26,7 +26,7 @@
 
 ## ERD 및 테이블 설명
 
- <img src="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/ERD.png" />
+![erd](.readmeSource/erd.png)
 
 **1. 사용자정보(USER_INFOS) : 기본 계정정보 테이블**
 
