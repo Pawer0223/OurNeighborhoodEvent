@@ -198,7 +198,7 @@ ORDER BY RV.REVIEW_SEQ DESC
     </div>
 ```
 
-- 로그인시 메뉴리스트 변경결과 확인
+- NOR계정으로 로그인 시 메뉴리스트 변경결과 확인
 ![menuResult](./readmeSource/menuResult.gif)
 
 
