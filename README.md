@@ -140,9 +140,67 @@ ORDER BY RV.REVIEW_SEQ DESC
 ```
 
 **5. 로그인 계정 등급에 따른 메뉴리스트 조회**
-( 데이터 첨부 )
-( 소스코드 첨부 - 세션을 LIST로 관리하여.. )
-( 결과 첨부 )
+
+- Menu_List테이블 데이터 구성
+![reviewList](./readmeSource/menuData.png)
+
+- 계정등급에 따른 메뉴리스트 출력<br>
+
+1) 비 로그인시 'COM'의 메뉴리스트를 List형태로 Session에 보관.<br><br>
+2) 로그인시 기존의 Session정보 삭제 후, 로그인 계정의 USER_GBN_CD값에 해당하는 메뉴리스트로 다시 Session재구성
+
+* 메뉴리스트를 List타입으로 보관하기위해 수행되는 method
+```
+	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
+		
+		List<MenuList> m = new ArrayList<MenuList>();
+
+		for ( int i = 0; i < menuList.size(); i ++ ) {
+
+			Map<String,MenuList> menus = menuList.get(i);
+
+			Iterator itr = menus.values().iterator();
+
+			MenuList menu = new MenuList();
+
+			while ( itr.hasNext()) {
+				menu.setMenuNm((String)itr.next());
+				menu.setServletHref((String)itr.next());
+			}
+
+			m.add(menu);
+		}
+		
+		return m;
+	}
+```
+
+* 위의 method를 활용하여 session에 List로 데이터를 저장
+```
+		List<Map<String, MenuList>> menuList= null ;
+
+		menuList = menuListService.selectMenu("COM"); //비 로그인시
+		
+		List<MenuList> m = makeMenu(menuList);
+		
+		request.setAttribute("menuList", m);
+```        
+
+
+* 등록 된 Session의 데이터로 header를 구성
+```
+    <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+            <c:forEach var="row" items="${menuList}">
+                <li class="nav-item"><a href=${ row.servletHref } class="nav-link">${ row.menuNm }</a></li>
+            </c:forEach>
+        </ul>
+    </div>
+```
+
+- 로그인시 메뉴리스트 변경결과 확인
+![menuResult](./readmeSource/menuResult.gif)
+
 
 
 
