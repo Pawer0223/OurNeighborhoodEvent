@@ -20,6 +20,8 @@ public class ReviewInfos {
 
 	// 리뷰내용 
 	private String reviewDesc;
+	
+	private int stars;
 
 	public Integer getReviewSeq() {
 		return reviewSeq;
@@ -68,23 +70,20 @@ public class ReviewInfos {
 	public void setReviewDesc(String reviewDesc) {
 		this.reviewDesc = reviewDesc;
 	}
+	
 
-	// ReviewInfos 모델 복사
-	public void CopyData(ReviewInfos param)
-	{
-		this.reviewSeq = param.getReviewSeq();
-		this.userId = param.getUserId();
-		this.eventSeq = param.getEventSeq();
-		this.ptnCd = param.getPtnCd();
-		this.reviewName = param.getReviewName();
-		this.reviewDesc = param.getReviewDesc();
+	public int getStars() {
+		return stars;
+	}
+
+	public void setStars(int stars) {
+		this.stars = stars;
 	}
 
 	@Override
 	public String toString() {
-		return "ReviewInfos [reviewSeq=" + reviewSeq + ", userId=" + userId + ", eventSeq=" + eventSeq + ", ptnCd=" + ptnCd
-				+ ", reviewName=" + reviewName + ", reviewDesc=" + reviewDesc + "]";
+		return "ReviewInfos [reviewSeq=" + reviewSeq + ", userId=" + userId + ", eventSeq=" + eventSeq + ", ptnCd="
+				+ ptnCd + ", reviewName=" + reviewName + ", reviewDesc=" + reviewDesc + ", stars=" + stars + "]";
 	}
-
 
 }

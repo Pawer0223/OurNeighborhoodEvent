@@ -25,5 +25,10 @@ public class ReviewInfosServiceImpl implements ReviewInfosService {
 	public List<Map<String, Object>> selectLatestReviews() throws Exception {
 		return reviewInfosDAO.selectLatestReviews();
 	}
+
+	@Override
+	public List<Map<String, Object>> reviewSearch(String eventSeq) throws Exception {
+		return reviewInfosDAO.reviewSearch(eventSeq);
+	}
 	
 }

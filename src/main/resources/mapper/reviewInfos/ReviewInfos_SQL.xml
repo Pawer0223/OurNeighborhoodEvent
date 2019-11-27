@@ -8,10 +8,20 @@
 		FROM REVIEW_INFOS RV , USER_INFOS UI , EVENT_HIST EH
 		WHERE EH.PART_STATUS = 'COM'
 		AND RV.EVENT_SEQ = EH.EVENT_SEQ
+        AND EH.USER_ID = RV.USER_ID
 		AND RV.USER_ID = UI.USER_ID
 		ORDER BY RV.REVIEW_SEQ DESC
 		]]>
 	</select>
-
+	
+	<select id="reviewSearch" parameterType="String" resultType="hashmap">
+		<![CDATA[	  
+		SELECT REVIEW_SEQ, RV.USER_ID USER_ID,US.USER_NM USER_NM,PROFILE_PIC, REVIEW_NAME, REVIEW_DESC ,STARS
+		FROM REVIEW_INFOS RV , USER_INFOS US
+		WHERE RV.EVENT_SEQ= #{ eventSeq }
+		AND RV.USER_ID=US.USER_ID
+		]]>
+	</select>
+	
 
 </mapper>
