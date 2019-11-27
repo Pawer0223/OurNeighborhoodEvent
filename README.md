@@ -98,8 +98,14 @@
 ![loginValidate](./readmeSource/loginValidate.gif)
 
 
-- 다음주소 API를 활용한 동네검색
+- 다음주소 API를 활용한 동네검색 <br>
 : 최초 회원가입시 도로명 주소로 등록. 메인페이지에서 동네조회시 도로면 주소로만 조회 가능하도록 함.
+
+1) 동네검색
+![daumAPI1](./readmeSource/daumAPI1.png)
+
+2) 동네선택
+![daumAPI1](./readmeSource/daumAPI2.png)
 
 ( 움짤첨부 )
 
