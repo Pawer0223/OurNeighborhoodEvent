@@ -109,7 +109,33 @@
 
 
 - 메인페이지 호출시 최신데이터 조회
-( 조인쿼리문 첨부 )
+
+1) 최근이벤트 3건 조회<br>
+: 현재 진행중인(WORK) 이벤트 중에서 최신3건 조회.
+![eventList](./readmeSource/eventList.png)
+
+```
+수행 SQL
+SELECT
+EVENT_SEQ,PTN_NM,EVENT_NM,PRODUCT_PIC,ORIGIN_PRICE,EVENT_PRICE,AMOUNT,NEIGHBOR,DELIVERY_YN
+FROM EVENT_INFOS
+WHERE EVENT_STATUS ='WORK'
+ORDER BY EVENT_SEQ DESC;
+```
+
+2) 최신등록 리뷰순으로 데이터 조회<br>
+: 종료 된 이벤트를 기준으로, EVENT_SEQ로 이벤트정보, USER_ID로 고객정보를 조회함 ( 3개 테이블 조인 )
+![reviewList](./readmeSource/reviewList.png)
+
+```
+수행 SQL
+SELECT USER_NM, PROFILE_PIC, EH.EVENT_NM AS EVENT_NM, REVIEW_DESC AS REVIEW_DESC
+FROM REVIEW_INFOS RV , USER_INFOS UI , EVENT_HIST EH
+WHERE EH.PART_STATUS = 'COM'
+AND RV.EVENT_SEQ = EH.EVENT_SEQ
+AND RV.USER_ID = UI.USER_ID
+ORDER BY RV.REVIEW_SEQ DESC
+```
 
 - 로그인 계정 등급에 따른 메뉴리스트 조회
 ( 데이터 첨부 )
