@@ -22,8 +22,7 @@
 
 ## 서비스Flow
 
- <img src="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/serviceFlow.png" />
-
+![serviceFlow](./readmeSource/serviceFlow.png)
 ## ERD 및 테이블 설명
 
 ![erd](./readmeSource/erd.png)
@@ -92,6 +91,7 @@
 **1. 회원가입**
 
 - Ajax를 활용한 ID중복체크
+![validate](./readmeSource/validate.gif)
 
 
 
