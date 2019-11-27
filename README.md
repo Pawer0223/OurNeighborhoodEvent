@@ -87,36 +87,36 @@
 
 ## 주요 소스코드
 
-- Bootstrap을 활용한 템플릿 적용하여 메인사이트 UI구현
+**1.Bootstrap을 활용한 템플릿 적용하여 메인사이트 UI구현**
 
 
-- Ajax를 활용한 ID중복체크
+**2. Ajax를 활용한 유효성 검사**
+
+- ID중복체크
 
 ![validate](./readmeSource/validate.gif)
 
-- Ajax를 활용한 로그인시 유효성 검사
+- 로그인시 유효성 검사
 ![loginValidate](./readmeSource/loginValidate.gif)
 
 
-- 다음주소 API를 활용한 동네검색 <br>
+**3. 다음주소 API를 활용한 동네검색** <br>
 : 최초 회원가입시 도로명 주소로 등록. 메인페이지에서 동네조회시 도로명 주소로만 조회 가능하도록 함.
 
-**1) 동네검색**
+- 동네검색
 ![daumAPI1](./readmeSource/daumAPI1.png)
 
-**2) 동네선택**
+- 동네선택
 ![daumAPI2](./readmeSource/daumAPI2.png)
 
+**4. 메인페이지 호출시 최신데이터 조회**
 
-- 메인페이지 호출시 최신데이터 조회
-
-**1) 최근이벤트 3건 조회**  <br>
+- 최근이벤트 3건 조회<br>
 : 현재 진행중인(WORK) 이벤트 중에서 최신3건 조회.
 ![eventList](./readmeSource/eventList.png)
 
+- [수행 SQL]
 ```
-[수행 SQL]
-
 SELECT
 EVENT_SEQ,PTN_NM,EVENT_NM,PRODUCT_PIC,ORIGIN_PRICE,EVENT_PRICE,AMOUNT,NEIGHBOR,DELIVERY_YN
 FROM EVENT_INFOS
@@ -124,13 +124,12 @@ WHERE EVENT_STATUS ='WORK'
 ORDER BY EVENT_SEQ DESC;
 ```
 
-**2) 최신등록 리뷰순으로 데이터 조회**<br>
+- 최신등록 리뷰순으로 데이터 조회<br>
 : 종료 된 이벤트를 기준으로, EVENT_SEQ로 이벤트정보, USER_ID로 고객정보를 조회함 ( 3개 테이블 조인 )
 ![reviewList](./readmeSource/reviewList.png)
 
+- [수행 SQL]
 ```
-[수행 SQL]
-
 SELECT USER_NM, PROFILE_PIC, EH.EVENT_NM AS EVENT_NM, REVIEW_DESC AS REVIEW_DESC
 FROM REVIEW_INFOS RV , USER_INFOS UI , EVENT_HIST EH
 WHERE EH.PART_STATUS = 'COM'
@@ -139,7 +138,7 @@ AND RV.USER_ID = UI.USER_ID
 ORDER BY RV.REVIEW_SEQ DESC
 ```
 
-- 로그인 계정 등급에 따른 메뉴리스트 조회
+**5. 로그인 계정 등급에 따른 메뉴리스트 조회**
 ( 데이터 첨부 )
 ( 소스코드 첨부 - 세션을 LIST로 관리하여.. )
 ( 결과 첨부 )
