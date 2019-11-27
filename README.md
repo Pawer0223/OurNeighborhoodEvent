@@ -148,7 +148,7 @@ ORDER BY RV.REVIEW_SEQ DESC
 - 계정등급에 따른 메뉴리스트 출력<br>
 
 1) 비 로그인시 'COM'의 메뉴리스트를 List형태로 Session에 보관.<br><br>
-2) 로그인시 기존의 Session정보 삭제 후, 로그인 계정의 USER_GBN_CD값에 해당하는 메뉴리스트로 다시 Session재구성
+2) 로그인시 기존의 Session정보 삭제 후, 로그인 계정의 USER_GBN_CD값에 해당하는 메뉴리스트로 다시 Session재구성<br><br>
 
 * 메뉴리스트를 List타입으로 보관하기위해 수행되는 method
 ```
