@@ -50,9 +50,10 @@
 
 **6. 메뉴 ( MENU_LIST ) : 계정의 사용자구분코드에 따른 메뉴구성**  
 
-- 일반(NOR) : 리뷰등록
+- 일반(NOR) : 리뷰등록, 개인정보수정
 - 사업자(PTN) : 리뷰등록, 이벤트등록, 가게정보수정
-- 관리자(ADM) : 리뷰관리, 이벤트관리  
+- 관리자(ADM) : 메뉴관리 가능
+- 공통(COM) : 비 로그인시 기본 메뉴
 
 ## 주요 기능
 
@@ -88,6 +89,23 @@
 ## 주요 소스코드
 
 **1.Bootstrap을 활용한 템플릿 적용하여 메인사이트 UI구현**
+
+- mainPage<br>
+: 메인페이지, 최근 이벤트 및 리뷰조회, 우리동네 이벤트 검색가능
+
+![mainPage](./readmeSource/main.gif)
+
+
+- Events<br>
+: 이벤트 리스트 조회, 이벤트 상세검색 및 수정,삭제 가능
+
+![Events](./readmeSource/events.gif)
+
+
+- About<br>
+: 서비스 설명을위한 페이지
+
+![About](./readmeSource/about.gif)
 
 
 **2. Ajax를 활용한 유효성 검사**
@@ -199,6 +217,6 @@ ORDER BY RV.REVIEW_SEQ DESC
     </div>
 ```
 
-- NOR계정으로 로그인 시 메뉴리스트 변경결과 확인
+- 'NOR'등급의 계정으로 로그인 시 메뉴리스트 변경결과 확인
 ![menuResult](./readmeSource/menuResult.gif)
 
