@@ -62,7 +62,7 @@
 						</c:if>
 						<div class="col-md-4">
 							<div class="property-wrap ftco-animate">
-								<a href="/first/eventInfos/eventDetailInfo.do" class="img"
+								<a href="/first/eventInfos/eventDetailInfo.do?eventSeq=${ row.EVENT_SEQ }" class="img"
 									style="background-image: url(${ row.PRODUCT_PIC });"></a>
 								<div class="text">
 									<p class="price" style="text-align: center;">

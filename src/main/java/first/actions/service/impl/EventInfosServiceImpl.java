@@ -26,4 +26,9 @@ public class EventInfosServiceImpl implements EventInfosService {
 		return eventInfosDAO.selectLatestEvents();
 	}
 
+	@Override
+	public EventInfos eventDetailInfo(String eventSeq) throws Exception {
+		return eventInfosDAO.eventDetailInfo(eventSeq);
+	}
+
 }

@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import first.actions.model.EventInfos;
 import first.actions.model.MenuList;
-import first.actions.model.UserInfos;
 import first.actions.service.EventInfosService;
 import first.actions.service.MenuListService;
 import first.actions.service.ReviewInfosService;

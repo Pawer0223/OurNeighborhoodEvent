@@ -17,5 +17,9 @@ public class EventInfosDAO extends AbstractDAO {
 	public List<Map<String, EventInfos>> selectLatestEvents() {
 		return (List<Map<String, EventInfos>>)selectList("eventInfos.selectLatestEvents");
 	}
+	
+	public EventInfos eventDetailInfo(String eventSeq) {
+		return (EventInfos)selectOne("eventInfos.eventDetailInfo" , eventSeq);
+	}
 
 }
