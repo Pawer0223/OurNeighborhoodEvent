@@ -97,6 +97,7 @@
 ![validate](./readmeSource/validate.gif)
 
 - 로그인시 유효성 검사
+
 ![loginValidate](./readmeSource/loginValidate.gif)
 
 
@@ -115,7 +116,7 @@
 : 현재 진행중인(WORK) 이벤트 중에서 최신3건 조회.
 ![eventList](./readmeSource/eventList.png)
 
-- [수행 SQL]
+- 수행 SQL
 ```
 SELECT
 EVENT_SEQ,PTN_NM,EVENT_NM,PRODUCT_PIC,ORIGIN_PRICE,EVENT_PRICE,AMOUNT,NEIGHBOR,DELIVERY_YN
@@ -128,7 +129,7 @@ ORDER BY EVENT_SEQ DESC;
 : 종료 된 이벤트를 기준으로, EVENT_SEQ로 이벤트정보, USER_ID로 고객정보를 조회함 ( 3개 테이블 조인 )
 ![reviewList](./readmeSource/reviewList.png)
 
-- [수행 SQL]
+- 수행 SQL
 ```
 SELECT USER_NM, PROFILE_PIC, EH.EVENT_NM AS EVENT_NM, REVIEW_DESC AS REVIEW_DESC
 FROM REVIEW_INFOS RV , USER_INFOS UI , EVENT_HIST EH
