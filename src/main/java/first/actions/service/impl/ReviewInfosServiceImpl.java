@@ -27,8 +27,8 @@ public class ReviewInfosServiceImpl implements ReviewInfosService {
 	}
 
 	@Override
-	public List<Map<String, Object>> reviewSearch(String eventSeq) throws Exception {
-		return reviewInfosDAO.reviewSearch(eventSeq);
+	public List<Map<String, Object>> reviewSearch(String ptnCd) throws Exception {
+		return reviewInfosDAO.reviewSearch(ptnCd);
 	}
 	
 }

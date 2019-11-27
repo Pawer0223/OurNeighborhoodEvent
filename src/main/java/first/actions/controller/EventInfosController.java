@@ -30,10 +30,10 @@ public class EventInfosController {
 	@RequestMapping(value = "/eventInfos/eventDetailInfo.do")
 	public ModelAndView eventDetail(HttpServletRequest request) throws Exception {
 		
-		String eventSeq = request.getParameter("eventSeq");
+		String ptnCd = request.getParameter("ptnCd");
 		
-		EventInfos eventDetail = eventInfosService.eventDetailInfo(eventSeq);
-		List<Map<String, Object>> reviewDetail = reviewInfosService.reviewSearch(eventSeq);
+		EventInfos eventDetail = eventInfosService.eventDetailInfo(ptnCd);
+		List<Map<String, Object>> reviewDetail = reviewInfosService.reviewSearch(ptnCd);
 		
 		ModelAndView mv = new ModelAndView("/main/events-single");
 		

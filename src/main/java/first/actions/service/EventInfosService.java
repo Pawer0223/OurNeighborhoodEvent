@@ -10,6 +10,6 @@ public interface EventInfosService {
 	// 최근등록 이벤트 3건만 조회
 	List<Map<String, EventInfos>> selectLatestEvents() throws Exception;
 	
-	EventInfos eventDetailInfo(String eventSeq) throws Exception;
+	EventInfos eventDetailInfo(String ptnCd) throws Exception;
 
 }

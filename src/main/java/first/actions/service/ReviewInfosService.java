@@ -9,6 +9,6 @@ public interface ReviewInfosService {
 
 	List<Map<String, Object>> selectLatestReviews() throws Exception;
 	
-	List<Map<String, Object>> reviewSearch(String eventSeq) throws Exception;
+	List<Map<String, Object>> reviewSearch(String ptnCd) throws Exception;
 
 }

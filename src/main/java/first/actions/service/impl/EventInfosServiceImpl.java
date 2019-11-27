@@ -27,8 +27,8 @@ public class EventInfosServiceImpl implements EventInfosService {
 	}
 
 	@Override
-	public EventInfos eventDetailInfo(String eventSeq) throws Exception {
-		return eventInfosDAO.eventDetailInfo(eventSeq);
+	public EventInfos eventDetailInfo(String ptnCd) throws Exception {
+		return eventInfosDAO.eventDetailInfo(ptnCd);
 	}
 
 }

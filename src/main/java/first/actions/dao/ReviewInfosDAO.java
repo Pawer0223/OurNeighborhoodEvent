@@ -20,8 +20,8 @@ public class ReviewInfosDAO extends AbstractDAO {
 	}
 	
 	// 특정 eventSeq에 해당하는 review들을 조회한다.
-	public List<Map<String, Object>> reviewSearch(String eventSeq) {
-		return (List<Map<String, Object>>)selectList("reviewInfos.reviewSearch", eventSeq);
+	public List<Map<String, Object>> reviewSearch(String ptnCd) {
+		return (List<Map<String, Object>>)selectList("reviewInfos.reviewSearch", ptnCd);
 	}
 	
 }
