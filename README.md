@@ -8,7 +8,6 @@
     <img src="https://img.shields.io/badge/java-1.8-blue.svg" />  
     <img src="https://img.shields.io/badge/Mybatis-3.2.2-rgb(243, 156, 18).svg" />
     <img src="https://img.shields.io/badge/Oracle11g -rgb(243, 156, 18).svg" />
-    <img src="https://img.shields.io/badge/font-awesome 4.7.0 -rgb(255, 204, 000).svg" />
     <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 204, 000).svg" />
 </p>
 
@@ -22,11 +21,10 @@
 
 ## 서비스Flow
 
- <img src="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/serviceFlow.png" />
-
+![serviceFlow](./readmeSource/serviceFlow.png)
 ## ERD 및 테이블 설명
 
- <img src="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/ERD.png" />
+![erd](./readmeSource/erd.png)
 
 **1. 사용자정보(USER_INFOS) : 기본 계정정보 테이블**
 
@@ -89,13 +87,28 @@
 
 ## 주요 소스코드
 
-**1. 회원가입**
+- Bootstrap을 활용한 템플릿 적용하여 메인사이트 UI구현
+
 
 - Ajax를 활용한 ID중복체크
 
+![validate](./readmeSource/validate.gif)
 
+- Ajax를 활용한 로그인시 유효성 검사
+(움짤첨부)
 
+- 다음주소 API를 활용한 동네검색
+: 최초 회원가입시 도로명 주소로 등록. 메인페이지에서 동네조회시 도로면 주소로만 조회 가능하도록 함.
 
+( 움짤첨부 )
+
+- 메인페이지 호출시 최신데이터 조회
+( 조인쿼리문 첨부 )
+
+- 로그인 계정 등급에 따른 메뉴리스트 조회
+( 데이터 첨부 )
+( 소스코드 첨부 - 세션을 LIST로 관리하여.. )
+( 결과 첨부 )
 
 
 
