@@ -95,7 +95,8 @@
 ![validate](./readmeSource/validate.gif)
 
 - Ajax를 활용한 로그인시 유효성 검사
-(움짤첨부)
+![loginValidate](./readmeSource/loginValidate.gif)
+
 
 - 다음주소 API를 활용한 동네검색
 : 최초 회원가입시 도로명 주소로 등록. 메인페이지에서 동네조회시 도로면 주소로만 조회 가능하도록 함.
