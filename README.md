@@ -142,6 +142,7 @@ ORDER BY RV.REVIEW_SEQ DESC
 **5. 로그인 계정 등급에 따른 메뉴리스트 조회**
 
 - Menu_List테이블 데이터 구성
+
 ![menuData](./readmeSource/menuData.png)
 
 - 계정등급에 따른 메뉴리스트 출력<br>
