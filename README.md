@@ -103,11 +103,10 @@
 
 1) 동네검색
 ![daumAPI1](./readmeSource/daumAPI1.png)
-<br>
-2) 동네선택
-![daumAPI1](./readmeSource/daumAPI2.png)
 
-( 움짤첨부 )
+2) 동네선택
+![daumAPI2](./readmeSource/daumAPI2.png)
+
 
 - 메인페이지 호출시 최신데이터 조회
 ( 조인쿼리문 첨부 )
