@@ -1,4 +1,4 @@
-package first.common.logger;
+package first.common.interceptors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package first.actions;
+package first.common.commonFn;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

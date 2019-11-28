@@ -12,14 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import first.actions.CommonFunctions;
 import first.actions.model.MenuList;
 import first.actions.model.UserInfos;
 import first.actions.service.MenuListService;
 import first.actions.service.UserInfosService;
+import first.common.commonFn.CommonFunctions;
 
 @Controller
 public class UserInfosController {
@@ -102,23 +103,22 @@ public class UserInfosController {
 	}
 
 	@RequestMapping(value = "/userInfos/login.do")
-	public ModelAndView login( UserInfos userInfo , HttpServletRequest request ) throws Exception {
+	public void login( UserInfos userInfo , HttpServletRequest request  , Model model) throws Exception {
 
 		if ( userInfo.getUserId() == null || userInfo.getUserPw() == null ) System.out.println("null"); 
 
-		ModelAndView mv = new ModelAndView("/main/subMenus/login");
+		//ModelAndView mv = new ModelAndView("/main/subMenus/login");
 
 		if ( userInfo.getUserId().isEmpty() ) {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "ID를 입력해 주세요");
-			return mv;
+			return;
 		}
 
 		if ( userInfo.getUserPw().isEmpty() ) {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "PW를 입력해 주세요");
-			return mv;
-
+			return;
 		}
 		
 		//로그인시 입력비밀번호 암호화하여 비교
@@ -130,10 +130,11 @@ public class UserInfosController {
 		if ( loginInfo == null ) {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "아이디 또는 PW정보가 올바르지 않습니다.");
-			return mv;
+			return;
 		}else {
 			// 존재한다면 세션 등록.
-			request.getSession().setAttribute("login" , loginInfo);
+			
+			model.addAttribute("login" , loginInfo);
 			
 			// 존재한다면 계정등급에맞는 메뉴리스트 조회
 			request.getSession().removeAttribute("menuList");
@@ -146,9 +147,9 @@ public class UserInfosController {
 			
 			request.setAttribute("menuList", m);
 			
-			mv = new ModelAndView("/main/index");
+			//mv = new ModelAndView("/main/index");
 			
-			return mv;
+			return;
 		}
 		
 
