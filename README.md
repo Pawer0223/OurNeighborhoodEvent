@@ -131,6 +131,7 @@
 - 회원가입 및 로그인시 PW암호화 적용 ( SHA-256 )
 
 - 암호화 적용 메소드 : makeEncrypt( String msg )
+https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/CommonFunctions.java
 
 - [ PW : 123 ] 입력 후 수행 insert쿼리 확인
 
