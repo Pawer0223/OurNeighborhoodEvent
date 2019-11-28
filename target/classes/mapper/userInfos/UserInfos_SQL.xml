@@ -23,7 +23,7 @@
 			    ,#{ userPw } 
 			   	,#{ userNm }
 			   	,#{ neighbor }
-			   	,'N'
+			   	,'NOR'
 			   	,''
 			   	,#{ email }
 			   	,#{ profilePic }

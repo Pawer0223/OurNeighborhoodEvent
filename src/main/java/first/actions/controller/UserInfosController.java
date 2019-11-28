@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import first.actions.CommonFunctions;
 import first.actions.model.MenuList;
 import first.actions.model.UserInfos;
 import first.actions.service.MenuListService;
@@ -30,6 +31,8 @@ public class UserInfosController {
 	
 	@Resource(name = "menuListService")
 	private MenuListService menuListService;
+	
+	private CommonFunctions comnFn = new CommonFunctions();
 
 	@RequestMapping(value = "/userInfos/registPage.do")
 	public ModelAndView registPage() throws Exception {
@@ -81,6 +84,9 @@ public class UserInfosController {
 			request.getSession().setAttribute("messageContent", "비밀번호가 서로 일치하지 않습니다.");
 			return mv;
 		}
+		
+		// 비밀번호 암호화
+		userInfo.setUserPw(comnFn.makeEncrypt(userInfo.getUserPw()));
 
 		// 성공시1, 실패시0반환
 		if(userInfosService.registUser(userInfo) == 1 ) {
@@ -114,6 +120,9 @@ public class UserInfosController {
 			return mv;
 
 		}
+		
+		//로그인시 입력비밀번호 암호화하여 비교
+		userInfo.setUserPw(comnFn.makeEncrypt(userInfo.getUserPw()));
 		
 		UserInfos loginInfo = userInfosService.login(userInfo);
 		
