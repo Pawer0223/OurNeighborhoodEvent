@@ -128,6 +128,14 @@
 
 ![loginValidate](./readmeSource/loginValidate.gif)
 
+- 회원가입 및 로그인시 PW암호화 적용 ( SHA-256 )
+
+- 암호화 적용 메소드 : makeEncrypt( String msg )
+
+- [ PW : 123 ] 입력 후 수행 insert쿼리 확인
+
+![signUpEncrypt](./readmeSource/signUpEncrypt.png)
+
 
 **3. 다음주소 API를 활용한 동네검색** <br>
 : 최초 회원가입시 도로명 주소로 등록. 메인페이지에서 동네조회시 도로명 주소로만 조회 가능하도록 함.
