@@ -12,14 +12,12 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/main/start.do" />
-			<bean id="loggerInterceptor"
-				class="first.common.interceptors.LoggerInterceptor"></bean>
+			<bean id="loggerInterceptor" class="first.common.interceptors.LoggerInterceptor"></bean>
 		</mvc:interceptor>
 		
 		<mvc:interceptor>
 			<mvc:mapping path="/userInfos/login.do" />
-			<bean id="loginInterceptor"
-				class="first.common.interceptors.LoginInterceptor"></bean>
+			<bean id="loginInterceptor" class="first.common.interceptors.LoginInterceptor"></bean>
 		</mvc:interceptor>
 		
 	</mvc:interceptors>
