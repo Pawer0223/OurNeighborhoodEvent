@@ -50,7 +50,7 @@ public class MainController {
 		
 		List<MenuList> m = makeMenu(menuList);
 		
-		request.setAttribute("menuList", m);
+		request.getSession().setAttribute("menuList", m);
 
 		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
 		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();

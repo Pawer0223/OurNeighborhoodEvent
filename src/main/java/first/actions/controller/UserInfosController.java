@@ -45,7 +45,7 @@ public class UserInfosController {
 
 	@RequestMapping(value = "/userInfos/loginPage.do")
 	public ModelAndView loginPage() throws Exception {
-
+		
 		ModelAndView mv = new ModelAndView("/main/subMenus/login");
 
 		return mv;
@@ -103,22 +103,22 @@ public class UserInfosController {
 	}
 
 	@RequestMapping(value = "/userInfos/login.do")
-	public void login( UserInfos userInfo , HttpServletRequest request  , Model model) throws Exception {
+	public ModelAndView login( UserInfos userInfo , HttpServletRequest request ) throws Exception {
 
 		if ( userInfo.getUserId() == null || userInfo.getUserPw() == null ) System.out.println("null"); 
 
-		//ModelAndView mv = new ModelAndView("/main/subMenus/login");
+		ModelAndView mv = new ModelAndView("/main/subMenus/login");
 
 		if ( userInfo.getUserId().isEmpty() ) {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "ID를 입력해 주세요");
-			return;
+			return mv;
 		}
 
 		if ( userInfo.getUserPw().isEmpty() ) {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "PW를 입력해 주세요");
-			return;
+			return mv;
 		}
 		
 		//로그인시 입력비밀번호 암호화하여 비교
@@ -130,11 +130,9 @@ public class UserInfosController {
 		if ( loginInfo == null ) {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "아이디 또는 PW정보가 올바르지 않습니다.");
-			return;
+			return mv;
 		}else {
 			// 존재한다면 세션 등록.
-			
-			model.addAttribute("login" , loginInfo);
 			
 			// 존재한다면 계정등급에맞는 메뉴리스트 조회
 			request.getSession().removeAttribute("menuList");
@@ -145,11 +143,11 @@ public class UserInfosController {
 			
 			List<MenuList> m = makeMenu(menuList);
 			
-			request.setAttribute("menuList", m);
+			request.getSession().setAttribute("menuList", m);
 			
-			//mv = new ModelAndView("/main/index");
+			mv = new ModelAndView("/main/index");
 			
-			return;
+			return mv;
 		}
 		
 
