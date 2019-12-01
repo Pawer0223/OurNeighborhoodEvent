@@ -38,7 +38,7 @@ public class UserInfosController {
 	@RequestMapping(value = "/userInfos/registPage.do")
 	public ModelAndView registPage() throws Exception {
 
-		ModelAndView mv = new ModelAndView("/main/subMenus/signUp");
+		ModelAndView mv = new ModelAndView("/main/registForm/signUp");
 
 		return mv;
 	}
@@ -70,7 +70,7 @@ public class UserInfosController {
 
 		System.out.println(userInfo.toString());
 
-		ModelAndView mv = new ModelAndView("/main/subMenus/signUp");
+		ModelAndView mv = new ModelAndView("/main/registForm/signUp");
 
 
 		if ( userInfo.getUserId().isEmpty() || userInfo.getUserPw().isEmpty() || userInfo.getUserPw2().isEmpty() || userInfo.getEmail().isEmpty()
@@ -88,7 +88,7 @@ public class UserInfosController {
 
 		// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
 		
-		String url ="c://"+comnFn.restore(userInfo.getPictureFile());
+		String url ="c:/"+comnFn.restore(userInfo.getPictureFile());
 		
 		userInfo.setProfilePic(url);
 		

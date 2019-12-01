@@ -19,8 +19,7 @@
 			<mvc:mapping path="/eventInfos/events.do" />
 			<bean id="EventsInterceptor" class="first.common.interceptors.EventsInterceptor"></bean>
 		</mvc:interceptor>
-		
-		
+	
 	</mvc:interceptors>
 
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
@@ -39,8 +38,5 @@
 		<!-- defaultEncoding -->
 		<property name="defaultEncoding" value="utf-8" />
 	</bean>
-	
-	<!-- resource mapping -->
-	<!-- location : 물리적 주소 / mapping : 가상 주소 -->
 	
 </beans>
