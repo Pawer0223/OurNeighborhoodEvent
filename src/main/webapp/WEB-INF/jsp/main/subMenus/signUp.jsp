@@ -119,7 +119,9 @@
 						<input class="btn btn-primary pull-right" type="submit" value="회원가입">
 						</td>
 					</tr>
-
+					<tr>
+					<td colspan="3"><a href="/first/main/start.do">홈 화면으로 가기</a></td>
+					</tr>
 				</tbody>
 			</table>
 		</form>
