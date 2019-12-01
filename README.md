@@ -70,13 +70,13 @@
 
 - 유효성 체크
 - 비밀번호 3회 이상 실패 시 캡챠화면 구현
-- Interceptor를 활용한 Session관리
 
 **3. 메인페이지**  
 
 - 최근 이벤트 목록3 건 조회
 - 최초 접속 시 최근 등록리뷰 3건 조회 ( 동네와 상관없이 )
 - 동네 검색 시 동네의 최근 이벤트 3건 조회 ( 1건도 없으면 alert 이후에 default 이미지 )  
+- 비 로그인시에는 Events메뉴 선택불가능. ( Interceptor를 활용하여 처리 )
 
 **4. 이벤트**  
 
@@ -176,8 +176,45 @@ AND EH.USER_ID = RV.USER_ID
 AND RV.USER_ID = UI.USER_ID
 ORDER BY RV.REVIEW_SEQ DESC
 ```
+**5. 비 로그인시 Events메뉴는 선택불가능 하도록 Interceptor를 활용하여 처리**
 
-**5. 로그인 계정 등급에 따른 메뉴리스트 조회**
+1) action-servlet.xml 에서 Events.do 서블릿이 호출되면 Interceptor클래스 정보를 mapping
+
+```
+<mvc:interceptor>
+	<mvc:mapping path="/eventInfos/events.do" />
+	<bean id="EventsInterceptor" class="first.common.interceptors.EventsInterceptor"></bean>
+</mvc:interceptor>
+```
+
+2) 호출 된 클래스에서 로그인 session이 존재하지 않으면 login페이지로 이동하도록 preHandle메서드 오버라이딩
+
+```
+public class EventsInterceptor extends HandlerInterceptorAdapter {
+	protected Log log = LogFactory.getLog(EventsInterceptor.class);
+
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		// session 객체를 가져옴
+		HttpSession session = request.getSession();
+		// login처리를 담당하는 사용자 정보를 담고 있는 객체를 가져옴
+		Object obj = session.getAttribute("login");
+
+		if ( obj == null ){
+			// 로그인이 안되어 있는 상태임으로 로그인 폼으로 다시 돌려보냄(redirect)
+			response.sendRedirect("/first/userInfos/loginPage.do");
+			return false; // 더이상 컨트롤러 요청으로 가지 않도록 false로 반환함
+		}
+
+		// preHandle의 return은 컨트롤러 요청 uri로 가도 되냐 안되냐를 허가하는 의미임
+		// 따라서 true로하면 컨트롤러 uri로 가게 됨.
+		return true;
+	}
+```
+
+
+**6. 로그인 계정 등급에 따른 메뉴리스트 조회**
 
 - Menu_List테이블 데이터 구성
 
