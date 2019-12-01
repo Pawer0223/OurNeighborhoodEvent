@@ -130,7 +130,7 @@
 
 - 회원가입 및 로그인시 PW암호화 적용 ( SHA-256 )
 
-- 암호화 적용 메소드 : makeEncrypt( String msg )
+- 암호화 적용 메소드 : public String makeEncrypt(String msg)
 https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/CommonFunctions.java
 
 - [ PW : 123 ] 입력 후 수행 insert쿼리 확인
@@ -294,3 +294,6 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 7. 업로드 파일의 절대경로를 DB의 올바른 컬럼에 INSERT수행.
 
 8. DB의 데이터를 활용하여 서버에저장된 img파일을 참조하도록 관련 .jsp파일 수정
+
+5~7 관련 메소드 : public String restore(MultipartFile multipartFile)
+: https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/CommonFunctions.java
