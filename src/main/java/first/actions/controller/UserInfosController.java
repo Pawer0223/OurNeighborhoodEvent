@@ -144,6 +144,7 @@ public class UserInfosController {
 			List<MenuList> m = makeMenu(menuList);
 			
 			request.getSession().setAttribute("menuList", m);
+			request.getSession().setAttribute("login", loginInfo);
 			
 			mv = new ModelAndView("/main/index");
 			

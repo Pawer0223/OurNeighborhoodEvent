@@ -14,6 +14,13 @@
 			<mvc:mapping path="/**" />
 			<bean id="loggerInterceptor" class="first.common.interceptors.LoggerInterceptor"></bean>
 		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/eventInfos/events.do" />
+			<bean id="EventsInterceptor" class="first.common.interceptors.EventsInterceptor"></bean>
+		</mvc:interceptor>
+		
+		
 	</mvc:interceptors>
 
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />

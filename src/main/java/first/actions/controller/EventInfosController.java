@@ -43,6 +43,19 @@ public class EventInfosController {
 		
 		return mv;
 	}
+	
+	// events페이지 이동
+	@RequestMapping(value = "/eventInfos/events.do")
+	public ModelAndView events() throws Exception {
+
+		ModelAndView mv = new ModelAndView("/main/events");
+
+		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
+
+		mv.addObject("latestEvents", latestEvents);
+
+		return mv;
+	}
 }
 
 
