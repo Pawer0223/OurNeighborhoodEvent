@@ -277,3 +277,20 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 - 'NOR'등급의 계정으로 로그인 시 메뉴리스트 변경결과 확인
 ![menuResult](./readmeSource/menuResult.gif)
 
+**7. 파일업로드 기능**
+
+1. pom.xml에 파입업로드를 위한 라이브러리설정 추가.
+
+2. action-sevlet.xml에 CommonsMultipartResolver클래스를 사용하기 위한 beand_id 설정 추가.
+
+3. 회원가입,가게등록,이벤트등록을위한 <form>태그의 enctype="multipart/form-data"로 지정.
+	
+4. 각각의 model클래스에 form태그에서 데이터를 받아오기 위한 MultipartFile타입의 변수추가.
+
+5. 파일명 중복을 예방하기위해 현재시간을 기준으로 파일명을 생성.
+
+6. FileOutputStream클래스를 활용하여 지정한 dir에 파일업로드 수행.
+
+7. 업로드 파일의 절대경로를 DB의 올바른 컬럼에 INSERT수행.
+
+8. DB의 데이터를 활용하여 서버에저장된 img파일을 참조하도록 관련 .jsp파일 수정
