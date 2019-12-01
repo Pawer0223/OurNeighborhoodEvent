@@ -1,7 +1,9 @@
 package first.actions.model;
 
+import java.io.Serializable;
+
 // 사용자정보 
-public class UserInfos {
+public class UserInfos implements Serializable {
 
 	// 사용자ID 
 	private String userId;

@@ -149,9 +149,16 @@ public class UserInfosController {
 			
 			return mv;
 		}
-		
-
 	}
+	
+	@RequestMapping(value = "/userInfos/logout.do")
+	public String logout(HttpServletRequest request) throws Exception {
+		
+		request.getSession().invalidate();
+		
+		return "redirect:/main/start.do";
+	}
+
 	
 	// 메뉴리스트 만들기위한 method
 	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){

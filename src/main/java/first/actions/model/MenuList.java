@@ -1,7 +1,9 @@
 package first.actions.model;
 
+import java.io.Serializable;
+
 //메뉴 
-public class MenuList {
+public class MenuList implements Serializable {
 
 	// 사용자구분코드 
 	private String userGbnCd;
