@@ -283,7 +283,7 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 
 2. action-sevlet.xml에 CommonsMultipartResolver클래스를 사용하기 위한 beand_id 설정 추가.
 
-3. 회원가입,가게등록,이벤트등록을위한 <form>태그의 enctype="multipart/form-data"로 지정.
+3. 회원가입,가게등록,이벤트등록을위한 form태그의 enctype="multipart/form-data"로 지정.
 	
 4. 각각의 model클래스에 form태그에서 데이터를 받아오기 위한 MultipartFile타입의 변수추가.
 
