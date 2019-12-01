@@ -42,6 +42,9 @@
 						<td style="text-align: left" colspan="2"><input class="btn btn-primary pull-right" type="submit" value="로그인">
 						</td>
 					</tr>
+					<tr>
+						<td colspan="2"><a href="/first/main/start.do">홈 화면으로 가기</a></td>
+					</tr>
 				</tbody>
 			</table>
 		</form>
