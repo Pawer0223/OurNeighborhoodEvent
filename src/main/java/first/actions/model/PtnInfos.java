@@ -9,7 +9,7 @@ public class PtnInfos {
 	// 사업자등록번호 
 	private String bizrRegNo;
 
-	// 사업자명 
+	// 상호명 
 	private String ptnNm;
 
 	// 대표자명 
@@ -26,9 +26,6 @@ public class PtnInfos {
 
 	// 동네 
 	private String neighbor;
-
-	// 프로필사진 
-	private String profilePic;
 
 
 	public String getPtnCd() {
@@ -95,34 +92,10 @@ public class PtnInfos {
 		this.neighbor = neighbor;
 	}
 
-	public String getProfilePic() {
-		return profilePic;
-	}
-
-	public void setProfilePic(String profilePic) {
-		this.profilePic = profilePic;
-	}
-
-	// PtnInfos 모델 복사
-	public void CopyData(PtnInfos param)
-	{
-		this.ptnCd = param.getPtnCd();
-		this.bizrRegNo = param.getBizrRegNo();
-		this.ptnNm = param.getPtnNm();
-		this.rpstNm = param.getRpstNm();
-		this.rpstTel = param.getRpstTel();
-		this.faxNo = param.getFaxNo();
-		this.addNo = param.getAddNo();
-		this.neighbor = param.getNeighbor();
-		this.profilePic = param.getProfilePic();
-	}
-
-
 	@Override
 	public String toString() {
 		return "PtnInfos [ptnCd=" + ptnCd + ", bizrRegNo=" + bizrRegNo + ", ptnNm=" + ptnNm + ", rpstNm=" + rpstNm
-				+ ", rpstTel=" + rpstTel + ", faxNo=" + faxNo + ", addNo=" + addNo + ", neighbor=" + neighbor
-				+ ", profilePic=" + profilePic + "]";
+				+ ", rpstTel=" + rpstTel + ", faxNo=" + faxNo + ", addNo=" + addNo + ", neighbor=" + neighbor + "]";
 	}
 
 }

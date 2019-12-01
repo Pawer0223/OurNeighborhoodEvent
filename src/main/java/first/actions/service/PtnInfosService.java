@@ -1,9 +1,9 @@
 package first.actions.service;
 
-import first.loginAction.model.UserInfo;
+import first.actions.model.PtnInfos;
 
 public interface PtnInfosService {
 
-	UserInfo login(UserInfo info) throws Exception;
+	int inserStoreInfo(PtnInfos ptninfo) throws Exception;
 
 }

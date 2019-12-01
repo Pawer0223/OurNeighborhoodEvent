@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.PtnInfosDAO;
+import first.actions.model.PtnInfos;
 import first.actions.service.PtnInfosService;
 import first.loginAction.model.UserInfo;
 
@@ -19,8 +20,9 @@ public class PtnInfosServiceImpl implements PtnInfosService {
 	private PtnInfosDAO ptnInfosDAO;
 
 	@Override
-	public UserInfo login(UserInfo info) throws Exception {
-		return null;
+	public int inserStoreInfo(PtnInfos ptninfo) throws Exception {
+		
+		return ptnInfosDAO.insertStoreInfo(ptninfo);
 	}
 	
 }
