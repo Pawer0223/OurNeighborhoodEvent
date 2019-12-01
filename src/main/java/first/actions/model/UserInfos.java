@@ -2,6 +2,8 @@ package first.actions.model;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 // 사용자정보 
 public class UserInfos implements Serializable {
 
@@ -31,6 +33,9 @@ public class UserInfos implements Serializable {
 
 	// 프로필사진 
 	private String profilePic;
+	
+	// 프로필사진, 파일업로드하기위한 용도
+	private MultipartFile pictureFile;
 
 	// 휴대폰번호 
 	private String phoneNum;
@@ -136,15 +141,20 @@ public class UserInfos implements Serializable {
 	public void setUserPw2(String userPw2) {
 		this.userPw2 = userPw2;
 	}
+	
+	public MultipartFile getPictureFile() {
+		return pictureFile;
+	}
+
+	public void setPictureFile(MultipartFile pictureFile) {
+		this.pictureFile = pictureFile;
+	}
 
 	@Override
 	public String toString() {
 		return "UserInfos [userId=" + userId + ", userPw=" + userPw + ", userPw2=" + userPw2 + ", userNm=" + userNm
 				+ ", neighbor=" + neighbor + ", userGbnCd=" + userGbnCd + ", ptnCd=" + ptnCd + ", email=" + email
-				+ ", profilePic=" + profilePic + ", phoneNum=" + phoneNum + ", prevPw=" + prevPw + ", lgnErrCnt="
-				+ lgnErrCnt + "]";
+				+ ", profilePic=" + profilePic + ", pictureFile=" + pictureFile + ", phoneNum=" + phoneNum + ", prevPw="
+				+ prevPw + ", lgnErrCnt=" + lgnErrCnt + "]";
 	}
-	
-	
-
 }

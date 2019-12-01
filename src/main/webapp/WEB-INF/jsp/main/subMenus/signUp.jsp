@@ -61,7 +61,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" action="/first/userInfos/userRegist.do">
+		<form method="post" enctype="multipart/form-data" action="/first/userInfos/userRegist.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
@@ -101,7 +101,7 @@
 					<tr>
 						<td style="width: 110px;">프로필 사진</td>
 						<td colspan="2"><input class="form-control" type="file"
-							id="profilePic" name="profilePic" maxLength="20"></td>
+							id="pictureFile" name="pictureFile" maxLength="20"></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">휴대폰번호</td>

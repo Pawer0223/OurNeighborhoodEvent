@@ -74,7 +74,7 @@ public class UserInfosController {
 
 
 		if ( userInfo.getUserId().isEmpty() || userInfo.getUserPw().isEmpty() || userInfo.getUserPw2().isEmpty() || userInfo.getEmail().isEmpty()
-				|| userInfo.getUserNm().isEmpty() || userInfo.getProfilePic().isEmpty() || userInfo.getPhoneNum().isEmpty() || userInfo.getNeighbor().isEmpty() ) {
+				|| userInfo.getUserNm().isEmpty() || userInfo.getPictureFile().isEmpty() || userInfo.getPhoneNum().isEmpty() || userInfo.getNeighbor().isEmpty() ) {
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "내용을 모두 입력해주세요");
 			return mv;
@@ -85,6 +85,12 @@ public class UserInfosController {
 			request.getSession().setAttribute("messageContent", "비밀번호가 서로 일치하지 않습니다.");
 			return mv;
 		}
+
+		// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
+		
+		String url ="c://"+comnFn.restore(userInfo.getPictureFile());
+		
+		userInfo.setProfilePic(url);
 		
 		// 비밀번호 암호화
 		userInfo.setUserPw(comnFn.makeEncrypt(userInfo.getUserPw()));
@@ -158,6 +164,14 @@ public class UserInfosController {
 		request.getSession().invalidate();
 		
 		return "redirect:/main/start.do";
+	}
+	
+	@RequestMapping(value = "/userInfos/userDeatail.do")
+	public ModelAndView userDetail() throws Exception {
+		
+		ModelAndView mv = new ModelAndView("/main/subMenus/userDetail");
+
+		return mv;
 	}
 
 	
