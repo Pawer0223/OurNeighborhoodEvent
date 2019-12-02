@@ -230,44 +230,44 @@
 				</div>
 			</div>
 			<div class="row">
-				<c:set var="flag" value="false" />
-				<c:forEach items="${latestEvents}" var="row" varStatus="status">
-					<c:if test="${not flag}">
-						<c:if test="${ status.count eq 3}">
-							<c:set var="flag" value="true" />
-						</c:if>
-						<div class="col-md-4">
-							<div class="property-wrap ftco-animate">
-								<a href="#" class="img"
-									style="background-image: url(${ row.PRODUCT_PIC });"></a>
-								<div class="text">
-									<p class="price" style="text-align: center;">
-										<span class="old-price">${ row.ORIGIN_PRICE }<small>￦</small></span><span
-											class="orig-price">${ row.EVENT_PRICE }<small>￦</small></span>
-									</p>
-									<ul class="property_list" style="text-align: center;">
-										<li><img src=/first/resources/mainPage/images/running.gif
-											width="30" height="30">&nbsp;남은 수량 : ${ row.AMOUNT }&nbsp;
-											<c:if test="${ row.DELIVERY_YN eq 'Y' }">
-												<img src=/first/resources/mainPage/images/Delivery.png
-													width="20" height="20">
-											</c:if>
-									</ul>
-									<h3 style="text-align: center;">
-										<a href="#">${ row.EVENT_NM }</a>
-									</h3>
-									<h6 style="text-align: center;">
-										<span class="location">${ row.PTN_NM }</span>
-									</h6>
-									<a href="#"
-										class="d-flex align-items-center justify-content-center btn-custom">
-										<span class="ion-ios-link"></span>
-									</a>
+					<c:set var="flag" value="false" />
+					<c:forEach items="${latestEvents}" var="row" varStatus="status">
+						<c:if test="${not flag}">
+							<c:if test="${ status.count eq 3}">
+								<c:set var="flag" value="true" />
+							</c:if>
+							<div class="col-md-4">
+								<div class="property-wrap ftco-animate">
+									<a href="#" class="img"
+										style="background-image: url(${ row.PRODUCT_PIC });"></a>
+									<div class="text">
+										<p class="price" style="text-align: center;">
+											<span class="old-price">${ row.ORIGIN_PRICE }<small>￦</small></span><span
+												class="orig-price">${ row.EVENT_PRICE }<small>￦</small></span>
+										</p>
+										<ul class="property_list" style="text-align: center;">
+											<li><img src=/first/resources/mainPage/images/running.gif
+												width="30" height="30">&nbsp;남은 수량 : ${ row.AMOUNT }&nbsp;
+												<c:if test="${ row.DELIVERY_YN eq 'Y' }">
+													<img src=/first/resources/mainPage/images/Delivery.png
+														width="20" height="20">
+												</c:if>
+										</ul>
+										<h3 style="text-align: center;">
+											<a href="#">${ row.EVENT_NM }</a>
+										</h3>
+										<h6 style="text-align: center;">
+											<span class="location">${ row.PTN_NM }</span>
+										</h6>
+										<a href="#"
+											class="d-flex align-items-center justify-content-center btn-custom">
+											<span class="ion-ios-link"></span>
+										</a>
+									</div>
 								</div>
 							</div>
-						</div>
-					</c:if>
-				</c:forEach>
+						</c:if>
+					</c:forEach>
 			</div>
 		</div>
 	</section>

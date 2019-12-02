@@ -37,7 +37,7 @@
 		]]>
 	</select>
 	
-	<insert id="insertEventInfo" parameterType="first.actions.model.EventInfos">
+	<insert id="registEventInfos" parameterType="first.actions.model.EventInfos">
 		<![CDATA[
 		INSERT INTO EVENT_INFOS 
 		VALUES ( #{ eventSeq }

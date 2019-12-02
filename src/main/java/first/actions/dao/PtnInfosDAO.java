@@ -10,8 +10,8 @@ import first.common.dao.AbstractDAO;
 @Repository("ptnInfosDAO")
 public class PtnInfosDAO extends AbstractDAO{
 	
-	public int insertStoreInfo(PtnInfos ptnInfo) {
-		return (Integer)insert("ptnInfos.insertStoreInfo",ptnInfo);
+	public int registPtnInfos(PtnInfos ptnInfo) {
+		return (Integer)insert("ptnInfos.registPtnInfos",ptnInfo);
 	}
 	
 	public String getMaxPtnCd() {

@@ -69,7 +69,7 @@ public class EventInfosController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/eventInfos/registEvent.do")
+	@RequestMapping(value = "/eventInfos/registEventPage.do")
 	public ModelAndView registStore(HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
@@ -87,7 +87,7 @@ public class EventInfosController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/eventInfos/insertEventInfos.do")
+	@RequestMapping(value = "/eventInfos/registEventInfos.do")
 	public ModelAndView insertEventInfos( EventInfos eventInfo, HttpServletRequest request ) throws Exception {
 		
 		System.out.println(eventInfo.toString());
@@ -121,10 +121,9 @@ public class EventInfosController {
 		
 
 		// 성공시1, 실패시0반환
-		if( eventInfosService.insertEventInfo(eventInfo) == 1 ) {
+		if( eventInfosService.registEventInfos(eventInfo) == 1 ) {
 			request.getSession().setAttribute("messageType", "success");
 			request.getSession().setAttribute("messageContent", "이벤트 등록이 완료되었습니다.");
-			
 			return mv;
 			
 		}else {

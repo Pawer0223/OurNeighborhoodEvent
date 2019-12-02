@@ -37,8 +37,8 @@ public class EventInfosServiceImpl implements EventInfosService {
 	}
 
 	@Override
-	public int insertEventInfo(EventInfos eventInfo) throws Exception {
-		return eventInfosDAO.insertEventInfo(eventInfo);
+	public int registEventInfos(EventInfos eventInfo) throws Exception {
+		return eventInfosDAO.registEventInfos(eventInfo);
 	}
 
 }

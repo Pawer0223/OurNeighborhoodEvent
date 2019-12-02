@@ -15,16 +15,13 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/first/resources/js/bootstrap.js"></script>
 
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/first/resources/js/mapAPI.js"></script>
-
 </head>
 <body>
 	<br>
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/first/eventInfos/insertEventInfos.do">
+		<form method="post" enctype="multipart/form-data" action="/first/eventInfos/registEventInfos.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">

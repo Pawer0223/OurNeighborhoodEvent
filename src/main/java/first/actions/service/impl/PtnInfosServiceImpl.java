@@ -20,8 +20,8 @@ public class PtnInfosServiceImpl implements PtnInfosService {
 	private PtnInfosDAO ptnInfosDAO;
 
 	@Override
-	public int inserStoreInfo(PtnInfos ptninfo) throws Exception {
-		return ptnInfosDAO.insertStoreInfo(ptninfo);
+	public int registPtnInfos(PtnInfos ptninfo) throws Exception {
+		return ptnInfosDAO.registPtnInfos(ptninfo);
 	}
 
 	@Override

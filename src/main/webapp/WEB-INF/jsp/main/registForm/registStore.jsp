@@ -24,7 +24,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" action="/first/ptnInfos/insertPtnInfos.do">
+		<form method="post" action="/first/ptnInfos/registPtnInfos.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">

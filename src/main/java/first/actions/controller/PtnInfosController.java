@@ -28,14 +28,14 @@ public class PtnInfosController {
 	
 	private static String PTN_GBN_CD = "PTN";
 
-	@RequestMapping(value = "/ptnInfos/registStore.do")
+	@RequestMapping(value = "/ptnInfos/registStorePage.do")
 	public ModelAndView registStore() throws Exception {
 		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/registForm/registStore");
 		return mv;
 	}
 	
-	@RequestMapping(value = "/ptnInfos/insertPtnInfos.do")
+	@RequestMapping(value = "/ptnInfos/registPtnInfos.do")
 	public ModelAndView insertPtnInfos( PtnInfos ptnInfo, HttpServletRequest request ) throws Exception {
 		
 		System.out.println(ptnInfo.toString());
@@ -59,7 +59,7 @@ public class PtnInfosController {
 		ptnInfo.setPtnCd(maxPtnCd);
 
 		// 성공시1, 실패시0반환
-		if( ptnInfosService.inserStoreInfo(ptnInfo) == 1 ) {
+		if( ptnInfosService.registPtnInfos(ptnInfo) == 1 ) {
 			request.getSession().setAttribute("messageType", "success");
 			request.getSession().setAttribute("messageContent", "가게등록이 완료되었습니다.");
 			
