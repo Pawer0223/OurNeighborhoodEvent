@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import first.actions.model.EventInfos;
 import first.actions.model.MenuList;
+import first.actions.model.UserInfos;
 import first.actions.service.EventInfosService;
 import first.actions.service.MenuListService;
 import first.actions.service.ReviewInfosService;
@@ -32,6 +33,8 @@ public class MainController {
 
 	@Resource(name = "menuListService")
 	private MenuListService menuListService;
+	
+	private static String COM = "COM";
 
 	// 메인페이지 호출
 	@RequestMapping(value = "/main/start.do")
@@ -45,16 +48,17 @@ public class MainController {
 		ModelAndView mv = new ModelAndView("/main/index");
 
 		List<Map<String, MenuList>> menuList= null ;
-
-		menuList = menuListService.selectMenu("COM");
 		
-		List<MenuList> m = makeMenu(menuList);
-		
-		request.getSession().setAttribute("menuList", m);
+		// 비 로그인 시에만 COM속성의 메뉴리스트를 조회해서 session에 등록하도록.
+		if ( request.getSession().getAttribute("login") == null ) {
+			
+			menuList = menuListService.selectMenu(COM);
+			List<MenuList> m = makeMenu(menuList);
+			request.getSession().setAttribute("menuList", m);
+		}
 
 		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
 		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
-
 
 		mv.addObject("latestEvents", latestEvents);
 		mv.addObject("latestReviews", latestReviews);

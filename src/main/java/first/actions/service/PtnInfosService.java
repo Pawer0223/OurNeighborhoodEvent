@@ -5,5 +5,7 @@ import first.actions.model.PtnInfos;
 public interface PtnInfosService {
 
 	int inserStoreInfo(PtnInfos ptninfo) throws Exception;
+	
+	String getMaxPtnCd() throws Exception;
 
 }

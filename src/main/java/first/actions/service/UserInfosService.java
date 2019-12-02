@@ -10,5 +10,6 @@ public interface UserInfosService {
 	
 	UserInfos login(UserInfos userInfo) throws Exception;
 	
+	int updatePtnCd(UserInfos userInfo) throws Exception;
 
 }

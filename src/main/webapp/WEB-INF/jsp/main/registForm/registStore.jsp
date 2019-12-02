@@ -113,7 +113,7 @@
 					
 					<div class="modal-body">
 					<%if (messageType.equals("success")){%>
-					<a href="/first/userInfos/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
+					<a href="/first/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">

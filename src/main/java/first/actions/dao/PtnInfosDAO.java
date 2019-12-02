@@ -11,7 +11,11 @@ import first.common.dao.AbstractDAO;
 public class PtnInfosDAO extends AbstractDAO{
 	
 	public int insertStoreInfo(PtnInfos ptnInfo) {
-		return Integer.valueOf((Integer)update("ptnInfos.insertStoreInfo",ptnInfo));
+		return Integer.valueOf((Integer)insert("ptnInfos.insertStoreInfo",ptnInfo));
+	}
+	
+	public String getMaxPtnCd() {
+		return (String)selectOne("ptnInfos.getMaxPtnCd");
 	}
 
 }

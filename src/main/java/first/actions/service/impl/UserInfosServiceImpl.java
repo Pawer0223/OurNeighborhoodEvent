@@ -31,8 +31,12 @@ public class UserInfosServiceImpl implements UserInfosService {
 
 	@Override
 	public UserInfos login(UserInfos userInfo) throws Exception {
-		// TODO Auto-generated method stub
 		return userInfosDAO.login(userInfo);
+	}
+
+	@Override
+	public int updatePtnCd(UserInfos userInfo) throws Exception {
+		return userInfosDAO.updatePtnCd(userInfo);
 	}
 	
 	

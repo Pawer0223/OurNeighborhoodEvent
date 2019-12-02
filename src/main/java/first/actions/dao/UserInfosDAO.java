@@ -23,4 +23,8 @@ public class UserInfosDAO extends AbstractDAO{
 	public UserInfos login(UserInfos userInfo) {
 		return (UserInfos)selectOne("userInfos.login",userInfo);
 	}
+	
+	public int updatePtnCd(UserInfos userInfo) {
+		return (Integer)update("userInfos.updatePtnCd",userInfo);
+	} 
 }
