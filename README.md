@@ -59,10 +59,10 @@
 
 ## 주요 기능
 
-**1. 회원가입**
+**1. 등록화면**
 
-- 저장 시 PW 암호화 ( SHA-256 )
-- 프로필사진 업로드기능
+- 계정등록시 PW 암호화 ( SHA-256 )
+- 사진 업로드기능
 - 동네 정보 등록 시 다음 주소 API 활용
 - Ajax를 활용한 ID중복체크
 
@@ -82,10 +82,6 @@
 - 사업자등록이 되어있는 계정만 등록 가능
 - 이벤트 등록 시 이미지 업로드 ( 없으면 default 이미지 )
 - 이벤트 상세목록 조회, 삭제, 등록  
-
-**5. 동네 검색**  
-
-- 다음 주소 API 활용  
 
 ## 개발내역
 
@@ -116,7 +112,193 @@
 
 ![About](./readmeSource/about.gif)
 
+- 가게등록, 리뷰등록, 이벤트 등록<br>
 
+1) 가게등록<br>
+
+- UserGbnCd = 'NOR'인 경우에 Regist Store 메뉴 보임.
+
+- 가게등록시 USER_INFOS.USER_GBN_CD ='PTN'으로 UPDATE 수행.
+
+- 메뉴리스트 PTN등급으로 재 조회
+
+- 동네검색시 우편번호 자동입력
+
+- 
+
+```		
+	@RequestMapping(value = "/ptnInfos/registPtnInfos.do")
+	public ModelAndView registPtnInfos( PtnInfos ptnInfo, HttpServletRequest request ) throws Exception {
+		
+		System.out.println(ptnInfo.toString());
+
+		ModelAndView mv = new ModelAndView("/main/registForm/registStore");
+		
+		if ( ptnInfo.getFaxNo().isEmpty() ) {
+			ptnInfo.setFaxNo("");
+		}
+
+		if ( ptnInfo.getBizrRegNo().isEmpty() || ptnInfo.getPtnNm().isEmpty() || ptnInfo.getRpstNm().isEmpty() || ptnInfo.getRpstTel().isEmpty() ||
+				ptnInfo.getNeighbor().isEmpty() || ptnInfo.getAddNo().isEmpty()) {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "내용을 모두 입력해주세요");
+			return mv;
+		}
+		
+		//등록될 ptnCd 값 가져오기 max+1
+		String maxPtnCd = "";
+		maxPtnCd = ptnInfosService.getMaxPtnCd();
+		ptnInfo.setPtnCd(maxPtnCd);
+
+		// 성공시1, 실패시0반환
+		if( ptnInfosService.registPtnInfos(ptnInfo) == 1 ) {
+			request.getSession().setAttribute("messageType", "success");
+			request.getSession().setAttribute("messageContent", "가게등록이 완료되었습니다.");
+			
+			HttpSession session = request.getSession();
+			
+			// 가게등록시 계정정보 변경. ( PTN_CD입력, USER_GBN_CD = 'PTN' 변경 )
+			UserInfos loginInfo = (UserInfos)session.getAttribute("login");
+			loginInfo.setPtnCd(maxPtnCd);
+			loginInfo.setUserGbnCd(PTN_GBN_CD);
+			userInfosService.updatePtnCd(loginInfo);
+			
+			// USER_GBN_CD값 변경에 따른 MENU_LIST출력을 위해 로그인 세션정보 변경 해줌.
+			session.removeAttribute("login");
+			session.setAttribute("login", loginInfo);
+			
+			return mv;
+			
+		}else {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "해당 사업자 등록번호는 이미 등록되어있습니다.");
+			return mv;
+		}
+	}	
+
+```
+
+- 등록화면
+![registStore](./readmeSource/registStore.png)
+
+
+
+2) 리뷰등록<br>
+- 본인이 참여한 이벤트가 있는경우에만 리뷰등록 가능
+
+- 있는경우 SELECT박스로 리스트업 됨
+![registReviewSuccess](./readmeSource/registReviewSuccess.png)
+
+- 없는경우
+![registReviewFail](./readmeSource/registReviewFail.png)
+
+- 리뷰 등록 시 EVENT_SEQ로 PTN_CD값 조회
+
+- REVIEW_SEQ값은 MAX+1로 등록
+```
+	<select id="getMaxReviewSeq" resultType="String">
+		<![CDATA[	  
+		SELECT 'R'||LPAD(NVL(MAX(SUBSTR(REVIEW_SEQ,2)),0)+1,6,'0') 
+		FROM REVIEW_INFOS
+		]]>
+	</select>
+```
+
+- 소스코드
+```
+	@RequestMapping(value = "/reviewInfos/registReviews.do")
+	public ModelAndView registReviews(ReviewInfos review, HttpServletRequest request) throws Exception {
+		
+		 System.out.println(review.toString());
+		
+		ModelAndView mv = new ModelAndView("/main/registForm/registReview");
+		
+		// 로그인 계정이 참여한 이벤트 정보를 먼저 조회한다.
+		HttpSession session = request.getSession();
+		
+		UserInfos loginInfo = (UserInfos)session.getAttribute("login");
+		
+		// 리뷰등록 id
+		review.setUserId(loginInfo.getUserId());
+		
+		//이벤트 seq로  ptnCd 조회 
+		String ptnCd = eventInfosService.getPtnCd(review.getEventSeq());
+		review.setPtnCd(ptnCd);
+		
+		//maxSeq 조회
+		String maxReviewSeq = reviewInfosService.getMaxReviewSeq();
+		review.setReviewSeq(maxReviewSeq);
+			
+		// 성공시1, 실패시0반환
+		if( reviewInfosService.registEventInfos(review) == 1 ) {
+			request.getSession().setAttribute("messageType", "success");
+			request.getSession().setAttribute("messageContent", "리뷰 등록이 완료되었습니다.");
+			return mv;
+
+		}else {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "리뷰 등록시 문제가 있습니다.");
+			return mv;
+		}
+		
+	}
+}
+```
+
+
+3) 이벤트 등록<br>
+- 상호명 및 동네 데이터는 로그인 session에서 참조.
+
+![registEvent](./readmeSource/registEvent.png)
+
+- 상품 사진은 upload/foods 디렉터리에 업로드되도록 구현
+```
+	@RequestMapping(value = "/eventInfos/registEventInfos.do")
+	public ModelAndView registEventInfos( EventInfos eventInfo, HttpServletRequest request ) throws Exception {
+		
+		System.out.println(eventInfo.toString());
+
+		ModelAndView mv = new ModelAndView("/main/registForm/registEvent");
+		
+		if ( eventInfo.getAmount()==null ) {
+			eventInfo.setAmount(99999);
+		}
+
+		if ( eventInfo.getPtnNm().isEmpty() || eventInfo.getNeighbor().isEmpty() || eventInfo.getEventNm().isEmpty() || eventInfo.getEventDesc().isEmpty()
+				|| eventInfo.getProduct().isEmpty() || eventInfo.getPictureFile().isEmpty() || eventInfo.getOriginPrice()==null || eventInfo.getEventPrice()==null
+				|| eventInfo.getAmount()==null || eventInfo.getDeliveryYn().isEmpty() ) {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "내용을 모두 입력해주세요");
+			return mv;
+		}
+		
+		//등록될 EVENT_SEQ 값 가져오기 max+1
+		String maxEventSeq = "";
+		maxEventSeq = eventInfosService.getMaxEventSeq();
+		eventInfo.setEventSeq(maxEventSeq);
+		
+		//이미지업로드
+		String url ="c:/"+comnFn.restore(eventInfo.getPictureFile(),EVENT_PIC_SUB_DIR);
+		eventInfo.setProductPic(url);
+		
+		//로그인 세션에서 ptnCd값 등록
+		UserInfos loginInfo = (UserInfos)request.getSession().getAttribute("login");
+		eventInfo.setPtnCd(loginInfo.getPtnCd());
+		
+
+		// 성공시1, 실패시0반환
+		if( eventInfosService.registEventInfos(eventInfo) == 1 ) {
+			request.getSession().setAttribute("messageType", "success");
+			request.getSession().setAttribute("messageContent", "이벤트 등록이 완료되었습니다.");
+			return mv;
+			
+		}else {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "이벤트 등록시 문제가 있습니다.");
+			return mv;
+		}
+	}
+```
 **2. Ajax를 활용한 유효성 검사**
 
 - ID중복체크
