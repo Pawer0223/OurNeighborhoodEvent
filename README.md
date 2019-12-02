@@ -76,7 +76,6 @@
 - 최근 이벤트 목록3 건 조회
 - 최초 접속 시 최근 등록리뷰 3건 조회 ( 동네와 상관없이 )
 - 동네 검색 시 동네의 최근 이벤트 3건 조회 ( 1건도 없으면 alert 이후에 default 이미지 )  
-- 비 로그인시에는 Events메뉴 선택불가능. ( Interceptor를 활용하여 처리 )
 
 **4. 이벤트**  
 
@@ -176,18 +175,18 @@ AND EH.USER_ID = RV.USER_ID
 AND RV.USER_ID = UI.USER_ID
 ORDER BY RV.REVIEW_SEQ DESC
 ```
-**5. 비 로그인시 Events메뉴는 선택불가능 하도록 Interceptor를 활용하여 처리**
+**5. 이벤트등록,가게등록,리뷰등록 페이지 수행시 로그인 세션 처리를 위하여 InterCeptor활용 **
 
-1) action-servlet.xml 에서 Events.do 서블릿이 호출되면 Interceptor클래스 정보를 mapping
+1) action-servlet.xml 에서 /*/regist*Page.do 패턴의 서블릿 호출 시 로그인세션이 살아있지않으면 로그인 후 이용가능하도록 처리
 
 ```
 <mvc:interceptor>
-	<mvc:mapping path="/eventInfos/events.do" />
-	<bean id="EventsInterceptor" class="first.common.interceptors.EventsInterceptor"></bean>
+	<mvc:mapping path="/*/regist*Page.do" />
+	<bean id="registInterCeptor" class="first.common.interceptors.RegistInterceptor"></bean>
 </mvc:interceptor>
 ```
 
-2) 호출 된 클래스에서 로그인 session이 존재하지 않으면 login페이지로 이동하도록 preHandle메서드 오버라이딩
+2) 수행되는 preHandle메소드 정의
 
 ```
 public class EventsInterceptor extends HandlerInterceptorAdapter {
@@ -196,6 +195,8 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
+		log.debug("====================================== 등록 전 로그인 Check preHandle ======================================");
 
 		HttpSession session = request.getSession();
 		
@@ -212,6 +213,9 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 		return true;
 	}
 ```
+
+3) 수행확인, 비로그인시 registStorePage.do 가 호출되면 login페이지로 가이딩 됨.
+![interceptorCheck](./readmeSource/interceptorCheck.gif)
 
 
 **6. 로그인 계정 등급에 따른 메뉴리스트 조회**
