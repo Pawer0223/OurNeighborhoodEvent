@@ -179,6 +179,7 @@
 ```
 
 - 등록화면
+
 ![registStore](./readmeSource/registStore.png)
 
 
@@ -187,9 +188,11 @@
 - 본인이 참여한 이벤트가 있는경우에만 리뷰등록 가능
 
 - 있는경우 SELECT박스로 리스트업 됨
+
 ![registReviewSuccess](./readmeSource/registReviewSuccess.png)
 
 - 없는경우
+
 ![registReviewFail](./readmeSource/registReviewFail.png)
 
 - 리뷰 등록 시 EVENT_SEQ로 PTN_CD값 조회
