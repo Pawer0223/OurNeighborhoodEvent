@@ -191,7 +191,7 @@
 
 ![registReviewSuccess](./readmeSource/registReviewSuccess.png)
 
-- 없는경우
+- 없는경우 ALERT메시지 후 메인페이지 이동
 
 ![registReviewFail](./readmeSource/registReviewFail.png)
 
