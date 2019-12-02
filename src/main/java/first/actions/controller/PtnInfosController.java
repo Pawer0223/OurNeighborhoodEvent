@@ -78,11 +78,9 @@ public class PtnInfosController {
 			return mv;
 			
 		}else {
-			
 			request.getSession().setAttribute("messageType", "error_message");
 			request.getSession().setAttribute("messageContent", "해당 사업자 등록번호는 이미 등록되어있습니다.");
 			return mv;
-			
 		}
 	}
 	
