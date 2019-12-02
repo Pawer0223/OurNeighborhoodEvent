@@ -175,9 +175,9 @@ AND EH.USER_ID = RV.USER_ID
 AND RV.USER_ID = UI.USER_ID
 ORDER BY RV.REVIEW_SEQ DESC
 ```
-**5. 이벤트등록,가게등록,리뷰등록 페이지 수행시 로그인 세션 처리를 위하여 InterCeptor활용 **
+**5. 이벤트등록,가게등록,리뷰등록 페이지 수행시 로그인 세션 처리를 위하여 InterCeptor활용**
 
-1) action-servlet.xml 에서 /*/regist*Page.do 패턴의 서블릿 호출 시 로그인세션이 살아있지않으면 로그인 후 이용가능하도록 처리
+1) action-servlet.xml 에서 등록페이지 서블릿 네임 패턴 호출 시 로그인세션이 살아있지않으면 로그인 후 이용가능하도록 처리
 
 ```
 <mvc:interceptor>
