@@ -12,12 +12,14 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 /*
  * 비 로그인시 Events메뉴 조회 불가능.
  */
-public class EventsInterceptor extends HandlerInterceptorAdapter {
-	protected Log log = LogFactory.getLog(EventsInterceptor.class);
+public class RegistInterceptor extends HandlerInterceptorAdapter {
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
+		log.debug("====================================== 등록 전 로그인 Check preHandle ======================================");
 
 		HttpSession session = request.getSession();
 		
@@ -37,7 +39,8 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 	// 컨트롤러가 수행되고 화면이 보여지기 직전에 수행되는 메서드
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
+		
+		log.debug("====================================== 등록 전 로그인 Check postHandle ======================================");
 		super.postHandle(request, response, handler, modelAndView);
 	}     
 

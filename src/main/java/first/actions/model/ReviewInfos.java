@@ -10,8 +10,8 @@ public class ReviewInfos {
 	private String userId;
 
 	// 이벤트 번호 
-	private Integer eventSeq;
-
+	private String eventSeq;
+	
 	// 사업자ID 
 	private String ptnCd;
 
@@ -39,11 +39,11 @@ public class ReviewInfos {
 		this.userId = userId;
 	}
 
-	public Integer getEventSeq() {
+	public String getEventSeq() {
 		return eventSeq;
 	}
 
-	public void setEventSeq(Integer eventSeq) {
+	public void setEventSeq(String eventSeq) {
 		this.eventSeq = eventSeq;
 	}
 

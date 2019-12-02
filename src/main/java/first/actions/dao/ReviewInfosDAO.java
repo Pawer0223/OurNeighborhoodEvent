@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import first.actions.model.ReviewInfos;
+import first.actions.model.UserInfos;
 import first.common.dao.AbstractDAO;
 
 //REVIEW_INFOS에 접근하는 DAO 클래스
@@ -22,6 +23,15 @@ public class ReviewInfosDAO extends AbstractDAO {
 	// 특정 eventSeq에 해당하는 review들을 조회한다.
 	public List<Map<String, Object>> reviewSearch(String ptnCd) {
 		return (List<Map<String, Object>>)selectList("reviewInfos.reviewSearch", ptnCd);
+	}
+	
+	//maxSeq를 조회한다.
+	public String getMaxReviewSeq() {
+		return (String)selectOne("reviewInfos.getMaxReviewSeq");
+	}
+	
+	public int registEventInfos(ReviewInfos review) {
+		return (Integer)insert("reviewInfos.registReview",review);
 	}
 	
 }

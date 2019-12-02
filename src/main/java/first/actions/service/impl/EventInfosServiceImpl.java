@@ -41,4 +41,9 @@ public class EventInfosServiceImpl implements EventInfosService {
 		return eventInfosDAO.registEventInfos(eventInfo);
 	}
 
+	@Override
+	public String getPtnCd(String eventSeq) throws Exception {
+		return eventInfosDAO.getPtnCd(eventSeq);
+	}
+
 }

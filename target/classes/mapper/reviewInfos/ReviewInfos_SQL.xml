@@ -23,5 +23,27 @@
 		]]>
 	</select>
 	
+	<select id="getMaxReviewSeq" resultType="String">
+		<![CDATA[	  
+		SELECT 'R'||LPAD(NVL(MAX(SUBSTR(REVIEW_SEQ,2)),0)+1,6,'0') 
+		FROM REVIEW_INFOS
+		]]>
+	</select>
+	
+	<insert id="registReview" parameterType="first.actions.model.ReviewInfos">
+		<![CDATA[
+		INSERT INTO REVIEW_INFOS 
+		VALUES ( #{ reviewSeq }
+			    ,#{ userId } 
+			   	,#{ eventSeq }
+			   	,#{ ptnCd }
+			   	,#{ reviewName }
+			   	,#{ reviewDesc }
+			   	,SYSDATE
+			   	,''
+			   	)
+		]]>
+	</insert>
+	
 
 </mapper>

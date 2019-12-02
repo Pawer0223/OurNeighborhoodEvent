@@ -16,8 +16,9 @@
 		</mvc:interceptor>
 		
 		<mvc:interceptor>
-			<mvc:mapping path="/eventInfos/events.do" />
-			<bean id="EventsInterceptor" class="first.common.interceptors.EventsInterceptor"></bean>
+			<mvc:mapping path="/*/regist*Page.do" />
+			<bean id="registInterCeptor" class="first.common.interceptors.RegistInterceptor"></bean>
+
 		</mvc:interceptor>
 	
 	</mvc:interceptors>

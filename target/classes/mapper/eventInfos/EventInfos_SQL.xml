@@ -59,6 +59,13 @@
 		]]>
 	</insert>
 	
+	<select id="getPtnCd" parameterType="String" resultType="String">
+		<![CDATA[	  
+		SELECT PTN_CD
+		FROM EVENT_INFOS
+		WHERE EVENT_SEQ = #{ eventSeq }
+		]]>
+	</select>
 
 </mapper>
 

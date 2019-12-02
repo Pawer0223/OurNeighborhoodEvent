@@ -30,5 +30,15 @@ public class ReviewInfosServiceImpl implements ReviewInfosService {
 	public List<Map<String, Object>> reviewSearch(String ptnCd) throws Exception {
 		return reviewInfosDAO.reviewSearch(ptnCd);
 	}
+
+	@Override
+	public String getMaxReviewSeq() throws Exception {
+		return reviewInfosDAO.getMaxReviewSeq();
+	}
+
+	@Override
+	public int registEventInfos(ReviewInfos review) throws Exception {
+		return reviewInfosDAO.registEventInfos(review);
+	}
 	
 }

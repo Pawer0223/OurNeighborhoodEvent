@@ -10,5 +10,9 @@ public interface ReviewInfosService {
 	List<Map<String, Object>> selectLatestReviews() throws Exception;
 	
 	List<Map<String, Object>> reviewSearch(String ptnCd) throws Exception;
+	
+	String getMaxReviewSeq() throws Exception;
+	
+	int registEventInfos(ReviewInfos review) throws Exception;
 
 }

@@ -29,14 +29,14 @@ public class PtnInfosController {
 	private static String PTN_GBN_CD = "PTN";
 
 	@RequestMapping(value = "/ptnInfos/registStorePage.do")
-	public ModelAndView registStore() throws Exception {
+	public ModelAndView registStorePage() throws Exception {
 		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/registForm/registStore");
 		return mv;
 	}
 	
 	@RequestMapping(value = "/ptnInfos/registPtnInfos.do")
-	public ModelAndView insertPtnInfos( PtnInfos ptnInfo, HttpServletRequest request ) throws Exception {
+	public ModelAndView registPtnInfos( PtnInfos ptnInfo, HttpServletRequest request ) throws Exception {
 		
 		System.out.println(ptnInfo.toString());
 

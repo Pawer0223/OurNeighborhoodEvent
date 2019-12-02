@@ -289,7 +289,6 @@
 						<c:choose>
 							<c:when test="${fn:length(latestReviews) > 0}">
 								<c:forEach items="${latestReviews}" var="row">
-
 									<div class="item">
 										<div class="testimony-wrap py-4">
 											<div class="text">
@@ -383,6 +382,28 @@
 			</div>
 		</div>
 	</section>
+
+	<%
+		String messageContent = null;
+
+		if (session.getAttribute("messageContent") != null) {
+			messageContent = (String) session.getAttribute("messageContent");
+		}
+
+		String messageType = null;
+		if (session.getAttribute("messageType") != null) {
+			messageType = (String) session.getAttribute("messageType");
+
+			if (messageType.equals("noSearchEvents")) {
+	%>
+	<script type="text/javascript">
+		alert("참여한 이벤트가 존재하지 않습니다.");
+	</script>
+	<%
+		}
+		}
+	%>
+
 
 	<%@ include file="footer.jsp"%>
 

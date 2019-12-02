@@ -70,7 +70,7 @@ public class EventInfosController {
 	}
 	
 	@RequestMapping(value = "/eventInfos/registEventPage.do")
-	public ModelAndView registStore(HttpServletRequest request) throws Exception {
+	public ModelAndView registEventPage(HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
 		
@@ -88,7 +88,7 @@ public class EventInfosController {
 	}
 	
 	@RequestMapping(value = "/eventInfos/registEventInfos.do")
-	public ModelAndView insertEventInfos( EventInfos eventInfo, HttpServletRequest request ) throws Exception {
+	public ModelAndView registEventInfos( EventInfos eventInfo, HttpServletRequest request ) throws Exception {
 		
 		System.out.println(eventInfo.toString());
 

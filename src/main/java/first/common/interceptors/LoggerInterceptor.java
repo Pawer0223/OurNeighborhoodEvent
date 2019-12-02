@@ -13,7 +13,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  * controller -> client 로 응답할 때, 그 요청을 처리할 메서드 하나(후처리기)
  */
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
-	protected Log log = LogFactory.getLog(LoggerInterceptor.class);
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler ) throws Exception {

@@ -15,5 +15,7 @@ public interface EventInfosService {
 	String getMaxEventSeq() throws Exception;
 	
 	int registEventInfos(EventInfos eventInfo) throws Exception;
+	
+	String getPtnCd(String eventSeq) throws Exception;
 
 }

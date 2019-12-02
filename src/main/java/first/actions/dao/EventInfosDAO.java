@@ -29,5 +29,8 @@ public class EventInfosDAO extends AbstractDAO {
 	public int registEventInfos(EventInfos eventInfo) {
 		return (Integer)insert("eventInfos.registEventInfos",eventInfo);
 	} 
+	public String getPtnCd(String eventSeq) {
+		return (String)selectOne("eventInfos.getPtnCd", eventSeq);
+	}
 
 }
