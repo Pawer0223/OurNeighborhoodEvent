@@ -18,7 +18,6 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/*/regist*Page.do" />
 			<bean id="registInterCeptor" class="first.common.interceptors.RegistInterceptor"></bean>
-
 		</mvc:interceptor>
 	
 	</mvc:interceptors>
