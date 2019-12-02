@@ -2,6 +2,7 @@ package first.actions.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,8 @@ public class PtnInfosController {
 	
 	@Resource(name = "userInfosService")
 	private UserInfosService userInfosService;
+	
+	private static String PTN_GBN_CD = "PTN";
 
 	@RequestMapping(value = "/ptnInfos/registStore.do")
 	public ModelAndView registStore() throws Exception {
@@ -60,13 +63,20 @@ public class PtnInfosController {
 			request.getSession().setAttribute("messageType", "success");
 			request.getSession().setAttribute("messageContent", "가게등록이 완료되었습니다.");
 			
-			// 성공적으로 insert 되었으면 로그인 세션의 USER_INFOS의 PTN_CD 컬럼 값 UPDATE 수행.
-			UserInfos loginInfo = (UserInfos)request.getSession().getAttribute("login");
-			loginInfo.setPtnCd(maxPtnCd);
+			HttpSession session = request.getSession();
 			
+			// 가게등록시 계정정보 변경. ( PTN_CD입력, USER_GBN_CD = 'PTN' 변경 )
+			UserInfos loginInfo = (UserInfos)session.getAttribute("login");
+			loginInfo.setPtnCd(maxPtnCd);
+			loginInfo.setUserGbnCd(PTN_GBN_CD);
 			userInfosService.updatePtnCd(loginInfo);
 			
+			// USER_GBN_CD값 변경에 따른 MENU_LIST출력을 위해 로그인 세션정보 변경 해줌.
+			session.removeAttribute("login");
+			session.setAttribute("login", loginInfo);
+			
 			return mv;
+			
 		}else {
 			
 			request.getSession().setAttribute("messageType", "error_message");

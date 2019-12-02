@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>SignUp</title>
+<title>이벤트 등록</title>
 
 <link rel="stylesheet" href="/first/resources/css/bootstrap.css">
 <link rel="stylesheet" href="/first/resources/css/custom.css">
@@ -18,107 +18,79 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/first/resources/js/mapAPI.js"></script>
 
-<script type ="text/javascript">
-
-	function registerCheckFunction(){
-		
-		var userId = $('#userId').val();
-		
-		$.ajax({
-			type : "POST",
-			url : '/first/userInfos/duplicateCheck.do' ,
-			data : { userId : userId },
-			success : function(result){
-				if ( result == 1 ){
-					$('#checkMessage').html('사용할 수 없는 아이디입니다.');
-					$('#checkType').attr('class' , 'modal-content panel-warning');
-				}else{
-					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
-					$('#checkType').attr('class' , 'modal-content panel-success');
-				}
-				$('#checkModal').modal("show"); 
-			}
-		})
-	}
-	
-	function passwordCheckFunction(){
-		
-		var pw1 = $('#userPw').val();
-		var pw2 = $('#userPw2').val();
-		
-		if ( pw1 != pw2 ) {
-			$('#passwordCheckMessage').html('비밀번호가 서로 일치하지 않습니다.');
-		} else {
-			$('#passwordCheckMessage').html('');
-		}
-		
-	}
-</script>
-
 </head>
 <body>
 	<br>
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/first/userInfos/userRegist.do">
+		<form method="post" enctype="multipart/form-data" action="/first/eventInfos/insertEventInfos.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
-						<th colspan="3">회원가입</th>
+						<th colspan="3">이벤트 등록</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width: 110px;">아이디</td>
-						<td><input class="form-control" type="text" id="userId" name="userId" maxLength="20"></td>
-						<td style="width: 110px;"><button class="btn btn-primary" type="button" onclick="registerCheckFunction();">중복체크</button></td>
+						<td style="width: 110px;">상호 명</td>
+						<td colspan="2"><input class="form-control" type="text" id="ptnNm" name="ptnNm" maxLength="20" value="${ ptnInfo.ptnNm }" readonly></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">비밀번호</td>
-						<td colspan="2"><input class="form-control" type="password" id="userPw" name="userPw" maxLength="20" onkeyup="passwordCheckFunction();"></td>
+						<td style="width: 110px;">동네</td>
+						<td colspan="2"><input type="text" class="form-control" placeholder="상단의 동네를 검색해주세요"  name="neighbor" value="${ ptnInfo.neighbor }"  readonly ></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">비밀번호 확인</td>
+						<td style="width: 110px;">제목</td>
+						<td colspan="2"><input class="form-control" type="text" id="eventNm" name="eventNm" maxLength="20"></td>
+					</tr>					
+					<tr>
+						<td style="width: 110px;">내용</td>
+						<td colspan="2"><textarea class="form-control"  id="eventDesc" name="eventDesc" style="height: 350px;"
+							placeholder="이벤트 내용"></textarea></td>
+					</tr>
+					<tr>
+						<td style="width: 110px;">상품</td>
 						<td colspan="2">
-						<input class="form-control" type="password" id="userPw2" name="userPw2" maxLength="20" onkeyup="passwordCheckFunction();">
-						<h5 style="color : red; text-align : left;" id="passwordCheckMessage"></h5>
+						<input class="form-control" type="text" id="product" name="product" maxLength="20" placeholder="상품 명">
 						</td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">이메일</td>
-						<td colspan="2"><input class="form-control" type="email"
-							id="email" name="email" maxLength="20"
-							placeholder="jane.doe@example.com"></td>
-					</tr>
-					<tr>
-						<td style="width: 110px;">이름</td>
-						<td colspan="2"><input class="form-control" type="text"
-							id="userNm" name="userNm" maxLength="20" placeholder="홍길동"></td>
-					</tr>
-					<tr>
-						<td style="width: 110px;">프로필 사진</td>
+						<td style="width: 110px;">상품 사진</td>
 						<td colspan="2"><input class="form-control" type="file"
 							id="pictureFile" name="pictureFile" maxLength="20"></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">휴대폰번호</td>
-						<td colspan="2"><input class="form-control" type="text"
-							id="phoneNum" name="phoneNum" maxLength="20"></td>
+						<td style="width: 110px;">원 가격</td>
+						<td colspan="2">
+						<input class="form-control" type="number" id="originPrice" name="originPrice" maxLength="20" placeholder="상품 원 가격">
+						</td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">동네</td>
-						<td colspan="2"><input onclick="sample6_execDaumPostcode()"
-							type="text" class="form-control" placeholder="click 동네를 검색해주세요"
-							id="sample6_address" name="neighbor" readonly ></td>
+						<td style="width: 110px;">행사 가격</td>
+						<td colspan="2">
+						<input class="form-control" type="number" id="eventPrice" name="eventPrice" maxLength="20" placeholder="행사 가격">
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 110px;">수량</td>
+						<td colspan="2">
+						<input class="form-control" type="number" id="amount" name="amount" maxLength="20" placeholder="수량 제한 없을시  공백">
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 110px;">배달가능 여부</td>
+						<td><input type="radio" id="deliveryYn" name="deliveryYn" value="Y">배달 가능</td>
+						<td><input type="radio" id="deliveryYn" name="deliveryYn" value="N">배달 불 가능</td>
 					</tr>
 					<tr>
 						<td style="text-align: left" colspan="3">
-						<input class="btn btn-primary pull-right" type="submit" value="회원가입">
+						<input class="btn btn-primary pull-right" type="submit" value="이벤트 등록">
 						</td>
 					</tr>
+					
 					<tr>
 					<td colspan="3"><a href="/first/main/start.do">홈 화면으로 가기</a></td>
 					</tr>
@@ -157,7 +129,7 @@
 					
 					<div class="modal-body">
 					<%if (messageType.equals("success")){%>
-					<a href="/first/userInfos/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
+					<a href="/first/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">

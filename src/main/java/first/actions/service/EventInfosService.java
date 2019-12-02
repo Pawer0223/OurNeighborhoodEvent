@@ -11,5 +11,9 @@ public interface EventInfosService {
 	List<Map<String, EventInfos>> selectLatestEvents() throws Exception;
 	
 	EventInfos eventDetailInfo(String ptnCd) throws Exception;
+	
+	String getMaxEventSeq() throws Exception;
+	
+	int insertEventInfo(EventInfos eventInfo) throws Exception;
 
 }

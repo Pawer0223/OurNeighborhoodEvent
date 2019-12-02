@@ -33,6 +33,8 @@ public class UserInfosController {
 	@Resource(name = "menuListService")
 	private MenuListService menuListService;
 	
+	private static final String PRIFLIE_SUB_DIR = "profile";
+	
 	private CommonFunctions comnFn = new CommonFunctions();
 
 	@RequestMapping(value = "/userInfos/registPage.do")
@@ -88,7 +90,7 @@ public class UserInfosController {
 
 		// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
 		
-		String url ="c:/"+comnFn.restore(userInfo.getPictureFile());
+		String url ="c:/"+comnFn.restore(userInfo.getPictureFile(),PRIFLIE_SUB_DIR);
 		
 		userInfo.setProfilePic(url);
 		

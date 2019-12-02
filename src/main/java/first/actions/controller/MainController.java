@@ -49,12 +49,38 @@ public class MainController {
 
 		List<Map<String, MenuList>> menuList= null ;
 		
-		// 비 로그인 시에만 COM속성의 메뉴리스트를 조회해서 session에 등록하도록.
-		if ( request.getSession().getAttribute("login") == null ) {
+		UserInfos loginInfo = (UserInfos)request.getSession().getAttribute("login");
+		
+		
+		/*
+		 * 1. 비 로그인시 COM으로 조회
+		 * 
+		 * 2. 로그인 수행 후 USER_GBN_CD값이 바뀌는 경우
+		 * 
+		 * 2-1) NOR유저가 가게등록 하였을 때 
+		 * 
+		 */
+		if ( loginInfo == null ) {
+			
+			// USER_GBN_CD값도 별도의 세션에 보관.
+			request.getSession().setAttribute("userGbnCd", COM);
 			
 			menuList = menuListService.selectMenu(COM);
 			List<MenuList> m = makeMenu(menuList);
 			request.getSession().setAttribute("menuList", m);
+			
+		}else {
+			// 로그인 상태에서 userGbnCd 값이 바뀌었다면 메뉴리스트 다시조회.
+			if ( loginInfo.getUserGbnCd() != (String)request.getSession().getAttribute("userGbnCd") ) {
+				request.getSession().removeAttribute("userGbnCd");
+				request.getSession().removeAttribute("menuList");
+				
+				request.getSession().setAttribute("userGbnCd", loginInfo.getUserGbnCd());
+				
+				menuList = menuListService.selectMenu(loginInfo.getUserGbnCd());
+				List<MenuList> m = makeMenu(menuList);
+				request.getSession().setAttribute("menuList", m);
+			}
 		}
 
 		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
@@ -79,7 +105,7 @@ public class MainController {
 
 			MenuList menu = new MenuList();
 
-			while ( itr.hasNext()) {
+			while( itr.hasNext()) {
 				menu.setMenuNm((String)itr.next());
 				menu.setServletHref((String)itr.next());
 			}

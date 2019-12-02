@@ -7,6 +7,7 @@
 		<result property="userNm" column="USER_NM" />
 		<result property="neighbor" column="NEIGHBOR" />
 		<result property="userGbnCd" column="USER_GBN_CD" />
+		<result property="ptnCd" column="PTN_CD" />
 		<result property="profilePic" column="PROFILE_PIC" />
 	</resultMap>
 
@@ -41,7 +42,7 @@
 
 	<select id="login" parameterType="first.actions.model.UserInfos" resultMap="userInfosModel">
 	<![CDATA[
-	 SELECT USER_ID,USER_NM,NEIGHBOR,USER_GBN_CD,PROFILE_PIC
+	 SELECT USER_ID,USER_NM,NEIGHBOR,USER_GBN_CD,PTN_CD,PROFILE_PIC
 		 FROM USER_INFOS
 		 WHERE USER_ID = #{ userId }
 		 AND USER_PW = #{ userPw }
@@ -50,7 +51,10 @@
 
 	<update id="updatePtnCd" parameterType="first.actions.model.UserInfos">
 	<![CDATA[
-		UPDATE USER_INFOS SET PTN_CD = #{ ptnCd }
+		UPDATE 
+			USER_INFOS SET PTN_CD = #{ ptnCd }
+		  , USER_GBN_CD='PTN'
+		  , UPDATE_DATE = SYSDATE
 		WHERE USER_ID = #{ userId }
 	]]>	
 	</update>

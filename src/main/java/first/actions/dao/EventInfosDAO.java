@@ -21,5 +21,13 @@ public class EventInfosDAO extends AbstractDAO {
 	public EventInfos eventDetailInfo(String ptnCd) {
 		return (EventInfos)selectOne("eventInfos.eventDetailInfo" , ptnCd);
 	}
+	
+	public String getMaxEventSeq() {
+		return (String)selectOne("eventInfos.getMaxEventSeq");
+	}
+	
+	public int insertEventInfo(EventInfos eventInfo) {
+		return (Integer)insert("eventInfos.insertEventInfo",eventInfo);
+	} 
 
 }

@@ -1,5 +1,6 @@
 package first.common.commonFn;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -54,7 +55,7 @@ public class CommonFunctions {
 	private static final String SAVE_PATH = "/upload";
 	private static final String PREFIX_URL = "/upload/";
 
-	public String restore(MultipartFile multipartFile) {
+	public String restore(MultipartFile multipartFile , String subDir) {
 		
 		String url = null;
 
@@ -72,8 +73,8 @@ public class CommonFunctions {
 			log.debug("size : " + size);
 			log.debug("saveFileName : " + saveFileName);
 
-			writeFile(multipartFile, saveFileName);
-			url = PREFIX_URL + saveFileName;
+			writeFile(multipartFile, saveFileName , subDir);
+			url = PREFIX_URL + subDir + "/" + saveFileName;
 		}
 		catch (IOException e) {
 			// 원래라면 RuntimeException 을 상속받은 예외가 처리되어야 하지만
@@ -104,12 +105,21 @@ public class CommonFunctions {
 
 
 	// 파일을 실제로 write 하는 메서드
-	private boolean writeFile(MultipartFile multipartFile, String saveFileName)
+	private boolean writeFile(MultipartFile multipartFile, String saveFileName , String subDir)
 			throws IOException{
 		boolean result = false;
+		
+		String savePath = SAVE_PATH + "/" + subDir;
+		
+		File file = new File("c:/"+savePath);
+		
+		//디렉토리가 존재하지않으면 자동으로 생성해주기
+		if ( !file.exists() ) {
+			file.mkdirs();
+		}
 
 		byte[] data = multipartFile.getBytes();
-		FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName);
+		FileOutputStream fos = new FileOutputStream(savePath+ "/" + saveFileName);
 		fos.write(data);
 		fos.close();
 

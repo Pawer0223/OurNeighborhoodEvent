@@ -28,5 +28,10 @@ public class PtnInfosServiceImpl implements PtnInfosService {
 	public String getMaxPtnCd() throws Exception {
 		return ptnInfosDAO.getMaxPtnCd();
 	}
+
+	@Override
+	public PtnInfos getPtnInfo(String ptnCd) throws Exception {
+		return ptnInfosDAO.getPtnInfo(ptnCd);
+	}
 	
 }

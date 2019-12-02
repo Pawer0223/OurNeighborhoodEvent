@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ptnInfos">
 
+	<resultMap id="getPtnInfo" type="first.actions.model.PtnInfos">
+		<result property ="ptnNm" column="PTN_NM" />
+		<result property ="neighbor" column="NEIGHBOR" />
+	</resultMap>
+
 	<insert id="insertStoreInfo" parameterType="first.actions.model.PtnInfos">
 		<![CDATA[
 		INSERT INTO PTN_INFOS (
@@ -32,6 +37,14 @@
 		<![CDATA[
 			SELECT 'P' || LPAD(MAX(SUBSTR(PTN_CD,2))+1,5,'0')
 			FROM PTN_INFOS
+		]]>
+	</select>
+	
+	<select id="getPtnInfo" parameterType="String" resultMap="getPtnInfo">
+		<![CDATA[
+			SELECT PTN_NM, NEIGHBOR
+			FROM PTN_INFOS
+			WHERE PTN_CD = #{ ptnCd }
 		]]>
 	</select>
 

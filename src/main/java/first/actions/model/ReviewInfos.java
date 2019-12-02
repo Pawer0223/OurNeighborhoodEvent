@@ -4,7 +4,7 @@ package first.actions.model;
 public class ReviewInfos {
 
 	// 리뷰번호 
-	private Integer reviewSeq;
+	private String reviewSeq;
 
 	// 사용자ID 
 	private String userId;
@@ -23,11 +23,11 @@ public class ReviewInfos {
 	
 	private int stars;
 
-	public Integer getReviewSeq() {
+	public String getReviewSeq() {
 		return reviewSeq;
 	}
 
-	public void setReviewSeq(Integer reviewSeq) {
+	public void setReviewSeq(String reviewSeq) {
 		this.reviewSeq = reviewSeq;
 	}
 

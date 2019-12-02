@@ -29,7 +29,36 @@
 		WHERE PTN_CD = #{ ptnCd }
 		]]>
 	</select>
-
+	
+	<select id="getMaxEventSeq" resultType="String">
+		<![CDATA[	  
+		SELECT 'E'||LPAD(NVL(MAX(SUBSTR(EVENT_SEQ,2)),0)+1,6,'0') 
+		FROM EVENT_INFOS
+		]]>
+	</select>
+	
+	<insert id="insertEventInfo" parameterType="first.actions.model.EventInfos">
+		<![CDATA[
+		INSERT INTO EVENT_INFOS 
+		VALUES ( #{ eventSeq }
+			    ,#{ ptnCd } 
+			   	,#{ ptnNm }
+			   	,#{ eventNm }
+			   	,#{ eventDesc }
+			   	,#{ product }
+			   	,#{ productPic }
+			   	,#{ originPrice }
+			   	,#{ eventPrice }
+			   	,#{ amount }
+			   	,'WORK'
+			   	,#{ neighbor }
+			   	,#{ deliveryYn }
+			   	,SYSDATE
+			   	,'' 
+			   	)
+		]]>
+	</insert>
+	
 
 </mapper>
 

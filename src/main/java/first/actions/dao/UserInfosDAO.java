@@ -17,7 +17,7 @@ public class UserInfosDAO extends AbstractDAO{
 	}
 	
 	public int registUser(UserInfos userInfo) {
-		return Integer.valueOf((Integer)insert("userInfos.registUser",userInfo));
+		return (Integer)insert("userInfos.registUser",userInfo);
 	}
 	
 	public UserInfos login(UserInfos userInfo) {

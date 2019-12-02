@@ -1,10 +1,14 @@
 package first.actions.model;
 
+import java.io.Serializable;
+
+import org.springframework.web.multipart.MultipartFile;
+
 // 이벤트정보 
-public class EventInfos {
+public class EventInfos implements Serializable {
 
     // 이벤트 번호 
-    private Integer eventSeq;
+    private String eventSeq;
 
     // 사업자ID 
     private String ptnCd;
@@ -23,6 +27,9 @@ public class EventInfos {
 
     // 상품이미지 
     private String productPic;
+    
+    // 상품이미지  
+    private MultipartFile pictureFile;
 
     // 원 금액 
     private Long originPrice;
@@ -42,11 +49,11 @@ public class EventInfos {
     // 배달가능여부 
     private String deliveryYn;
 
-    public Integer getEventSeq() {
+    public String getEventSeq() {
         return eventSeq;
     }
 
-    public void setEventSeq(Integer eventSeq) {
+    public void setEventSeq(String eventSeq) {
         this.eventSeq = eventSeq;
     }
 
@@ -145,22 +152,21 @@ public class EventInfos {
     public void setDeliveryYn(String deliveryYn) {
         this.deliveryYn = deliveryYn;
     }
+    
+    public MultipartFile getPictureFile() {
+		return pictureFile;
+	}
 
-    // EventInfos 모델 복사
-    public void CopyData(EventInfos param)
-    {
-        this.eventSeq = param.getEventSeq();
-        this.ptnCd = param.getPtnCd();
-        this.ptnNm = param.getPtnNm();
-        this.eventNm = param.getEventNm();
-        this.eventDesc = param.getEventDesc();
-        this.product = param.getProduct();
-        this.productPic = param.getProductPic();
-        this.originPrice = param.getOriginPrice();
-        this.eventPrice = param.getEventPrice();
-        this.amount = param.getAmount();
-        this.eventStatus = param.getEventStatus();
-        this.neighbor = param.getNeighbor();
-        this.deliveryYn = param.getDeliveryYn();
-    }
+	public void setPictureFile(MultipartFile pictureFile) {
+		this.pictureFile = pictureFile;
+	}
+
+	@Override
+	public String toString() {
+		return "EventInfos [eventSeq=" + eventSeq + ", ptnCd=" + ptnCd + ", ptnNm=" + ptnNm + ", eventNm=" + eventNm
+				+ ", eventDesc=" + eventDesc + ", product=" + product + ", productPic=" + productPic + ", pictureFile="
+				+ pictureFile + ", originPrice=" + originPrice + ", eventPrice=" + eventPrice + ", amount=" + amount
+				+ ", eventStatus=" + eventStatus + ", neighbor=" + neighbor + ", deliveryYn=" + deliveryYn + "]";
+	}
+	
 }

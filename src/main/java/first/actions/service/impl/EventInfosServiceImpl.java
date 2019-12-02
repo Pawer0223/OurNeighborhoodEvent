@@ -31,4 +31,14 @@ public class EventInfosServiceImpl implements EventInfosService {
 		return eventInfosDAO.eventDetailInfo(ptnCd);
 	}
 
+	@Override
+	public String getMaxEventSeq() throws Exception {
+		return eventInfosDAO.getMaxEventSeq();
+	}
+
+	@Override
+	public int insertEventInfo(EventInfos eventInfo) throws Exception {
+		return eventInfosDAO.insertEventInfo(eventInfo);
+	}
+
 }
