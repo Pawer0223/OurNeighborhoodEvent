@@ -40,7 +40,7 @@
 					</tr>
 					<tr>
 						<td style="width: 110px;">상호 명</td>
-						<td colspan="2"><input class="form-control" type="password" id="ptnNm" name="ptnNm" maxLength="20" placeholder ="상호명을 입력해 주세요"></td>
+						<td colspan="2"><input class="form-control" type="text" id="ptnNm" name="ptnNm" maxLength="20" placeholder ="상호명을 입력해 주세요"></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">대표자 명</td>
@@ -51,8 +51,7 @@
 					<tr>
 						<td style="width: 110px;">대표자 휴대번호</td>
 						<td colspan="2">
-						<input class="form-control" type="password" id="rpstTel" name="rpstTel" maxLength="20" placeholder="-를 제외한 휴대번호를 입력해주세요">
-						<h5 style="color : red; text-align : left;" id="passwordCheckMessage"></h5>
+						<input class="form-control" type="text" id="rpstTel" name="rpstTel" maxLength="20" placeholder="-를 제외한 휴대번호를 입력해주세요">
 						</td>
 					</tr>
 					<tr>

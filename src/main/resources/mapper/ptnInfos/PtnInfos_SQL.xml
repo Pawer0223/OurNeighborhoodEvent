@@ -2,21 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ptnInfos">
 
-	<insert id="insertStoreInfo" parameterType = "first.actions.model.PtnInfos">
+	<update id="insertStoreInfo" parameterType = "first.actions.model.PtnInfos">
 		<![CDATA[
-		INSERT INTO PTN_INFOS
+		INSERT INTO PTN_INFOS (
+			  PTN_CD
+			, BIZR_REG_NO
+			, PTN_NM
+			, RPST_NM
+			, RPST_TEL
+			, FAX_NO
+			, ADD_NO
+			, NEIGHBOR
+			, CREATION_DATE	
+		)
 			SELECT 'P' || LPAD(MAX(SUBSTR(PTN_CD,2))+1,5,'0')
 			, #{ bizrRegNo }
 			, #{ ptnNm }
-			, # { rpstNm }
-			, # { rpstTel }
-			, # { faxNo }
-			, # { addNo }
-			, # { neighbor }
-			, SYSDATE,
-			, ''
+			, #{ rpstNm }
+			, #{ rpstTel }
+			, #{ faxNo }
+			, #{ addNo }
+			, #{ neighbor }
+			, SYSDATE
 			FROM PTN_INFOS
 		]]>	
-	</insert>
+	</update>
 
 </mapper>
