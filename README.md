@@ -124,7 +124,7 @@
 
 - 동네검색시 우편번호 자동입력
 
-- 
+- 소스
 
 ```		
 	@RequestMapping(value = "/ptnInfos/registPtnInfos.do")
@@ -205,6 +205,7 @@
 ```
 
 - 소스코드
+
 ```
 	@RequestMapping(value = "/reviewInfos/registReviews.do")
 	public ModelAndView registReviews(ReviewInfos review, HttpServletRequest request) throws Exception {
@@ -244,8 +245,6 @@
 	}
 }
 ```
-
-
 3) 이벤트 등록<br>
 - 상호명 및 동네 데이터는 로그인 session에서 참조.
 
