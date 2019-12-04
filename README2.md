@@ -67,26 +67,26 @@
 
 ### 3. 이벤트정보( EVENT_INFOS )<br><br>
 
-
+<br>
 3-1) 이벤트 번호( EVENT_SEQ )
 
 - EXXXXXX 형태로 저장
 
-
+<br>
 3-2) 이벤트 진행상태 ( EVENT_STATUS )
 
 - WORK : 진행 중
 
 - END : 종료
 
-
+<br>
 3-3) 배달가능 여부 ( DELIVERY_YN )
 
 - Y : 가능 , 이벤트 화면에서 오토바이 표시
 
 - N : 불가능
 
-
+<br>
 3-4 ) 인덱스 : EVENT_INFOS_IDX01(PTN_CD, EVENT_SEQ)
 
 - 용도 : 파트너 별로 진행 이벤트 내역을 조회하기 위함
@@ -95,7 +95,7 @@
 
 ### 4. 이벤트 참여이력( EVENT_HIST )<br><br>
 
-
+<br>
 4-1) 참여상태( PART_STATUS )
 
 - COM : 결제완료
@@ -104,7 +104,7 @@
 
 - REDO : 취소 후 다시결제 ( 동일한 EVENT_SEQ,USER_ID로 CAN의 이력이 존재하는 경우 등록 됨 )
 
-
+<br>
 4-2) 이벤트 진행상태 ( EVENT_STATUS )
 
 
@@ -116,7 +116,7 @@
 
 ### 5. 리뷰정보 ( REVIEW_INFOS )<br><br>
 
-
+<br>
 5-1) 리뷰 번호( REVIEW_SEQ )
 
 - RXXXXXX 형태로 저장
@@ -125,7 +125,7 @@
 
 ### 6. 메뉴 ( MENU_LIST )<br><br>
 
-
+<br>
 6-1) 사용자구분코드 ( USER_GBN_CD )
 
 - 로그인 계정의 USER_GBN_CD에 따른 메뉴리스트 출력
@@ -138,12 +138,12 @@
 
 - 관리자 : 메뉴관리, 리뷰관리, 이벤트관리
 
-
+<br>
 6-2) 메뉴코드 ( MENU_CD )
 
 - 사용자구분코드 별로 MENU_CD 존재
 
-
+<br>
 6-3) 서블릿 링크 ( SERVLET_HREF )
 
 - 해당 메뉴호출 시 수행되는 Servlet정보
