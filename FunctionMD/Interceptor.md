@@ -37,7 +37,7 @@
 ### 결과확인
 
 1. 수행결과
-![interCeptorResult](./readmeSource/interCeptorResult.gif)
+![interCeptorResult](../readmeSource/gif/interCeptorResult.gif)
 
 2. 로그
-![interCeptorLog](./readmeSource/interCeptorLog.gif)
+![interCeptorLog](../readmeSource/gif/interCeptorLog.gif)
