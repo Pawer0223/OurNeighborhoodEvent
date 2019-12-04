@@ -485,3 +485,48 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 
 5~7 관련 메소드 : public String restore(MultipartFile multipartFile)
 : https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/CommonFunctions.java
+
+**8. 페이징 처리**
+
+- Events페이지 클릭시 최근 이벤트 순서대로 한 페이지에 최대9개씩 조회되도록 구현
+
+EX) 테이블에 등록된 이벤트의 총 건수가 52개인 경우, 9개씩 5페이지까지 최초 보여짐. [>] 버튼 클릭시 순차대로 5개씩 리스트업 됨 ( 6~10 )
+
+- 수행 쿼리
+
+```
+	<select id="selectEventInfos" parameterType="first.actions.model.Paging" resultMap="eventInfos">
+		<![CDATA[	  
+		SELECT EVENT_SEQ
+			 , PTN_CD
+			 , PTN_NM
+			 , EVENT_NM
+			 , PRODUCT
+			 , PRODUCT_PIC
+			 , ORIGIN_PRICE
+			 , EVENT_PRICE
+			 , AMOUNT
+			 , EVENT_STATUS
+			 , NEIGHBOR
+			 , DELIVERY_YN
+		FROM (
+		    SELECT ROWNUM RN, A.* 
+		        FROM (
+		                SELECT * 
+		                FROM EVENT_INFOS
+		                WHERE EVENT_STATUS='WORK'
+		                ORDER BY EVENT_SEQ DESC 
+		                ) A
+		        )
+		WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+
+```
+
+- 페이징 처리하기위한 class
+: https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/model/Paging.java
+
+- 적용결과 확인
+![paging](./readmeSource/paging.gif)
+
