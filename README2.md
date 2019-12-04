@@ -56,7 +56,7 @@
     - Y : 가능 , 이벤트 화면에서 오토바이 표시
     - N : 불가능
 
-    3-4 ) 인덱스 : EVENT_INFOS_IDX01(PTN_CD, EVENT_SEQ)
+    3-4) 인덱스 : EVENT_INFOS_IDX01(PTN_CD, EVENT_SEQ)
     - 용도 : 파트너 별로 진행 이벤트 내역을 조회하기 위함
 
 ### 4. 이벤트 참여이력( EVENT_HIST )
