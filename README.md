@@ -524,9 +524,10 @@ EX) 테이블에 등록된 이벤트의 총 건수가 52개인 경우, 9개씩 5
 
 ```
 
-- 페이징 처리하기위한 class
+- 페이징 처리하기위한 CLASS파일
 : https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/model/Paging.java
 
 - 적용결과 확인
+
 ![paging](./readmeSource/paging.gif)
 
