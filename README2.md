@@ -122,6 +122,8 @@
 
 - 최근 이벤트 및 리뷰조회
 
+![mainPage](./readmeSource/gif/mainPage.gif)
+
 ### 이벤트조회
 
 - 9개씩 페이징처리하여 조회
@@ -130,12 +132,18 @@
 
 - 상세내용 및 사업자의 리뷰내역 확인가능
 
+![eventPage](./readmeSource/gif/eventPage.gif)
+
 ### About
 
 - 서비스 설명
 
+![about](./readmeSource/gif/about.gif)
+
 ### Contact
 
 - 개발자 연락처
+
+![contact](./readmeSource/gif/contact.gif)
 
 
