@@ -54,19 +54,19 @@
 		          	<div class="icon">
 		          		<span class="icon-map-o"></span>
 		          	</div>
-		            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+		            <p><span>Address:</span>경기도 용인시 기흥구 구성로</p>
 		          </div>
 		          <div class="col-md-4 text-center border-height py-4">
 		          	<div class="icon">
 		          		<span class="icon-mobile-phone"></span>
 		          	</div>
-		            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+		            <p><span>Phone:</span> <a href="tel://01045868427">+ 010 4586 8427</a></p>
 		          </div>
 		          <div class="col-md-4 text-center py-4">
 		          	<div class="icon">
 		          		<span class="icon-envelope-o"></span>
 		          	</div>
-		            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+		            <p><span>Email:</span> <a href="mailto:info@yoursite.com">kangtaesan94@gmail.com</a></p>
 		          </div>
 		        </div>
           </div>

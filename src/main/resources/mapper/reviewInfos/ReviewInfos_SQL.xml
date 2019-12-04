@@ -39,6 +39,7 @@
 			   	,#{ ptnCd }
 			   	,#{ reviewName }
 			   	,#{ reviewDesc }
+			   	,#{ stars }
 			   	,SYSDATE
 			   	,''
 			   	)

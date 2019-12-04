@@ -58,7 +58,7 @@
 					<tr>
 						<td style="width: 110px;">내용</td>
 						<td colspan="2"><textarea class="form-control"  id="reviewDesc" name="reviewDesc" style="height: 350px;"
-							placeholder="이벤트 내용"></textarea></td>
+							placeholder="리뷰를 작성해 주세요"></textarea></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">별점</td>
