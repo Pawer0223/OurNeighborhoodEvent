@@ -24,13 +24,10 @@ public class Paging {
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
 		
-		//6들어왔을때 lastPage = 6
 		setLastPage((int) Math.ceil((double)total / (double)cntPerPage));
 	}
 	// 시작, 끝 페이지 계산
 	public void calcStartEndPage(int nowPage, int cntPage) {
-		
-		//6들어왔을때 , 6/5 = 2 * 5 = 10이고 , last가 6이니깐 , endPage = 6 되고 ...
 		
 		setEndPage(((int)Math.ceil((double)nowPage / (double)cntPage)) * cntPage);
 		if (getLastPage() < getEndPage()) {
