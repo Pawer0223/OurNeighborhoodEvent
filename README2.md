@@ -22,7 +22,7 @@
 
 ### 1. 사용자정보(USER_INFOS)
 
-    1-1) 사용자구분코드( USER_GBN_CD )
+    1-1) 사용자구분코드 ( USER_GBN_CD )
     - NOR(일반유저) : 가게등록 및 이벤트 참여가능.
     - PTN(사업자) : 이벤트 등록 및 참여가능
     - ADM(관리자) : 사이트 관리가능
@@ -45,7 +45,7 @@
 
 ### 3. 이벤트정보( EVENT_INFOS )
 
-    3-1) 이벤트 번호( EVENT_SEQ )
+    3-1) 이벤트 번호 ( EVENT_SEQ )
     - EXXXXXX 형태로 저장
 
     3-2) 이벤트 진행상태 ( EVENT_STATUS )
@@ -56,12 +56,12 @@
     - Y : 가능 , 이벤트 화면에서 오토바이 표시
     - N : 불가능
 
-    3-4) 인덱스 : EVENT_INFOS_IDX01(PTN_CD, EVENT_SEQ)
+    3-4) 인덱스 : EVENT_INFOS_IDX01 (PTN_CD, EVENT_SEQ)
     - 용도 : 파트너 별로 진행 이벤트 내역을 조회하기 위함
 
 ### 4. 이벤트 참여이력( EVENT_HIST )
 
-    4-1) 참여상태( PART_STATUS )
+    4-1) 참여상태 ( PART_STATUS )
     - COM : 결제완료
     - CAN : 결제취소
     - REDO : 취소 후 다시결제 ( 동일한 EVENT_SEQ,USER_ID로 CAN의 이력이 존재하는 경우 등록 됨 )
@@ -72,7 +72,7 @@
 
 ### 5. 리뷰정보 ( REVIEW_INFOS )
 
-    5-1) 리뷰 번호( REVIEW_SEQ )
+    5-1) 리뷰 번호 ( REVIEW_SEQ )
     - RXXXXXX 형태로 저장
 
 ### 6. 메뉴 ( MENU_LIST )
