@@ -330,36 +330,7 @@ https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first
 - 동네선택
 ![daumAPI2](./readmeSource/daumAPI2.png)
 
-**4. 메인페이지 호출시 최신데이터 조회**
-
-- 최근이벤트 3건 조회<br>
-: 현재 진행중인(WORK) 이벤트 중에서 최신3건 조회.
-![eventList](./readmeSource/eventList.png)
-
-- 수행 SQL
-```
-SELECT
-EVENT_SEQ,PTN_NM,EVENT_NM,PRODUCT_PIC,ORIGIN_PRICE,EVENT_PRICE,AMOUNT,NEIGHBOR,DELIVERY_YN
-FROM EVENT_INFOS
-WHERE EVENT_STATUS ='WORK'
-ORDER BY EVENT_SEQ DESC;
-```
-
-- 최신등록 리뷰순으로 데이터 조회<br>
-: 종료 된 이벤트를 기준으로, EVENT_SEQ로 이벤트정보, USER_ID로 고객정보를 조회함 ( 3개 테이블 조인 )
-![reviewList](./readmeSource/reviewList.png)
-
-- 수행 SQL
-```
-SELECT USER_NM, PROFILE_PIC, EH.EVENT_NM AS EVENT_NM, REVIEW_DESC AS REVIEW_DESC
-FROM REVIEW_INFOS RV , USER_INFOS UI , EVENT_HIST EH
-WHERE EH.PART_STATUS = 'COM'
-AND RV.EVENT_SEQ = EH.EVENT_SEQ
-AND EH.USER_ID = RV.USER_ID
-AND RV.USER_ID = UI.USER_ID
-ORDER BY RV.REVIEW_SEQ DESC
-```
-**5. 이벤트등록,가게등록,리뷰등록 페이지 수행시 로그인 세션 처리를 위하여 InterCeptor활용**
+**4. 이벤트등록,가게등록,리뷰등록 페이지 수행시 로그인 세션 처리를 위하여 InterCeptor활용**
 
 1) action-servlet.xml 에서 등록페이지 서블릿 네임 패턴 호출 시 로그인세션이 살아있지않으면 로그인 후 이용가능하도록 처리
 
@@ -402,7 +373,7 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 ![interceptorCheck](./readmeSource/interceptorCheck.gif)
 
 
-**6. 로그인 계정 등급에 따른 메뉴리스트 조회**
+**5. 로그인 계정 등급에 따른 메뉴리스트 조회**
 
 - Menu_List테이블 데이터 구성
 
@@ -465,7 +436,7 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 - 'NOR'등급의 계정으로 로그인 시 메뉴리스트 변경결과 확인
 ![menuResult](./readmeSource/menuResult.gif)
 
-**7. 파일업로드 기능**
+**6. 파일업로드 기능**
 
 1. pom.xml에 파입업로드를 위한 라이브러리설정 추가.
 
@@ -486,7 +457,7 @@ public class EventsInterceptor extends HandlerInterceptorAdapter {
 5~7 관련 메소드 : public String restore(MultipartFile multipartFile)
 : https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/CommonFunctions.java
 
-**8. 페이징 처리**
+**7. 페이징 처리**
 
 - Events페이지 클릭시 최근 이벤트 순서대로 한 페이지에 최대9개씩 조회되도록 구현
 
