@@ -1,4 +1,4 @@
-# OurNeighborhoodEvent
+# OurNeighborhoodEvent<br>
 
 <p>
     <img src="https://img.shields.io/badge/version-1.0.0-rgb(26, 188, 156).svg" />
@@ -11,22 +11,23 @@
     <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 204, 000).svg" />
 </p>
 
+<br>
 
-## 우리동네 이벤트란 ??  
-
+## 우리동네 이벤트란 ??<br><br> 
 
 우리동네 이벤트는 자영업자들을 위한 효율적인 재고처리를 위하여 기획하게 되었습니다.
 사장님 마음대로 우리동네에 이벤트( 가격할인 , 무료나눔 등 )를 등록하여 반복적인 일상에 소소한 즐거움을 줄 수 있기를 바랍니다.
 
-  
+<br>
+
 ## ERD 및 테이블 설명
 
-![erd](./readmeSource/erd.png)
+![erd](./readmeSource/erd.png)<br>
 
 
-### 1. 사용자정보(USER_INFOS)
+### 1. 사용자정보(USER_INFOS)<br><br>
 
-
+<br>
 1-1) 사용자구분코드( USER_GBN_CD )
 
 - NOR(일반유저) : 가게등록 및 이벤트 참여가능.
@@ -54,16 +55,18 @@
 
 - 24시간이 지난 후 최초로그인 성공 시 NULL로 UPDATE 수행
 
+<br>
 
-### 2. 사업자정보( PTN_INFOS )
+### 2. 사업자정보( PTN_INFOS )<br><br>
 
 
 2-1) 사업자ID ( PTN_CD )
 
 - PXXXXX 형태로 저장
 
+<br>
 
-### 3. 이벤트정보( EVENT_INFOS )
+### 3. 이벤트정보( EVENT_INFOS )<br><br>
 
 
 3-1) 이벤트 번호( EVENT_SEQ )
@@ -89,8 +92,9 @@
 
 - 용도 : 파트너 별로 진행 이벤트 내역을 조회하기 위함
 
+<br>
 
-### 4. 이벤트 참여이력( EVENT_HIST )
+### 4. 이벤트 참여이력( EVENT_HIST )<br><br>
 
 
 4-1) 참여상태( PART_STATUS )
@@ -109,16 +113,18 @@
 
 - END : 종료
 
+<br>
 
-### 5. 리뷰정보 ( REVIEW_INFOS )
+### 5. 리뷰정보 ( REVIEW_INFOS )<br><br>
 
 
 5-1) 리뷰 번호( REVIEW_SEQ )
 
 - RXXXXXX 형태로 저장
 
+<br>
 
-### 6. 메뉴 ( MENU_LIST )
+### 6. 메뉴 ( MENU_LIST )<br><br>
 
 
 6-1) 사용자구분코드 ( USER_GBN_CD )
@@ -143,5 +149,6 @@
 
 - 해당 메뉴호출 시 수행되는 Servlet정보
 
+<br>
 
 ## 주요 기능
