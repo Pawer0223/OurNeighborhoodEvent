@@ -18,16 +18,6 @@
 		<result property="deliveryYn" column="DELIVERY_YN" />
 	</resultMap>
 
-	<select id="selectLatestEvents" resultType="hashmap">
-		<![CDATA[	  
-		SELECT
-		EVENT_SEQ,PTN_CD,PTN_NM,EVENT_NM,PRODUCT_PIC,ORIGIN_PRICE,EVENT_PRICE,AMOUNT,NEIGHBOR,DELIVERY_YN
-		FROM EVENT_INFOS
-		WHERE EVENT_STATUS ='WORK'
-		ORDER BY EVENT_SEQ DESC
-		]]>
-	</select>
-
 	<select id="selectEventInfos" parameterType="first.actions.model.Paging" resultMap="eventInfos">
 		<![CDATA[	  
 		SELECT EVENT_SEQ

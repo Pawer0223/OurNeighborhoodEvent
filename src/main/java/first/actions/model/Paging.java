@@ -4,7 +4,9 @@ public class Paging {
 
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
-	private static int cntPage = 5;
+	
+	// 리스트 몇개까지 보여줄껀지
+	private int cntPage = 5;
 
 	public Paging() {
 
@@ -21,15 +23,34 @@ public class Paging {
 
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
+		
+		//6들어왔을때 lastPage = 6
 		setLastPage((int) Math.ceil((double)total / (double)cntPerPage));
 	}
 	// 시작, 끝 페이지 계산
 	public void calcStartEndPage(int nowPage, int cntPage) {
+		
+		//6들어왔을때 , 6/5 = 2 * 5 = 10이고 , last가 6이니깐 , endPage = 6 되고 ...
+		
 		setEndPage(((int)Math.ceil((double)nowPage / (double)cntPage)) * cntPage);
 		if (getLastPage() < getEndPage()) {
 			setEndPage(getLastPage());
 		}
-		setStartPage(getEndPage() - cntPage + 1);
+		
+		// EndPage가 6일때 ..StartPage도 6이 나와야 함..최초 산식에 따르면 2가 나옴 ....
+		
+		// 총 페이지가 11개 까지있는데 내가 선택한게 6번째라고하면 ?
+		
+		// ex) 11을 5로 나누면 [ 1~5 , 6~10 , 11~ 11 ] 3구간 존재
+		
+		// 1~4까지는 5로나누었을때 몫이 0 5는 1 즉, 나머지가 0일때는 , 몫 -1을 곱하면 됨.
+		
+		int mok = nowPage/cntPage;
+		
+		if ( nowPage%cntPage==0 ) mok-=1;
+		
+		setStartPage( cntPage*mok + 1 );
+		
 		if (getStartPage() < 1) {
 			setStartPage(1);
 		}
@@ -105,12 +126,12 @@ public class Paging {
 		this.end = end;
 	}
 
-	public static int getCntPage() {
+	public int getCntPage() {
 		return cntPage;
 	}
 
-	public static void setCntPage(int cntPage) {
-		Paging.cntPage = cntPage;
+	public void setCntPage(int cntPage) {
+		this.cntPage = cntPage;
 	}
 
 	@Override
