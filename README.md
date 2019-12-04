@@ -45,7 +45,7 @@
 
 ### 3. 이벤트정보( EVENT_INFOS )
 
-    3-1) 이벤트 번호 ( EVENT_SEQ )
+    3-1) 이벤트번호 ( EVENT_SEQ )
     - EXXXXXX 형태로 저장
 
     3-2) 이벤트 진행상태 ( EVENT_STATUS )
@@ -72,8 +72,11 @@
 
 ### 5. 리뷰정보 ( REVIEW_INFOS )
 
-    5-1) 리뷰 번호 ( REVIEW_SEQ )
+    5-1) 리뷰번호 ( REVIEW_SEQ )
     - RXXXXXX 형태로 저장
+    
+    5-2) 인덱스 : REVIEW_INFOS_IDX01(EVENT_SEQ, REVIEW_SEQ)
+    - 용도 : 사업자 별로 최근 이벤트의 리뷰를 조회하기 위함
 
 ### 6. 메뉴 ( MENU_LIST )
 
@@ -89,7 +92,19 @@
 
     6-3) 서블릿 링크 ( SERVLET_HREF )
     - 해당 메뉴호출 시 수행되는 Servlet정보
-
+    
+    6-4) MENU_LIST 데이터 구성
+    
+![menuData](./readmeSource/menuData.png)    
+    
+### 7. 사업자ID, 리뷰번호, 이벤트번호 채번쿼리 ( MAX+1 추출 )
+    
+    EX) 사업자ID 채번쿼리
+    
+    SELECT 'P' || LPAD(NVL(MAX(SUBSTR(PTN_CD,2)),0)+1,5,'0') 
+    FROM PTN_INFOS
+    
+    
 ## 주요 기능
 
 ### Interceptor를 활용 한 세션체크
