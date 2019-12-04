@@ -124,7 +124,7 @@
 
 - 동네검색시 우편번호 자동입력
 
-- 
+- 소스
 
 ```		
 	@RequestMapping(value = "/ptnInfos/registPtnInfos.do")
@@ -179,6 +179,7 @@
 ```
 
 - 등록화면
+
 ![registStore](./readmeSource/registStore.png)
 
 
@@ -187,9 +188,11 @@
 - 본인이 참여한 이벤트가 있는경우에만 리뷰등록 가능
 
 - 있는경우 SELECT박스로 리스트업 됨
+
 ![registReviewSuccess](./readmeSource/registReviewSuccess.png)
 
-- 없는경우
+- 없는경우 ALERT메시지 후 메인페이지 이동
+
 ![registReviewFail](./readmeSource/registReviewFail.png)
 
 - 리뷰 등록 시 EVENT_SEQ로 PTN_CD값 조회
@@ -205,6 +208,7 @@
 ```
 
 - 소스코드
+
 ```
 	@RequestMapping(value = "/reviewInfos/registReviews.do")
 	public ModelAndView registReviews(ReviewInfos review, HttpServletRequest request) throws Exception {
@@ -244,8 +248,6 @@
 	}
 }
 ```
-
-
 3) 이벤트 등록<br>
 - 상호명 및 동네 데이터는 로그인 session에서 참조.
 
