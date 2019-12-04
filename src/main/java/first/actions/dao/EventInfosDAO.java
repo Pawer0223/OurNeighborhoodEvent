@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import first.actions.model.EventInfos;
+import first.actions.model.Paging;
 import first.common.dao.AbstractDAO;
 
 //EVENT_INFOS에 접근하는 DAO 클래스
@@ -18,8 +19,18 @@ public class EventInfosDAO extends AbstractDAO {
 		return (List<Map<String, EventInfos>>)selectList("eventInfos.selectLatestEvents");
 	}
 	
-	public EventInfos eventDetailInfo(String ptnCd) {
-		return (EventInfos)selectOne("eventInfos.eventDetailInfo" , ptnCd);
+	// 이벤트 리스트 조회
+	public List<EventInfos> selectEventInfos(Paging paging) {
+		return (List<EventInfos>)selectList("eventInfos.selectEventInfos",paging);
+	}
+	
+	// 이벤트 총 갯수 조회
+	public int getEventCount() {
+		return (Integer)selectOne("eventInfos.getEventCount");
+	}
+	
+	public EventInfos eventDetailInfo(String eventSeq) {
+		return (EventInfos)selectOne("eventInfos.eventDetailInfo" , eventSeq);
 	}
 	
 	public String getMaxEventSeq() {
@@ -28,7 +39,8 @@ public class EventInfosDAO extends AbstractDAO {
 	
 	public int registEventInfos(EventInfos eventInfo) {
 		return (Integer)insert("eventInfos.registEventInfos",eventInfo);
-	} 
+	}
+	
 	public String getPtnCd(String eventSeq) {
 		return (String)selectOne("eventInfos.getPtnCd", eventSeq);
 	}

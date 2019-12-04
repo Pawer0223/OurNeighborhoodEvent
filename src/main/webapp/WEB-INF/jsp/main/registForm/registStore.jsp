@@ -36,7 +36,7 @@
 				<tbody>
 					<tr>
 						<td style="width: 110px;">사업자 등록번호</td>
-						<td colspan="2"><input class="form-control" type="text" id="bizrRegNo" name="bizrRegNo" maxLength="20" placeholder ="-를 제외한 10자리 입력해주세요"></td>
+						<td colspan="2"><input class="form-control" type="number" id="bizrRegNo" name="bizrRegNo"  maxlength="10" placeholder ="-를 제외한 10자리 입력해주세요"></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">상호 명</td>
@@ -51,7 +51,7 @@
 					<tr>
 						<td style="width: 110px;">대표자 휴대번호</td>
 						<td colspan="2">
-						<input class="form-control" type="tel" id="rpstTel" name="rpstTel" maxLength="20" placeholder="-를 제외한 휴대번호를 입력해주세요">
+						<input class="form-control" type="tel" id="rpstTel" name="rpstTel" maxLength="11" placeholder="-를 제외한 휴대번호를 입력해주세요">
 						</td>
 					</tr>
 					<tr>

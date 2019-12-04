@@ -35,7 +35,7 @@
 
 	<select id="getMaxPtnCd" resultType="String">
 		<![CDATA[
-			SELECT 'P' || LPAD(MAX(SUBSTR(PTN_CD,2))+1,5,'0')
+			SELECT 'P' || LPAD(NVL(MAX(SUBSTR(PTN_CD,2)),0)+1,5,'0') 
 			FROM PTN_INFOS
 		]]>
 	</select>

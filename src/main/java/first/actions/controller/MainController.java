@@ -12,10 +12,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import first.actions.model.EventInfos;
 import first.actions.model.MenuList;
+import first.actions.model.Paging;
 import first.actions.model.UserInfos;
 import first.actions.service.EventInfosService;
 import first.actions.service.MenuListService;
@@ -82,8 +84,13 @@ public class MainController {
 				request.getSession().setAttribute("menuList", m);
 			}
 		}
-
-		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
+		
+		Paging paging = new Paging();
+		
+		paging.setStart(1);
+		paging.setEnd(3);
+		
+		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
 		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
 
 		mv.addObject("latestEvents", latestEvents);
@@ -91,6 +98,7 @@ public class MainController {
 
 		return mv;
 	}
+	
 	
 	// 메뉴리스트 만들기위한 method
 	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){

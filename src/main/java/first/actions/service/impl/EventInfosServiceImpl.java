@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import first.actions.dao.EventInfosDAO;
 import first.actions.model.EventInfos;
+import first.actions.model.Paging;
 import first.actions.service.EventInfosService;
 
 @Service("eventInfosService")
@@ -27,8 +28,8 @@ public class EventInfosServiceImpl implements EventInfosService {
 	}
 
 	@Override
-	public EventInfos eventDetailInfo(String ptnCd) throws Exception {
-		return eventInfosDAO.eventDetailInfo(ptnCd);
+	public EventInfos eventDetailInfo(String eventSeq) throws Exception {
+		return eventInfosDAO.eventDetailInfo(eventSeq);
 	}
 
 	@Override
@@ -44,6 +45,16 @@ public class EventInfosServiceImpl implements EventInfosService {
 	@Override
 	public String getPtnCd(String eventSeq) throws Exception {
 		return eventInfosDAO.getPtnCd(eventSeq);
+	}
+
+	@Override
+	public List<EventInfos> selectEventInfos(Paging paging) throws Exception {
+		return eventInfosDAO.selectEventInfos(paging);
+	}
+
+	@Override
+	public int getEventCount() throws Exception {
+		return eventInfosDAO.getEventCount();
 	}
 
 }

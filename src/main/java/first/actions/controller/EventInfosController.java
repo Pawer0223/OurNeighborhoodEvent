@@ -10,10 +10,13 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import first.actions.model.EventInfos;
+import first.actions.model.Paging;
 import first.actions.model.PtnInfos;
 import first.actions.model.UserInfos;
 import first.actions.service.EventInfosService;
@@ -43,8 +46,11 @@ public class EventInfosController {
 	public ModelAndView eventDetail(HttpServletRequest request) throws Exception {
 		
 		String ptnCd = request.getParameter("ptnCd");
+		String eventSeq = request.getParameter("eventSeq");
 		
-		EventInfos eventDetail = eventInfosService.eventDetailInfo(ptnCd);
+		// 이벤트 상세단건조회
+		EventInfos eventDetail = eventInfosService.eventDetailInfo(eventSeq);
+		// 이벤트 제공업체 리뷰전체조회
 		List<Map<String, Object>> reviewDetail = reviewInfosService.reviewSearch(ptnCd);
 		
 		ModelAndView mv = new ModelAndView("/main/events-single");
@@ -53,19 +59,6 @@ public class EventInfosController {
 		
 		if ( reviewDetail != null ) mv.addObject("reviewDetail", reviewDetail);		
 		
-		return mv;
-	}
-	
-	// events페이지 이동
-	@RequestMapping(value = "/eventInfos/events.do")
-	public ModelAndView events() throws Exception {
-
-		ModelAndView mv = new ModelAndView("/main/events");
-
-		List<Map<String, EventInfos>> latestEvents = eventInfosService.selectLatestEvents();
-
-		mv.addObject("latestEvents", latestEvents);
-
 		return mv;
 	}
 	
@@ -131,6 +124,33 @@ public class EventInfosController {
 			request.getSession().setAttribute("messageContent", "이벤트 등록시 문제가 있습니다.");
 			return mv;
 		}
+	}
+	
+	// 페이징 처리를 위한 이벤트 리스트 조회
+	@RequestMapping(value = "/eventInfos/selectEventInfos.do")
+	public ModelAndView selectEventInfos(Paging paging,
+			@RequestParam(value="nowPage", required=false) String nowPage, 
+			@RequestParam(value="cntPerPage", required=false) String cntPerPage) throws Exception {
+
+		ModelAndView mv = new ModelAndView("/main/events");
+		
+		int total = eventInfosService.getEventCount();
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "9";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = "9";
+		}
+		
+		paging = new Paging(total , Integer.parseInt(nowPage) , Integer.parseInt(cntPerPage));
+		
+		mv.addObject("paging", paging);
+		mv.addObject("eventInfos", eventInfosService.selectEventInfos(paging));
+
+		return mv;
 	}
 }
 

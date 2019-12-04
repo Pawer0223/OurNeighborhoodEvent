@@ -71,7 +71,7 @@ public class UserInfosController {
 
 		System.out.println(userInfo.toString());
 
-		ModelAndView mv = new ModelAndView("/main/registForm/signUp");
+		ModelAndView mv = new ModelAndView("/main/registForm/registUser");
 
 
 		if ( userInfo.getUserId().isEmpty() || userInfo.getUserPw().isEmpty() || userInfo.getUserPw2().isEmpty() || userInfo.getEmail().isEmpty()
