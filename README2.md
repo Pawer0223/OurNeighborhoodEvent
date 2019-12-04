@@ -40,14 +40,14 @@
 
 - 신규 사업자 등록 시 UPDATE , 최초 계정 등록시 NULL
 
-
+<br>
 1-3) 로그인오류 횟수 ( LGN_ERR_CNT )
 
 - 로그인 실패 시 CNT증가
 
 - 로그인 성공 시 0으로 초기화
 
-
+<br>
 1-4) 최종로그인 일시 ( LST_LGN_DATE )
 
 - 로그인 5회이상 실패시 SYSDATE로 UPDATE
