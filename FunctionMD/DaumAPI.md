@@ -6,7 +6,7 @@
 
 - 회원가입 및 가게등록시 동일한 형태의 데이터로 저장되도록 구현
 
-- 수행되는 scipt의 js파일 : <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/resources/js/mapAPI.js">[ mapApi.js ]</a>
+- 수행되는 script의 js파일 : <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/resources/js/mapAPI.js">[ mapApi.js ]</a>
 
 ### 결과확인
 
