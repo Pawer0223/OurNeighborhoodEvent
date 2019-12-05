@@ -9,6 +9,7 @@
     <img src="https://img.shields.io/badge/Mybatis-3.2.2-rgb(243, 156, 18).svg" />
     <img src="https://img.shields.io/badge/Oracle11g -rgb(243, 156, 18).svg" />
     <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 204, 000).svg" />
+    <img src="https://img.shields.io/badge/Jsp -rgb(204, 153, 051).svg" />
 </p>
 
 ## 우리동네 이벤트란 ??
@@ -190,7 +191,7 @@
     
 ![menuData](./readmeSource/menuData.png)    
     
-### 7. 사업자ID, 리뷰번호, 이벤트번호 채번쿼리 ( MAX+1 추출 )
+### * 사업자ID, 리뷰번호, 이벤트번호 채번쿼리 ( MAX+1 추출 )
     
     EX) 사업자ID 채번쿼리
     
