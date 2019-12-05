@@ -16,6 +16,99 @@
 우리동네 이벤트는 자영업자들을 위한 효율적인 재고처리를 위하여 기획하게 되었습니다.
 사장님 마음대로 우리동네에 이벤트( 가격할인 , 무료나눔 등 )를 등록하여 반복적인 일상에 소소한 즐거움을 줄 수 있기를 바랍니다.
 
+## 프로젝트 구성
+
+- 팀 구성 : 1인개발 ( 개인 프로젝트 )
+
+- 개발일정 및 ISSUE내역
+<table>
+    <tr>
+        <td>일정</td>
+        <td>진행상황</td>
+        <td>Issue</td>
+    </tr>
+    <tr>
+        <td>1~3일차</td>
+        <td>
+            <ul>
+                <li>필요기능 분석</li>
+                <li>테이블 설계</li>
+                <li>홈페이지 디자인 선정 및 Customizing</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/2"> [ 템플릿 적용 시 Issue 1 ] </a></li>
+                <LI><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/5"> [ 템플릿 적용 시 Issue 2 ] </a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>4~6일차</td>
+        <td>
+            <ul>
+                <li>개발 환경설정 및 DB연동</li>
+                <li>로그인 및 회원가입 페이지 구현</li>
+                <li>Header, Footer분리작업 수행</li>
+                <li>다음주소 API적용</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/6"> [ 개발 환경구축 시 Issue ] </a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>7~9일차</td>
+        <td>
+             <ul>
+                <li>테이블 별 VO, DAO, Service, SQL Mapper파일 정의</li>
+                <li>조회화면 구현</li>
+                <li>Ajax적용</li>
+                <li>유효성 검사 적용</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/8"> [ 구분에 따른 MenuList적용 시 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/10"> [ 가게등록 INSERT수행 시 Issue ] </a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>10~14일차</td>
+        <td>
+            <ul>
+                <li>가게등록, 리뷰등록, 이벤트등록 페이지 구현</li>
+                <li>암호화적용 완료</li>
+                <li>Interceptor적용</li>
+                <li>유저구분코드에 따른 메뉴리스트 출력되도록 적용</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/8"> [ 구분에 따른 MenuList적용 시 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/10"> [ 가게등록 INSERT수행 시 Issue ] </a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>15~17일차</td>
+        <td>
+            <ul>
+                <li>페이징처리 적용</li>
+                <li>개발내역 정리</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/11"> [ 페이징 처리 시 Issue ] </a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
 ## ERD 및 테이블 설명
 
 ![erd](./readmeSource/erd.png)
