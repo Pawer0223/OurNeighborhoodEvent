@@ -72,8 +72,7 @@
         </td>
         <td>
             <ul>
-                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/8"> [ 구분에 따른 MenuList적용 시 Issue ] </a></li>
-                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/10"> [ 가게등록 INSERT수행 시 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/7"> [ Ajax적용 시 Issue ] </a></li>
             </ul>
         </td>
     </tr>
