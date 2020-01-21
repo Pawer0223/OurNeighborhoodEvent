@@ -16,6 +16,7 @@ public class EventHistController {
 		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/contact");
 		return mv;
+		
 	}
 }
 
