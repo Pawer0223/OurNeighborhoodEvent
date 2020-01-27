@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import first.actions.dao.EventHistDAO;
-import first.actions.model.EventHist;
 import first.actions.service.EventHistService;
 
 @Service("eventHistService")
