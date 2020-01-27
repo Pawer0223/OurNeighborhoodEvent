@@ -109,6 +109,29 @@
     </tr>
 </table>
 
+- 추가 ISSUE
+<table>
+    <tr>
+        <td>분류</td>
+        <td>제목</td>
+        <td>조치사항</td>
+    </tr>
+    <tr>
+        <td>개발환경 설정오류</td>
+        <td>
+            <ul>
+                <li>프로젝트 Clone하여 생성 시 Maven관련 오류내역</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/12"> [ Library class not found ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/13"> [ Dynamic Web module 3.1 requires java 1.7 or newer ] </a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
 ## ERD 및 테이블 설명
 
 ![erd](./readmeSource/erd.png)
