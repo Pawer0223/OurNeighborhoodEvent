@@ -12,17 +12,17 @@
 	 ( 정확히는, 3 layer architecture를 스캔 함 )
 	 ( https://victorydntmd.tistory.com/168
 	-->
-	<context:component-scan base-package="first"></context:component-scan>
+	<context:component-scan base-package="woodong2"></context:component-scan>
 
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean id="loggerInterceptor" class="first.common.interceptors.LoggerInterceptor"></bean>
+			<bean id="loggerInterceptor" class="woodong2.interceptors.common.LoggerInterceptor"></bean>
 		</mvc:interceptor>
 		
 		<mvc:interceptor>
 			<mvc:mapping path="/*/regist*Page.do" />
-			<bean id="registInterCeptor" class="first.common.interceptors.RegistInterceptor"></bean>
+			<bean id="registInterCeptor" class="woodong2.interceptors.common.RegistInterceptor"></bean>
 		</mvc:interceptor>
 	
 	</mvc:interceptors>

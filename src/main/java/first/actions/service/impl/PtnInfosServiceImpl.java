@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import first.actions.dao.PtnInfosDAO;
 import first.actions.model.PtnInfos;
 import first.actions.service.PtnInfosService;
-import first.loginAction.model.UserInfo;
 
 @Service("ptnInfosService")
 public class PtnInfosServiceImpl implements PtnInfosService {

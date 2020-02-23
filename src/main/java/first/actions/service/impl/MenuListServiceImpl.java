@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import first.actions.dao.MenuListDAO;
 import first.actions.model.MenuList;
 import first.actions.service.MenuListService;
-import first.loginAction.model.UserInfo;
 
 @Service("menuListService")
 public class MenuListServiceImpl implements MenuListService {
