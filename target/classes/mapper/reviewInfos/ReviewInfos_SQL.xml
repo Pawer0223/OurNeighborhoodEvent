@@ -30,7 +30,7 @@
 		]]>
 	</select>
 	
-	<insert id="registReview" parameterType="first.actions.model.ReviewInfos">
+	<insert id="registReview" parameterType="woodong2.vo.common.ReviewInfos">
 		<![CDATA[
 		INSERT INTO REVIEW_INFOS 
 		VALUES ( #{ reviewSeq }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="eventInfos">
 
-	<resultMap id="eventInfos" type="first.actions.model.EventInfos">
+	<resultMap id="eventInfos" type="woodong2.vo.common.EventInfos">
 		<result property="eventSeq" column="EVENT_SEQ" />
 		<result property="ptnCd" column="PTN_CD" />
 		<result property="ptnNm" column="PTN_NM" />
@@ -18,7 +18,7 @@
 		<result property="deliveryYn" column="DELIVERY_YN" />
 	</resultMap>
 
-	<select id="selectEventInfos" parameterType="first.actions.model.Paging" resultMap="eventInfos">
+	<select id="selectEventInfos" parameterType="woodong2.vo.common.Paging" resultMap="eventInfos">
 		<![CDATA[	  
 		SELECT EVENT_SEQ
 			 , PTN_CD
@@ -75,7 +75,7 @@
 		]]>
 	</select>
 	
-	<insert id="registEventInfos" parameterType="first.actions.model.EventInfos">
+	<insert id="registEventInfos" parameterType="woodong2.vo.common.EventInfos">
 		<![CDATA[
 		INSERT INTO EVENT_INFOS 
 		VALUES ( #{ eventSeq }

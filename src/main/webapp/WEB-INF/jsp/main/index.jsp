@@ -15,30 +15,30 @@
 	rel="stylesheet">
 
 <link rel="stylesheet"
-	href="/first/resources/mainPage/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="/first/resources/mainPage/css/animate.css">
+	href="/resources/mainPage/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="/resources/mainPage/css/animate.css">
 
 <link rel="stylesheet"
-	href="/first/resources/mainPage/css/owl.carousel.min.css">
+	href="/resources/mainPage/css/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="/first/resources/mainPage/css/owl.theme.default.min.css">
+	href="/resources/mainPage/css/owl.theme.default.min.css">
 <link rel="stylesheet"
-	href="/first/resources/mainPage/css/magnific-popup.css">
+	href="/resources/mainPage/css/magnific-popup.css">
 
-<link rel="stylesheet" href="/first/resources/mainPage/css/aos.css">
-
-<link rel="stylesheet"
-	href="/first/resources/mainPage/css/ionicons.min.css">
+<link rel="stylesheet" href="/resources/mainPage/css/aos.css">
 
 <link rel="stylesheet"
-	href="/first/resources/mainPage/css/bootstrap-datepicker.css">
+	href="/resources/mainPage/css/ionicons.min.css">
+
 <link rel="stylesheet"
-	href="/first/resources/mainPage/css/jquery.timepicker.css">
+	href="/resources/mainPage/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="/resources/mainPage/css/jquery.timepicker.css">
 
 
-<link rel="stylesheet" href="/first/resources/mainPage/css/flaticon.css">
-<link rel="stylesheet" href="/first/resources/mainPage/css/icomoon.css">
-<link rel="stylesheet" href="/first/resources/mainPage/css/style.css">
+<link rel="stylesheet" href="/resources/mainPage/css/flaticon.css">
+<link rel="stylesheet" href="/resources/mainPage/css/icomoon.css">
+<link rel="stylesheet" href="/resources/mainPage/css/style.css">
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -48,7 +48,7 @@
 	<%@ include file="header.jsp"%>
 
 	<div class="hero-wrap ftco-degree-bg"
-		style="background-image: url('/first/resources/mainPage/images/bg_1.jpg');"
+		style="background-image: url('/resources/mainPage/images/bg_1.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		<div class="mouse">
-			<a href="/first/main/start.do" class="mouse-icon">
+			<a href="/main/start.do" class="mouse-icon">
 				<div class="mouse-wheel">
 					<span class="ion-ios-arrow-round-down"></span>
 				</div>
@@ -98,7 +98,7 @@
 				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
 					<div class="media block-6 services d-block text-center">
 						<div class="icon d-flex justify-content-center align-items-center">
-							<img src=/first/resources/mainPage/images/soccer.png width="100"
+							<img src=/resources/mainPage/images/soccer.png width="100"
 								height="100">
 						</div>
 						<div class="media-body py-md-4">
@@ -110,7 +110,7 @@
 				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
 					<div class="media block-6 services d-block text-center">
 						<div class="icon d-flex justify-content-center align-items-center">
-							<img src=/first/resources/mainPage/images/happy.png width="100"
+							<img src=/resources/mainPage/images/happy.png width="100"
 								height="100">
 						</div>
 						<div class="media-body py-md-4">
@@ -122,7 +122,7 @@
 				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
 					<div class="media block-6 services d-block text-center">
 						<div class="icon d-flex justify-content-center align-items-center">
-							<img src=/first/resources/mainPage/images/stock.png width="100"
+							<img src=/resources/mainPage/images/stock.png width="100"
 								height="100">
 						</div>
 						<div class="media-body py-md-4">
@@ -134,7 +134,7 @@
 				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
 					<div class="media block-6 services d-block text-center">
 						<div class="icon d-flex justify-content-center align-items-center">
-							<img src=/first/resources/mainPage/images/give.png width="100"
+							<img src=/resources/mainPage/images/give.png width="100"
 								height="100">
 						</div>
 						<div class="media-body py-md-4">
@@ -149,7 +149,7 @@
 
 	<section
 		class="ftco-section ftco-degree-bg services-section img mx-md-5"
-		style="background-image: url(/first/resources/mainPage/images/bg_2.jpg);">
+		style="background-image: url(/resources/mainPage/images/bg_2.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row justify-content-start mb-5">
@@ -249,10 +249,10 @@
 										class="orig-price">${ row.eventPrice }<small>￦</small></span>
 								</p>
 								<ul class="property_list" style="text-align: center;">
-									<li><img src=/first/resources/mainPage/images/running.gif
+									<li><img src=/resources/mainPage/images/running.gif
 										width="30" height="30">&nbsp;남은 수량 : ${ row.amount }&nbsp;
 										<c:if test="${ row.deliveryYn eq 'Y' }">
-											<img src=/first/resources/mainPage/images/Delivery.png
+											<img src=/resources/mainPage/images/Delivery.png
 												width="20" height="20">
 										</c:if>
 								</ul>
@@ -324,7 +324,7 @@
 			<div class="row no-gutters">
 				<div
 					class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center"
-					style="background-image: url(/first/resources/mainPage/images/about.jpg);">
+					style="background-image: url(/resources/mainPage/images/about.jpg);">
 				</div>
 				<div class="col-md-6 wrap-about py-md-5 ftco-animate">
 					<div class="heading-section p-md-5">
@@ -419,28 +419,28 @@
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
-	<script src="/first/resources/mainPage/js/jquery.min.js"></script>
-	<script src="/first/resources/mainPage/js/jquery-migrate-3.0.1.min.js"></script>
-	<script src="/first/resources/mainPage/js/popper.min.js"></script>
-	<script src="/first/resources/mainPage/js/bootstrap.min.js"></script>
-	<script src="/first/resources/mainPage/js/jquery.easing.1.3.js"></script>
-	<script src="/first/resources/mainPage/js/jquery.waypoints.min.js"></script>
-	<script src="/first/resources/mainPage/js/jquery.stellar.min.js"></script>
-	<script src="/first/resources/mainPage/js/owl.carousel.min.js"></script>
-	<script src="/first/resources/mainPage/js/jquery.magnific-popup.min.js"></script>
-	<script src="/first/resources/mainPage/js/aos.js"></script>
-	<script src="/first/resources/mainPage/js/jquery.animateNumber.min.js"></script>
-	<script src="/first/resources/mainPage/js/bootstrap-datepicker.js"></script>
-	<script src="/first/resources/mainPage/js/jquery.timepicker.min.js"></script>
-	<script src="/first/resources/mainPage/js/scrollax.min.js"></script>
+	<script src="/resources/mainPage/js/jquery.min.js"></script>
+	<script src="/resources/mainPage/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="/resources/mainPage/js/popper.min.js"></script>
+	<script src="/resources/mainPage/js/bootstrap.min.js"></script>
+	<script src="/resources/mainPage/js/jquery.easing.1.3.js"></script>
+	<script src="/resources/mainPage/js/jquery.waypoints.min.js"></script>
+	<script src="/resources/mainPage/js/jquery.stellar.min.js"></script>
+	<script src="/resources/mainPage/js/owl.carousel.min.js"></script>
+	<script src="/resources/mainPage/js/jquery.magnific-popup.min.js"></script>
+	<script src="/resources/mainPage/js/aos.js"></script>
+	<script src="/resources/mainPage/js/jquery.animateNumber.min.js"></script>
+	<script src="/resources/mainPage/js/bootstrap-datepicker.js"></script>
+	<script src="/resources/mainPage/js/jquery.timepicker.min.js"></script>
+	<script src="/resources/mainPage/js/scrollax.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="/first/resources/mainPage/js/google-map.js"></script>
-	<script src="/first/resources/mainPage/js/main.js"></script>
+	<script src="/resources/mainPage/js/google-map.js"></script>
+	<script src="/resources/mainPage/js/main.js"></script>
 
 	<!--  주소API -->
 	<script
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="/first/resources/js/mapAPI.js"></script>
+	<script src="/resources/js/mapAPI.js"></script>
 </body>
 </html>
