@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 	Logger log = LoggerFactory.getLogger(this.getClass());
+	
+	//메인페이지 호출
+	
 
 	// 메인페이지 호출
-	@RequestMapping(value = "/com/start2.do")
+	@RequestMapping(value = "/start.do")
 	public String start() throws Exception {
 		return "/authority/com/loginSuccess";
 	}
