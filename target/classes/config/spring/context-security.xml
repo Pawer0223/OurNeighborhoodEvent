@@ -13,7 +13,7 @@
 		<intercept-url pattern="/normal/**" access="hasAnyRole('ROLE_NORMAL' , 'ROLE_COM')" />
 		<intercept-url pattern="/partner/**" access="hasRole('ROLE_PARTNER')" />
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-			<intercept-url pattern="/**" access="permitAll" />
+		<intercept-url pattern="/**" access="permitAll" />
 			
 	  	 <!-- 권한 설정 -->    
 	    <form-login
@@ -23,6 +23,10 @@
 	        login-page="/secu/loginPage.do"
 	        default-target-url="/"
 	    />
+
+		<access-denied-handler
+		    error-page="/access_denied_page.do"
+		/>
 
 
 

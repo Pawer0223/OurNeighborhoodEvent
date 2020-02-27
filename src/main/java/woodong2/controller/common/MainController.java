@@ -107,34 +107,40 @@ public class MainController {
 		return "/authority/com/loginPage";
 	}
 	
+	// 접근거부 페이지로 이동
+	@RequestMapping("/access_denied_page.do")
+	public String accessDenied() {
+		return "/authority/com/accessDenied_page";
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	// services페이지 이동
-	@RequestMapping(value = "/main/about.do")
+	// about 페이지 이동
+	@RequestMapping(value = "/com/main/about.do")
 	public ModelAndView about() throws Exception {
 		ModelAndView mv = new ModelAndView("/main/about");
 		return mv;
 	}
-
-	// about페이지 이동
-	@RequestMapping(value = "/main/contact.do")
+	
+	
+	// contact페이지 이동
+	@RequestMapping(value = "/admin/main/contact.do")
 	public ModelAndView contact() throws Exception {
-		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/contact");
 		return mv;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
 
 	// services페이지 이동
 	@RequestMapping(value = "/main/regist.do")
