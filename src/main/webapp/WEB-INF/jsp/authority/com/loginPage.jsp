@@ -51,19 +51,15 @@
 
 							<sec:authorize access="isAuthenticated()">
 								<div class="form-group" align="center">
-									<h5>
-									<%--<sec:authentication property="principal.username" />님, 겁나 반갑습니다. --%>
-									</h5>
+<%-- 									<h5><sec:authentication property="principal.username" />님, 겁나 반갑습니다.</h5> --%>
 									<br>
-									<sec:authorize access="isAuthenticated()">
 										<form action="/logout" method="POST">
 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" / >
 											<button type="submit" class="btn btn-dark btn-sm">LOGOUT</button>
 										</form>
-									</sec:authorize>
 								</div>
 							</sec:authorize>
-							<input type="hidden" name ="loginRedirect" value="${loginRedirect}" />
+<%-- 							<input type="hidden" name ="loginRedirect" value="${loginRedirect}" /> --%>
 
 						</form>
 					</div>

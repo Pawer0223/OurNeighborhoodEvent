@@ -28,7 +28,10 @@
 		    error-page="/access_denied_page.do"
 		/>
 
-
+	   <logout
+	        logout-url="/logout.do"
+	        logout-success-url="/"
+	    />
 
 
 
