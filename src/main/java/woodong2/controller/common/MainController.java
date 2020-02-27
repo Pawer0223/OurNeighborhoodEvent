@@ -102,7 +102,7 @@ public class MainController {
 	}
 	
 	// 기본 loginPage
-	@RequestMapping(value = "/secu/loginPage")
+	@RequestMapping(value = "/secu/loginPage.do")
 	public String goLoginPage() throws Exception {
 		return "/authority/com/loginPage";
 	}

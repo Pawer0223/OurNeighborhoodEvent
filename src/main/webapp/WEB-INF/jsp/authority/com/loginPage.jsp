@@ -25,7 +25,7 @@
 				<div class="card">
 					<h5 class="card-header">로그인 </h5>
 					<div class="card-body">
-						<form action='/loginProcess' method='POST'>
+						<form action='/loginProcess.do' method='POST'>
 							<div class="form-group">
 								<label for="InputId"> 아이디</label><input type="text" class="form-control" id="username" name="username" placeholder="ID">
 							</div>

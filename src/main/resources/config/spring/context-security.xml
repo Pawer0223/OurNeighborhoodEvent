@@ -19,8 +19,8 @@
 	    <form-login
 	        username-parameter="username"
 	        password-parameter="password"
-	        login-processing-url="/loginProcess"
-	        login-page="/secu/loginPage"
+	        login-processing-url="/loginProcess.do"
+	        login-page="/secu/loginPage.do"
 	        default-target-url="/"
 	    />
 
