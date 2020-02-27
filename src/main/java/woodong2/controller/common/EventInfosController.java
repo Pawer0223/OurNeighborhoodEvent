@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import woodng2.common.functions.CommonFunctions;
+import woodong2.common.functions.CommonFunctions;
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.PtnInfosService;
 import woodong2.service.common.ReviewInfosService;

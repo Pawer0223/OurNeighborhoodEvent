@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import woodng2.common.functions.CommonFunctions;
+import woodong2.common.functions.CommonFunctions;
 import woodong2.service.common.MenuListService;
 import woodong2.service.common.UserInfosService;
 import woodong2.vo.common.MenuList;

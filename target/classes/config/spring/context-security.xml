@@ -13,8 +13,17 @@
 		<intercept-url pattern="/normal/**" access="hasAnyRole('ROLE_NORMAL' , 'ROLE_COM')" />
 		<intercept-url pattern="/partner/**" access="hasRole('ROLE_PARTNER')" />
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/**" access="permitAll" />
-		
+			<intercept-url pattern="/**" access="permitAll" />
+			
+	  	 <!-- 권한 설정 -->    
+	    <form-login
+	        username-parameter="username"
+	        password-parameter="password"
+	        login-processing-url="/loginProcess"
+	        login-page="/secu/loginPage"
+	        default-target-url="/"
+	    />
+
 
 
 

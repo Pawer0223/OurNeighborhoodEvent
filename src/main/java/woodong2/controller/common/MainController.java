@@ -38,7 +38,6 @@ public class MainController {
 
 	private static String COM = "COM";
 
-
 	// 메인페이지 호출
 	@RequestMapping(value = "/main/start.do")
 	public ModelAndView start(String neighbor , HttpServletRequest request) throws Exception {
@@ -101,6 +100,26 @@ public class MainController {
 
 		return mv;
 	}
+	
+	// 기본 loginPage
+	@RequestMapping(value = "/secu/loginPage")
+	public String goLoginPage() throws Exception {
+		return "/authority/com/loginPage";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// services페이지 이동
 	@RequestMapping(value = "/main/about.do")
