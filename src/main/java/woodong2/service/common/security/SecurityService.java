@@ -32,37 +32,20 @@ public class SecurityService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		System.out.println("요기탑니까? : " + username);
-		log.debug("## loadUserByUsername ##");
-		
-		System.out.println("class 이름 : " + this.getClass());
-		
-		if ( userInfosDao == null ) {
-			System.out.println("못만들엇네..");
-		}else {
-		System.out.println("만들엇는데? ㅡㅡ..");
-		}
+		log.info("## loadUserByUsername ##");
 		
 		UserInfos userInfo = userInfosDao.getUserInfo(username);
-		System.out.println("2");
 		
 		if( userInfo == null ) {
-			System.out.println(" 3 ");
 			throw new UsernameNotFoundException(username);
 		}
-		
-		System.out.println("4");
 		userInfo.setAuthorities(getAuthorities(username));
-		
-		System.out.println("5");
 
 		return userInfo;
 	}
 	
 	// 계정권한 조회하기.
 	public Collection<GrantedAuthority> getAuthorities(String username) { 
-		
-		System.out.println("6");
 		
 		List<String> string_authorities = authorityDao.getAuthorities(username);
 		
