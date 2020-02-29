@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="hero-wrap ftco-degree-bg" style="background-image: url('/first/resources/mainPage/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+<div class="hero-wrap ftco-degree-bg" style="background-image: url('/resources/mainPage/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-center align-items-center">
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="mouse">
-				<a href="/first/main/start.do" class="mouse-icon">
+				<a href="/main/start.do" class="mouse-icon">
 					<div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
 				</a>
 			</div>

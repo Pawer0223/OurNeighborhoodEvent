@@ -22,8 +22,8 @@
             <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Community</h2>
               <ul class="list-unstyled">
-                <li><a href="/first/main/start.do"><span class="icon-long-arrow-right mr-2"></span>동네검색</a></li>
-                <li><a href="/first/main/events.do"><span class="icon-long-arrow-right mr-2"></span>Events</a></li>
+                <li><a href="/main/start.do"><span class="icon-long-arrow-right mr-2"></span>동네검색</a></li>
+                <li><a href="/main/events.do"><span class="icon-long-arrow-right mr-2"></span>Events</a></li>
               </ul>
             </div>
           </div>
@@ -31,7 +31,7 @@
             <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">About Us</h2>
               <ul class="list-unstyled">
-                <li><a href="/first/main/services.do"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
+                <li><a href="/main/services.do"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
               </ul>
             </div>
           </div>
@@ -39,7 +39,7 @@
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Developer</h2>
               <ul class="list-unstyled">
-                <li><a href="/first/main/contact.do"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+                <li><a href="/main/contact.do"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
                 <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues"><span class="icon-long-arrow-right mr-2"></span>Issue History</a></li>
               </ul>
             </div>

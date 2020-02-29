@@ -37,6 +37,54 @@ public class MainController {
 	private MenuListService menuListService;
 
 	private static String COM = "COM";
+	
+	// 메인페이지 호출
+	@RequestMapping(value = "/main/start2.do")
+	public ModelAndView start2(String neighbor , HttpServletRequest request) throws Exception {
+		
+		ModelAndView mv = new ModelAndView("/main/index");
+
+		List<Map<String, MenuList>> menuList= null ;
+
+		UserInfos loginInfo = (UserInfos)request.getSession().getAttribute("login");
+
+		// 비 로그인시
+		if ( loginInfo == null ) {
+
+			// USER_GBN_CD값도 별도의 세션에 보관.
+			request.getSession().setAttribute("userGbnCd", COM);
+
+			menuList = menuListService.selectMenu(COM);
+			List<MenuList> m = makeMenu(menuList);
+			request.getSession().setAttribute("menuList", m);
+
+		}else { // 로그인 상태에서 
+			    // 파트너 등록 userGbnCd 값이 바뀌었다면 메뉴리스트 다시조회.
+			if ( loginInfo.getUserGbnCd() != (String)request.getSession().getAttribute("userGbnCd") ) {
+				request.getSession().removeAttribute("userGbnCd");
+				request.getSession().removeAttribute("menuList");
+
+				request.getSession().setAttribute("userGbnCd", loginInfo.getUserGbnCd());
+
+				menuList = menuListService.selectMenu(loginInfo.getUserGbnCd());
+				List<MenuList> m = makeMenu(menuList);
+				request.getSession().setAttribute("menuList", m);
+			}
+		}
+
+		Paging paging = new Paging();
+
+		paging.setStart(1);
+		paging.setEnd(3);
+
+		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
+		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
+
+		mv.addObject("latestEvents", latestEvents);
+		mv.addObject("latestReviews", latestReviews);
+
+		return mv;
+	}
 
 	// 메인페이지 호출
 	@RequestMapping(value = "/main/start.do")
@@ -102,45 +150,39 @@ public class MainController {
 	}
 	
 	// 기본 loginPage
-	@RequestMapping(value = "/secu/loginPage.do")
+	@RequestMapping(value = "/com/loginPage.do")
 	public String goLoginPage() throws Exception {
 		return "/authority/com/loginPage";
 	}
 	
-	// 접근거부 페이지로 이동
-	@RequestMapping("/access_denied_page.do")
-	public String accessDenied() {
-		return "/authority/com/accessDenied_page";
-	}
 	
-	// about 페이지 이동
-	@RequestMapping(value = "/com/main/about.do")
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	// services페이지 이동
+	@RequestMapping(value = "/main/about.do")
 	public ModelAndView about() throws Exception {
 		ModelAndView mv = new ModelAndView("/main/about");
 		return mv;
 	}
-	
-	
-	// contact페이지 이동
-	@RequestMapping(value = "/admin/main/contact.do")
+
+	// about페이지 이동
+	@RequestMapping(value = "/main/contact.do")
 	public ModelAndView contact() throws Exception {
+		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/main/contact");
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
 
 	// services페이지 이동
 	@RequestMapping(value = "/main/regist.do")

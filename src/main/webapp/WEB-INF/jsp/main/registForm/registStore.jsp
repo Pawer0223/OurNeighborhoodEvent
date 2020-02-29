@@ -8,15 +8,15 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>가게등록</title>
 
-<link rel="stylesheet" href="/first/resources/css/bootstrap.css">
-<link rel="stylesheet" href="/first/resources/css/custom.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.css">
+<link rel="stylesheet" href="/resources/css/custom.css">
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="/first/resources/js/bootstrap.js"></script>
+<script src="/resources/js/bootstrap.js"></script>
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/first/resources/js/mapAPI.js"></script>
+<script src="/resources/js/mapAPI.js"></script>
 
 </head>
 <body>
@@ -24,7 +24,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" action="/first/ptnInfos/registPtnInfos.do">
+		<form method="post" action="/ptnInfos/registPtnInfos.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
@@ -76,7 +76,7 @@
 						</td>
 					</tr>
 					<tr>
-					<td colspan="3"><a href="/first/main/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/main/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -113,7 +113,7 @@
 					
 					<div class="modal-body">
 					<%if (messageType.equals("success")){%>
-					<a href="/first/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
+					<a href="/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">

@@ -8,12 +8,12 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>리뷰 등록</title>
 
-<link rel="stylesheet" href="/first/resources/css/bootstrap.css">
-<link rel="stylesheet" href="/first/resources/css/custom.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.css">
+<link rel="stylesheet" href="/resources/css/custom.css">
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="/first/resources/js/bootstrap.js"></script>
+<script src="/resources/js/bootstrap.js"></script>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -31,7 +31,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/first/reviewInfos/registReviews.do">
+		<form method="post" enctype="multipart/form-data" action="/reviewInfos/registReviews.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
@@ -78,7 +78,7 @@
 					
 					
 					<tr>
-					<td colspan="3"><a href="/first/main/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/main/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -115,7 +115,7 @@
 					
 					<div class="modal-body">
 					<%if (messageType.equals("success")){%>
-					<a href="/first/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
+					<a href="/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">

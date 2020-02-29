@@ -9,31 +9,31 @@
     
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/first/resources/mainPage/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="/first/resources/mainPage/css/animate.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/animate.css">
     
-    <link rel="stylesheet" href="/first/resources/mainPage/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/first/resources/mainPage/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/first/resources/mainPage/css/magnific-popup.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="/first/resources/mainPage/css/aos.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/aos.css">
 
-    <link rel="stylesheet" href="/first/resources/mainPage/css/ionicons.min.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="/first/resources/mainPage/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="/first/resources/mainPage/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/jquery.timepicker.css">
 
     
-    <link rel="stylesheet" href="/first/resources/mainPage/css/flaticon.css">
-    <link rel="stylesheet" href="/first/resources/mainPage/css/icomoon.css">
-    <link rel="stylesheet" href="/first/resources/mainPage/css/style.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/flaticon.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/icomoon.css">
+    <link rel="stylesheet" href="/resources/mainPage/css/style.css">
   </head>
   <body>
     
 <%@ include file = "header.jsp" %>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('/first/resources/mainPage/images/contact.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('/resources/mainPage/images/contact.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -108,22 +108,22 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="/first/resources/mainPage/js/jquery.min.js"></script>
-  <script src="/first/resources/mainPage/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="/first/resources/mainPage/js/popper.min.js"></script>
-  <script src="/first/resources/mainPage/js/bootstrap.min.js"></script>
-  <script src="/first/resources/mainPage/js/jquery.easing.1.3.js"></script>
-  <script src="/first/resources/mainPage/js/jquery.waypoints.min.js"></script>
-  <script src="/first/resources/mainPage/js/jquery.stellar.min.js"></script>
-  <script src="/first/resources/mainPage/js/owl.carousel.min.js"></script>
-  <script src="/first/resources/mainPage/js/jquery.magnific-popup.min.js"></script>
-  <script src="/first/resources/mainPage/js/aos.js"></script>
-  <script src="/first/resources/mainPage/js/jquery.animateNumber.min.js"></script>
-  <script src="/first/resources/mainPage/js/bootstrap-datepicker.js"></script>
-  <script src="/first/resources/mainPage/js/jquery.timepicker.min.js"></script>
-  <script src="/first/resources/mainPage/js/scrollax.min.js"></script>
-  <script src="/first/resources/mainPage/js/google-map.js"></script>
-  <script src="/first/resources/mainPage/js/main.js"></script>
+  <script src="/resources/mainPage/js/jquery.min.js"></script>
+  <script src="/resources/mainPage/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/resources/mainPage/js/popper.min.js"></script>
+  <script src="/resources/mainPage/js/bootstrap.min.js"></script>
+  <script src="/resources/mainPage/js/jquery.easing.1.3.js"></script>
+  <script src="/resources/mainPage/js/jquery.waypoints.min.js"></script>
+  <script src="/resources/mainPage/js/jquery.stellar.min.js"></script>
+  <script src="/resources/mainPage/js/owl.carousel.min.js"></script>
+  <script src="/resources/mainPage/js/jquery.magnific-popup.min.js"></script>
+  <script src="/resources/mainPage/js/aos.js"></script>
+  <script src="/resources/mainPage/js/jquery.animateNumber.min.js"></script>
+  <script src="/resources/mainPage/js/bootstrap-datepicker.js"></script>
+  <script src="/resources/mainPage/js/jquery.timepicker.min.js"></script>
+  <script src="/resources/mainPage/js/scrollax.min.js"></script>
+  <script src="/resources/mainPage/js/google-map.js"></script>
+  <script src="/resources/mainPage/js/main.js"></script>
     
   </body>
 
