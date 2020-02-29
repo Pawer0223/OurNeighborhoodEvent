@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>이벤트 상세</title>
+<title>Woo Dong 2</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,14 +37,18 @@
 <link rel="stylesheet" href="/resources/mainPage/css/flaticon.css">
 <link rel="stylesheet" href="/resources/mainPage/css/icomoon.css">
 <link rel="stylesheet" href="/resources/mainPage/css/style.css">
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 </head>
 <body>
 
-	<%@ include file="header.jsp"%>
+	<%@ include file="../com/mainPage/header.jsp"%>
 	<!-- END nav -->
 
 	<section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight"
-		style="background-image: url('/resources/mainPage/resources/mainPage/images/bg_1.jpg');"
+		style="background-image: url('/resources/mainPage/images/events.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -52,85 +56,87 @@
 				class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.jsp">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Event Detail <i class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="/main/start.do">Home
+								<i class="ion-ios-arrow-forward"></i>
+						</a></span> <span>Events <i class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">Event Detail</h1>
+					<h1 class="mb-3 bread">Enjoy Events</h1>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-property-details">
+	<section class="ftco-section">
+
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-12">
-					<div class="property-details">
-						<div class="img"
-							style="background-image: url(${ eventDetail.productPic });"></div>
-						<div class="text text-center">
-							<span class="subheading">${ eventDetail.ptnNm }</span>
-							<h2>${ eventDetail.eventNm }</h2>
-						</div>
-					</div>
-				</div>
-			</div>
+
 			<div class="row">
-				<div class="col-md-12 pills">
-					<div class="bd-example bd-example-tabs">
-						<div class="d-flex justify-content-center">
-							<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-
-								<li class="nav-item"><a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Description</a></li>
-								<li class="nav-item"><a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">Review</a></li>
-							</ul>
-						</div>
-
-						<div class="tab-content" id="pills-tabContent">
-
-							<div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-								<p>${ eventDetail.eventDesc }</p>
-							</div>
-
-							<div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
-								<div class="row">
-									<div class="col-md-7">
-										<c:choose>
-											<c:when test="${fn:length(reviewDetail) > 0}">
-												<c:forEach items="${reviewDetail}" var="row">
-													<div class="review d-flex">
-														<div class="user-img"
-															style="background-image: url(/resources/mainPage/images/person_3.jpg)"></div>
-														<div class="desc">
-															<h4>
-																<span class="text-left">${ row.USER_NM }
-																	<p class="star">
-																		<c:forEach begin="0" end="${ row.STARS -1 }">
-																			<i class="ion-ios-star"></i>
-																		</c:forEach>
-																	</p>
-																</span> <span class="text-right">${ row.REVIEW_NAME }</span>
-															</h4>
-															<p>${ row.REVIEW_DESC }</p>
-														</div>
-													</div>
-												</c:forEach>
-											</c:when>
-											<c:otherwise>
-												<h3 align="center">등록된 리뷰가 존재하지 않습니다.</h3>
-											</c:otherwise>
-										</c:choose>
-
+						<c:set var="flag" value="false" />
+						<c:forEach items="${eventInfos}" var="row" varStatus="status">
+								<div class="col-md-4">
+									<div class="property-wrap ftco-animate">
+										<a
+											href="/eventInfos/eventDetailInfo.do?ptnCd=${ row.ptnCd }&eventSeq=${ row.eventSeq }"
+											class="img"
+											style="background-image: url(${ row.productPic });"></a>
+										<div class="text">
+											<p class="price" style="text-align: center;">
+												<span class="old-price">${ row.originPrice }<small>￦</small></span><span
+													class="orig-price">${ row.eventPrice }<small>￦</small></span>
+											</p>
+											<ul class="property_list" style="text-align: center;">
+												<li><img
+													src=/resources/mainPage/images/running.gif width="30"
+													height="30">&nbsp;남은 수량 : ${ row.amount }&nbsp; <c:if
+														test="${ row.deliveryYn eq 'Y' }">
+														<img src=/resources/mainPage/images/Delivery.png
+															width="20" height="20">
+													</c:if>
+											</ul>
+											<h3 style="text-align: center;">
+												<a href="#">${ row.eventNm }</a>
+											</h3>
+											<h6 style="text-align: center;">
+												<span class="location">${ row.ptnNm }</span>
+											</h6>
+											<a href="#"
+												class="d-flex align-items-center justify-content-center btn-custom">
+												<span class="ion-ios-link"></span>
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
+						</c:forEach>
+			</div>
+
+			<div class="row mt-5">
+				<div class="col text-center">
+					<div class="block-27">
+						<ul>
+							<c:if test="${paging.startPage != 1 }">
+								<a href="/eventInfos/selectEventInfos.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+							</c:if>
+							<c:forEach begin="${ paging.startPage }" end="${ paging.endPage }" var="p">
+								<c:choose>
+									<c:when test="${ p == paging.nowPage }">
+										<li class="active"><span><a href="/eventInfos/selectEventInfos.do?nowPage=${ p }&cntPerPage=${paging.cntPerPage}">${ p }</a></span></li>
+									</c:when>
+									<c:when test="${p != paging.nowPage }">
+										<li><a href="/eventInfos/selectEventInfos.do?nowPage=${ p }&cntPerPage=${paging.cntPerPage}">${ p }</a></li>
+									</c:when>
+								</c:choose>
+							</c:forEach>
+							<c:if test="${paging.endPage != paging.lastPage}">
+								<a href="/eventInfos/selectEventInfos.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+							</c:if>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../com/mainPage/footer.jsp"%>
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
@@ -140,6 +146,7 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
+
 
 	<script src="/resources/mainPage/js/jquery.min.js"></script>
 	<script src="/resources/mainPage/js/jquery-migrate-3.0.1.min.js"></script>

@@ -23,7 +23,6 @@ import woodong2.vo.common.Paging;
 import woodong2.vo.common.UserInfos;
 
 @Controller
-
 @RequestMapping("/com")
 public class CommonController {
 
@@ -41,10 +40,10 @@ public class CommonController {
 	private static String COM = "COM";
 	
 	// 메인페이지 호출
-	@RequestMapping(value = "/start2.do")
-	public ModelAndView start2(String neighbor , HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "/start.do")
+	public ModelAndView start(String neighbor , HttpServletRequest request) throws Exception {
 		
-		ModelAndView mv = new ModelAndView("/com/index");
+		ModelAndView mv = new ModelAndView("/com/mainPage/main");
 
 		List<Map<String, MenuList>> menuList= null ;
 
@@ -89,8 +88,8 @@ public class CommonController {
 	}
 
 	// 메인페이지 호출
-	@RequestMapping(value = "/start.do")
-	public ModelAndView start(String neighbor , HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "/start2.do")
+	public ModelAndView start2(String neighbor , HttpServletRequest request) throws Exception {
 		
 		log.info(" woodong2 pacakage ");
 
@@ -175,7 +174,7 @@ public class CommonController {
 	// 신규 계정등록
 	@RequestMapping(value = "/userRegistGo.do")
 	public ModelAndView userRegistGo() throws Exception {
-		ModelAndView mv = new ModelAndView("/com/registForm/registUser");
+		ModelAndView mv = new ModelAndView("/com/registUser");
 		return mv;
 	}
 	
