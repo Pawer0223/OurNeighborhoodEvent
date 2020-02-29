@@ -29,8 +29,8 @@ public class UserInfosServiceImpl implements UserInfosService {
 	}
 
 	@Override
-	public UserInfos login(UserInfos userInfo) throws Exception {
-		return userInfosDAO.login(userInfo);
+	public UserInfos getUserInfo(String username) throws Exception {
+		return userInfosDAO.getUserInfo(username);
 	}
 
 	@Override

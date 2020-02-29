@@ -8,7 +8,7 @@ public interface UserInfosService {
 	
 	int registUser(UserInfos userInfo) throws Exception;
 	
-	UserInfos login(UserInfos userInfo) throws Exception;
+	UserInfos getUserInfo(String username) throws Exception;
 	
 	int updatePtnCd(UserInfos userInfo) throws Exception;
 

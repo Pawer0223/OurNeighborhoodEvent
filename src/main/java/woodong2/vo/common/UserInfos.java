@@ -1,11 +1,13 @@
 package woodong2.vo.common;
 
-import java.io.Serializable;
+import java.util.Collection;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.multipart.MultipartFile;
 
-// 사용자정보 
-public class UserInfos implements Serializable {
+@SuppressWarnings("serial")
+public class UserInfos implements UserDetails {
 
 	// 사용자ID 
 	private String userId;
@@ -45,6 +47,12 @@ public class UserInfos implements Serializable {
 
 	// 로그인오류횟수 
 	private Integer lgnErrCnt;
+	
+	// 계정화성화여부
+	private boolean enabled;
+	
+	// 계정권한을 보관하기위한 참조변수
+	private Collection <? extends GrantedAuthority> authorities;
 
 	public String getUserId() {
 		return userId;
@@ -149,12 +157,54 @@ public class UserInfos implements Serializable {
 	public void setPictureFile(MultipartFile pictureFile) {
 		this.pictureFile = pictureFile;
 	}
+	
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
 
 	@Override
-	public String toString() {
-		return "UserInfos [userId=" + userId + ", userPw=" + userPw + ", userPw2=" + userPw2 + ", userNm=" + userNm
-				+ ", neighbor=" + neighbor + ", userGbnCd=" + userGbnCd + ", ptnCd=" + ptnCd + ", email=" + email
-				+ ", profilePic=" + profilePic + ", pictureFile=" + pictureFile + ", phoneNum=" + phoneNum + ", prevPw="
-				+ prevPw + ", lgnErrCnt=" + lgnErrCnt + "]";
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return this.userPw;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return this.userId;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return this.enabled;
 	}
 }

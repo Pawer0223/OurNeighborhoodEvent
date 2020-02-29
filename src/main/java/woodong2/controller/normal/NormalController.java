@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import woodong2.common.functions.CommonFunctions;
 import woodong2.service.common.EventHistService;
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.PtnInfosService;
 import woodong2.service.common.ReviewInfosService;
+import woodong2.utilities.function.CommonFunctions;
 import woodong2.vo.common.EventInfos;
 import woodong2.vo.common.Paging;
 import woodong2.vo.common.PtnInfos;

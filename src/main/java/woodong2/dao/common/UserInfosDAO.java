@@ -8,6 +8,16 @@ import woodong2.vo.common.UserInfos;
 
 @Repository("userInfosDAO")
 public class UserInfosDAO extends AbstractDAO{
+	
+	public UserInfos getUserInfo(String username) {
+		System.out.println(" getUserInfo");
+		return (UserInfos)selectOne("userInfos.getUserInfo",username);
+	}
+	
+	
+	
+	
+	
 	// 최근리뷰 최대15건 조회 , 메인페이지 조회용도
 	public int duplicateCheck(String inputId) {
 		int result = 1; // 등록 된 ID가 없으면0, 있으면1
@@ -17,10 +27,6 @@ public class UserInfosDAO extends AbstractDAO{
 	
 	public int registUser(UserInfos userInfo) {
 		return (Integer)insert("userInfos.registUser",userInfo);
-	}
-	
-	public UserInfos login(UserInfos userInfo) {
-		return (UserInfos)selectOne("userInfos.login",userInfo);
 	}
 	
 	public int updatePtnCd(UserInfos userInfo) {
