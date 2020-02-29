@@ -26,13 +26,50 @@
 			
 			<h1>로그인 세션의 userGbnCd 값 ! : ${login.userGbnCd}</h1>
 
+<!-- 			<div class="collapse navbar-collapse" id="ftco-nav"> -->
+<!-- 				<ul class="navbar-nav ml-auto"> -->
+<%-- 					<c:forEach var="row" items="${menuList}"> --%>
+<%-- 						<li class="nav-item"><a href=${ row.servletHref } class="nav-link">${ row.menuNm }</a></li> --%>
+<%-- 					</c:forEach> --%>
+<!-- 				</ul> -->
+<!-- 			</div> -->
+
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<c:forEach var="row" items="${menuList}">
-						<li class="nav-item"><a href=${ row.servletHref } class="nav-link">${ row.menuNm }</a></li>
-					</c:forEach>
+						<li class="nav-item"><a href="/com/contact.do" class="nav-link">About</a></li>
 				</ul>
 			</div>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="/com/contact.do" class="nav-link">Contact</a></li>
+				</ul>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="/com/loginPage.do" class="nav-link">Login</a></li>
+				</ul>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="/com/userRegistGo.do" class="nav-link">SignUp</a></li>
+				</ul>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="/nor/selectEventInfos.do" class="nav-link">Events</a></li>
+				</ul>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="/com/logout.do" class="nav-link">Logout</a></li>
+				</ul>
+			</div>
+						
 		</div>
 	</nav>
 </body>

@@ -178,9 +178,8 @@ public class CommonController {
 		return mv;
 	}
 	
-	
 	// 메뉴리스트 만들기위한 method
-		private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
+	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
 
 			List<MenuList> m = new ArrayList<MenuList>();
 
