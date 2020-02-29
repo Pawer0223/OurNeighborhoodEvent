@@ -23,7 +23,9 @@ import woodong2.vo.common.Paging;
 import woodong2.vo.common.UserInfos;
 
 @Controller
-public class MainController {
+
+@RequestMapping("/com")
+public class CommonController {
 
 	Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -39,10 +41,10 @@ public class MainController {
 	private static String COM = "COM";
 	
 	// 메인페이지 호출
-	@RequestMapping(value = "/main/start2.do")
+	@RequestMapping(value = "/start2.do")
 	public ModelAndView start2(String neighbor , HttpServletRequest request) throws Exception {
 		
-		ModelAndView mv = new ModelAndView("/main/index");
+		ModelAndView mv = new ModelAndView("/com/index");
 
 		List<Map<String, MenuList>> menuList= null ;
 
@@ -87,7 +89,7 @@ public class MainController {
 	}
 
 	// 메인페이지 호출
-	@RequestMapping(value = "/main/start.do")
+	@RequestMapping(value = "/start.do")
 	public ModelAndView start(String neighbor , HttpServletRequest request) throws Exception {
 		
 		log.info(" woodong2 pacakage ");
@@ -150,44 +152,30 @@ public class MainController {
 	}
 	
 	// 기본 loginPage
-	@RequestMapping(value = "/com/loginPage.do")
+	@RequestMapping(value = "/loginPage.do")
 	public String goLoginPage() throws Exception {
-		return "/authority/com/loginPage";
+		return "/com/loginPage";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	// services페이지 이동
-	@RequestMapping(value = "/main/about.do")
+	@RequestMapping(value = "/about.do")
 	public ModelAndView about() throws Exception {
-		ModelAndView mv = new ModelAndView("/main/about");
+		ModelAndView mv = new ModelAndView("/com/about");
 		return mv;
 	}
 
 	// about페이지 이동
-	@RequestMapping(value = "/main/contact.do")
+	@RequestMapping(value = "/contact.do")
 	public ModelAndView contact() throws Exception {
 		//		ModelAndView mv = new ModelAndView("/login/home");
-		ModelAndView mv = new ModelAndView("/main/contact");
+		ModelAndView mv = new ModelAndView("/com/contact");
 		return mv;
 	}
-
-	// services페이지 이동
-	@RequestMapping(value = "/main/regist.do")
-	public ModelAndView regist() throws Exception {
-		ModelAndView mv = new ModelAndView("/temp/regist");
+	
+	// 신규 계정등록
+	@RequestMapping(value = "/userRegistGo.do")
+	public ModelAndView userRegistGo() throws Exception {
+		ModelAndView mv = new ModelAndView("/com/registForm/registUser");
 		return mv;
 	}
 	
