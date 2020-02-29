@@ -159,7 +159,7 @@ public class CommonController {
 	// services페이지 이동
 	@RequestMapping(value = "/about.do")
 	public ModelAndView about() throws Exception {
-		ModelAndView mv = new ModelAndView("/com/about");
+		ModelAndView mv = new ModelAndView("/com/mainPage/about");
 		return mv;
 	}
 
@@ -167,7 +167,7 @@ public class CommonController {
 	@RequestMapping(value = "/contact.do")
 	public ModelAndView contact() throws Exception {
 		//		ModelAndView mv = new ModelAndView("/login/home");
-		ModelAndView mv = new ModelAndView("/com/contact");
+		ModelAndView mv = new ModelAndView("/com/mainPage/contact");
 		return mv;
 	}
 	
