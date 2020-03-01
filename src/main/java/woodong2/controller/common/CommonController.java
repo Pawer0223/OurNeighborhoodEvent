@@ -87,7 +87,7 @@ public class CommonController {
 		return mv;
 	}
 		
-	@RequestMapping(value = "/loginProcess.do")
+	@RequestMapping(value = "/loginPage.do")
 	public String loginSuccess() throws Exception {
 		return "/com/loginPage";
 	}
