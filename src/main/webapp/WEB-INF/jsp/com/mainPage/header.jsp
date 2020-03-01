@@ -13,7 +13,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-D
+
 </head>
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
@@ -48,7 +48,7 @@ D
 				</ul>
 			</div>
 			
-			<!--비로그인 사용자한테만 Login창이 보인다.  -->
+			<!--비로그인 사용자한테만 Login 메뉴가 보인다.  -->
 			<sec:authorize access ="isAnonymous()">
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
@@ -69,12 +69,14 @@ D
 				</ul>
 			</div>
 			
+			<!--로그인 사용자한테만 Logout 메뉴가 보인다.  -->
+			<sec:authorize access="isAuthenticated()">
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a href="/com/logout.do" class="nav-link">Logout</a></li>
 				</ul>
 			</div>
-						
+			</sec:authorize>		
 		</div>
 	</nav>
 </body>
