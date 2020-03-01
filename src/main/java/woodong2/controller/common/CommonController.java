@@ -113,11 +113,19 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView("/com/registUser");
 		return mv;
 	}
-	// 신규 계정등록
+	// 로그인실패
 	@RequestMapping(value = "/loginFail.do")
 	public ModelAndView loginFail() throws Exception {
 		ModelAndView mv = new ModelAndView("/com/loginFail");
 		return mv;
+	}
+	
+	@RequestMapping(value = "/logout.do")
+	public String logout(HttpServletRequest request) throws Exception {
+		
+		request.getSession().invalidate();
+		
+		return "redirect:/com/start.do";
 	}
 	
 	// 메뉴리스트 만들기위한 method

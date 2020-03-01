@@ -35,8 +35,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		
 		UserInfos userInfo = (UserInfos) securityService.loadUserByUsername(username);
 		
-		System.out.println("password Encode : [ " + passwordEncoder.encode(password)+ " ] ");
-		
 		if ( !passwordEncoder.matches(password,userInfo.getPassword())) { // pw같은지 검증
 			throw new BadCredentialsException(username);
 		}else if(!userInfo.isEnabled()) { // 계정 활성화여부 확인
