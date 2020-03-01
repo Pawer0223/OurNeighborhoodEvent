@@ -9,7 +9,50 @@
 		<result property="ptnCd" column="PTN_CD" />
 		<result property="profilePic" column="PROFILE_PIC" />
 		<result property="enabled" column="ENABLED" />
+		<result property="lgnErrCnt" column="LGN_ERR_CNT" />
 	</resultMap>
+	
+	
+	<select id="getUserInfo" parameterType="String" resultMap="userInfosModel">
+	<![CDATA[
+		SELECT 
+			USER_ID,USER_PW,USER_NM,NEIGHBOR,PTN_CD,PROFILE_PIC,ENABLED,LGN_ERR_CNT
+		FROM 
+			USER_INFOS
+		WHERE 
+			USER_ID = #{ username }
+	]]>
+	</select>
+	
+	<update id="loginFailCntUp" parameterType="String">
+	<![CDATA[
+		UPDATE
+			USER_INFOS
+		SET
+			LGN_ERR_CNT=NVL(LGN_ERR_CNT,0)+1
+		WHERE
+			USER_ID = #{ username }
+	]]>
+	</update>
+	
+	<update id="changeEnabled"  parameterType="String">
+	<![CDATA[
+		UPDATE
+		    USER_INFOS
+		SET 
+		    ENABLED = (CASE ENABLED WHEN 0 THEN 1 ELSE 0 END) ,
+		    LGN_ERR_CNT = (CASE ENABLED WHEN 0 THEN 0 ELSE LGN_ERR_CNT END)
+		WHERE 
+			USER_ID = #{ username }
+	]]>
+	</update>
+	
+	
+	
+	
+	
+	
+	
 
 	<select id="duplicateCheck" parameterType="String" resultType="java.lang.Integer">
 		<![CDATA[	  
@@ -40,16 +83,6 @@
 		]]>
 	</insert>
 
-	<select id="getUserInfo" parameterType="String" resultMap="userInfosModel">
-	<![CDATA[
-		 SELECT 
-		 	USER_ID,USER_PW,USER_NM,NEIGHBOR,PTN_CD,PROFILE_PIC,ENABLED
-		 FROM 
-		 	USER_INFOS
-		 WHERE 
-		 	USER_ID = #{ username }
-	]]>
-	</select>
 
 	<update id="updatePtnCd" parameterType="woodong2.vo.common.UserInfos">
 	<![CDATA[

@@ -2,14 +2,14 @@ package woodong2.dao.common;
 
 import java.util.List;
 
-import org.apache.ibatis.logging.Log;
-import org.apache.ibatis.logging.LogFactory;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class AbstractDAO {
 
-	protected Log log = LogFactory.getLog(AbstractDAO.class);
+	protected Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
@@ -20,17 +20,28 @@ public class AbstractDAO {
 			log.debug("\t QueryId \t: " + queryId);
 		}
 	}
-
+	
+	/*
+	 * 성공 : null
+	 * 실패 : e 에러
+	 */
 	public Object insert(String queryId, Object params) {
 		printQueryId(queryId);
 		return sqlSession.insert(queryId, params);
 	}
-
+	
+	/*
+	 * 성공 : 1
+	 * 실패 : 0
+	 */
 	public Object update(String queryId, Object params) {
 		printQueryId(queryId);
 		return sqlSession.update(queryId, params);
 	}
-
+	/*
+	 * 성공 : 삭제된 row수
+	 * 실패 : 0
+	 */
 	public Object delete(String queryId, Object params) {
 		printQueryId(queryId);
 		return sqlSession.delete(queryId, params);

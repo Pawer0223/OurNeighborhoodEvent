@@ -39,27 +39,22 @@
 							<button name="submit" type="submit" class="btn btn-block btn-primary text-light">로그인</button>
 
 								<%-- <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}"> --%>
-								<c:if test="${not empty exceptionMsgName}" ><br>
+<%-- 								<c:if test="${not empty exceptionMsgName}" ><br> --%>
 								<font color="red">
-									<p>${exceptionMsgName}
-								<%-- ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message} --%>
-									</p> 
+									<p>${exceptionMsgName}</p> 
 								</font>
 								<%-- </c:if> --%>
-							</c:if>
+<%-- 							</c:if> --%>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <br>
 
-							<sec:authorize access="isAuthenticated()">
-								<div class="form-group" align="center">
-<%-- 									<h5><sec:authentication property="principal.username" />님, 겁나 반갑습니다.</h5> --%>
-									<br>
-										<form action="/logout" method="POST">
-											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" / >
-											<button type="submit" class="btn btn-dark btn-sm">LOGOUT</button>
-										</form>
-								</div>
-							</sec:authorize>
-<%-- 							<input type="hidden" name ="loginRedirect" value="${loginRedirect}" /> --%>
+<%-- 							<sec:authorize access="isAuthenticated()"> --%>
+<!-- 								<div class="form-group" align="center"> -->
+<!-- 										<form action="/logout" method="POST"> -->
+<%-- 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" / > --%>
+<!-- 											<button type="submit" class="btn btn-dark btn-sm">LOGOUT</button> -->
+<!-- 										</form> -->
+<!-- 								</div> -->
+<%-- 							</sec:authorize> --%>
 
 						</form>
 					</div>

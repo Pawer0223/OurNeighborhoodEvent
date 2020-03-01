@@ -9,14 +9,22 @@ import woodong2.vo.common.UserInfos;
 @Repository("userInfosDAO")
 public class UserInfosDAO extends AbstractDAO{
 	
+	// 계정정보조회
 	public UserInfos getUserInfo(String username) {
-		System.out.println(" getUserInfo");
 		return (UserInfos)selectOne("userInfos.getUserInfo",username);
 	}
-	
-	
-	
-	
+	// 계정 실패횟수 증가
+	public int loginFailCntUp(String username) {
+		int result = (Integer)update("userInfos.loginFailCntUp", username);
+		if ( result == 1 ) System.out.println("## update 성공 ! ##");
+		else System.out.println("## update 실패 ... ##");
+		
+		return result;
+	}
+	// 계정 활성화여부 변경
+	public void changeEnabled(String username) {
+		update("userInfos.changeEnabled", username);
+	}
 	
 	// 최근리뷰 최대15건 조회 , 메인페이지 조회용도
 	public int duplicateCheck(String inputId) {

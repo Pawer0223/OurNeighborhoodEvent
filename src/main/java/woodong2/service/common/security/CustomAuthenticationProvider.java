@@ -24,7 +24,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	private PasswordEncoder passwordEncoder;
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
-
+	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
@@ -36,6 +36,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		UserInfos userInfo = (UserInfos) securityService.loadUserByUsername(username);
 		
 		if ( !passwordEncoder.matches(password,userInfo.getPassword())) { // pw같은지 검증
+			log.info(" 패스워드가 틀려버립니다 !! ");
 			throw new BadCredentialsException(username);
 		}else if(!userInfo.isEnabled()) { // 계정 활성화여부 확인
 			throw new DisabledException(username);
