@@ -21,7 +21,8 @@
 	        password-parameter="password"
 	        login-processing-url="/loginProcess.do"
 	        login-page="/com/loginPage.do"
-	        default-target-url="/"
+	        default-target-url="/com/start.do"
+	        authentication-failure-url="/com/loginFail.do"
 	    />
 
 		<access-denied-handler
@@ -35,6 +36,7 @@
 	</http>
 
 	<authentication-manager>
+		  <authentication-provider ref="userAuthProvider"/>
           <authentication-provider user-service-ref="userService">
           <password-encoder ref="passwordEncoder"/>
             </authentication-provider>
@@ -44,6 +46,8 @@
 	<beans:bean id="userService" class="woodong2.service.common.security.SecurityService"/> 
 	
 	<!-- AuthenticationProvider의 구현체클래스 -->
+	<beans:bean id="userAuthProvider" class="woodong2.service.common.security.CustomAuthenticationProvider"/> 
+	
 	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/> 
 	
 	

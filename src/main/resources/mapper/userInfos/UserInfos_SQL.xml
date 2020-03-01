@@ -3,6 +3,7 @@
 <mapper namespace="userInfos">
 	<resultMap id="userInfosModel" type="woodong2.vo.common.UserInfos">
 		<result property="userId" column="USER_ID" />
+		<result property="userPw" column="USER_PW" />
 		<result property="userNm" column="USER_NM" />
 		<result property="neighbor" column="NEIGHBOR" />
 		<result property="ptnCd" column="PTN_CD" />
@@ -42,7 +43,7 @@
 	<select id="getUserInfo" parameterType="String" resultMap="userInfosModel">
 	<![CDATA[
 		 SELECT 
-		 	USER_ID,USER_NM,NEIGHBOR,PTN_CD,PROFILE_PIC,ENABLED
+		 	USER_ID,USER_PW,USER_NM,NEIGHBOR,PTN_CD,PROFILE_PIC,ENABLED
 		 FROM 
 		 	USER_INFOS
 		 WHERE 

@@ -29,11 +29,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
 		log.info("### authenticate ### ");
-
+		
 		String username = (String) authentication.getPrincipal();
 		String password = (String) authentication.getCredentials();
 		
 		UserInfos userInfo = (UserInfos) securityService.loadUserByUsername(username);
+		
+		System.out.println("password Encode : [ " + passwordEncoder.encode(password)+ " ] ");
 		
 		if ( !passwordEncoder.matches(password,userInfo.getPassword())) { // pw같은지 검증
 			throw new BadCredentialsException(username);

@@ -113,6 +113,12 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView("/com/registUser");
 		return mv;
 	}
+	// 신규 계정등록
+	@RequestMapping(value = "/loginFail.do")
+	public ModelAndView loginFail() throws Exception {
+		ModelAndView mv = new ModelAndView("/com/loginFail");
+		return mv;
+	}
 	
 	// 메뉴리스트 만들기위한 method
 	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
