@@ -24,6 +24,7 @@
 	        default-target-url="/com/start.do"
 	        authentication-failure-url="/com/loginPage.do"
 	        authentication-failure-handler-ref="loginFailureHandler"
+	        authentication-success-handler-ref="loginSuccessHandler"
 	    />
 		<!-- com/loginFail.do -->
 		
@@ -59,5 +60,9 @@
 	    <beans:property name="defaultFailureUrl" value="/com/loginPage.do?error"/>
 	</beans:bean>
 	
+	<beans:bean id="loginSuccessHandler" class="woodong2.handler.security.LoginSuccessHandler">
+	    <beans:property name="username" value="username"/>
+	    <beans:property name="defaultUrl" value="/com/start.do"/>
+	</beans:bean>	
 	
 </beans:beans>

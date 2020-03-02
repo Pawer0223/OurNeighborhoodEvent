@@ -14,17 +14,18 @@ public class UserInfosDAO extends AbstractDAO{
 		return (UserInfos)selectOne("userInfos.getUserInfo",username);
 	}
 	// 계정 실패횟수 증가
-	public int loginFailCntUp(String username) {
-		int result = (Integer)update("userInfos.loginFailCntUp", username);
-		if ( result == 1 ) System.out.println("## update 성공 ! ##");
-		else System.out.println("## update 실패 ... ##");
-		
-		return result;
+	public void loginFailCntUp(String username) {
+		update("userInfos.loginFailCntUp", username);
 	}
 	// 계정 활성화여부 변경
 	public void changeEnabled(String username) {
 		update("userInfos.changeEnabled", username);
 	}
+	
+	public void resetFailCnt(String username) {
+		update("userInfos.resetFailCnt", username);
+	}
+	
 	
 	// 최근리뷰 최대15건 조회 , 메인페이지 조회용도
 	public int duplicateCheck(String inputId) {

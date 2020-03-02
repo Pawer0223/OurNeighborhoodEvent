@@ -47,9 +47,16 @@
 	]]>
 	</update>
 	
-	
-	
-	
+	<update id="resetFailCnt"  parameterType="String">
+	<![CDATA[
+		UPDATE
+		    USER_INFOS
+		SET 
+		    LGN_ERR_CNT = 0
+		WHERE 
+			USER_ID = #{ username }
+	]]>
+	</update>
 	
 	
 	
