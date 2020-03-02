@@ -45,39 +45,13 @@ public class CommonController {
 		
 		ModelAndView mv = new ModelAndView("/com/mainPage/main");
 
-		List<Map<String, MenuList>> menuList= null ;
-
-		UserInfos loginInfo = (UserInfos)request.getSession().getAttribute("login");
-
-		// 비 로그인시
-		if ( loginInfo == null ) {
-
-			// USER_GBN_CD값도 별도의 세션에 보관.
-			request.getSession().setAttribute("userGbnCd", COM);
-
-			menuList = menuListService.selectMenu(COM);
-			List<MenuList> m = makeMenu(menuList);
-			request.getSession().setAttribute("menuList", m);
-
-		}else { // 로그인 상태에서 
-			    // 파트너 등록 userGbnCd 값이 바뀌었다면 메뉴리스트 다시조회.
-			if ( loginInfo.getUserGbnCd() != (String)request.getSession().getAttribute("userGbnCd") ) {
-				request.getSession().removeAttribute("userGbnCd");
-				request.getSession().removeAttribute("menuList");
-
-				request.getSession().setAttribute("userGbnCd", loginInfo.getUserGbnCd());
-
-				menuList = menuListService.selectMenu(loginInfo.getUserGbnCd());
-				List<MenuList> m = makeMenu(menuList);
-				request.getSession().setAttribute("menuList", m);
-			}
-		}
-
 		Paging paging = new Paging();
 
+		// main페이지에서는 최대3건씩 보여짐.
 		paging.setStart(1);
 		paging.setEnd(3);
-
+		
+		// 이벤트 정보조회
 		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
 		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
 

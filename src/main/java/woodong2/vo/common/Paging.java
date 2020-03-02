@@ -3,7 +3,15 @@ package woodong2.vo.common;
 public class Paging {
 
 	// 현재페이지, 시작페이지, 끝페이지, 게시글 총 갯수, 페이지당 글 갯수, 마지막페이지, SQL쿼리에 쓸 start, end
-	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
+	private int nowPage,	// 현재페이지
+				startPage,	// 시작페이지
+				endPage,	// 끝페이지
+				total,		// 게시글 총 갯수
+				cntPerPage,	// 페이지당 글 갯수
+				lastPage, 	// 마지막페이지
+				start, 		// 쿼리 start조건
+				end			// 쿼리 end조건
+				;
 	
 	// 리스트 몇개까지 보여줄껀지
 	private int cntPage = 5;
