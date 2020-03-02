@@ -1,8 +1,8 @@
 # OurNeighborhoodEvent
 
 <p>
-    <img src="https://img.shields.io/badge/version-2.0.0-FF3333.svg" />
-    <img alt="IDE" src="https://img.shields.io/badge/IDE-Eclipse Jee -996600.svg" />
+    <img src="https://img.shields.io/badge/version-2.0.0-FF3333.svg" /><br>
+    <img alt="IDE" src="https://img.shields.io/badge/IDE-Eclipse Jee -996600.svg" /><br>
     <img src="https://img.shields.io/badge/java-1.8-blue.svg" />
     <img src="https://img.shields.io/badge/Jsp-blue.svg" />   
     <img src="https://img.shields.io/badge/Apache-8.5-green.svg" />
