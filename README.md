@@ -4,12 +4,12 @@
     <img src="https://img.shields.io/badge/version-2.0.0-FF3333.svg" /><br>
     <img alt="IDE" src="https://img.shields.io/badge/IDE-Eclipse Jee -996600.svg" /><br>
     <img src="https://img.shields.io/badge/java-1.8-blue.svg" />
-    <img src="https://img.shields.io/badge/Jsp-blue.svg" />   
+    <img src="https://img.shields.io/badge/Jsp-blue.svg" /><br>
     <img src="https://img.shields.io/badge/Apache-8.5-green.svg" />
-    <img src="https://img.shields.io/badge/Oracle11g -green.svg" />
+    <img src="https://img.shields.io/badge/Oracle11g -green.svg" /><br>
     <img src="https://img.shields.io/badge/spring-4.3.9-rgb(243, 156, 18).svg" />
     <img src="https://img.shields.io/badge/Mybatis-3.2.2-rgb(243, 156, 18).svg" />
-    <img src="https://img.shields.io/badge/SpringSecurity -4.1.3-rgb(243, 156, 18).svg" />
+    <img src="https://img.shields.io/badge/SpringSecurity -4.1.3-rgb(243, 156, 18).svg" /><br>
     <img src="https://img.shields.io/badge/bootstrap 4.3.7 -rgb(255, 204, 000).svg" />
 </p>
 
