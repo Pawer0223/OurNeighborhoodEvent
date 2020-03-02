@@ -3,8 +3,8 @@
 <p>
     <img src="https://img.shields.io/badge/version-2.0.0-FF3333.svg" /><br>
     <img alt="IDE" src="https://img.shields.io/badge/IDE-Eclipse Jee -996600.svg" /><br>
-    <img src="https://img.shields.io/badge/java-1.8-blue.svg" />
-    <img src="https://img.shields.io/badge/Jsp-blue.svg" /><br>
+    <img src="https://img.shields.io/badge/lang-java-1.8-blue.svg" />
+    <img src="https://img.shields.io/badge/lang-Jsp-blue.svg" /><br>
     <img src="https://img.shields.io/badge/Apache-8.5-green.svg" />
     <img src="https://img.shields.io/badge/DBMS-Oracle11g -green.svg" /><br>
     <img src="https://img.shields.io/badge/Spring-4.3.9-rgb(243, 156, 18).svg" />
