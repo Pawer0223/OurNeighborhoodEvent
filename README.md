@@ -154,18 +154,22 @@
 ### 사용자정보(USER_INFOS)
 
     1) 사업자코드 ( PTN_CD )
+    
     - 신규 사업자 등록 시 UPDATE , 최초 계정 등록시 NULL
 
     2) 로그인오류 횟수 ( LGN_ERR_CNT )
+    
     - 로그인 실패 시 CNT증가, 5회실패시 계정 잠김
     - 로그인 성공 시 0으로 초기화
 
     3) 계정활성화여부 ( ENABLED )
+    
     - 0은 false, 1은 true
 
 ### 계정권한정보(AUTHORITY)
 
     1) 권한 명 ( AUTHORITY_NAME )
+    
     - USER_ID별 권한정보 등록
     - ROLE_NORMAL : 일반 사용자
     - ROLE_PARTNER : 파트너 등록 사용자
@@ -174,46 +178,56 @@
 ### 사업자정보( PTN_INFOS )
 
     1) 사업자ID ( PTN_CD )
+    
     - PXXXXX 형태로 저장
 
 ### 이벤트정보( EVENT_INFOS )
 
     1) 이벤트번호 ( EVENT_SEQ )
+    
     - EXXXXXX 형태로 저장
 
     2) 이벤트 진행상태 ( EVENT_STATUS )
+    
     - WORK : 진행 중
     - END : 종료
 
     3) 배달가능 여부 ( DELIVERY_YN )
+    
     - Y : 가능 , 이벤트 화면에서 오토바이 표시
     - N : 불가능
 
     4) 인덱스 : EVENT_INFOS_IDX01 (PTN_CD, EVENT_SEQ)
+    
     - 용도 : 파트너 별로 진행 이벤트 내역을 조회하기 위함
 
 ### 이벤트 참여이력( EVENT_HIST )
 
     1) 참여상태 ( PART_STATUS )
+    
     - COM : 결제완료
     - CAN : 결제취소
     - REDO : 취소 후 다시결제 ( 동일한 EVENT_SEQ,USER_ID로 CAN의 이력이 존재하는 경우 등록 됨 )
 
     2) 이벤트 진행상태 ( EVENT_STATUS )
+    
     - WORK : 진행 중
     - END : 종료
 
 ### 리뷰정보 ( REVIEW_INFOS )
 
     1) 리뷰번호 ( REVIEW_SEQ )
+    
     - RXXXXXX 형태로 저장
     
     2) 인덱스 : REVIEW_INFOS_IDX01(EVENT_SEQ, REVIEW_SEQ)
+    
     - 용도 : 사업자 별로 최근 이벤트의 리뷰를 조회하기 위함
 
 ### 메뉴 ( MENU_LIST )
 
     1) 권한 명 ( AUTHORITY_NAME )
+    
     - 로그인 계정의 권한 명에 따른 메뉴리스트 출력한다.
       * ROLE_COM
         ㄴ 공통 메뉴
@@ -232,10 +246,11 @@
         ㄴ 사이트 관리
 
     2) 메뉴코드 ( MENU_CD )
+    
     - 로그인 계정의 권한 명 별로 MENU_CD 구성
     - 권한 별, 식별자를 구성하기 위함
 
-    3) 서블릿 링크 ( SERVLET_HREF )
+    3) 호출 URI ( URI )
     - 메뉴호출 시 수행되는 URI정보
     
     4) MENU_ORDER
