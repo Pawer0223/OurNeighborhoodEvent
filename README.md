@@ -118,7 +118,7 @@
         <td>
             <ul>
                 <li><a href="https://github.com/Taesan94/Spring/issues/4"> [ Security 의존성 주입 시 Issue ] </a></li>
-                <li><a href="https://github.com/Taesan94/Spring/issues/5"> [ <authentication-provider>태그 설정오류로 인한 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/Spring/issues/5"> [ &lt;authentication-provider&gt;태그 설정오류로 인한 Issue ] </a></li>
             </ul>
         </td>
     </tr>
@@ -223,42 +223,6 @@
     2) 인덱스 : REVIEW_INFOS_IDX01(EVENT_SEQ, REVIEW_SEQ)
     
     - 용도 : 사업자 별로 최근 이벤트의 리뷰를 조회하기 위함
-
-### 메뉴 ( MENU_LIST )
-
-    1) 권한 명 ( AUTHORITY_NAME )
-    
-    - 로그인 계정의 권한 명에 따른 메뉴리스트 출력한다.
-      * ROLE_COM
-        ㄴ 공통 메뉴
-        ㄴ URI : /com/
-      * ROLE_NORMAL
-        ㄴ 일반사용자 메뉴
-        ㄴ 사업자등록, 리뷰등록
-        ㄴ URI : /nor/
-      * ROLE_PARTNER
-        ㄴ 파트너 메뉴
-        ㄴ PARTNER등급은 NORMAL등급메뉴 접근가능.
-        ㄴ 이벤트 등
-      * ROLE_ADMIN
-        ㄴ 관리자 메뉴
-        ㄴ 모든 메뉴 접근가능.
-        ㄴ 사이트 관리
-
-    2) 메뉴코드 ( MENU_CD )
-    
-    - 로그인 계정의 권한 명 별로 MENU_CD 구성
-    - 권한 별, 식별자를 구성하기 위함
-
-    3) 호출 URI ( URI )
-    - 메뉴호출 시 수행되는 URI정보
-    
-    4) MENU_ORDER
-    - 화면 출력시 메뉴순서를 제어하기위함
-    
-    5) MENU_LIST 데이터 구성 ( 수정필요 함 )
-    
-![menuData](./readmeSource/menuData.png)    
     
 ### * 사업자ID, 리뷰번호, 이벤트번호 채번쿼리 ( MAX+1 추출 )
     
