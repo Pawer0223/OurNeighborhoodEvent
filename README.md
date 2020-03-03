@@ -246,8 +246,8 @@
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
 
 ### Pw암호화
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md"> v0.1 [ SHA-256 ]</a><br>
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md"> v0.2 [ SpringSecurity활용 ]</a>
+- v0.1 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ SHA-256 ]</a><br>
+- v0.2 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ SpringSecurity활용 ]</a>
 
 ### 파일 업로드기능
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
@@ -256,8 +256,8 @@
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation ]</a><br>
 
 ## 로그인 실패 에러메시지
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md"> v0.1 [ request.SetAttribute방식 ]</a><br>
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md"> v0.2 [ SpringSecurity활용 ]</a>
+-  v0.1 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ request.SetAttribute방식 ]</a><br>
+-  v0.2 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ SpringSecurity활용 ]</a>
 
 ### 다음주소 API를 활용한 주소검색
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
