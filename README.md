@@ -263,7 +263,7 @@
 : <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DevConfig.md">[ DevConfig ]</a>
 
 ### BootStrap을 활용한 템플릿 적용하여 UI구현
-: <a href="#screenshotStart">[ 이동 ]</a>
+: <a href="#screenshotStart">[ ScreenShot ]</a>
 
 ## 우리동네 이벤트 스크린샷
 
