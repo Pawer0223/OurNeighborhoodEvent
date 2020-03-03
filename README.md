@@ -241,16 +241,15 @@
 ## 주요 기능
 
 ### 로그인 세션체크
-<table border="1"  style="margin-left:0px;">
-		<tr align="left" style="align:left;">
-			<td rowspan="2" style="padding-left: 0px; height:50px;"><img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /></td>
-			<td height="41px" align="left" valign="bottom" style="padding-left: 0px; height: 41px;"><a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a></td>
+<table border="0">
+		<tr align="left">
+			<td rowspan="2" style="height:50px;"><img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /></td>
+			<td height="41px" valign="bottom" style="height: 41px;"><a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a></td>
 		</tr>
 		<tr>
 			<td height="9px"></td>
 		</tr>
 </table>
-
 
 <img src="https://img.shields.io/badge/version-1.1-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ SpringSecurity활용 ]</a>
 
