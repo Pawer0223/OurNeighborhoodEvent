@@ -47,7 +47,7 @@ public class CommonController {
 
 		Paging paging = new Paging();
 
-		// main페이지에서는 최대3건씩 보여짐.
+		// 최근 3건조회 !
 		paging.setStart(1);
 		paging.setEnd(3);
 		

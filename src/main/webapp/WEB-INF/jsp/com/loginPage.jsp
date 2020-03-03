@@ -3,11 +3,6 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<%@ page import="org.springframework.security.core.context.SecurityContextHolder"%>
-<%@ page import="org.springframework.security.core.Authentication"%>
-
-<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
-<%@ page import="org.springframework.security.core.Authentication" %>
 
 <html>
 <head>
@@ -38,24 +33,12 @@
 							</div>
 							<button name="submit" type="submit" class="btn btn-block btn-primary text-light">로그인</button>
 
-								<%-- <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}"> --%>
-<%-- 								<c:if test="${not empty exceptionMsgName}" ><br> --%>
+								<c:if test="${not empty exceptionMsgName}" ><br>
 								<font color="red">
 									<p>${exceptionMsgName}</p> 
 								</font>
-								<%-- </c:if> --%>
-<%-- 							</c:if> --%>
+								</c:if>
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <br>
-
-<%-- 							<sec:authorize access="isAuthenticated()"> --%>
-<!-- 								<div class="form-group" align="center"> -->
-<!-- 										<form action="/logout" method="POST"> -->
-<%-- 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" / > --%>
-<!-- 											<button type="submit" class="btn btn-dark btn-sm">LOGOUT</button> -->
-<!-- 										</form> -->
-<!-- 								</div> -->
-<%-- 							</sec:authorize> --%>
-
 						</form>
 					</div>
 				</div>

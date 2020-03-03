@@ -20,6 +20,7 @@ import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
 
 import woodong2.dao.common.UserInfosDAO;
+import woodong2.vo.common.UserInfos;
 
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 	
@@ -67,8 +68,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		clearAuthenticationAttributes(request);
 		// Redirect URL 작업.
 		resultRedirectStrategy(request, response, authentication);
-		
-		
 	}
 	
 	// redirectUrl 지정 메서드
@@ -91,8 +90,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		HttpSession session = request.getSession(false);
 		if( session == null ) return ;
 		
-		log.info( "remove가 수행되긴 되는데.. " );
 		session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
 	}
-
 }
