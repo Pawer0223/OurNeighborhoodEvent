@@ -241,16 +241,8 @@
 ## 주요 기능
 
 ### 로그인 세션체크
-<table border="0">
-		<tr align="left">
-			<td rowspan="2" style="height:50px;"><img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /></td>
-			<td height="41px" valign="bottom" style="height: 41px;"><a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a></td>
-		</tr>
-		<tr>
-			<td height="9px"></td>
-		</tr>
-</table>
 
+<img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a><br>
 <img src="https://img.shields.io/badge/version-1.1-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ SpringSecurity활용 ]</a>
 
 ### 페이징처리 기능
