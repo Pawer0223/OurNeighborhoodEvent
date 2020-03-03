@@ -242,9 +242,9 @@
 
 ### 로그인 세션체크
 <table border="1"  style="margin-left:0px;">
-		<tr>
-			<td height="50px" align="left" rowspan="2"><img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /></td>
-			<td height="41px" align="left" valign="bottom" style="padding-left: 0px;"><a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a></td>
+		<tr align="left" style="align:left;">
+			<td rowspan="2" style="padding-left: 0px; height:50px;"><img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /></td>
+			<td height="41px" align="left" valign="bottom" style="padding-left: 0px; height: 41px;"><a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a></td>
 		</tr>
 		<tr>
 			<td height="9px"></td>
