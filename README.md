@@ -238,23 +238,26 @@
     
 ## 주요 기능
 
-### Interceptor를 활용 한 세션체크
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor - v0.1 ]</a><br>
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor - v0.2 ]</a>
+### 로그인 세션체크
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ v0.1 : Interceptor ]</a><br>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ v0.2 : SpringSecurity활용 ]</a>
 
 ### 페이징처리 기능
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
 
-### Pw암호화 적용 ( SHA-256 )
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ Encrypt - v0.1 ]</a><br>
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ Encrypt - v0.2 ]</a>
+### Pw암호화
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ v0.1 : SHA-256 ]</a><br>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ v0.2 : SpringSecurity활용 ]</a>
 
 ### 파일 업로드기능
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
 
-### Ajax를 활용한 ID중복체크
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation - v0.1 ]</a><br>
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation - v0.2 ]</a>
+### ID중복체크
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation ]</a><br>
+
+## 로그인 실패 에러메시지
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ request.SetAttribute방식 ]</a><br>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ SpringSecurity활용 ]</a>
 
 ### 다음주소 API를 활용한 주소검색
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
