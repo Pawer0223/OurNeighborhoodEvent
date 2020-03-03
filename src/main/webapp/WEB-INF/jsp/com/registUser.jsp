@@ -25,7 +25,7 @@
 		
 		$.ajax({
 			type : "POST",
-			url : '/userInfos/duplicateCheck.do' ,
+			url : '/com/duplicateCheck.do' ,
 			data : { userId : userId },
 			success : function(result){
 				if ( result == 1 ){
@@ -58,68 +58,61 @@
 <body>
 	<br>
 
-	<div class="container" style="width: 55%; text-align: center;">
+	<div class="container" style="width: 40%; text-align: center; valign: center;">
 
 		<form method="post" enctype="multipart/form-data" action="/userInfos/userRegist.do">
 
-			<table class="table table-bordered table-hover"
-				style="text-align: center; border: 1px solid #dddddd">
+			<table class="table table-bordered table-hover" style="text-align: center; border: 0px solid #dddddd">
 				<thead>
 					<tr>
-						<th colspan="3">회원가입</th>
+						<th style="text-align:center; border:0px;" colspan="3"><h2>회원가입</h2><br></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width: 110px;">아이디</td>
-						<td><input class="form-control" type="text" id="userId" name="userId" maxLength="20"></td>
+						<td style="width: 110px; padding-top: 16px;">아이디</td>
+						<td><input class="form-control" type="text" id="userId" name="userId" maxLength="20" placeholder="ID를 입력해 주세요"></td>
 						<td style="width: 110px;"><button class="btn btn-primary" type="button" onclick="registerCheckFunction();">중복체크</button></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">비밀번호</td>
-						<td colspan="2"><input class="form-control" type="password" id="userPw" name="userPw" maxLength="20" onkeyup="passwordCheckFunction();"></td>
+						<td style="width: 110px; padding-top: 16px;">비밀번호</td>
+						<td colspan="2"><input class="form-control" type="password" id="userPw" name="userPw" maxLength="20" onkeyup="passwordCheckFunction();" placeholder="pw를 입력해 주세요"></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">비밀번호 확인</td>
+						<td style="width: 110px; padding-top: 21px;;">비밀번호 확인</td>
 						<td colspan="2">
-						<input class="form-control" type="password" id="userPw2" name="userPw2" maxLength="20" onkeyup="passwordCheckFunction();">
+						<input class="form-control" type="password" id="userPw2" name="userPw2" maxLength="20" onkeyup="passwordCheckFunction();" placeholder="PW확인">
 						<h5 style="color : red; text-align : left;" id="passwordCheckMessage"></h5>
 						</td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">이메일</td>
-						<td colspan="2"><input class="form-control" type="email"
-							id="email" name="email" maxLength="20"
-							placeholder="jane.doe@example.com"></td>
+						<td style="width: 110px; padding-top: 16px;">이메일</td>
+						<td colspan="2"><input class="form-control" type="email" id="email" name="email" maxLength="20" placeholder="email@example.com"></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">이름</td>
-						<td colspan="2"><input class="form-control" type="text"
-							id="userNm" name="userNm" maxLength="20" placeholder="홍길동"></td>
+						<td style="width: 110px; padding-top: 16px;">이름</td>
+						<td colspan="2"><input class="form-control" type="text" id="userNm" name="userNm" maxLength="20" placeholder="이름"></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">프로필 사진</td>
-						<td colspan="2"><input class="form-control" type="file"
-							id="pictureFile" name="pictureFile" maxLength="20"></td>
+						<td style="width: 110px; padding-top: 16px;">프로필 사진</td>
+						<td colspan="2"><input class="form-control" type="file" id="pictureFile" name="pictureFile" maxLength="20"></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">휴대폰번호</td>
-						<td colspan="2"><input class="form-control" type="tel"
-							id="phoneNum" name="phoneNum" maxLength="20"></td>
+						<td style="width: 110px; padding-top: 16px;">휴대폰번호</td>
+						<td colspan="2"><input class="form-control" type="tel" id="phoneNum" name="phoneNum" maxLength="20" placeholder="010-0000-0000"></td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">동네</td>
-						<td colspan="2"><input onclick="sample6_execDaumPostcode()"
-							type="text" class="form-control" placeholder="click 동네를 검색해주세요"
-							id="sample6_address" name="neighbor" readonly ></td>
+						<td style="width: 110px; padding-top: 16px;">동네</td>
+						<td colspan="2"><input onclick="sample6_execDaumPostcode()" type="text" class="form-control" placeholder="click 동네를 검색해주세요" id="sample6_address" name="neighbor" readonly ></td>
 					</tr>
 					<tr>
-						<td style="text-align: left" colspan="3">
-						<input class="btn btn-primary pull-right" type="submit" value="회원가입">
+						<td style="align:center;" colspan="3">
+						<input class="btn btn-primary pull-right" type="submit" style="margin-left: 10px;" value="회원가입">
+						<input class="btn btn-primary pull-right" type="reset" value="초기화">
 						</td>
 					</tr>
 					<tr>
-					<td colspan="3"><a href="/main/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/com/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -156,7 +149,7 @@
 					
 					<div class="modal-body">
 					<%if (messageType.equals("success")){%>
-					<a href="/userInfos/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
+					<a href="/com/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">
