@@ -241,9 +241,9 @@
 ## 주요 기능
 
 ### 로그인 세션체크
-<img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /><br>
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a><br><br>
-<img src="https://img.shields.io/badge/version-1.1-FF3333.svg" /><br>
+<img src="https://img.shields.io/badge/version-1.0-FF3333.svg" />
+<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a><br>
+<img src="https://img.shields.io/badge/version-1.1-FF3333.svg" />
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ SpringSecurity활용 ]</a>
 ### 페이징처리 기능
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
