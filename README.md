@@ -265,6 +265,10 @@
 ### 다음주소 API를 활용한 주소검색
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
 
+### SpringSecurity 적용
+### 공공API 사용
+
+
 ### 개발환경 설정정보
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DevConfig.md">[ DevConfig ]</a>
 
