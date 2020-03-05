@@ -24,8 +24,8 @@
 - /ptn/** 로 호출되는 URL은 [ 파트너 ]만 접근이 가능하다. <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/woodong2/controller/partner/PartnerController.java">[ Controller ]</a>
 - /adm/** 로 호출되는 URL은 [ 관리자 ]만 접근이 가능하다. <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/woodong2/controller/partner/AdminController.java">[ Controller ]</a>
 
-
-
 ### 결과확인
+
+- 권한이 없는 계정으로, [ /nor/selectEventInfos.do ] 호출 시, 해당 URL을 호출하지 못하고 LOGIN페이지가 출력된다.
 
 
