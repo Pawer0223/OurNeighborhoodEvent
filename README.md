@@ -240,34 +240,25 @@
     
 ## 주요 기능
 
-### 로그인 세션체크
+### SpringSecurity를 활용한 보안강화
 
-<img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ Interceptor ]</a><br><br>
-<img src="https://img.shields.io/badge/version-1.1-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Interceptor.md">[ SpringSecurity활용 ]</a>
+- 계정 PW암호화
+- 계정 권한에 따른 접근 URL제어
+- 로그인 실패 시 처리 프로세스 구현
+- 로그인 성공 시 처리 프로세스 구현
+- 로그인 세션관리
 
-### 페이징처리 기능
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
+### 페이징처리
+<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md" target="_blank'>[ Paging ]</a>
 
-### Pw암호화
-<img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ SHA-256 ]</a><br><br>
-<img src="https://img.shields.io/badge/version-1.1-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Encrypt.md">[ SpringSecurity활용 ]</a>
-
-### 파일 업로드기능
+### 파일 업로드
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
 
 ### ID중복체크
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation ]</a><br>
 
-### 로그인 실패 에러메시지
-<img src="https://img.shields.io/badge/version-1.0-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ request.SetAttribute방식 ]</a><br><br>
-<img src="https://img.shields.io/badge/version-1.1-FF3333.svg" /> <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ SpringSecurity활용 ]</a>
-
-### 다음주소 API를 활용한 주소검색
+### 공공 API 활용
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
-
-### SpringSecurity 적용
-### 공공API 사용
-
 
 ### 개발환경 설정정보
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DevConfig.md">[ DevConfig ]</a>
