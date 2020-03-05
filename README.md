@@ -249,22 +249,22 @@
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/SessionControl.md">[ 로그인 세션관리 ]</a>
 
 ### 페이징처리
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
 
 ### 파일 업로드
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
 
 ### ID중복체크
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation ]</a><br>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation ]</a><br>
 
 ### 공공 API 활용
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
 
 ### 개발환경 설정정보
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DevConfig.md">[ DevConfig ]</a>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DevConfig.md">[ DevConfig ]</a>
 
 ### BootStrap을 활용한 템플릿 적용하여 UI구현
-<a href="#screenshotStart">[ ScreenShot ]</a>
+- <a href="#screenshotStart">[ ScreenShot ]</a>
 
 ## 우리동네 이벤트 스크린샷
 
