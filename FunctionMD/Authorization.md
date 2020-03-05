@@ -28,4 +28,4 @@
 
 - 권한이 없는 계정으로, [ /nor/selectEventInfos.do ] 호출 시, 해당 URL을 호출하지 못하고 LOGIN페이지가 출력된다.
 
-
+![paging](../readmeSource/gif/authorization.gif)
