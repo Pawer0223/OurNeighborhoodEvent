@@ -249,7 +249,7 @@
 - 로그인 세션관리
 
 ### 페이징처리
-<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md" target="_blank">[ Paging ]</a>
+<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
 
 ### 파일 업로드
 <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
