@@ -254,9 +254,6 @@
 ### 파일 업로드
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
 
-### ID중복체크
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Validation.md">[ Validation ]</a><br>
-
 ### 공공 API 활용
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
 
