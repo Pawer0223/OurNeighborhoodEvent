@@ -99,5 +99,5 @@
 
 - 업로드 파일의 절대경로를 DB에 저장
 
-- 업로드 수행 메서드 : <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/common/commonFn/CommonFunctions.java">[ restore ]</a>
+- 업로드 수행 메서드 : <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/woodong2/utilities/function/CommonFunctions.java">[ restore ]</a>
 
