@@ -8,14 +8,14 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>SignUp</title>
 
-<link rel="stylesheet" href="/first/resources/css/bootstrap.css">
-<link rel="stylesheet" href="/first/resources/css/custom.css">
+<link rel="stylesheet" href="/resources/css/bootstrap.css">
+<link rel="stylesheet" href="/resources/css/custom.css">
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="/first/resources/js/bootstrap.js"></script>
+<script src="/resources/js/bootstrap.js"></script>
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="/first/resources/js/mapAPI.js"></script>
+<script src="/resources/js/mapAPI.js"></script>
 
 <script type ="text/javascript">
 
@@ -25,7 +25,7 @@
 		
 		$.ajax({
 			type : "POST",
-			url : '/first/userInfos/duplicateCheck.do' ,
+			url : '/userInfos/duplicateCheck.do' ,
 			data : { userId : userId },
 			success : function(result){
 				if ( result == 1 ){
@@ -60,7 +60,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/first/userInfos/userRegist.do">
+		<form method="post" enctype="multipart/form-data" action="/userInfos/userRegist.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
@@ -119,7 +119,7 @@
 						</td>
 					</tr>
 					<tr>
-					<td colspan="3"><a href="/first/main/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/main/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -156,7 +156,7 @@
 					
 					<div class="modal-body">
 					<%if (messageType.equals("success")){%>
-					<a href="/first/userInfos/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
+					<a href="/userInfos/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">

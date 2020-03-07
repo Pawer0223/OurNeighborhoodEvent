@@ -102,6 +102,13 @@ public class CommonController {
 		return "redirect:/com/start.do";
 	}
 	
+	// 권한 없는 경우 
+	@RequestMapping(value = "/accessDeniedPage.do")
+	public String accessDeniedPage(HttpServletRequest request) throws Exception {
+		
+		return "/com/accessDeniedPage";
+	}
+	
 	// 메뉴리스트 만들기위한 method
 	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
 
