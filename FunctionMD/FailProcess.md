@@ -22,3 +22,6 @@
 - 예외 메시지는 하드코딩하지않고 MessageSource인터페이스를 활용하여 properties파일에 정의된 key값을 통해 가져온다.<a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/config/message/security_message.properties">[ security_message.properties ]</a>
 - 에러메시지는 로그인 폼 하단에 출력된다.
 
+### 결과확인
+![loginFail](../readmeSource/gif/loginFail.gif)
+
