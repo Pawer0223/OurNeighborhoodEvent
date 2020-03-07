@@ -67,14 +67,12 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		// 에러세션 지우기
 		clearAuthenticationAttributes(request);
 		// Redirect URL 작업.
-		resultRedirectStrategy(request, response, authentication);
+		resultRedirectStrategy(request, response);
 	}
 	
 	// redirectUrl 지정 메서드
-	protected void resultRedirectStrategy(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-		
+	protected void resultRedirectStrategy(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		SavedRequest savedRequest = requestCache.getRequest(request, response);
-		
 		if ( savedRequest != null ) {
 			String targetUrl = savedRequest.getRedirectUrl();
 			log.info( " [ 로그인 성공 URL ] savedRequest.getRedirectUrl : " + targetUrl );

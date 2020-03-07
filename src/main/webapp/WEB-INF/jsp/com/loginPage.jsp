@@ -31,8 +31,9 @@
 								<label> <input type="checkbox"> 아이디 기억하기
 								</label>
 							</div>
-							<button name="submit" type="submit" class="btn btn-block btn-primary text-light">로그인</button>
-
+							<button name="submit" type="submit" class="btn btn-block btn-primary text-light">로그인</button><br>
+							<div style="text-align:center;"><a href="/">홈 화면으로 가기</a></div>
+							
 								<c:if test="${not empty exceptionMsgName}" ><br>
 								<font color="red">
 									<p>${exceptionMsgName}</p> 
