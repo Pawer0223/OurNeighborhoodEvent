@@ -1,9 +1,5 @@
 ## 개발 작업환경 설정정보
 
-### <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/log4j.xml"> log4j.xml </a>
-
-- LOG4J를 활용한 로깅
-
 ### <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/web.xml"> web.xml </a>
 
   1. contextConfigLocation의 xml파일 정보
@@ -37,3 +33,6 @@
 
       - 파일업로드시 참조되는 MultipartResolver정보
 
+### <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/log4j.xml"> log4j.xml </a>
+
+- LOG4J를 활용한 로깅
