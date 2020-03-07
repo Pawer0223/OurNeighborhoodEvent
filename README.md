@@ -242,11 +242,11 @@
 
 ### SpringSecurity를 활용한 보안강화
 
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/PwEncode.md">[ 계정 PW암호화 ]</a>
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Authorization.md">[ 계정 권한에 따른 접근 URL제어 ]</a>
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FailProcess.md">[ 로그인 실패 시 처리 프로세스 구현 ]</a>
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/SuccessProcess.md">[ 로그인 성공 시 처리 프로세스 구현 ]</a>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Authorization.md">[ 계정 권한에 따른 접근 URL제어 ]</a>
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/SessionControl.md">[ 로그인 세션관리 ]</a>
+- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/PwEncode.md">[ 계정 PW암호화 ]</a>
 
 ### 페이징처리
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/Paging.md">[ Paging ]</a>
