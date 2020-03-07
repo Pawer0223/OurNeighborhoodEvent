@@ -30,11 +30,11 @@ ex)
 ### 결과확인
 
 - 비 로그인 : [ About, Contact, SignUp, Events, Login ]
-![header_common](../readmeSource/gif/header_common.PNG)
+![header_common](../readmeSource/header_common.PNG)
 - ROLE_NORMAL : [ About, Contact, SignUp, Events, My Info, Regist Review, Regist Store, Logout ]
-![header_normal](../readmeSource/gif/header_normal.PNG)
+![header_normal](../readmeSource/header_normal.PNG)
 - ROLE_PARTNER : [ About, Contact, SignUp, Events, My Info, Regist Review,Regist Event,Logout ]
-![header_partner](../readmeSource/gif/header_partner.PNG)
+![header_partner](../readmeSource/header_partner.PNG)
 
 
 
