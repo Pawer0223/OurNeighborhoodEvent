@@ -3,7 +3,7 @@
 ### 1. Exception에 따라 적절한 에러메시지를 설정할 수 있다.
 ### 2. 올바르지않은 PW를 입력한 ID의 경우에는 실패횟수를 증가시켜, 5회이상 실패 시 계정이 잠기도록 할 수 있다.
 
-#### 로그인 실패 후속처리 Class : <a href="">[ LoginFailureHandler ]</a>
+#### 로그인 실패 후속처리 Class : [ [ LoginFailureHandler ] ](https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/woodong2/handler/security/LoginFailureHandler.java)
 
 - 로그인 실패 처리기능을 제공하고있는 AuthenticationFailureHandler 인터페이스 구현클래스를 정의한다.
 - 전역변수로 로그인 form의 id,pw의 name속성 값, 예외처리 메시지를 Attribute에 저장하기위한 key값, 로그인 실패시 이동할 defaultUrl을 선언해준다.
