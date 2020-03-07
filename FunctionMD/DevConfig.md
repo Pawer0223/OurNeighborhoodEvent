@@ -17,6 +17,14 @@
       1-2) <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-mapper.xml"> context-mapper.xml </a>
 
       - MyBatis의 sqlSession정보 ( DAO파일에서 SqlSessionTemplate클래스 활용 )
+      
+      1-3) <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-security.xml"> countext-security.xml </a>
+
+      - SpringSecurity 설정정보
+      
+      1-4) <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-root.xml"> context-root.xml </a>
+
+      - 에러메시지 properties파일 참조를위한 설정정보
 
 
   2. 호출 서블릿 설정정보
