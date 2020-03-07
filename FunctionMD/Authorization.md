@@ -26,6 +26,6 @@
 
 ### 결과확인
 
-- 권한이 없는 계정으로, [ /nor/selectEventInfos.do ] 호출 시, 해당 URL을 호출하지 못하고 LOGIN페이지가 출력된다.
+- 비 로그인시 EVNTS메뉴 접근 시 ( [ /nor/selectEventInfos.do ] ), 인증되지 않았으므로 로그인창이 출력된다.
 
 ![Authorization](../readmeSource/gif/authorization.gif)
