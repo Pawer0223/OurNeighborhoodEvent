@@ -155,7 +155,7 @@
 
 ## ERD 및 테이블 설명
 
-![erd](./readmeSource/erd.png)
+![erd](./readmeSource/erd_v0.2.png)
 
 ### 사용자정보(USER_INFOS)
 
