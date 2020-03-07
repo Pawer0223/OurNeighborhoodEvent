@@ -28,4 +28,4 @@
 
 - 권한이 없는 계정으로, [ /nor/selectEventInfos.do ] 호출 시, alert출력 후 이전페이지로 이동한다.
 
-![Authorization](../readmeSource/gif/authorization.gif)
+![Authorization](../readmeSource/gif/authorization_v0.2.gif)
