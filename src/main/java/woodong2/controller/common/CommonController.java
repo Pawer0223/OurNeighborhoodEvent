@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.MenuListService;
 import woodong2.service.common.ReviewInfosService;
+import woodong2.service.common.UserInfosService;
 import woodong2.vo.common.EventInfos;
 import woodong2.vo.common.MenuList;
 import woodong2.vo.common.Paging;
-import woodong2.vo.common.UserInfos;
 
 @Controller
 @RequestMapping("/com")
@@ -36,6 +37,9 @@ public class CommonController {
 
 	@Resource(name = "menuListService")
 	private MenuListService menuListService;
+	
+	@Resource(name = "userInfosService")
+	private UserInfosService userInfosService;
 
 	private static String COM = "COM";
 	
@@ -107,6 +111,20 @@ public class CommonController {
 	public String accessDeniedPage(HttpServletRequest request) throws Exception {
 		
 		return "/com/accessDeniedPage";
+	}
+	
+	@RequestMapping(value = "/duplicateCheck.do")
+	public void duplicateCheck( HttpServletRequest request, HttpServletResponse reponse) throws Exception {
+
+		String userId = request.getParameter("userId");
+
+		int result = 0 ;
+
+		if ( !userId.isEmpty() ) result = userInfosService.duplicateCheck(userId);
+
+		// 없으면 0
+		reponse.getWriter().write(result + "" );
+
 	}
 	
 	// 메뉴리스트 만들기위한 method
