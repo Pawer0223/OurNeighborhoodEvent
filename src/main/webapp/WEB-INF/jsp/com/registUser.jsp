@@ -18,7 +18,7 @@
 <script src="/resources/js/mapAPI.js"></script>
 
 <!-- ajax 통신을 위한 meta tag -->
-<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
 
 <script type ="text/javascript">
@@ -28,6 +28,7 @@
 		// ajax 통신을 위한 csrf 설정
 		var token = $("meta[name='_csrf']").attr("content");
 		var header = $("meta[name='_csrf_header']").attr("content");
+		
 		$(document).ajaxSend(function(e, xhr, options) {
 		    xhr.setRequestHeader(header, token);
 		});
@@ -72,7 +73,7 @@
 
 	<div class="container" style="width: 40%; text-align: center; valign: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/userInfos/userRegist.do">
+		<form method="post" enctype="multipart/form-data" action="/com/userRegist.do?${_csrf.parameterName}=${_csrf.token}">
 
 			<table class="table table-bordered table-hover" style="text-align: center; border: 0px solid #dddddd">
 				<thead>

@@ -19,9 +19,11 @@ import woodong2.service.common.EventInfosService;
 import woodong2.service.common.MenuListService;
 import woodong2.service.common.ReviewInfosService;
 import woodong2.service.common.UserInfosService;
+import woodong2.utilities.function.CommonFunctions;
 import woodong2.vo.common.EventInfos;
 import woodong2.vo.common.MenuList;
 import woodong2.vo.common.Paging;
+import woodong2.vo.common.UserInfos;
 
 @Controller
 @RequestMapping("/com")
@@ -42,6 +44,10 @@ public class CommonController {
 	private UserInfosService userInfosService;
 
 	private static String COM = "COM";
+	
+	private static final String PRIFLIE_SUB_DIR = "profile";
+	
+	private CommonFunctions comnFn = new CommonFunctions();
 	
 	// 메인페이지 호출
 	@RequestMapping(value = "/start.do")
@@ -124,6 +130,48 @@ public class CommonController {
 
 		// 없으면 0
 		reponse.getWriter().write(result + "" );
+
+	}
+	
+	@RequestMapping(value = "/userRegist.do")
+	public ModelAndView userRegist( UserInfos userInfo , HttpServletRequest request ) throws Exception {
+
+		System.out.println(userInfo.toString());
+
+		ModelAndView mv = new ModelAndView("/com/registUser");
+
+
+		if ( userInfo.getUserId().isEmpty() || userInfo.getUserPw().isEmpty() || userInfo.getUserPw2().isEmpty() || userInfo.getEmail().isEmpty()
+				|| userInfo.getUserNm().isEmpty() || userInfo.getPictureFile().isEmpty() || userInfo.getPhoneNum().isEmpty() || userInfo.getNeighbor().isEmpty() ) {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "내용을 모두 입력해주세요");
+			return mv;
+		}
+
+		if ( !userInfo.getUserPw2().equals(userInfo.getUserPw()) ) {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "비밀번호가 서로 일치하지 않습니다.");
+			return mv;
+		}
+
+		// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
+		String url ="c:/"+comnFn.restore(userInfo.getPictureFile(),PRIFLIE_SUB_DIR);
+		
+		userInfo.setProfilePic(url);
+		
+		// 비밀번호 암호화
+		userInfo.setUserPw(comnFn.makeEncrypt(userInfo.getUserPw()));
+
+		// 성공시1, 실패시0반환
+		if(userInfosService.registUser(userInfo) == 1 ) {
+			request.getSession().setAttribute("messageType", "success");
+			request.getSession().setAttribute("messageContent", "회원가입을 축하드립니다 !");
+			return mv;
+		}else {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "이미 존재하는 회원입니다.");
+			return mv;
+		}
 
 	}
 	
