@@ -200,7 +200,7 @@
 
     3) 배달가능 여부 ( DELIVERY_YN )
     
-    - Y : 가능 , 이벤트 화면에서 오토바이 표시
+    - Y : 가능 , 이벤트 화면에서 오토바이 아이콘 표시 됨
     - N : 불가능
 
     4) 인덱스 : EVENT_INFOS_IDX01 (PTN_CD, EVENT_SEQ)
