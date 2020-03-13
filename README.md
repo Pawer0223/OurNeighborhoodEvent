@@ -125,6 +125,7 @@
             <ul>
                 <li><a href="https://github.com/Taesan94/Spring/issues/4"> [ Security 의존성 주입 시 Issue ] </a></li>
                 <li><a href="https://github.com/Taesan94/Spring/issues/5"> [ &lt;authentication-provider&gt;태그 설정오류로 인한 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/Spring/issues/6"> [ Security 적용 후 CSRF관련 Issue ] </a></li>
             </ul>
         </td>
     </tr>
