@@ -17,23 +17,15 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/mapAPI.js"></script>
 
-<!-- ajax 통신을 위한 meta tag -->
-<meta name="_csrf_" content="${_csrf.token}">
-<meta name="_csrf_header" content="${_csrf.headerName}">
 
 <script type ="text/javascript">
 
 	function registerCheckFunction(){
 		
-		// ajax 통신을 위한 csrf 설정
-		var token = $("meta[name='_csrf']").attr("content");
-		var header = $("meta[name='_csrf_header']").attr("content");
-		
 		$(document).ajaxSend(function(e, xhr, options) {
-		    xhr.setRequestHeader(header, token);
+		    xhr.setRequestHeader( "${_csrf.headerName}", "${_csrf.token}" );
 		});
 
-		
 		var userId = $('#userId').val();
 		
 		$.ajax({

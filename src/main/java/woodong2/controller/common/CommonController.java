@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +44,10 @@ public class CommonController {
 	
 	@Resource(name = "userInfosService")
 	private UserInfosService userInfosService;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
 
 	private static String COM = "COM";
 	
@@ -160,7 +166,7 @@ public class CommonController {
 		userInfo.setProfilePic(url);
 		
 		// 비밀번호 암호화
-		userInfo.setUserPw(comnFn.makeEncrypt(userInfo.getUserPw()));
+		userInfo.setUserPw(passwordEncoder.encode(userInfo.getUserPw()));
 
 		// 성공시1, 실패시0반환
 		if(userInfosService.registUser(userInfo) == 1 ) {
