@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import woodong2.service.common.EventInfosService;
@@ -142,27 +143,19 @@ public class CommonController {
 	@RequestMapping(value = "/userRegist.do")
 	public ModelAndView userRegist( UserInfos userInfo , HttpServletRequest request ) throws Exception {
 
-		System.out.println(userInfo.toString());
+		log.info(userInfo.toString());
 
 		ModelAndView mv = new ModelAndView("/com/registUser");
-
-
-		if ( userInfo.getUserId().isEmpty() || userInfo.getUserPw().isEmpty() || userInfo.getUserPw2().isEmpty() || userInfo.getEmail().isEmpty()
-				|| userInfo.getUserNm().isEmpty() || userInfo.getPictureFile().isEmpty() || userInfo.getPhoneNum().isEmpty() || userInfo.getNeighbor().isEmpty() ) {
-			request.getSession().setAttribute("messageType", "error_message");
-			request.getSession().setAttribute("messageContent", "내용을 모두 입력해주세요");
-			return mv;
-		}
-
-		if ( !userInfo.getUserPw2().equals(userInfo.getUserPw()) ) {
-			request.getSession().setAttribute("messageType", "error_message");
-			request.getSession().setAttribute("messageContent", "비밀번호가 서로 일치하지 않습니다.");
-			return mv;
-		}
-
-		// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
-		String url ="c:/"+comnFn.restore(userInfo.getPictureFile(),PRIFLIE_SUB_DIR);
 		
+		MultipartFile profileUrl = userInfo.getPictureFile();
+		
+		String url = "";
+		
+		if ( !profileUrl.isEmpty()) {
+			// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
+			url ="c:/"+comnFn.restore(userInfo.getPictureFile(),PRIFLIE_SUB_DIR);
+		}
+
 		userInfo.setProfilePic(url);
 		
 		// 비밀번호 암호화
@@ -181,7 +174,7 @@ public class CommonController {
 
 	}
 	
-	// 메뉴리스트 만들기위한 method
+	// 메뉴리스트 만들기위한 method, 이제는 사용되지않으나 추후 참고할수도있어서 냄겨두기..
 	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
 
 			List<MenuList> m = new ArrayList<MenuList>();

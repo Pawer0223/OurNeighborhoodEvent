@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +18,7 @@
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/mapAPI.js"></script>
+<script src="/resources/js/validation.js"></script>
 
 
 <script type ="text/javascript">
@@ -27,6 +30,10 @@
 		});
 
 		var userId = $('#userId').val();
+		
+		var flag = checkIdValidation();
+		
+		if ( !flag ) return;
 		
 		$.ajax({
 			type : "POST",
@@ -45,18 +52,6 @@
 		})
 	}
 	
-	function passwordCheckFunction(){
-		
-		var pw1 = $('#userPw').val();
-		var pw2 = $('#userPw2').val();
-		
-		if ( pw1 != pw2 ) {
-			$('#passwordCheckMessage').html('비밀번호가 서로 일치하지 않습니다.');
-		} else {
-			$('#passwordCheckMessage').html('');
-		}
-		
-	}
 </script>
 
 </head>
@@ -65,7 +60,7 @@
 
 	<div class="container" style="width: 40%; text-align: center; valign: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/com/userRegist.do?${_csrf.parameterName}=${_csrf.token}">
+		<form method="post" enctype="multipart/form-data" id="registUser" action="/com/userRegist.do?${_csrf.parameterName}=${_csrf.token}">
 
 			<table class="table table-bordered table-hover" style="text-align: center; border: 0px solid #dddddd">
 				<thead>
@@ -112,7 +107,7 @@
 					</tr>
 					<tr>
 						<td style="align:center;" colspan="3">
-						<input class="btn btn-primary pull-right" type="submit" style="margin-left: 10px;" value="회원가입">
+						<input class="btn btn-primary pull-right" type="button" onclick="checkValidation()" style="margin-left: 10px;" value="회원가입">
 						<input class="btn btn-primary pull-right" type="reset" value="초기화">
 						</td>
 					</tr>
@@ -153,14 +148,19 @@
 					</div>
 					
 					<div class="modal-body">
-					<%if (messageType.equals("success")){%>
-					<a href="/com/loginPage.do">로그인 하러가기</a><%}else%><%=messageContent%>
+						<%=messageContent%>
 					</div>
-					
+
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+						<%
+							if (messageType.equals("success")) {
+						%>
+							<a type="button" class="btn btn-primary" href="/com/start.do">홈으로</a>
+						<%
+							} else
+						%><button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
