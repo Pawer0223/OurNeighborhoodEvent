@@ -1,5 +1,6 @@
 package woodong2.vo.common;
 
+import java.sql.Date;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -50,6 +51,9 @@ public class UserInfos implements UserDetails {
 	
 	// 계정화성화여부
 	private boolean enabled;
+	
+	// 계정 잠금날짜
+	private Date LockDate;
 	
 	// 계정권한을 보관하기위한 참조변수
 	private Collection <? extends GrantedAuthority> authorities;
@@ -165,6 +169,14 @@ public class UserInfos implements UserDetails {
 	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
+	
+	public Date getLockDate() {
+		return LockDate;
+	}
+
+	public void setLockDate(Date lockDate) {
+		LockDate = lockDate;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -207,4 +219,14 @@ public class UserInfos implements UserDetails {
 		// TODO Auto-generated method stub
 		return this.enabled;
 	}
+
+	@Override
+	public String toString() {
+		return "UserInfos [userId=" + userId + ", userPw=" + userPw + ", userPw2=" + userPw2 + ", userNm=" + userNm
+				+ ", neighbor=" + neighbor + ", userGbnCd=" + userGbnCd + ", ptnCd=" + ptnCd + ", email=" + email
+				+ ", profilePic=" + profilePic + ", pictureFile=" + pictureFile + ", phoneNum=" + phoneNum + ", prevPw="
+				+ prevPw + ", lgnErrCnt=" + lgnErrCnt + ", enabled=" + enabled + ", LockDate=" + LockDate
+				+ ", authorities=" + authorities + "]";
+	}
+	
 }

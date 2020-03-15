@@ -75,13 +75,13 @@
 			    ,#{ userPw } 
 			   	,#{ userNm }
 			   	,#{ neighbor }
-			   	,'NOR'
 			   	,''
 			   	,#{ email }
 			   	,#{ profilePic }
 			   	,#{ phoneNum }
 			   	,''
 			   	,0
+			   	,1
 			   	,''
 			   	,''
 			   	,SYSDATE
