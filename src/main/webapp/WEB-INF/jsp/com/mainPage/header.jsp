@@ -24,7 +24,7 @@
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a href="/com/contact.do" class="nav-link">About</a></li>
+				<li class="nav-item"><a href="/com/about.do" class="nav-link">About</a></li>
 			</ul>
 		</div>
 
@@ -34,13 +34,15 @@
 			</ul>
 		</div>
 
+		<sec:authorize access="!hasRole('ROLE_NORMAL')">
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a href="/com/userRegistGo.do"
 					class="nav-link">SignUp</a></li>
 			</ul>
 		</div>
-
+		</sec:authorize>
+		
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a href="/nor/selectEventInfos.do"

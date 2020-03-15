@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import woodong2.dao.common.UserInfosDAO;
 import woodong2.service.common.UserInfosService;
+import woodong2.vo.common.Authority;
 import woodong2.vo.common.UserInfos;
 
 @Service("userInfosService")
@@ -25,7 +26,14 @@ public class UserInfosServiceImpl implements UserInfosService {
 
 	@Override
 	public int registUser(UserInfos userInfo) throws Exception {
-		return userInfosDAO.registUser(userInfo);
+		
+		int result = userInfosDAO.registUser(userInfo);
+		
+		if ( result != 0 )
+			userInfosDAO.insertAuthority(new Authority(userInfo.getUserId(), "ROLE_NORMAL"));
+		
+		return result;
+		
 	}
 
 	@Override
@@ -37,8 +45,5 @@ public class UserInfosServiceImpl implements UserInfosService {
 	public int updatePtnCd(UserInfos userInfo) throws Exception {
 		return userInfosDAO.updatePtnCd(userInfo);
 	}
-	
-	
-
 	
 }

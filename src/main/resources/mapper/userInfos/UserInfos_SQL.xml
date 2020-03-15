@@ -13,6 +13,7 @@
 	</resultMap>
 	
 	
+	<!-- select -->
 	<select id="getUserInfo" parameterType="String" resultMap="userInfosModel">
 	<![CDATA[
 		SELECT 
@@ -24,43 +25,6 @@
 	]]>
 	</select>
 	
-	<update id="loginFailCntUp" parameterType="String">
-	<![CDATA[
-		UPDATE
-			USER_INFOS
-		SET
-			LGN_ERR_CNT=NVL(LGN_ERR_CNT,0)+1
-		WHERE
-			USER_ID = #{ username }
-	]]>
-	</update>
-	
-	<update id="changeEnabled"  parameterType="String">
-	<![CDATA[
-		UPDATE
-		    USER_INFOS
-		SET 
-		    ENABLED = (CASE ENABLED WHEN 0 THEN 1 ELSE 0 END) ,
-		    LGN_ERR_CNT = (CASE ENABLED WHEN 0 THEN 0 ELSE LGN_ERR_CNT END)
-		WHERE 
-			USER_ID = #{ username }
-	]]>
-	</update>
-	
-	<update id="resetFailCnt"  parameterType="String">
-	<![CDATA[
-		UPDATE
-		    USER_INFOS
-		SET 
-		    LGN_ERR_CNT = 0
-		WHERE 
-			USER_ID = #{ username }
-	]]>
-	</update>
-	
-	
-	
-
 	<select id="duplicateCheck" parameterType="String" resultType="java.lang.Integer">
 		<![CDATA[	  
 		SELECT 1 FROM USER_INFOS
@@ -68,6 +32,7 @@
 		]]>
 	</select>
 
+	<!-- insert -->
 	<insert id="registUser" parameterType="woodong2.vo.common.UserInfos">
 		<![CDATA[
 		INSERT INTO USER_INFOS 
@@ -90,15 +55,65 @@
 		]]>
 	</insert>
 
+	<!-- insert -->
+	<insert id="insertAuthority" parameterType="woodong2.vo.common.Authority">
+		<![CDATA[
+		INSERT INTO AUTHORITY 
+		VALUES ( #{ userId }
+			    ,#{ authorityName } 
+			   	,SYSDATE
+			   	,'' 
+			   	)
+		]]>
+	</insert>
 
+	<!-- update -->
+	
 	<update id="updatePtnCd" parameterType="woodong2.vo.common.UserInfos">
 	<![CDATA[
 		UPDATE 
-			USER_INFOS SET PTN_CD = #{ ptnCd }
-		  , USER_GBN_CD='PTN'
-		  , UPDATE_DATE = SYSDATE
+			USER_INFOS SET PTN_CD = #{ ptnCd } ,
+		    USER_GBN_CD='PTN' ,
+		    UPDATE_DATE = SYSDATE
 		WHERE USER_ID = #{ userId }
 	]]>	
+	</update>
+	
+		<update id="loginFailCntUp" parameterType="String">
+	<![CDATA[
+		UPDATE
+			USER_INFOS
+		SET
+			LGN_ERR_CNT=NVL(LGN_ERR_CNT,0)+1 ,
+		    UPDATE_DATE = SYSDATE
+		WHERE
+			USER_ID = #{ username }
+	]]>
+	</update>
+	
+	<update id="changeEnabled"  parameterType="String">
+	<![CDATA[
+		UPDATE
+		    USER_INFOS
+		SET 
+		    ENABLED = (CASE ENABLED WHEN 0 THEN 1 ELSE 0 END) ,
+		    LGN_ERR_CNT = (CASE ENABLED WHEN 0 THEN 0 ELSE LGN_ERR_CNT END) ,
+		    UPDATE_DATE = SYSDATE
+		WHERE 
+			USER_ID = #{ username }
+	]]>
+	</update>
+	
+	<update id="resetFailCnt"  parameterType="String">
+	<![CDATA[
+		UPDATE
+		    USER_INFOS
+		SET 
+		    LGN_ERR_CNT = 0 ,
+		    UPDATE_DATE = SYSDATE
+		WHERE 
+			USER_ID = #{ username }
+	]]>
 	</update>
 
 </mapper>

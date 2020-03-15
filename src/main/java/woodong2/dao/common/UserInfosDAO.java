@@ -2,6 +2,7 @@ package woodong2.dao.common;
 
 import org.springframework.stereotype.Repository;
 
+import woodong2.vo.common.Authority;
 import woodong2.vo.common.UserInfos;
 
 //USER_INFOS에 접근하는 DAO 클래스
@@ -26,7 +27,6 @@ public class UserInfosDAO extends AbstractDAO{
 		update("userInfos.resetFailCnt", username);
 	}
 	
-	
 	// 최근리뷰 최대15건 조회 , 메인페이지 조회용도
 	public int duplicateCheck(String inputId) {
 		int result = 1; // 등록 된 ID가 없으면0, 있으면1
@@ -40,5 +40,8 @@ public class UserInfosDAO extends AbstractDAO{
 	
 	public int updatePtnCd(UserInfos userInfo) {
 		return (Integer)update("userInfos.updatePtnCd",userInfo);
+	}
+	public void insertAuthority(Authority authority) {
+		insert("userInfos.insertAuthority",authority);
 	} 
 }

@@ -23,6 +23,7 @@ import woodong2.service.common.MenuListService;
 import woodong2.service.common.ReviewInfosService;
 import woodong2.service.common.UserInfosService;
 import woodong2.utilities.function.CommonFunctions;
+import woodong2.vo.common.Authority;
 import woodong2.vo.common.EventInfos;
 import woodong2.vo.common.MenuList;
 import woodong2.vo.common.Paging;
@@ -115,7 +116,6 @@ public class CommonController {
 	public String logout(HttpServletRequest request) throws Exception {
 		
 		request.getSession().invalidate();
-		
 		return "redirect:/com/start.do";
 	}
 	

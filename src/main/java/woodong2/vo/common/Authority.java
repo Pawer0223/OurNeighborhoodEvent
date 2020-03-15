@@ -5,6 +5,13 @@ public class Authority {
 	private String userId;
 	private String authorityName;
 	
+	public Authority(){};
+	
+	public Authority(String userId, String authorityName){
+		this.userId = userId;
+		this.authorityName = authorityName;
+	}
+	
 	public String getUserId() {
 		return userId;
 	}

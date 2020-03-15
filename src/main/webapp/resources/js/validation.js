@@ -15,8 +15,6 @@ function passwordCheckFunction() {
 
 function checkIdValidation(){
 	
-	duplicateCheck = false;
-	
 	var userId = $('#userId').val();
 	
 	if ( userId == "" ){
@@ -30,6 +28,10 @@ function checkIdValidation(){
 	
 	return true;
 	
+}
+
+function checkFlagChange(){
+	duplicateCheck = false;
 }
 
 function checkValidation(){

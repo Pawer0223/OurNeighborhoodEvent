@@ -43,6 +43,7 @@
 				if ( result == 1 ){
 					$('#checkMessage').html('사용할 수 없는 아이디입니다.');
 					$('#checkType').attr('class' , 'modal-content panel-warning');
+					$('#userId').val('');
 				}else{
 					$('#checkMessage').html('사용할 수 있는 아이디입니다.');
 					$('#checkType').attr('class' , 'modal-content panel-success');
@@ -71,7 +72,7 @@
 				<tbody>
 					<tr>
 						<td style="width: 110px; padding-top: 16px;">아이디</td>
-						<td><input class="form-control" type="text" id="userId" name="userId" maxLength="20" placeholder="ID를 입력해 주세요"></td>
+						<td><input class="form-control" type="text" id="userId" name="userId" maxLength="20" placeholder="ID를 입력해 주세요" onkeyup="checkFlagChange();"></td>
 						<td style="width: 110px;"><button class="btn btn-primary" type="button" onclick="registerCheckFunction();">중복체크</button></td>
 					</tr>
 					<tr>
