@@ -63,7 +63,7 @@
 		<sec:authorize access="hasAnyRole('ROLE_NORMAL', 'ROLE_PARTNER')">
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="/nor/registReviewPage.do" class="nav-link">Regist Review</a></li>
+					<li class="nav-item"><a href="/nor/goRegistReview.do" class="nav-link">Regist Review</a></li>
 				</ul>
 			</div>
 		</sec:authorize>

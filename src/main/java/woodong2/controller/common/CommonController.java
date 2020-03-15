@@ -174,27 +174,4 @@ public class CommonController {
 
 	}
 	
-	// 메뉴리스트 만들기위한 method, 이제는 사용되지않으나 추후 참고할수도있어서 냄겨두기..
-	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
-
-			List<MenuList> m = new ArrayList<MenuList>();
-
-			for ( int i = 0; i < menuList.size(); i ++ ) {
-
-				Map<String,MenuList> menus = menuList.get(i);
-
-				Iterator itr = menus.values().iterator();
-
-				MenuList menu = new MenuList();
-
-				while( itr.hasNext()) {
-					menu.setMenuNm((String)itr.next());
-					menu.setServletHref((String)itr.next());
-				}
-
-				m.add(menu);
-			}
-
-			return m;
-		}
 }

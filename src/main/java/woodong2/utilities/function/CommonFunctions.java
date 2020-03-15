@@ -5,11 +5,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
+
+import woodong2.vo.common.MenuList;
 
 public class CommonFunctions {
 	
@@ -125,7 +131,29 @@ public class CommonFunctions {
 
 		return result;
 	}
+	
+	// 메뉴리스트 만들기위한 method, 이제는 사용되지않으나 추후 참고할수도있어서 냄겨두기..
+	private List<MenuList> makeMenu(List<Map<String, MenuList>> menuList){
 
+			List<MenuList> m = new ArrayList<MenuList>();
 
+			for ( int i = 0; i < menuList.size(); i ++ ) {
+
+				Map<String,MenuList> menus = menuList.get(i);
+
+				Iterator itr = menus.values().iterator();
+
+				MenuList menu = new MenuList();
+
+				while( itr.hasNext()) {
+					menu.setMenuNm((String)itr.next());
+					menu.setServletHref((String)itr.next());
+				}
+
+				m.add(menu);
+			}
+
+			return m;
+		}
 
 }
