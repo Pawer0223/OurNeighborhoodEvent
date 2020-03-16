@@ -73,7 +73,7 @@
 			<sec:authorize access="!hasRole('ROLE_PARTNER')">
 				<div class="collapse navbar-collapse" id="ftco-nav">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a href="/nor/registStorePage.do" class="nav-link">Regist Store</a></li>
+						<li class="nav-item"><a href="/nor/goRegistStore.do" class="nav-link">Regist Store</a></li>
 					</ul>
 				</div>
 			</sec:authorize>

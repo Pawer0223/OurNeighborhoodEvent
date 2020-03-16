@@ -388,6 +388,7 @@
 			messageType = (String) session.getAttribute("messageType");
 
 			if (messageType.equals("noSearchEvents")) {
+				session.removeAttribute("messageType");
 	%>
 	<script type="text/javascript">
 		alert("참여한 이벤트가 존재하지 않습니다.");

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,7 +107,7 @@
 					</tr>
 					<tr>
 						<td style="align:center;" colspan="3">
-						<input class="btn btn-primary pull-right" type="button" onclick="checkValidation()" style="margin-left: 10px;" value="회원가입">
+						<input class="btn btn-primary pull-right" type="button" onclick="checkUserValidation()" style="margin-left: 10px;" value="회원가입">
 						<input class="btn btn-primary pull-right" type="reset" value="초기화">
 						</td>
 					</tr>

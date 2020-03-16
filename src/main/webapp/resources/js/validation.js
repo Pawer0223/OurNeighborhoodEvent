@@ -34,7 +34,7 @@ function checkFlagChange(){
 	duplicateCheck = false;
 }
 
-function checkValidation(){
+function checkUserValidation(){
 	
 	var userId = $('#userId').val();
 	var userPw = $('#userPw').val();
@@ -95,6 +95,73 @@ function checkValidation(){
 		$('#registUser').submit();
 	}
 	
+}
+
+function checkReviewValidation(){
 	
+	var reviewName = $('#reviewName').val();
+	var reviewDesc = $('#reviewDesc').val();
+	
+	if ( reviewName == "" ){
+		$('#checkMessage').html('제목을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( reviewDesc == "" ){
+		$('#checkMessage').html('내용을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else{
+		$('#registReview').submit();
+	}
+	
+}
+
+
+function checkStoreValidation(){
+	
+	var bizrRegNo = $('#bizrRegNo').val();
+	var ptnNm = $('#ptnNm').val();
+	var rpstNm = $('#rpstNm').val();
+	var rpstTel = $('#rpstTel').val();
+	var sample6_address = $('#sample6_address').val();
+	var sample6_postcode = $('#sample6_postcode').val();
+	
+	if ( bizrRegNo == "" ){
+		$('#checkMessage').html('사업자 등록번호를 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( ptnNm == "" ){
+		$('#checkMessage').html('상호 명을 입력해주세요');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( rpstNm == "" ){
+		$('#checkMessage').html('대표자 명을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( rpstTel == "" ){
+		$('#checkMessage').html('휴대번호를 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( sample6_address == "" ){
+		$('#checkMessage').html('동네를 검색해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( sample6_postcode == "" ){
+		$('#checkMessage').html('우편번호를 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}
+	
+	else{
+		$('#registStore').submit();
+	}
 	
 }

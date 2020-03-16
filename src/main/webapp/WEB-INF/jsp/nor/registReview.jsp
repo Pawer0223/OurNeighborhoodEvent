@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>리뷰 등록</title>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
@@ -14,16 +19,7 @@
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/bootstrap.js"></script>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-
-<script type="text/javascript">
-	var target = document.getElementById("selectBox");
-	
-	var selectedText = target.options[target.selectedIndex].text;
-</script>
+<script src="/resources/js/validation.js"></script>
 
 </head>
 <body>
@@ -31,7 +27,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/reviewInfos/registReviews.do">
+		<form method="post" id="registReview" action="/nor/registReviews.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
@@ -42,7 +38,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width: 110px;">참여한 이벤트</td>
+						<td style="width: 110px;">나의 이벤트</td>
 						<td colspan="2">
 						<select id = "eventSeq" name="eventSeq" >
 								<c:forEach var="row" items="${participatedEvents}">
@@ -72,13 +68,14 @@
 					</tr>
 					<tr>
 						<td style="text-align: left" colspan="3">
-						<input class="btn btn-primary pull-right" type="submit" value="리뷰 등록">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<input class="btn btn-primary pull-right" type="button" onclick="checkReviewValidation();" value="리뷰등록">
 						</td>
 					</tr>
 					
 					
 					<tr>
-					<td colspan="3"><a href="/main/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/com/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -114,12 +111,11 @@
 					</div>
 					
 					<div class="modal-body">
-					<%if (messageType.equals("success")){%>
-					<a href="/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
+						<%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+						<a type="button" class="btn btn-primary" href="/com/start.do">확인</a>
 					</div>
 					
 				</div>
@@ -135,33 +131,30 @@
 			session.removeAttribute("messageType");
 			}
 		%>
-		
-	<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+	<div class="modal fade" id="checkModal" tabindex="-1" role="dialog"
+		aria-hidden="true">
 		<div class="vertical-alignment-helper">
 			<div class="modal-dialog vertical-align-center">
 				<div id="checkType" class="modal-content panel-info">
-				
+
 					<div class="modal-header panel-heading">
 						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span> 
-							<span class="sr-only">Close</span>
+							<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title">
-							확인 메시지
-						</h4>
+						<h4 class="modal-title">확인 메시지</h4>
 					</div>
-					
-					<div class="modal-body" id="checkMessage">
-					</div>
-					
+
+					<div class="modal-body" id="checkMessage"></div>
+
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
 </body>
 </html>

@@ -19,8 +19,11 @@ import woodong2.service.common.EventHistService;
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.PtnInfosService;
 import woodong2.service.common.ReviewInfosService;
+import woodong2.service.common.UserInfosService;
 import woodong2.utilities.function.CommonFunctions;
 import woodong2.vo.common.Paging;
+import woodong2.vo.common.PtnInfos;
+import woodong2.vo.common.ReviewInfos;
 import woodong2.vo.common.UserInfos;
 
 @Controller
@@ -41,6 +44,8 @@ public class NormalController {
 	@Resource(name = "eventHistService")
 	private EventHistService eventHistService;
 	
+	@Resource(name = "userInfosService")
+	private UserInfosService userInfosService;
 	
 	private static final String EVENT_PIC_SUB_DIR = "eventPics";
 	
@@ -95,6 +100,82 @@ public class NormalController {
 		
 	}
 	
+	@RequestMapping(value = "/registReviews.do")
+	public ModelAndView registReviews(ReviewInfos review, HttpServletRequest request, Authentication authentication) throws Exception {
+		
+		log.info(review.toString());
+		
+		ModelAndView mv = new ModelAndView("/nor/registReview");
+		
+		// 로그인 계정이 참여한 이벤트 정보를 먼저 조회한다.
+		UserInfos loginInfo = (UserInfos)authentication.getPrincipal();
+		
+		// 리뷰등록 id
+		review.setUserId(loginInfo.getUserId());
+		
+		//이벤트 seq로  ptnCd 조회 
+		String ptnCd = eventInfosService.getPtnCd(review.getEventSeq());
+		review.setPtnCd(ptnCd);
+		
+		//maxSeq 조회
+		String maxReviewSeq = reviewInfosService.getMaxReviewSeq();
+		review.setReviewSeq(maxReviewSeq);
+			
+		// 성공시1, 실패시0반환
+		if( reviewInfosService.registEventInfos(review) == 1 ) {
+			request.getSession().setAttribute("messageType", "success");
+			request.getSession().setAttribute("messageContent", "리뷰 등록이 완료되었습니다.");
+			return mv;
+
+		}else {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "리뷰 등록시 문제가 있습니다.");
+			return mv;
+		}
+		
+	}
+	
+	/*
+	 * 가게등록 페이지이동
+	 */
+	@RequestMapping(value = "/goRegistStore.do")
+	public ModelAndView registStorePage() throws Exception {
+		//		ModelAndView mv = new ModelAndView("/login/home");
+		ModelAndView mv = new ModelAndView("/nor/registStore");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/registPtnInfos.do")
+	public ModelAndView registPtnInfos( PtnInfos ptnInfo, HttpServletRequest request , Authentication authentication ) throws Exception {
+		
+		log.info(ptnInfo.toString());
+
+		ModelAndView mv = new ModelAndView("/nor/registStore");
+		
+		if ( ptnInfo.getFaxNo().isEmpty() ) {
+			ptnInfo.setFaxNo("");
+		}
+		
+		//등록될 ptnCd 값 가져오기 max+1
+		String maxPtnCd = "";
+		maxPtnCd = ptnInfosService.getMaxPtnCd();
+		ptnInfo.setPtnCd(maxPtnCd);
+		
+		UserInfos userInfos = (UserInfos)authentication.getPrincipal();
+		String userId = userInfos.getUserId();
+
+		// 성공시1, 실패시0반환
+		if( ptnInfosService.registPtnInfos(ptnInfo, userId) == 1 ) {
+			request.getSession().setAttribute("messageType", "success");
+			request.getSession().setAttribute("messageContent", "가게등록이 완료되었습니다.");
+			return mv;
+			
+		}else {
+			request.getSession().setAttribute("messageType", "error_message");
+			request.getSession().setAttribute("messageContent", "해당 사업자 등록번호는 이미 등록되어있습니다.");
+			return mv;
+		}
+	}
 	
 }
 

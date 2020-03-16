@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>가게등록</title>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
@@ -17,6 +16,7 @@
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/mapAPI.js"></script>
+<script src="/resources/js/validation.js"></script>
 
 </head>
 <body>
@@ -24,7 +24,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" action="/ptnInfos/registPtnInfos.do">
+		<form method="post" id="registStore" action="/nor/registPtnInfos.do">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
@@ -72,11 +72,12 @@
 					</tr>
 					<tr>
 						<td style="text-align: left" colspan="3">
-						<input class="btn btn-primary pull-right" type="submit" value="가게등록">
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<input class="btn btn-primary pull-right" type="button" onclick="checkStoreValidation();" value="가게등록">
 						</td>
 					</tr>
 					<tr>
-					<td colspan="3"><a href="/main/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/com/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -112,12 +113,11 @@
 					</div>
 					
 					<div class="modal-body">
-					<%if (messageType.equals("success")){%>
-					<a href="/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
+						<%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+						<a type="button" class="btn btn-primary" href="/com/start.do">확인</a>
 					</div>
 					
 				</div>
