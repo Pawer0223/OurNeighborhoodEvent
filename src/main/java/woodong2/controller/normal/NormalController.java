@@ -1,5 +1,6 @@
 package woodong2.controller.normal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -166,6 +171,14 @@ public class NormalController {
 
 		// 성공시1, 실패시0반환
 		if( ptnInfosService.registPtnInfos(ptnInfo, userId) == 1 ) {
+			
+			// Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			
+			List<GrantedAuthority> updatedAuthorities = new ArrayList<>(authentication.getAuthorities());
+			updatedAuthorities.add(new SimpleGrantedAuthority("ROLE_PARTNER"));
+			Authentication newAuth = new UsernamePasswordAuthenticationToken(authentication.getPrincipal(), authentication.getCredentials(), updatedAuthorities);
+			SecurityContextHolder.getContext().setAuthentication(newAuth);
+			
 			request.getSession().setAttribute("messageType", "success");
 			request.getSession().setAttribute("messageContent", "가게등록이 완료되었습니다.");
 			return mv;
