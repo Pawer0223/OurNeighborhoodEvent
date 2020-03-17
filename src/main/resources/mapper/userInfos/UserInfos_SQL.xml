@@ -73,7 +73,6 @@
 	<![CDATA[
 		UPDATE 
 			USER_INFOS SET PTN_CD = #{ ptnCd } ,
-		    USER_GBN_CD='PTN' ,
 		    UPDATE_DATE = SYSDATE
 		WHERE USER_ID = #{ userId }
 	]]>	

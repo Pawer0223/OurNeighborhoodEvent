@@ -18,4 +18,11 @@ public interface PtnInfosService {
 	
 	PtnInfos getPtnInfo(String ptnCd) throws Exception;
 
+	/**
+	 * 사업자등록번호 중복체크
+	 * @param bizrRegNo
+	 * @return
+	 */
+	int bizrNoDuplicateCheck(String bizrRegNo);
+
 }

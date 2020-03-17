@@ -30,8 +30,33 @@ function checkIdValidation(){
 	
 }
 
-function checkFlagChange(){
+function checkBizrRegNoValidation(){
+	
+	var bizrRegNo = $('#bizrRegNo').val();
+	
+	if ( bizrRegNo == "" ){
+		$('#checkMessage').html('사업자등록번호를 입력해 주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}
+	
+	duplicateCheck = true;
+	
+	return true;
+	
+}
+
+function checkFlagChange(object){
+	
 	duplicateCheck = false;
+	
+	if( object != null ){
+		if (object.value.length > object.maxLength){
+		    object.value = object.value.slice(0, object.maxLength);
+		}
+	}
+	
 }
 
 function checkUserValidation(){

@@ -47,5 +47,10 @@ public class PtnInfosServiceImpl implements PtnInfosService {
 	public PtnInfos getPtnInfo(String ptnCd) throws Exception {
 		return ptnInfosDAO.getPtnInfo(ptnCd);
 	}
+
+	@Override
+	public int bizrNoDuplicateCheck(String bizrRegNo) {
+		return ptnInfosDAO.bizrNoDuplicateCheck(bizrRegNo);
+	}
 	
 }

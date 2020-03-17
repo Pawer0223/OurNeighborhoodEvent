@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -179,6 +180,10 @@ public class NormalController {
 			Authentication newAuth = new UsernamePasswordAuthenticationToken(authentication.getPrincipal(), authentication.getCredentials(), updatedAuthorities);
 			SecurityContextHolder.getContext().setAuthentication(newAuth);
 			
+			// 계정 PTN_CD정보도 UPDATE 수행
+			userInfos.setPtnCd(maxPtnCd);
+			userInfosService.updatePtnCd(userInfos);
+			
 			request.getSession().setAttribute("messageType", "success");
 			request.getSession().setAttribute("messageContent", "가게등록이 완료되었습니다.");
 			return mv;
@@ -189,6 +194,26 @@ public class NormalController {
 			return mv;
 		}
 	}
+	
+	/**
+	 * 사업자등록번호 중복체크
+	 */
+	@RequestMapping("/bizrNoDuplicateCheck.do")
+	public void duplicateCheck( HttpServletRequest request, HttpServletResponse reponse) throws Exception {
+
+		String bizrRegNo = request.getParameter("bizrRegNo");
+
+		int result = 0 ;
+
+		if ( !bizrRegNo.isEmpty() ) result = ptnInfosService.bizrNoDuplicateCheck(bizrRegNo);
+
+		log.info(" result : " + result );
+		
+		// 없으면 0
+		reponse.getWriter().write(result + "" );
+
+	}
+	
 	
 }
 

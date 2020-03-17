@@ -21,17 +21,6 @@ public class RegistInterceptor extends HandlerInterceptorAdapter {
 		
 		log.debug("====================================== 등록 전 로그인 Check preHandle ======================================");
 
-		HttpSession session = request.getSession();
-		
-		// 세션에서 login Check
-		Object obj = session.getAttribute("login");
-
-		if ( obj == null ){
-			// 비 로그인시 로그인 화면으로 이동
-			response.sendRedirect("/first/userInfos/loginPage.do");
-			return false; // 더이상 컨트롤러 요청으로 가지 않도록 false로 반환함
-		}
-
 		// return 값 true = 컨트롤러 요청 URI로 감, false = 가지 않음.
 		return true;
 	}

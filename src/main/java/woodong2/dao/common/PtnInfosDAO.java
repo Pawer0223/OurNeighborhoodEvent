@@ -21,4 +21,8 @@ public class PtnInfosDAO extends AbstractDAO{
 		return (PtnInfos)selectOne("ptnInfos.getPtnInfo" , ptnCd);
 	}
 
+	public int bizrNoDuplicateCheck(String bizrRegNo) {
+		return (Integer)update("ptnInfos.bizrNoDuplicateCheck", bizrRegNo);
+	}
+
 }

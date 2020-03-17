@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,12 +38,11 @@ public class PartnerController {
 	private CommonFunctions comnFn = new CommonFunctions();
 
 	@RequestMapping(value = "/registEventPage.do")
-	public ModelAndView registEventPage(HttpServletRequest request) throws Exception {
+	public ModelAndView registEventPage(HttpServletRequest request, Authentication authentication) throws Exception {
 		
 		HttpSession session = request.getSession();
 		
-		UserInfos loginInfo = (UserInfos)session.getAttribute("login");
-		
+		UserInfos loginInfo = (UserInfos)authentication.getPrincipal();
 		
 		// 로그인 계정의 PTN_CD값으로 파트너 명, 동네정보조회
 		PtnInfos ptnInfo = ptnInfosService.getPtnInfo(loginInfo.getPtnCd());

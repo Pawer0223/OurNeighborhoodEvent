@@ -18,6 +18,40 @@
 <script src="/resources/js/mapAPI.js"></script>
 <script src="/resources/js/validation.js"></script>
 
+<script type ="text/javascript">
+
+	function registerCheckFunction(){
+		
+		$(document).ajaxSend(function(e, xhr, options) {
+		    xhr.setRequestHeader( "${_csrf.headerName}", "${_csrf.token}" );
+		});
+
+		var bizrRegNo = $('#bizrRegNo').val();
+		
+		var flag = checkBizrRegNoValidation();
+		
+		if ( !flag ) return;
+		
+		$.ajax({
+			type : "POST",
+			url : '/nor/bizrNoDuplicateCheck.do' ,
+			data : { bizrRegNo : bizrRegNo },
+			success : function(result){
+				if ( result == 1 ){
+					$('#checkMessage').html('해당 사업자번호는 기등록된 정보입니다.');
+					$('#checkType').attr('class' , 'modal-content panel-warning');
+					$('#bizrRegNo').val('');
+				}else{
+					$('#checkMessage').html('사용할 수 있는 사업자정보입니다.');
+					$('#checkType').attr('class' , 'modal-content panel-success');
+				}
+				$('#checkModal').modal("show"); 
+			}
+		})
+	}
+	
+</script>
+
 </head>
 <body>
 	<br>
@@ -36,7 +70,8 @@
 				<tbody>
 					<tr>
 						<td style="width: 110px;">사업자 등록번호</td>
-						<td colspan="2"><input class="form-control" type="number" id="bizrRegNo" name="bizrRegNo"  maxlength="10" placeholder ="-를 제외한 10자리 입력해주세요"></td>
+						<td><input class="form-control" type="number" id="bizrRegNo" name="bizrRegNo"  maxlength="10" placeholder ="-를 제외한 10자리 입력해주세요" oninput="checkFlagChange(this);"></td>
+						<td style="width: 110px;"><button class="btn btn-primary" type="button" onclick="registerCheckFunction();">중복체크</button></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">상호 명</td>
@@ -44,9 +79,7 @@
 					</tr>
 					<tr>
 						<td style="width: 110px;">대표자 명</td>
-						<td colspan="2"><input class="form-control" type="text"
-							id="rpstNm" name="rpstNm" maxLength="20"
-							placeholder="대표자 명을 입력해 주세요"></td>
+						<td colspan="2"><input class="form-control" type="text" id="rpstNm" name="rpstNm" maxLength="20" placeholder="대표자 명을 입력해 주세요"></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">대표자 휴대번호</td>
@@ -56,8 +89,7 @@
 					</tr>
 					<tr>
 						<td style="width: 110px;">FAX</td>
-						<td colspan="2"><input class="form-control" type="text"
-							id="faxNo" name="faxNo" maxLength="20" placeholder="FAX번호를 입력해 주세요, 없으면 공백"></td>
+						<td colspan="2"><input class="form-control" type="text" id="faxNo" name="faxNo" maxLength="20" placeholder="FAX번호를 입력해 주세요, 없으면 공백"></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">동네</td>
