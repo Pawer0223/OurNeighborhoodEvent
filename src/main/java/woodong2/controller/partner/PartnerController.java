@@ -70,17 +70,9 @@ public class PartnerController {
 		ModelAndView mv = new ModelAndView("/ptn/registEvent");
 		
 		if ( eventInfo.getAmount()==null ) {
-			eventInfo.setAmount(99999);
+			eventInfo.setAmount(99999); // default Amount는 99999로 설정.
 		}
 
-		if ( eventInfo.getPtnNm().isEmpty() || eventInfo.getNeighbor().isEmpty() || eventInfo.getEventNm().isEmpty() || eventInfo.getEventDesc().isEmpty()
-				|| eventInfo.getProduct().isEmpty() || eventInfo.getPictureFile().isEmpty() || eventInfo.getOriginPrice()==null || eventInfo.getEventPrice()==null
-				|| eventInfo.getAmount()==null || eventInfo.getDeliveryYn().isEmpty() ) {
-			request.getSession().setAttribute("messageType", "error_message");
-			request.getSession().setAttribute("messageContent", "내용을 모두 입력해주세요");
-			return mv;
-		}
-		
 		//등록될 EVENT_SEQ 값 가져오기 max+1
 		String maxEventSeq = "";
 		maxEventSeq = eventInfosService.getMaxEventSeq();
