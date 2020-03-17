@@ -22,7 +22,9 @@ public class PtnInfosDAO extends AbstractDAO{
 	}
 
 	public int bizrNoDuplicateCheck(String bizrRegNo) {
-		return (Integer)update("ptnInfos.bizrNoDuplicateCheck", bizrRegNo);
+		
+		if ( (Integer)selectOne("ptnInfos.bizrNoDuplicateCheck", bizrRegNo) == null ) return 0;
+		else return 1;
 	}
 
 }
