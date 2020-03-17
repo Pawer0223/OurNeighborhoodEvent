@@ -140,7 +140,6 @@ function checkReviewValidation(){
 	}else{
 		$('#registReview').submit();
 	}
-	
 }
 
 
@@ -187,6 +186,57 @@ function checkStoreValidation(){
 	
 	else{
 		$('#registStore').submit();
+	}
+	
+}
+
+function checkEventValidation(){
+	
+	var eventNm = $('#eventNm').val();
+	var eventDesc = $('#eventDesc').val();
+	var product = $('#product').val();
+	var pictureFile = $('#pictureFile').val();
+	var originPrice = $('#originPrice').val();
+	var eventPrice = $('#eventPrice').val();
+	var amount = $('#amount').val();
+	
+	if ( eventNm == "" ){
+		$('#checkMessage').html('제목을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( eventDesc == "" ){
+		$('#checkMessage').html('내용을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( product == "" ){
+		$('#checkMessage').html('상품명을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( pictureFile == "" ){
+		$('#checkMessage').html('상품사진을 등록해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( originPrice == "" ){
+		$('#checkMessage').html('원 금액을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( eventPrice == "" ){
+		$('#checkMessage').html('행사금액을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else if ( amount == "" ){
+		$('#checkMessage').html('수량을 입력해주세요.');
+		$('#checkType').attr('class' , 'modal-content panel-warning');
+		$('#checkModal').modal("show"); 
+		return false;
+	}else{
+		$('#registEvent').submit();
 	}
 	
 }

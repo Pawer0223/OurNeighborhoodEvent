@@ -94,7 +94,6 @@ public class CommonController {
 	// about페이지 이동
 	@RequestMapping(value = "/contact.do")
 	public ModelAndView contact() throws Exception {
-		//		ModelAndView mv = new ModelAndView("/login/home");
 		ModelAndView mv = new ModelAndView("/com/mainPage/contact");
 		return mv;
 	}

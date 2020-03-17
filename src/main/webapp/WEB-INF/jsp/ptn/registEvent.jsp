@@ -14,6 +14,7 @@
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/bootstrap.js"></script>
+<script src="/resources/js/validation.js"></script>
 
 </head>
 <body>
@@ -21,7 +22,7 @@
 
 	<div class="container" style="width: 55%; text-align: center;">
 
-		<form method="post" enctype="multipart/form-data" action="/eventInfos/registEventInfos.do">
+		<form method="post" enctype="multipart/form-data" id="registEvent" action="/ptn/registEventInfos.do?${_csrf.parameterName}=${_csrf.token}">
 
 			<table class="table table-bordered table-hover"
 				style="text-align: center; border: 1px solid #dddddd">
@@ -56,8 +57,7 @@
 					</tr>
 					<tr>
 						<td style="width: 110px;">상품 사진</td>
-						<td colspan="2"><input class="form-control" type="file"
-							id="pictureFile" name="pictureFile" maxLength="20"></td>
+						<td colspan="2"><input class="form-control" type="file" id="pictureFile" name="pictureFile" maxLength="20"></td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">원 가격</td>
@@ -80,11 +80,11 @@
 					<tr>
 						<td style="width: 110px;">배달가능 여부</td>
 						<td><input type="radio" id="deliveryYn" name="deliveryYn" value="Y">배달 가능</td>
-						<td><input type="radio" id="deliveryYn" name="deliveryYn" value="N">배달 불 가능</td>
+						<td><input type="radio" id="deliveryYn" name="deliveryYn" value="N" checked="checked">배달 불 가능</td>
 					</tr>
 					<tr>
 						<td style="text-align: left" colspan="3">
-						<input class="btn btn-primary pull-right" type="submit" value="이벤트 등록">
+						<input class="btn btn-primary pull-right" type="button" value="이벤트 등록" onclick="checkEventValidation();">
 						</td>
 					</tr>
 					
@@ -125,12 +125,11 @@
 					</div>
 					
 					<div class="modal-body">
-					<%if (messageType.equals("success")){%>
-					<a href="/main/start.do">홈 화면으로 가기</a><%}else%><%=messageContent%>
+						<%=messageContent%>
 					</div>
 					
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+						<a type="button" class="btn btn-primary" href="/com/start.do">확인</a>
 					</div>
 					
 				</div>
