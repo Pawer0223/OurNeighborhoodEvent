@@ -123,9 +123,10 @@
         </td>
         <td>
             <ul>
-                <li><a href="https://github.com/Taesan94/Spring/issues/16"> [ Security 의존성 주입 시 Issue ] </a></li>
-                <li><a href="https://github.com/Taesan94/Spring/issues/17"> [ &lt;authentication-provider&gt;태그 설정오류로 인한 Issue ] </a></li>
-                <li><a href="https://github.com/Taesan94/Spring/issues/18"> [ Security 적용 후 CSRF관련 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/16"> [ Security 의존성 주입 시 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/17"> [ &lt;authentication-provider&gt;태그 설정오류로 인한 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/18"> [ Security 적용 후 CSRF관련 Issue ] </a></li>
+                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues/19"> [ 로그인 후 계정권한정보 변경 시 반영되지않는 Issue ] </a></li>
             </ul>
         </td>
     </tr>
