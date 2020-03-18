@@ -6,7 +6,7 @@
       => 최대 조회순번은 6, 조회순번3 클릭했을 때 19~27번째글이 보여져야 함.
       
 - 페이징 처리를 위한 신규 클래스 추가<br>
-: <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/first/actions/model/Paging.java">[ Paging.java ]</a>
+: <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/java/woodong2/vo/common/Paging.java">[ Paging.java ]</a>
 
 - 수행쿼리
 ```
