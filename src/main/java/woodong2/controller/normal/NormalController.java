@@ -53,10 +53,6 @@ public class NormalController {
 	@Resource(name = "userInfosService")
 	private UserInfosService userInfosService;
 	
-	private static final String EVENT_PIC_SUB_DIR = "eventPics";
-	
-	private CommonFunctions comnFn = new CommonFunctions();
-
 	// 이벤트 리스트조회
 	@RequestMapping(value = "/selectEventInfos.do")
 	public ModelAndView selectEventInfos(Paging paging,
