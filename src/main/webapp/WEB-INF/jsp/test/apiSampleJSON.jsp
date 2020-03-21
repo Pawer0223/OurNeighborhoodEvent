@@ -13,7 +13,7 @@ function getAddr(){
 	}
 
 	$.ajax({
-		 url :"http://www.juso.go.kr/addrlink/addrLinkApiJsonp.do"  //인터넷망
+		 url :"/sample/getAddrApi.do"  //인터넷망
 		,type:"post"
 		,data:$("#form").serialize()
 		,dataType:"jsonp"
