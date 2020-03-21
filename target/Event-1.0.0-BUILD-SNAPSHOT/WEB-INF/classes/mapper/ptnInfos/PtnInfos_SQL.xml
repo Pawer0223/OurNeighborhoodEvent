@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ptnInfos">
+
+	<resultMap id="getPtnInfo" type="woodong2.vo.common.PtnInfos">
+		<result property ="ptnNm" column="PTN_NM" />
+		<result property ="neighbor" column="NEIGHBOR" />
+	</resultMap>
+
+	<insert id="registPtnInfos" parameterType="woodong2.vo.common.PtnInfos">
+		<![CDATA[
+		INSERT INTO PTN_INFOS (
+			  PTN_CD
+			, BIZR_REG_NO
+			, PTN_NM
+			, RPST_NM
+			, RPST_TEL
+			, FAX_NO
+			, ADD_NO
+			, NEIGHBOR
+			, CREATION_DATE	
+		)VALUES (
+			  #{ ptnCd }
+			, #{ bizrRegNo }
+			, #{ ptnNm }
+			, #{ rpstNm }
+			, #{ rpstTel }
+			, #{ faxNo }
+			, #{ addNo }
+			, #{ neighbor }
+			, SYSDATE		
+			)
+		]]>
+	</insert>
+
+	<select id="getMaxPtnCd" resultType="String">
+		<![CDATA[
+			SELECT 
+				'P' || LPAD(NVL(MAX(SUBSTR(PTN_CD,2)),0)+1,5,'0') 
+			FROM 
+				PTN_INFOS
+		]]>
+	</select>
+	
+	<select id="getPtnInfo" parameterType="String" resultMap="getPtnInfo">
+		<![CDATA[
+			SELECT 
+				PTN_NM, NEIGHBOR
+			FROM 
+				PTN_INFOS
+			WHERE 
+				PTN_CD = #{ ptnCd }
+		]]>
+	</select>
+	
+	<select id="bizrNoDuplicateCheck" parameterType="String" resultType="java.lang.Integer">
+		<![CDATA[	  
+			SELECT 
+				1
+			FROM 
+				PTN_INFOS
+			WHERE 
+				BIZR_REG_NO=#{ bizrRegNo }
+		]]>
+	</select>
+
+</mapper>

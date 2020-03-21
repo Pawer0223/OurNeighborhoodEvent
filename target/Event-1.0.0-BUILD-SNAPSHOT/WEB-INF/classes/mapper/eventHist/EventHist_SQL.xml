@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventHist">
+
+	<select id="participatedEvents" parameterType="String" resultType="hashmap">
+		<![CDATA[	  
+		SELECT EVENT_SEQ,EVENT_NM FROM EVENT_HIST 
+		WHERE PART_STATUS='COM'
+		AND USER_ID=#{ userId }
+		]]>
+	</select>
+	
+
+</mapper>
+
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reviewInfos">
+
+	<select id="selectLatestReviews" resultType="hashmap">
+		<![CDATA[	  
+		SELECT USER_NM, PROFILE_PIC, EH.EVENT_NM AS EVENT_NM, REVIEW_DESC AS REVIEW_DESC
+		FROM REVIEW_INFOS RV , USER_INFOS UI , EVENT_HIST EH
+		WHERE EH.PART_STATUS = 'COM'
+		AND RV.EVENT_SEQ = EH.EVENT_SEQ
+        AND EH.USER_ID = RV.USER_ID
+		AND RV.USER_ID = UI.USER_ID
+		ORDER BY RV.REVIEW_SEQ DESC
+		]]>
+	</select>
+	
+	<select id="reviewSearch" parameterType="String" resultType="hashmap">
+		<![CDATA[	  
+		SELECT REVIEW_SEQ, RV.USER_ID USER_ID,US.USER_NM USER_NM,PROFILE_PIC, REVIEW_NAME, REVIEW_DESC ,STARS
+		FROM REVIEW_INFOS RV , USER_INFOS US
+		WHERE RV.PTN_CD= #{ ptnCd }
+		AND RV.USER_ID=US.USER_ID
+		]]>
+	</select>
+	
+	<select id="getMaxReviewSeq" resultType="String">
+		<![CDATA[	  
+		SELECT 'R'||LPAD(NVL(MAX(SUBSTR(REVIEW_SEQ,2)),0)+1,6,'0') 
+		FROM REVIEW_INFOS
+		]]>
+	</select>
+	
+	<insert id="registReview" parameterType="woodong2.vo.common.ReviewInfos">
+		<![CDATA[
+		INSERT INTO REVIEW_INFOS 
+		VALUES ( #{ reviewSeq }
+			    ,#{ userId } 
+			   	,#{ eventSeq }
+			   	,#{ ptnCd }
+			   	,#{ reviewName }
+			   	,#{ reviewDesc }
+			   	,#{ stars }
+			   	,SYSDATE
+			   	,''
+			   	)
+		]]>
+	</insert>
+	
+
+</mapper>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventInfos">
+
+	<resultMap id="eventInfos" type="woodong2.vo.common.EventInfos">
+		<result property="eventSeq" column="EVENT_SEQ" />
+		<result property="ptnCd" column="PTN_CD" />
+		<result property="ptnNm" column="PTN_NM" />
+		<result property="eventNm" column="EVENT_NM" />
+		<result property="eventDesc" column="EVENT_DESC" />
+		<result property="product" column="PRODUCT" />
+		<result property="productPic" column="PRODUCT_PIC" />
+		<result property="originPrice" column="ORIGIN_PRICE" />
+		<result property="eventPrice" column="EVENT_PRICE" />
+		<result property="amount" column="AMOUNT" />
+		<result property="eventStatus" column="EVENT_STATUS" />
+		<result property="neighbor" column="NEIGHBOR" />
+		<result property="deliveryYn" column="DELIVERY_YN" />
+	</resultMap>
+
+	<select id="selectEventInfos" parameterType="woodong2.vo.common.Paging" resultMap="eventInfos">
+		<![CDATA[	  
+		SELECT EVENT_SEQ
+			 , PTN_CD
+			 , PTN_NM
+			 , EVENT_NM
+			 , PRODUCT
+			 , PRODUCT_PIC
+			 , ORIGIN_PRICE
+			 , EVENT_PRICE
+			 , AMOUNT
+			 , EVENT_STATUS
+			 , NEIGHBOR
+			 , DELIVERY_YN
+		FROM (
+		    SELECT ROWNUM RN, A.* 
+		        FROM (
+		                SELECT * 
+		                FROM EVENT_INFOS
+		                WHERE EVENT_STATUS='WORK'
+		                ORDER BY EVENT_SEQ DESC 
+		                ) A
+		        )
+		WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<select id="eventDetailInfo" parameterType="String" resultMap="eventInfos">
+		<![CDATA[	  
+		SELECT EVENT_SEQ,PTN_NM,EVENT_NM,EVENT_DESC,PRODUCT_PIC,ORIGIN_PRICE,EVENT_PRICE
+		FROM EVENT_INFOS
+		WHERE EVENT_SEQ = #{ eventSeq }
+		]]>
+	</select>
+	
+	<select id="getMaxEventSeq" resultType="String">
+		<![CDATA[	  
+		SELECT 'E'||LPAD(NVL(MAX(SUBSTR(EVENT_SEQ,2)),0)+1,6,'0') 
+		FROM EVENT_INFOS
+		]]>
+	</select>
+	
+	<select id="getEventCount" resultType="int">
+		<![CDATA[	  
+		SELECT COUNT(*)
+		FROM EVENT_INFOS
+		]]>
+	</select>
+	
+	<select id="getPtnCd" parameterType="String" resultType="String">
+		<![CDATA[	  
+		SELECT PTN_CD
+		FROM EVENT_INFOS
+		WHERE EVENT_SEQ = #{ eventSeq }
+		]]>
+	</select>
+	
+	<insert id="registEventInfos" parameterType="woodong2.vo.common.EventInfos">
+		<![CDATA[
+		INSERT INTO EVENT_INFOS 
+		VALUES ( #{ eventSeq }
+			    ,#{ ptnCd } 
+			   	,#{ ptnNm }
+			   	,#{ eventNm }
+			   	,#{ eventDesc }
+			   	,#{ product }
+			   	,#{ productPic }
+			   	,#{ originPrice }
+			   	,#{ eventPrice }
+			   	,#{ amount }
+			   	,'WORK'
+			   	,#{ neighbor }
+			   	,#{ deliveryYn }
+			   	,SYSDATE
+			   	,'' 
+			   	)
+		]]>
+	</insert>
+
+</mapper>
+
+
