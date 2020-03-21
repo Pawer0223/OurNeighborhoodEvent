@@ -38,7 +38,6 @@ public class ApiTestFunctions {
 		String keyword= "구성로 184"; //용인시 기흥구 
 		String resultType= "json";
 		
-		
 		urlBuilder.append("?currentPage=" + currentPage ); /* 페이지 */
 		urlBuilder.append("&countPerPage=" + countPerPage ); /* 건수 */
 		urlBuilder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8")); /* 검색주소 */

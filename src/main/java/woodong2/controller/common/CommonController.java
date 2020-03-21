@@ -1,7 +1,5 @@
 package woodong2.controller.common;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -23,9 +21,7 @@ import woodong2.service.common.MenuListService;
 import woodong2.service.common.ReviewInfosService;
 import woodong2.service.common.UserInfosService;
 import woodong2.utilities.function.CommonFunctions;
-import woodong2.vo.common.Authority;
 import woodong2.vo.common.EventInfos;
-import woodong2.vo.common.MenuList;
 import woodong2.vo.common.Paging;
 import woodong2.vo.common.UserInfos;
 
@@ -50,35 +46,10 @@ public class CommonController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-
-	private static String COM = "COM";
-	
 	private static final String PRIFLIE_SUB_DIR = "profile";
 	
 	private CommonFunctions comnFn = new CommonFunctions();
 	
-	// 메인페이지 호출
-	@RequestMapping(value = "/start.do")
-	public ModelAndView start(String neighbor , HttpServletRequest request) throws Exception {
-		
-		ModelAndView mv = new ModelAndView("/com/mainPage/main");
-
-		Paging paging = new Paging();
-
-		// 최근 3건조회 !
-		paging.setStart(1);
-		paging.setEnd(3);
-		
-		// 이벤트 정보조회
-		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
-		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
-
-		mv.addObject("latestEvents", latestEvents);
-		mv.addObject("latestReviews", latestReviews);
-
-		return mv;
-	}
-		
 	@RequestMapping(value = "/loginPage.do")
 	public String loginSuccess() throws Exception {
 		return "/com/loginPage";
@@ -123,6 +94,28 @@ public class CommonController {
 	public String accessDeniedPage(HttpServletRequest request) throws Exception {
 		
 		return "/com/accessDeniedPage";
+	}
+	
+	// 메인페이지 호출
+	@RequestMapping(value = "/start.do")
+	public ModelAndView start(String neighbor , HttpServletRequest request) throws Exception {
+		
+		ModelAndView mv = new ModelAndView("/com/mainPage/main");
+
+		Paging paging = new Paging();
+
+		// 최근 3건조회 !
+		paging.setStart(1);
+		paging.setEnd(3);
+		
+		// 이벤트 정보조회
+		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
+		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
+
+		mv.addObject("latestEvents", latestEvents);
+		mv.addObject("latestReviews", latestReviews);
+
+		return mv;
 	}
 	
 	@RequestMapping(value = "/duplicateCheck.do")
