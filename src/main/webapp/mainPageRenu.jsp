@@ -66,16 +66,13 @@
 		<div class="row justify-content-center">
 			<div class="col-xl-7 col-lg-10 text-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
 					<form name="testAutoComplete" action="/sample/getAddrApi.do" method="post">
-					
 						<div class="input-group mb-3">
-							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="동네를 검색해 주세요" aria-label="Example text with button addon" aria-describedby="button-addon1" style="height:55px;" autocomplete ="on">
-							<input type="hidden" name="${_csrf.parameterName}" value ="${_csrf.token}" />
-							<input type="submit" value=""/>
+							<input type="text"  name="keyword" id="keyword" class="form-control" placeholder="동네를 검색해 주세요" aria-label="동네 검색" aria-describedby="button-addon2" style="height: 50px;">
+							<div class="input-group-append">
+								<button class="btn btn-secondary border-gray color-main" type="button" id="button-addon2" >검색</button>
+							</div>
 						</div>
-					
-						<div class="buttons" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-							<input type="submit" class="mt-25 mx-15 btn border-gray color-main" value="검색">
-						</div>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					</form>
 			</div>
 		</div>
@@ -240,7 +237,7 @@
 
 
 
-
+<button class="btn btn-secondary" type="button" id="button-addon2" style="background-color:black;">검색</button>
 
 <!-- Bootstrap 4.3.1 JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
