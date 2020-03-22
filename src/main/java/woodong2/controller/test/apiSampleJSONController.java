@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import woodong2.vo.common.Juso;
 
@@ -27,8 +29,9 @@ public class apiSampleJSONController {
 	
 	private final String SERVICE_KEY = "U01TX0FVVEgyMDIwMDMyMTE1MTgwMDEwOTU2NjE=";
 
+	@ResponseBody
 	@RequestMapping(value="/sample/getAddrApi.do")
-	public String getAddrApi(HttpServletRequest req, ModelMap model, HttpServletResponse response) throws Exception {
+	public Map<String,Object> getAddrApi(HttpServletRequest req, ModelMap model, HttpServletResponse response) throws Exception {
 		
 		String stringUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do";
 		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
@@ -52,10 +55,11 @@ public class apiSampleJSONController {
 		conn.setRequestProperty("Content-type", "application/json");
 		System.out.println("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
+		
 		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 		} else {
-			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
 		}
 		StringBuilder sb = new StringBuilder();
 		String line;
@@ -67,9 +71,9 @@ public class apiSampleJSONController {
 
 		System.out.println(sb.toString());
 
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/xml");
-		response.getWriter().write(sb.toString());			// 응답결과 반환
+//		response.setCharacterEncoding("UTF-8");
+//		response.setContentType("text/xml");
+//		response.getWriter().write(sb.toString());			// 응답결과 반환
 
 		System.out.println(" 여기타는지 일단보자구 ");
 
@@ -86,9 +90,12 @@ public class apiSampleJSONController {
 		int totalCount= Integer.valueOf((String)common.get("totalCount"));
 
 		System.out.println(" totalCount : " + totalCount );
+		
+		Map<String,Object> res = new HashMap<String,Object>();
 
 		if ( totalCount < 1 ) {
 			System.out.println(" 조회결과 없음. ");
+			res.put("resultCode", "false");
 		}else {
 
 			JSONArray juso = (JSONArray)results.get("juso");
@@ -126,13 +133,15 @@ public class apiSampleJSONController {
 
 				Juso j = new Juso(detBdNmList ,engAddr ,rn ,emdNm ,zipNo ,roadAddrPart2 ,emdNo ,sggNm ,jibunAddr ,siNm ,roadAddrPart1 ,bdNm ,admCd ,udrtYn ,lnbrMnnm ,roadAddr ,lnbrSlno ,buldMnnm ,bdKdcd ,liNm ,rnMgtSn ,mtYn ,bdMgtSn ,buldSlno);
 				jusos.add(j);
-
 				System.out.println( i + "번째 Value : " + j.toString() ) ;
-
-				req.setAttribute("jusos", jusos);
+				
 			}
+				res.put("jusos", jusos);
+				res.put("resultCode", "ok");
 		}
 
-		return "/test/searchTest";
+		System.out.println(" resultCode : " + res.get("resultCode"));
+		
+		return res;
 	}
 }

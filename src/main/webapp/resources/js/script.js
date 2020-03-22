@@ -197,8 +197,34 @@ function SF_scripts(){
 				var posting = $.post(url, term);
 				posting
 				.done(function(data){
-					if(data=="ok"){
-						$(".alert-form-success").fadeIn(200).delay(5000).fadeOut(200);
+					
+//				alert("data : " + data );
+//				console.log(" data : " + data);
+//				
+//				$('#testman').html(data);
+					
+				console.log(" data : " , data );
+				
+				var result = data.resultCode;
+
+				if(data == "ok" || ( result != null && result == "ok" ) ){
+					$(".alert-form-success").fadeIn(200).delay(5000).fadeOut(200);
+
+					for ( var i = 0 ; i < data.jusos.length; i ++  ){
+
+						var obj = data.jusos[i];
+
+						var str ="<tr>";
+						var a = obj.roadAddr;
+
+						str +="<td>" + a + "</td>";
+						str +="</tr>";
+
+						$('#addr').append(str);
+
+					}
+
+						
 					}else{
 						$(".alert-form-error .message").html(data);
 						$(".alert-form-error").fadeIn(200).delay(10000).fadeOut(200);
@@ -210,6 +236,9 @@ function SF_scripts(){
 					hidegRecaptchaPopup();
 				});
 			}else{
+				
+				console.log(" data : " , data );
+				
 				$(".alert-form-check-fields").fadeIn(200).delay(5000).fadeOut(200);
 				hidegRecaptchaPopup();
 			}

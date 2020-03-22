@@ -115,13 +115,15 @@ function enterSearch() {
 <title>Insert title here</title>
 </head>
 <body>
-<form name="form" id="form" method="post">
+<form name="form" id="form" method="post" action="/sample/getAddrApi.do">
 	<input type="text" name="currentPage" value="1"/> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
 	<input type="text" name="countPerPage" value="10"/><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) -->
 	<input type="text" name="resultType" value="json"/> <!-- 요청 변수 설정 (검색결과형식 설정, json) --> 
 	<input type="text" name="confmKey" value="TESTJUSOGOKR"/><!-- 요청 변수 설정 (승인키) -->
 	<input type="text" name="keyword" value="" onkeydown="enterSearch();"/><!-- 요청 변수 설정 (키워드) -->
-	<input type="button" onClick="getAddr();" value="주소검색하기"/>
+<!-- 	<input type="button" onClick="getAddr();" value="주소검색하기"/> -->
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	<input type="submit" value="주소검색하기"/> 
 	<div id="list" ></div><!-- 검색 결과 리스트 출력 영역 -->
 </form>
 </body>

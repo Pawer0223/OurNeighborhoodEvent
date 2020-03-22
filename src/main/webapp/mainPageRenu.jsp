@@ -65,14 +65,18 @@
 	<div class="container px-xl-0">
 		<div class="row justify-content-center">
 			<div class="col-xl-7 col-lg-10 text-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-					<form name="testAutoComplete" action="check();" method="post">
+					<form name="testAutoComplete" action="/sample/getAddrApi.do" method="post">
+					
 						<div class="input-group mb-3">
-							<input type="text" id="inputData" class="form-control" placeholder="동네를 검색해 주세요" aria-label="Example text with button addon" aria-describedby="button-addon1" style="height:55px;" autocomplete ="on">
+							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="동네를 검색해 주세요" aria-label="Example text with button addon" aria-describedby="button-addon1" style="height:55px;" autocomplete ="on">
+							<input type="hidden" name="${_csrf.parameterName}" value ="${_csrf.token}" />
+							<input type="submit" value=""/>
+						</div>
+					
+						<div class="buttons" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
+							<input type="submit" class="mt-25 mx-15 btn border-gray color-main" value="검색">
 						</div>
 					</form>
-					<div class="buttons" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-					<a href="#" class="mt-25 mx-15 btn border-gray color-main">검색</a>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -171,18 +175,18 @@
 </footer>
 <!-- forms alerts -->
 <div class="alert alert-success alert-dismissible fixed-top alert-form-success" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times; </span></button>
 	Thanks for your message!
 </div>
 <div class="alert alert-warning alert-dismissible fixed-top alert-form-check-fields" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times; </span></button>
 	Please, fill in required fields.
 </div>
 <div class="alert alert-danger alert-dismissible fixed-top alert-form-error" role="alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times; </span></button>
 	<div class="message">An error occurred while sending data :( Please, check if your hosting supports PHP and check how to set form data sending <a href="https://designmodo.com/startup/documentation/#form-handler" target="_blank" class="link color-transparent-white">here</a>.</div>
 </div>
-
+<div id="testman"></div>
 <!-- gReCaptcha popup (uncomment if you need a recaptcha integration) -->
 <!--
 <div class="bg-dark op-8 grecaptcha-overlay"></div>
@@ -193,6 +197,50 @@
 </div>
 <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
 -->
+
+
+	<h3>검색어정보</h3>
+
+		<c:forEach items="${jusos}" var="row" varStatus="status">
+
+			<table border="1">
+				<tr>
+					<th>detBdNmList</th>
+					<th>engAddr</th>
+					<th>rn</th>
+					<th>emdNm</th>
+					<th>zipNo</th>
+					<th>roadAddrPart2</th>
+					<th>emdNo</th>
+					<th>sggNm</th>
+					<th>jibunAddr</th>
+					<th>siNm</th>
+					<th>roadAddrPart1</th>
+					<th>bdNm</th>
+					<th>admCd</th>
+					<th>udrtYn</th>
+					<th>lnbrMnnm</th>
+					<th>roadAddr</th>
+					<th>lnbrSlno</th>
+					<th>buldMnnm</th>
+					<th>bdKdcd</th>
+					<th>liNm</th>
+					<th>rnMgtSn</th>
+					<th>mtYn</th>
+					<th>bdMgtSn</th>
+					<th>buldSlno</th>
+				</tr>
+				<tr id="addr">
+				
+				</tr>
+				<br>
+			</table>
+
+		</c:forEach>
+
+
+
+
 
 <!-- Bootstrap 4.3.1 JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

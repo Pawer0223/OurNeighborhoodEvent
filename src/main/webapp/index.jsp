@@ -6,4 +6,4 @@
 <%-- <jsp:forward page="/main/about.do" /> --%>
 <%-- <jsp:forward page="/menuList/selectMenu.do" /> --%>
 
-<jsp:forward page="test.jsp" />
+<jsp:forward page="mainPageRenu.jsp" />
