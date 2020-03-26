@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" >
-		<title>Startup 3.3 - Project</title>
+		<title>Woo Dong 2</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 				<link rel="icon" href="../resources/i/favicon.png" type="image/x-icon">
 		<!-- Google Fonts -->
@@ -34,7 +34,7 @@
 	<div class="container px-xl-0">
 		<div class="row align-items-center justify-content-between">
 			<div class="col-xl-2 col-lg-3 text-center text-lg-left" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-				<a href="#" class="mr-20 link color-main f-24 bold">Startup 3</a>
+				<a href="#" class="mr-20 link color-main f-24 bold">Woo Dong 2</a>
 			</div>
 			<div class="col-xl-10 col-lg-9 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
 				<div class="mb-10 mb-md-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
