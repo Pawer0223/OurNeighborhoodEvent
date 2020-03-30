@@ -31,20 +31,23 @@ import woodong2.vo.common.Juso;
 
 @Controller
 public class apiSampleJSONController {
-	
+
 	private final String SERVICE_KEY = "U01TX0FVVEgyMDIwMDMyMTE1MTgwMDEwOTU2NjE=";
 
 	@ResponseBody
-	@RequestMapping(value="/sample/getAddrApi.do")
-	public Map<String,Object> getAddrApi(HttpServletRequest req, ModelMap model, HttpServletResponse response) throws Exception {
-		
+	@RequestMapping(value="/sample/getAddrApi.do", produces="text/plain;charset=UTF-8")
+	public String getAddrApi(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
+
+
 		String stringUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do";
 		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
 
 		int currentPage= 1;
 		int countPerPage= 10;
-		String keyword = req.getParameter("keyword");            //요청 변수 설정 (키워드)
-		
+		String keyword = request.getParameter("keyword");            //요청 변수 설정 (키워드)
+
+		System.out.println(" keyword : " + keyword);
+
 		String resultType= "json";
 
 		urlBuilder.append("?currentPage=" + currentPage ); /* 페이지 */
@@ -52,14 +55,14 @@ public class apiSampleJSONController {
 		urlBuilder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8")); /* 검색주소 */
 		urlBuilder.append("&confmKey=" + SERVICE_KEY ); /* 발급받은 key */
 		urlBuilder.append("&resultType=" + resultType ); /* 없으면 XML */
-		
+
 		URL url = new URL(urlBuilder.toString());
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");
 		System.out.println("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
-		
+
 		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 		} else {
@@ -74,10 +77,6 @@ public class apiSampleJSONController {
 		conn.disconnect();
 
 		System.out.println(sb.toString());
-
-//		response.setCharacterEncoding("UTF-8");
-//		response.setContentType("text/xml");
-//		response.getWriter().write(sb.toString());			// 응답결과 반환
 
 		System.out.println(" 여기타는지 일단보자구 ");
 
@@ -94,7 +93,88 @@ public class apiSampleJSONController {
 		int totalCount= Integer.valueOf((String)common.get("totalCount"));
 
 		System.out.println(" totalCount : " + totalCount );
-		
+
+		String[] jusos = new String[1];
+
+		if ( totalCount < 1 ) {
+			System.out.println(" 조회결과 없음. ");
+			jusos[0] = "검색결과가 존재하지 않습니다.";
+		}else {
+			JSONArray juso = (JSONArray)results.get("juso");
+			jusos = new String[juso.size()];
+
+			for ( int i = 0 ; i < juso.size(); i ++ ) {
+				JSONObject address = (JSONObject)juso.get(i);
+				String roadAddr = (String)address.get("roadAddr");
+				jusos[i] = roadAddr;
+			}
+		}
+		Gson gson = new Gson();
+		return gson.toJson(jusos);
+	}
+
+	@ResponseBody
+	@RequestMapping(value="/sample/getAddrApi_v2.do", produces="text/plain;charset=UTF-8")
+	public String getAddrApi_v2(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
+
+
+		String stringUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do";
+		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
+
+		int currentPage= 1;
+		int countPerPage= 10;
+		String keyword = request.getParameter("keyword");            //요청 변수 설정 (키워드)
+
+		System.out.println(" keyword : " + keyword);
+
+		String resultType= "json";
+
+		urlBuilder.append("?currentPage=" + currentPage ); /* 페이지 */
+		urlBuilder.append("&countPerPage=" + countPerPage ); /* 건수 */
+		urlBuilder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8")); /* 검색주소 */
+		urlBuilder.append("&confmKey=" + SERVICE_KEY ); /* 발급받은 key */
+		urlBuilder.append("&resultType=" + resultType ); /* 없으면 XML */
+
+		URL url = new URL(urlBuilder.toString());
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Content-type", "application/json");
+		System.out.println("Response code: " + conn.getResponseCode());
+		BufferedReader rd;
+
+		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+
+		System.out.println(sb.toString());
+
+		//		response.getWriter().write(sb.toString());			// 응답결과 반환
+
+		System.out.println(" 여기타는지 일단보자구 ");
+
+		JSONObject jsonObject = new JSONObject();
+
+		JSONParser parser = new JSONParser();
+		jsonObject = (JSONObject)parser.parse(sb.toString());
+
+		JSONObject results = (JSONObject)jsonObject.get("results");
+
+		// 응답정보
+		JSONObject common = (JSONObject)results.get("common");
+
+		int totalCount= Integer.valueOf((String)common.get("totalCount"));
+
+		System.out.println(" totalCount : " + totalCount );
+
 		Map<String,Object> res = new HashMap<String,Object>();
 
 		if ( totalCount < 1 ) {
@@ -138,28 +218,27 @@ public class apiSampleJSONController {
 				Juso j = new Juso(detBdNmList ,engAddr ,rn ,emdNm ,zipNo ,roadAddrPart2 ,emdNo ,sggNm ,jibunAddr ,siNm ,roadAddrPart1 ,bdNm ,admCd ,udrtYn ,lnbrMnnm ,roadAddr ,lnbrSlno ,buldMnnm ,bdKdcd ,liNm ,rnMgtSn ,mtYn ,bdMgtSn ,buldSlno);
 				jusos.add(j);
 				System.out.println( i + "번째 Value : " + j.toString() ) ;
-				
+
 			}
-				res.put("jusos", jusos);
-				// res.put("resultCode", "ok"); // 필요없으면 나중에 지워주자. 나중에 혹시 까먹을까봐 주석처리함 필요없으면 반드시반드시 지우자
+			res.put("jusos", jusos);
 		}
 
-		System.out.println(" resultCode : " + res.get("resultCode"));
-		
-		return res;
+		Gson gson = new Gson();
+
+		return gson.toJson(res);
 	}
-	
-	//스프링 컨트롤러 부분
+
+
 	@RequestMapping(value = "/json.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	@ResponseBody
 	public String json(Locale locale, Model model) {    
-		
+
 		System.out.println(" jjj sss ooo nnn 여 기 다 ! ");
-	    String[] array = {"김치 볶음밥", "신라면", "진라면", "라볶이", "팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"};
-	    
-	    Gson gson = new Gson();
-	    
-	    return gson.toJson(array);//["김치 볶음밥","신라면","진라면","라볶이","팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"]
+		String[] array = {"김치 볶음밥", "신라면", "진라면", "라볶이", "팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"};
+
+		Gson gson = new Gson();
+
+		return gson.toJson(array);//["김치 볶음밥","신라면","진라면","라볶이","팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"]
 	}
-	
+
 }

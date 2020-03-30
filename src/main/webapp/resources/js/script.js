@@ -1022,23 +1022,17 @@ function SF_scripts(){
 	
 	$(function() {
 		
-		$(document).ajaxSend(function(e, xhr, options) {
-		    xhr.setRequestHeader( "${_csrf.headerName}", "${_csrf.token}" );
-		});
-		
 		$('#keyword').autocomplete({
 			source: function( request, response ){
 				$.ajax({
 					type: 'get',
-					url : '/json',
-					dataType: "json", // 지정안하면 자동 parsing된다는데 ?
+					url : '/sample/getAddrApi.do?keyword='+$('#keyword').val(),
+					 dataType: "json", // 지정안하면 자동 parsing된다는데 ?
+					contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 
 					success: function(data) {
-						
-						alert(" data : " + data );
-
 						response(
-								$.map(data, function(item) {
+								$.map(data, function(item) {  //json[i] 번째 에 있는게 item 임.
 									return {
 										label : item+"label",
 										value : item,
@@ -1072,7 +1066,7 @@ function SF_scripts(){
 			}
 		}).autocomplete( "instance" )._renderItem = function( ul, item ){ // 요 부분이 ui를 마음대로 변경하는 부분
 			return $( "<li>" ) // 기본 tag가 li로 되어있음.
-			.append("<div>" + item.value + "<br>" + item.label + "</div>")
+			.append("<div>" + item.value  + "</div>")
 			.appendTo ( ul );
 		};
 	});
