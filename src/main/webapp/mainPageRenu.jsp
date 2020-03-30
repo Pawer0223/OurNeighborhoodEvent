@@ -6,13 +6,17 @@
 		<meta charset="utf-8" >
 		<title>Woo Dong 2</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="icon" href="../resources/i/favicon.png" type="image/x-icon">
+		<link rel="icon" href="../resources/i/favicon.png" type="image/x-icon">
+		
 		<!-- Google Fonts -->
-				<link href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,600,500,700,800,900|DM+Sans:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
-				<!-- Bootstrap 4.3.1 CSS -->
+		<link href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,600,500,700,800,900|DM+Sans:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
+		
+		<!-- Bootstrap 4.3.1 CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
 		<!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+		
 		<!-- Fancybox 3 jQuery plugin CSS (Open images and video in popup) -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 		<!-- AOS 2.3.4 jQuery plugin CSS (Animations) -->
@@ -20,21 +24,26 @@
 		<!-- FontAwesome CSS -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<!-- Startup 3 CSS (Styles for all blocks) -->
-					<link href="../resources/css/style.css" rel="stylesheet" />
-				<!-- jQuery 3.3.1 -->
+		<link href="../resources/css/style.css" rel="stylesheet" />
+		
+		<!-- jQuery 3.3.1 -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		
-		
-</head> 
-	<body>
+		<!--검색어 자동완성을위해서 추가 -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	</head>
+
+<body>
 
 <!-- Navigation 2 -->
-
 <nav class="pt-30 pb-30 bg-light lh-40 navigation_2">
 	<div class="container px-xl-0">
 		<div class="row align-items-center justify-content-between">
 			<div class="col-xl-2 col-lg-3 text-center text-lg-left" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
 				<a href="#" class="mr-20 link color-main f-24 bold">Woo Dong 2</a>
+			<!-- body 부분 -->
 			</div>
 			<div class="col-xl-10 col-lg-9 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
 				<div class="mb-10 mb-md-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
@@ -65,7 +74,7 @@
 	<div class="container px-xl-0">
 		<div class="row justify-content-center">
 			<div class="col-xl-7 col-lg-10 text-center" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-					<form name="testAutoComplete" action="/sample/getAddrApi.do" method="post">
+					<form name="testAutoComplete" method="post">
 						<div class="input-group mb-3">
 							<input type="text"  name="keyword" id="keyword" class="form-control" placeholder="동네를 검색해 주세요" aria-label="동네 검색" aria-describedby="button-addon2" style="height: 50px;">
 							<div class="input-group-append">

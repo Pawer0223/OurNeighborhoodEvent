@@ -14,6 +14,7 @@ $(document).ready(function() {
 	SF_scripts();
 });
 
+
 function SF_scripts(){
 
 	$(window).resize(function(){
@@ -220,7 +221,7 @@ function SF_scripts(){
 						str +="<td>" + a + "</td>";
 						str +="</tr>";
 
-						$('#addr').append(str);
+						$('#addr').append(str); //123
 
 					}
 
@@ -287,7 +288,6 @@ function SF_scripts(){
 	resizeVideo();
 
 	// Play video
-
 	$(".video .play").click(function(){
 		var video = $(this).parent().parent().find("video");
 		$(this).closest(".poster").fadeOut(300,function(){
@@ -1014,5 +1014,68 @@ function SF_scripts(){
 			}
 		});
 	}
+	
+	$("#button-addon2").click(function(){
+		var keyword = $('#keyword').val();
+		alert(" 바보바보바보야 바보야 바보야 " + keyword);
+	});
+	
+	$(function() {
+		
+		$(document).ajaxSend(function(e, xhr, options) {
+		    xhr.setRequestHeader( "${_csrf.headerName}", "${_csrf.token}" );
+		});
+		
+		$('#keyword').autocomplete({
+			source: function( request, response ){
+				$.ajax({
+					type: 'get',
+					url : '/json',
+					dataType: "json", // 지정안하면 자동 parsing된다는데 ?
+
+					success: function(data) {
+						
+						alert(" data : " + data );
+
+						response(
+								$.map(data, function(item) {
+									return {
+										label : item+"label",
+										value : item,
+										test  : item+"test"
+									}
+								}
+
+								)//map
+						)//rsponse
+					}
+				}); // ajax End
+			},
+			select: function(event,ui){
+                console.log(ui);//사용자가 오토컴플릿이 만들어준 목록에서 선택을 하면 반환되는 객체
+                console.log(ui.item.label);    //김치 볶음밥label
+                console.log(ui.item.value);    //김치 볶음밥
+                console.log(ui.item.test);    //김치 볶음밥test
+			},
+			focus: function(event,ui){
+				return false;
+			},
+			minLength: 1, // 최소 글자수
+			autoFocus : true, // 첫번째 항목 자동 포커시 기본값 false
+			classes: {
+				"ui-autocomplete" : "highlight"
+			},
+			delay: 500, // 검색창에 글자 써지고 나서 autocomplete 창 뜰때까지 delay시간(ms)
+			position: { my : "right top", at: "right bottom" },
+			close : function(event){
+				console.log(event);
+			}
+		}).autocomplete( "instance" )._renderItem = function( ul, item ){ // 요 부분이 ui를 마음대로 변경하는 부분
+			return $( "<li>" ) // 기본 tag가 li로 되어있음.
+			.append("<div>" + item.value + "<br>" + item.label + "</div>")
+			.appendTo ( ul );
+		};
+	});
+
 
 }; // SF_scripts end

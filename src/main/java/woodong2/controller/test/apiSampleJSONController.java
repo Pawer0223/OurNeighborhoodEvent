@@ -8,6 +8,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,9 +18,13 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import woodong2.vo.common.Juso;
 
@@ -42,7 +47,6 @@ public class apiSampleJSONController {
 		
 		String resultType= "json";
 
-		
 		urlBuilder.append("?currentPage=" + currentPage ); /* 페이지 */
 		urlBuilder.append("&countPerPage=" + countPerPage ); /* 건수 */
 		urlBuilder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8")); /* 검색주소 */
@@ -137,11 +141,25 @@ public class apiSampleJSONController {
 				
 			}
 				res.put("jusos", jusos);
-				res.put("resultCode", "ok");
+				// res.put("resultCode", "ok"); // 필요없으면 나중에 지워주자. 나중에 혹시 까먹을까봐 주석처리함 필요없으면 반드시반드시 지우자
 		}
 
 		System.out.println(" resultCode : " + res.get("resultCode"));
 		
 		return res;
 	}
+	
+	//스프링 컨트롤러 부분
+	@RequestMapping(value = "/json.do", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public String json(Locale locale, Model model) {    
+		
+		System.out.println(" jjj sss ooo nnn 여 기 다 ! ");
+	    String[] array = {"김치 볶음밥", "신라면", "진라면", "라볶이", "팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"};
+	    
+	    Gson gson = new Gson();
+	    
+	    return gson.toJson(array);//["김치 볶음밥","신라면","진라면","라볶이","팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"]
+	}
+	
 }
