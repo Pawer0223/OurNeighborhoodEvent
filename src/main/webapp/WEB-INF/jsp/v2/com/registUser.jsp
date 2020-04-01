@@ -94,10 +94,6 @@
 						<td colspan="2"><input class="form-control" type="text" id="userNm" name="userNm" maxLength="20" placeholder="이름"></td>
 					</tr>
 					<tr>
-						<td style="width: 110px; padding-top: 16px;">프로필 사진</td>
-						<td colspan="2"><input class="form-control" type="file" id="pictureFile" name="pictureFile" maxLength="20"></td>
-					</tr>
-					<tr>
 						<td style="width: 110px; padding-top: 16px;">휴대폰번호</td>
 						<td colspan="2"><input class="form-control" type="tel" id="phoneNum" name="phoneNum" maxLength="20" placeholder="010-0000-0000"></td>
 					</tr>
@@ -108,7 +104,7 @@
 						</td>
 					</tr>
 					<tr>
-					<td colspan="3"><a href="/com/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/com/v2/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>

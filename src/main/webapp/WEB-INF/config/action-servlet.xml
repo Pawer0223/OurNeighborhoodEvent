@@ -26,7 +26,9 @@
 		</mvc:interceptor>
 	
 	</mvc:interceptors>
-
+	
+	 <mvc:resources mapping="/resources/**" location="/resources/" />
+	
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0" />
 	<!-- <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" /> -->

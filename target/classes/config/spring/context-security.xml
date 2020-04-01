@@ -20,16 +20,16 @@
 	        username-parameter="username"
 	        password-parameter="password"
 	        login-processing-url="/loginProcess.do"
-	        login-page="/com/loginPage.do"
-	        default-target-url="/com/start.do"
-	        authentication-failure-url="/com/loginPage.do"
+	        login-page="/com/v2/loginPage.do"
+	        default-target-url="/com/v2/start.do"
+	        authentication-failure-url="/com/v2/loginPage.do"
 	        authentication-failure-handler-ref="loginFailureHandler"
 	        authentication-success-handler-ref="loginSuccessHandler"
 	    />
 		<!-- com/loginFail.do -->
 		
 		<access-denied-handler
-		    error-page="/com/accessDeniedPage.do"
+		    error-page="/com/v2/accessDeniedPage.do"
 		/>
 
 	   <logout
@@ -57,12 +57,12 @@
 	    <beans:property name="username" value="username"/>
 	    <beans:property name="password" value="password"/>
 	    <beans:property name="exceptionMsgName" value="exceptionMsgName"/>
-	    <beans:property name="defaultFailureUrl" value="/com/loginPage.do?error"/>
+	    <beans:property name="defaultFailureUrl" value="/com/v2/loginPage.do?error"/>
 	</beans:bean>
 	
 	<beans:bean id="loginSuccessHandler" class="woodong2.handler.security.LoginSuccessHandler">
 	    <beans:property name="username" value="username"/>
-	    <beans:property name="defaultUrl" value="/com/start.do"/>
+	    <beans:property name="defaultUrl" value="/com/v2/start.do"/>
 	</beans:bean>	
 	
 </beans:beans>

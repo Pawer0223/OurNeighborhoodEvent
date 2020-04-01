@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+    
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" >
 		<title>Woo Dong 2</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="../resources/i/favicon.png" type="image/x-icon">
+		<link rel="icon" href="/resources/i/favicon.png" type="image/x-icon">
 		
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,600,500,700,800,900|DM+Sans:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
@@ -24,7 +28,7 @@
 		<!-- FontAwesome CSS -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<!-- Startup 3 CSS (Styles for all blocks) -->
-		<link href="../resources/css/style.css" rel="stylesheet" />
+		<link href="/resources/css/style.css" rel="stylesheet" />
 		
 		<!-- jQuery 3.3.1 -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -33,7 +37,6 @@
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	</head>
 
 <body>
 
@@ -55,11 +58,10 @@
 						</div>
 					</div>
 					<a href="#" class="mx-15 link color-main ">Event</a>
-					<a href="#" class="mx-15 link color-main ">Review</a>
 					<a href="#" class="mx-15 link color-main ">About</a>
 				</div>
 				<div class="text-md-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-					<a href="#" class="mx-15 link color-main ">Login</a>
+					<a href="/com/v2/loginPage.do" class="mx-15 link color-main ">Login</a>
 					<a href="/com/v2/userRegistGo.do" class="mx-15 btn sm color-main border-gray f-16">Sign Up</a>
 				</div>
 			</div>
@@ -97,62 +99,26 @@
 <!-- 				</div> -->
 			</div>
 		</div>
-		<div class="mt-10 row justify-content-center text-center text-md-left">
-			<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-				<a href="#" class="d-block">
-					<img src="../resources/i/showcase_1_img_1.jpg" srcset="../resources/i/showcase_1_img_1@2x.jpg 2x" class="img-fluid radius10" alt="" />
-				</a>
-				<a href="#" class="mt-20 mb-10 f-22 link color-main title">iPhone Features</a>
-				<div class="color-heading text-adaptive">
-					Startup Framework works fine on devices 
-					supporting Retina Display. Feel the clarity!				</div>
-			</div>
-			<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-				<a href="#" class="d-block">
-					<img src="../resources/i/showcase_1_img_2.jpg" srcset="../resources/i/showcase_1_img_2@2x.jpg 2x" class="img-fluid radius10" alt="" />
-				</a>
-				<a href="#" class="mt-20 mb-10 f-22 link color-main title">Bootstrap Based Design</a>
-				<div class="color-heading text-adaptive">
-					HTML layout is based on one of the most 
-					common and reliable framework - Bootstrap.				</div>
-			</div>
-			<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-				<a href="#" class="d-block">
-					<img src="../resources/i/showcase_1_img_3.jpg" srcset="../resources/i/showcase_1_img_3@2x.jpg 2x" class="img-fluid radius10" alt="" />
-				</a>
-				<a href="#" class="mt-20 mb-10 f-22 link color-main title">Prototyping</a>
-				<div class="color-heading text-adaptive">
-					We used only time-tested technologies for <br />
-					the best results.				</div>
-			</div>
-			<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-				<a href="#" class="d-block">
-					<img src="../resources/i/showcase_1_img_4.jpg" srcset="../resources/i/showcase_1_img_4@2x.jpg 2x" class="img-fluid radius10" alt="" />
-				</a>
-				<a href="#" class="mt-20 mb-10 f-22 link color-main title">More than Image</a>
-				<div class="color-heading text-adaptive">
-					We prepared some high-quality photos, that 
-					you can use in your projects.				</div>
-			</div>
-			<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-				<a href="#" class="d-block">
-					<img src="../resources/i/showcase_1_img_5.jpg" srcset="../resources/i/showcase_1_img_5@2x.jpg 2x" class="img-fluid radius10" alt="" />
-				</a>
-				<a href="#" class="mt-20 mb-10 f-22 link color-main title">Startup Framework Generator</a>
-				<div class="color-heading text-adaptive">
-					Startup Framework contains components <br />
-					and complex blocks which can easily.				</div>
-			</div>
-			<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-				<a href="#" class="d-block">
-					<img src="../resources/i/showcase_1_img_6.jpg" srcset="../resources/i/showcase_1_img_6@2x.jpg 2x" class="img-fluid radius10" alt="" />
-				</a>
-				<a href="#" class="mt-20 mb-10 f-22 link color-main title">More than Design</a>
-				<div class="color-heading text-adaptive">
-					Carefully crafted precise design, with 
-					harmonious typography and perfect padding.				</div>
-			</div>
+
+
+
+			<div class="mt-10 row justify-content-center text-center text-md-left">
+
+				<c:forEach items="${latestEvents}" var="row" varStatus="status">
+					<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block"
+						data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+						<a href="#" class="d-block"> <img
+							src="/resources/i/showcase_1_img_1.jpg"
+							srcset="/resources/i/showcase_1_img_1@2x.jpg 2x"
+							class="img-fluid radius10" alt="" />
+						</a> <a href="#" class="mt-20 mb-10 f-22 link color-main title">남은
+							수량 : ${ row.amount }</a>
+						<div class="color-heading text-adaptive">${ row.eventNm }</div>
+					</div>
+
+			</c:forEach>
 		</div>
+		
 	</div>
 </section>
 <!-- Footer 2 -->
@@ -211,9 +177,9 @@
 <!-- AOS 2.3.4 jQuery plugin JS (Animations) -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
-<script src="../resources/js/jquery.maskedinput.min.js"></script>
+<script src="/resources/js/jquery.maskedinput.min.js"></script>
 <!-- Startup 3 JS (Custom js for all blocks) -->
-<script src="../resources/js/script.js"></script>
+<script src="/resources/js/script.js"></script>
 
 </body>
 </html>

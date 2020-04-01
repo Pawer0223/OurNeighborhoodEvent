@@ -52,9 +52,7 @@
 								<div class="col-lg-10 align-items-end" align="center">
 									<div class="form-group" style="width: 70%">
 										<div class="form-field">
-											<input onclick="sample6_execDaumPostcode()" type="text"
-												class="form-control" placeholder="Search location"
-												id="sample6_address">
+											<input onclick="sample6_execDaumPostcode()" type="text" class="form-control" placeholder="Search location" id="sample6_address">
 											<button>
 												<span class="ion-ios-search"></span>
 											</button>
@@ -220,16 +218,7 @@
 				</div>
 			</div>
 			<div class="row">
-					<c:set var="flag" value="false" />
 					<c:forEach items="${latestEvents}" var="row" varStatus="status">
-
-					<%-- forEach에서 break하는 방법, 불필요해서 주속처리 함
-						<c:if test="${not flag}">
-							<c:if test="${ status.count eq 3}">
-								<c:set var="flag" value="true" />
-							</c:if>
-						--%>
-
 					<div class="col-md-4">
 						<div class="property-wrap ftco-animate">
 							<a href="#" class="img" style="background-image: url(${ row.productPic });"></a>
@@ -259,7 +248,6 @@
 							</div>
 						</div>
 					</div>
-					<%-- </c:if> --%>
 				</c:forEach>
 			</div>
 		</div>

@@ -67,20 +67,20 @@ public class CommonController_v2 {
 	
 	@RequestMapping(value = "/loginPage.do")
 	public String loginSuccess() throws Exception {
-		return "/com/loginPage";
+		return "/v2/com/loginPage";
 	}
 	
 	// services페이지 이동
 	@RequestMapping(value = "/about.do")
 	public ModelAndView about() throws Exception {
-		ModelAndView mv = new ModelAndView("/com/mainPage/about");
+		ModelAndView mv = new ModelAndView("/v2/com/mainPage/about");
 		return mv;
 	}
 
 	// about페이지 이동
 	@RequestMapping(value = "/contact.do")
 	public ModelAndView contact() throws Exception {
-		ModelAndView mv = new ModelAndView("/com/mainPage/contact");
+		ModelAndView mv = new ModelAndView("/v2/com/mainPage/contact");
 		return mv;
 	}
 	
@@ -93,7 +93,7 @@ public class CommonController_v2 {
 	// 로그인실패
 	@RequestMapping(value = "/loginFail.do")
 	public ModelAndView loginFail() throws Exception {
-		ModelAndView mv = new ModelAndView("/com/loginFail");
+		ModelAndView mv = new ModelAndView("/v2/com/loginFail");
 		return mv;
 	}
 	
@@ -101,14 +101,14 @@ public class CommonController_v2 {
 	public String logout(HttpServletRequest request) throws Exception {
 		
 		request.getSession().invalidate();
-		return "redirect:/com/start.do";
+		return "redirect:/v2/com/start.do";
 	}
 	
 	// 권한 없는 경우 
 	@RequestMapping(value = "/accessDeniedPage.do")
 	public String accessDeniedPage(HttpServletRequest request) throws Exception {
 		
-		return "/com/accessDeniedPage";
+		return "/v2/com/accessDeniedPage";
 	}
 	
 	// 메인페이지 호출
@@ -119,9 +119,9 @@ public class CommonController_v2 {
 
 		Paging paging = new Paging();
 
-		// 최근 3건조회 !
+		// 최근 6건 조회
 		paging.setStart(1);
-		paging.setEnd(3);
+		paging.setEnd(6);
 		
 		// 이벤트 정보조회
 		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
@@ -152,7 +152,7 @@ public class CommonController_v2 {
 
 		log.info(userInfo.toString());
 
-		ModelAndView mv = new ModelAndView("/com/registUser");
+		ModelAndView mv = new ModelAndView("/v2/com/registUser");
 		
 		MultipartFile profileUrl = userInfo.getPictureFile();
 		
@@ -190,7 +190,7 @@ public class CommonController_v2 {
 	 * @throws Exception
 	 */
 	@ResponseBody
-	@RequestMapping(value="/sample/getAddrApi.do", produces="text/plain;charset=UTF-8")
+	@RequestMapping(value="/getAddrApi.do", produces="text/plain;charset=UTF-8")
 	public String getAddrApi(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
 
 		String stringUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do";

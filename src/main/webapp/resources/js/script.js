@@ -1054,12 +1054,11 @@ function SF_scripts(){
 //	});
 
 	$(function() {
-
 		$('#keyword').autocomplete({
 			source: function( request, response ){
 				$.ajax({
 					type: 'get',
-					url : '/sample/getAddrApi.do?keyword='+$('#keyword').val(),
+					url : '/com/v2/getAddrApi.do?keyword='+$('#keyword').val(),
 					dataType: "json", // 지정안하면 자동 parsing된다는데 ?
 					contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 

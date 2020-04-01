@@ -32,7 +32,7 @@
 								</label>
 							</div>
 							<button name="submit" type="submit" class="btn btn-block btn-primary text-light">로그인</button><br>
-							<div style="text-align:center;"><a href="/">홈 화면으로 가기</a></div>
+							<div style="text-align:center;"><a href="/com/v2/start.do">홈 화면으로 가기</a></div>
 							
 								<c:if test="${not empty exceptionMsgName}" ><br>
 								<font color="red">
