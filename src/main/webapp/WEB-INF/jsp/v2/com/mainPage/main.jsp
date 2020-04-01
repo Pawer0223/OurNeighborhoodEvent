@@ -48,21 +48,19 @@
 			<div class="col-xl-10 col-lg-9 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
 				<div class="mb-10 mb-md-0" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
 					<div class="d-inline-block px-20 dropdown">
-						<a href="#" class="link color-main  dropdown-toggle" id="navigation_2_dropdown_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+						<a href="#" class="link color-main  dropdown-toggle" id="navigation_2_dropdown_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Regist</a>
 						<div class="bg-light dropdown-menu" aria-labelledby="navigation_2_dropdown_1">
-					<div><a href="#" class="link color-main ">Startup 3</a></div>
-					<div><a href="#" class="link color-main ">Slides</a></div>
-					<div><a href="#" class="link color-main ">Qards</a></div>
+					<div><a href="#" class="link color-main ">Store</a></div>
+					<div><a href="#" class="link color-main ">Review</a></div>
 						</div>
 					</div>
-					<a href="#" class="mx-15 link color-main ">Pricing</a>
-					<a href="#" class="mx-15 link color-main ">Community</a>
+					<a href="#" class="mx-15 link color-main ">Event</a>
+					<a href="#" class="mx-15 link color-main ">Review</a>
+					<a href="#" class="mx-15 link color-main ">About</a>
 				</div>
 				<div class="text-md-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
-					<a href="#" class="mr-15 link color-main ">API</a>
-					<a href="#" class="mx-15 link color-main ">Help</a>
 					<a href="#" class="mx-15 link color-main ">Login</a>
-					<a href="#" class="mx-15 btn sm color-main border-gray f-16">Sign Up</a>
+					<a href="/com/v2/userRegistGo.do" class="mx-15 btn sm color-main border-gray f-16">Sign Up</a>
 				</div>
 			</div>
 		</div>
@@ -93,11 +91,10 @@
 	<div class="container px-xl-0">
 		<div class="row justify-content-center text-center">
 			<div class="col-xl-8 col-lg-10">
-				<h2 class="small" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">Better design for your content</h2>
-				<div class="mt-15 mb-30 f-22 color-heading text-adaptive description" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
-					Startup Framework contains components and complex blocks which 
-					can easily be integrated into almost any design. 
-				</div>
+				<h2 class="small" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">Event List</h2>
+<!-- 				<div class="mt-15 mb-30 f-22 color-heading text-adaptive description" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300"> -->
+<!-- 					최근 등록이벤트 리스트 -->
+<!-- 				</div> -->
 			</div>
 		</div>
 		<div class="mt-10 row justify-content-center text-center text-md-left">
@@ -203,51 +200,6 @@
 </div>
 <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
 -->
-
-
-	<h3>검색어정보</h3>
-
-		<c:forEach items="${jusos}" var="row" varStatus="status">
-
-			<table border="1">
-				<tr>
-					<th>detBdNmList</th>
-					<th>engAddr</th>
-					<th>rn</th>
-					<th>emdNm</th>
-					<th>zipNo</th>
-					<th>roadAddrPart2</th>
-					<th>emdNo</th>
-					<th>sggNm</th>
-					<th>jibunAddr</th>
-					<th>siNm</th>
-					<th>roadAddrPart1</th>
-					<th>bdNm</th>
-					<th>admCd</th>
-					<th>udrtYn</th>
-					<th>lnbrMnnm</th>
-					<th>roadAddr</th>
-					<th>lnbrSlno</th>
-					<th>buldMnnm</th>
-					<th>bdKdcd</th>
-					<th>liNm</th>
-					<th>rnMgtSn</th>
-					<th>mtYn</th>
-					<th>bdMgtSn</th>
-					<th>buldSlno</th>
-				</tr>
-				<tr id="addr">
-				
-				</tr>
-				<br>
-			</table>
-
-		</c:forEach>
-
-
-
-<button class="btn btn-secondary" type="button" id="button-addon2" style="background-color:black;">검색</button>
-
 <!-- Bootstrap 4.3.1 JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->

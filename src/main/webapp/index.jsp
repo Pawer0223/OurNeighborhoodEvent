@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <jsp:forward page="/com/start.do" /> --%>
+<jsp:forward page="/com/v2/start.do" />
 <%-- <jsp:forward page="/start.do" /> --%>
 <%-- <jsp:forward page="test.jsp" /> --%>
 <%-- <jsp:forward page="/main/about.do" /> --%>
 <%-- <jsp:forward page="/menuList/selectMenu.do" /> --%>
 
-<jsp:forward page="mainPageRenu.jsp" />
+<%-- <jsp:forward page="mainPageRenu.jsp" /> --%>

@@ -67,7 +67,6 @@ function checkUserValidation(){
 	var email = $('#email').val();
 	var userNm = $('#userNm').val();
 	var phoneNum = $('#phoneNum').val();
-	var sample6_address = $('#sample6_address').val();
 	
 	if ( !duplicateCheck ){
 		$('#checkMessage').html('ID중복체크를 해주세요 !');
@@ -111,11 +110,6 @@ function checkUserValidation(){
 		$('#checkType').attr('class' , 'modal-content panel-warning');
 		$('#checkModal').modal("show"); 
 		return false;
-	}else if ( sample6_address == "" ){
-		$('#checkMessage').html('주소를 입력해 주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
-		return false;	
 	}else{
 		$('#registUser').submit();
 	}
