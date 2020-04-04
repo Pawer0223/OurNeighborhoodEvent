@@ -78,9 +78,13 @@ public class PartnerController {
 		maxEventSeq = eventInfosService.getMaxEventSeq();
 		eventInfo.setEventSeq(maxEventSeq);
 		
+		String uploadPath = "C:\\KTS_DEV\\newWorkSpace\\OurNeighborhoodEvent\\src\\main\\webapp\\resources\\upload\\" + EVENT_PIC_SUB_DIR;
 		//이미지업로드
-		String url ="c:/"+comnFn.restore(eventInfo.getPictureFile(),EVENT_PIC_SUB_DIR);
-		eventInfo.setProductPic(url);
+		String fileNm =comnFn.restore(eventInfo.getPictureFile(),uploadPath);
+
+		log.info(" uploadPath : " + uploadPath );				
+
+		eventInfo.setProductPic("\\resources\\upload\\" + EVENT_PIC_SUB_DIR+"\\"+fileNm);
 		
 		//로그인 세션에서 ptnCd값 등록
 		UserInfos loginInfo = (UserInfos)authentication.getPrincipal();

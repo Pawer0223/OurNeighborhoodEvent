@@ -192,7 +192,6 @@ function checkEventValidation(){
 	var pictureFile = $('#pictureFile').val();
 	var originPrice = $('#originPrice').val();
 	var eventPrice = $('#eventPrice').val();
-	var amount = $('#amount').val();
 	
 	if ( eventNm == "" ){
 		$('#checkMessage').html('제목을 입력해주세요.');
@@ -221,11 +220,6 @@ function checkEventValidation(){
 		return false;
 	}else if ( eventPrice == "" ){
 		$('#checkMessage').html('행사금액을 입력해주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
-		return false;
-	}else if ( amount == "" ){
-		$('#checkMessage').html('수량을 입력해주세요.');
 		$('#checkType').attr('class' , 'modal-content panel-warning');
 		$('#checkModal').modal("show"); 
 		return false;

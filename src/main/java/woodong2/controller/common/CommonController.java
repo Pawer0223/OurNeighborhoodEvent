@@ -141,15 +141,19 @@ public class CommonController {
 		
 		MultipartFile profileUrl = userInfo.getPictureFile();
 		
-		String url = "";
-		
+       //  String uploadPath=request.getSession().getServletContext().getRealPath("/resources/upload/")+PRIFLIE_SUB_DIR;     
+		String uploadPath = "C:\\KTS_DEV\\newWorkSpace\\OurNeighborhoodEvent\\src\\main\\webapp\\resources\\upload\\" + PRIFLIE_SUB_DIR;
+       // System.out.println(" request.getSession().getServletContext() : " + request.getSession().getServletContext() );
+        
+		log.info(" uploadPath : " + uploadPath );				
+        
 		if ( !profileUrl.isEmpty()) {
 			// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
-			url ="c:/"+comnFn.restore(userInfo.getPictureFile(),PRIFLIE_SUB_DIR);
+			// url ="c:/"+comnFn.restore(userInfo.getPictureFile(),PRIFLIE_SUB_DIR);
+			String fileNm = comnFn.restore(userInfo.getPictureFile(), uploadPath);
+			userInfo.setProfilePic("\\resources\\upload\\" + PRIFLIE_SUB_DIR+"\\"+fileNm);
 		}
 
-		userInfo.setProfilePic(url);
-		
 		// 비밀번호 암호화
 		userInfo.setUserPw(passwordEncoder.encode(userInfo.getUserPw()));
 
