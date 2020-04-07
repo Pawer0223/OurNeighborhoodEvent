@@ -49,7 +49,20 @@ public class EventInfosServiceImpl implements EventInfosService {
 
 	@Override
 	public List<EventInfos> selectEventInfos(Paging paging) throws Exception {
-		return eventInfosDAO.selectEventInfos(paging);
+		List<EventInfos> eventInfos = eventInfosDAO.selectEventInfos(paging);
+		
+		int cntPage = paging.getCntPage();
+		
+		if(eventInfos.size() < cntPage ) {
+			EventInfos defaultEvent = new EventInfos();
+			defaultEvent.setEventNm("최근 등록 이벤트가 존재하지 않습니다.");
+			defaultEvent.setProductPic("default_pic_url");
+			for ( int i = eventInfos.size(); i < cntPage; i++ ) {
+				eventInfos.add(defaultEvent);
+			}
+		}
+		
+		return eventInfos;
 	}
 
 	@Override

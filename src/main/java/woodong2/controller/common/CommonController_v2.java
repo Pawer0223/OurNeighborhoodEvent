@@ -101,7 +101,7 @@ public class CommonController_v2 {
 	public String logout(HttpServletRequest request) throws Exception {
 		
 		request.getSession().invalidate();
-		return "redirect:/v2/com/start.do";
+		return "redirect:/com/v2/start.do";
 	}
 	
 	// 권한 없는 경우 
@@ -122,13 +122,12 @@ public class CommonController_v2 {
 		// 최근 6건 조회
 		paging.setStart(1);
 		paging.setEnd(6);
+		paging.setCntPage(6);
 		
 		// 이벤트 정보조회
 		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
-		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
 
 		mv.addObject("latestEvents", latestEvents);
-		mv.addObject("latestReviews", latestReviews);
 
 		return mv;
 	}

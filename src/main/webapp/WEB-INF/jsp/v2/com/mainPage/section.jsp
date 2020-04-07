@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +29,7 @@
 <!-- Showcase 1 -->
 
 <section class="pt-105 pb-95 bg-light showcase_1">
+
 	<div class="container px-xl-0">
 		<div class="row justify-content-center text-center">
 			<div class="col-xl-8 col-lg-10">
@@ -40,15 +44,14 @@
 
 			<div class="mt-10 row justify-content-center text-center text-md-left">
 
-				<c:forEach items="${latestEvents}" var="row" varStatus="status">
-					<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block"
-						data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-						<a href="#" class="d-block"> <img src=${ row.productPic } srcset="/resources/i/showcase_1_img_1@2x.jpg 2x" class="img-fluid radius10" alt="" />
-						</a> <a href="#" class="mt-20 mb-10 f-22 link color-main title">남은 수량 : ${ row.amount }</a>
-						<div class="color-heading text-adaptive">${ row.eventNm }</div>
-					</div>
-
+			<c:forEach items="${latestEvents}" var="row" varStatus="status">
+				<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+					<a href="#" class="d-block"> <img src=${ row.productPic } srcset="/resources/i/showcase_1_img_1@2x.jpg 2x" class="img-fluid radius10" alt="" />
+					</a> <a href="#" class="mt-20 mb-10 f-22 link color-main title">남은 수량 : ${ row.amount }</a>
+					<div class="color-heading text-adaptive">${ row.eventNm }</div>
+				</div>
 			</c:forEach>
+			
 		</div>
 		
 	</div>
