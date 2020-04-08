@@ -56,7 +56,7 @@ public class EventInfosServiceImpl implements EventInfosService {
 		if(eventInfos.size() < cntPage ) {
 			EventInfos defaultEvent = new EventInfos();
 			defaultEvent.setEventNm("최근 등록 이벤트가 존재하지 않습니다.");
-			defaultEvent.setProductPic("default_pic_url");
+			defaultEvent.setProductPic("\\resources\\upload\\eventPics\\eventDefault.gif");
 			for ( int i = eventInfos.size(); i < cntPage; i++ ) {
 				eventInfos.add(defaultEvent);
 			}

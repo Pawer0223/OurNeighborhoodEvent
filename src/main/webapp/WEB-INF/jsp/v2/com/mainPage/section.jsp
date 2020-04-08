@@ -28,34 +28,46 @@
 </section>
 <!-- Showcase 1 -->
 
-<section class="pt-105 pb-95 bg-light showcase_1">
-
+<section class="pt-65 pb-65 bg-light application_2">
 	<div class="container px-xl-0">
-		<div class="row justify-content-center text-center">
-			<div class="col-xl-8 col-lg-10">
-				<h2 class="small" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">Event List</h2>
-<!-- 				<div class="mt-15 mb-30 f-22 color-heading text-adaptive description" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300"> -->
-<!-- 					최근 등록이벤트 리스트 -->
-<!-- 				</div> -->
+		<div class="row justify-content-center justify-content-md-between align-items-center">
+			<div class="mb-15 mb-md-0 col-12 col-md-5 col-xl-6 d-flex justify-content-center">
+				<img srcset="/resources/i/application_2_img_1@2x.png 2x" src="/resources/i/about.jpg" alt="" class="application_2_left_img" data-aos-duration="600" data-aos="fade-down" data-aos-delay="750" />
+			</div>
+			<div class="col-md-7 col-xl-6">
+				<h2 class="col-lg-11 color-main" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">우리동네 이벤트 ?</h2>
+				<div class="mt-25 col-lg-9 color-heading f-18 text-adaptive" data-aos-duration="600" data-aos="fade-down" data-aos-delay="150">우리 동네 이벤트를 이용함으로써, 효율적인 재고 처리와 소소한 이벤트로 행복을 느낄 수 있기를 바랍니다.</div>
+				<div class="mt-95 row">
+					<div class="col-6 col-lg-4 pb-25 with_borders" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300"> 
+						<img srcset="/resources/application_2_img_2@2x.png 2x" src="/resources/i/application_2_img_2.png" alt="" class="pl-15" />
+						<div class="mt-15 col-xl-11 color-main f-14 bold sp-20 text-uppercase">Ready to Present</div>
+					</div>
+					<div class="col-6 col-lg-4 pb-25 with_borders" data-aos-duration="600" data-aos="fade-down" data-aos-delay="450">
+						<img srcset="/resources/i/application_2_img_3@2x.png 2x" src="/resources/i/application_2_img_3.png" alt="" class="pl-15" />
+						<div class="mt-15 col-xl-11 color-main f-14 bold sp-20 text-uppercase">Crops and Layers</div>
+					</div>
+					<div class="col-6 col-lg-4 pb-25 with_borders" data-aos-duration="600" data-aos="fade-down" data-aos-delay="600">
+						<img srcset="/resources/i/application_2_img_4@2x.png 2x" src="/resources/i/application_2_img_4.png" alt="" class="pl-15" />
+						<div class="mt-15 col-xl-11 color-main f-14 bold sp-20 text-uppercase">Free Google Fonts</div>
+					</div>
+					<div class="col-6 col-lg-4 pb-25 pt-35 with_borders" data-aos-duration="600" data-aos="fade-down" data-aos-delay="750">
+						<img srcset="/resources/i/application_2_img_5@2x.png 2x" src="/resources/i/application_2_img_5.png" alt="" class="pl-15" />
+						<div class="mt-15 col-xl-11 color-main f-14 bold sp-20 text-uppercase">Based on Bootstrap 3</div>
+					</div>
+					<div class="col-6 col-lg-4 pb-25 pt-35 with_borders" data-aos-duration="600" data-aos="fade-down" data-aos-delay="900">
+						<img srcset="/resources/i/application_2_img_6@2x.png 2x" src="/resources/i/application_2_img_6.png" alt="" class="pl-15" />
+						<div class="mt-15 col-xl-11 color-main f-14 bold sp-20 text-uppercase">HTML5, CSS3, LESS</div>
+					</div>
+			 		<div class="col-6 col-lg-4 pb-25 pt-35 with_borders" data-aos-duration="600" data-aos="fade-down" data-aos-delay="1050">
+						<img srcset="/resources/i/application_2_img_7@2x.png 2x" src="/resources/i/application_2_img_7.png" alt="" class="pl-15" />
+						<div class="mt-15 col-xl-11 color-main f-14 bold sp-20 text-uppercase">Powerful Components</div>
+					</div>	
+						
+				</div>
 			</div>
 		</div>
-
-
-
-			<div class="mt-10 row justify-content-center text-center text-md-left">
-
-			<c:forEach items="${latestEvents}" var="row" varStatus="status">
-				<div class="mt-70 col-lg-4 col-md-6 col-sm-9 block" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
-					<a href="#" class="d-block"> <img src=${ row.productPic } srcset="/resources/i/showcase_1_img_1@2x.jpg 2x" class="img-fluid radius10" alt="" />
-					</a> <a href="#" class="mt-20 mb-10 f-22 link color-main title">남은 수량 : ${ row.amount }</a>
-					<div class="color-heading text-adaptive">${ row.eventNm }</div>
-				</div>
-			</c:forEach>
-			
-		</div>
-		
 	</div>
-</section>
+</section><!-- forms alerts -->
 
 
 
