@@ -17,7 +17,7 @@
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/mapAPI.js"></script>
-<script src="/resources/js/validation.js"></script>
+<script src="/resources/js/custom.js"></script>
 
 
 <script type ="text/javascript">

@@ -8,50 +8,31 @@
 </head>
   <footer class="ftco-footer ftco-section">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
+        <div class="row mb-5" align="center">
+         <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">WooDong2</h2>
-              <p>자영업자들을 위한 효율적인 재고처리 서비스 우리동네 이벤트 입니다.</p>
-              <ul class="ftco-footer-social list-unstyled mt-5">
-                <li class="ftco-animate"><a href="https://github.com/Taesan94/OurNeighborhoodEvent"><span class="icon-github"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Community</h2>
-              <ul class="list-unstyled">
-                <li><a href="/main/start.do"><span class="icon-long-arrow-right mr-2"></span>동네검색</a></li>
-                <li><a href="/main/events.do"><span class="icon-long-arrow-right mr-2"></span>Events</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">About Us</h2>
-              <ul class="list-unstyled">
-                <li><a href="/main/services.do"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Developer</h2>
-              <ul class="list-unstyled">
-                <li><a href="/main/contact.do"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
-                <li><a href="https://github.com/Taesan94/OurNeighborhoodEvent/issues"><span class="icon-long-arrow-right mr-2"></span>Issue History</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">경기도 용인시 기흥구 구성로</span></li>
-	                <li><a><span class="icon icon-phone"></span><span class="text">010-4586-8427</span></a></li>
-	                <li><a><span class="icon icon-envelope pr-4"></span><span class="text">gbgo77@naver.com</span></a></li>
+	                <li><a><span class="icon icon-envelope pr-4"></span><span class="text">kangTaesan94@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+          
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+          	<div class="block-23 mb-3">
+             <ul>
+               <li><a><span class="icon icon-phone"></span><span class="text">010-4586-8427</span></a></li>
+             </ul>
+           </div>
+          </div>
+        </div>
+        <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<div class="block-23 mb-3">
+	              <ul>
+	                 <li><a><span class="icon icon-github pr-4"></span><span class="text">Taesan94</span></a></li>
 	              </ul>
 	            </div>
             </div>

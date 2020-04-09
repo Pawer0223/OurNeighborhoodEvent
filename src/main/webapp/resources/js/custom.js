@@ -228,3 +228,53 @@ function checkEventValidation(){
 	}
 	
 }
+
+$(function() {
+	$('#keyword').autocomplete({
+		source: function( request, response ){
+			$.ajax({
+				type: 'get',
+				url : '/com/v2/getAddrApi.do?keyword='+$('#keyword').val(),
+				dataType: "json", // 지정안하면 자동 parsing된다는데 ?
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+
+				success: function(data) {
+					response(
+							$.map(data, function(item) {  //json[i] 번째 에 있는게 item 임.
+								return {
+									label : item+"label",
+									value : item,
+									test  : item+"test"
+								}
+							}
+
+							)//map
+					)//rsponse
+				}
+			}); // ajax End
+		},
+		select: function(event,ui){
+			console.log(ui);//사용자가 오토컴플릿이 만들어준 목록에서 선택을 하면 반환되는 객체
+			console.log(ui.item.label);    //김치 볶음밥label
+			console.log(ui.item.value);    //김치 볶음밥
+			console.log(ui.item.test);    //김치 볶음밥test
+		},
+		focus: function(event,ui){
+			return false;
+		},
+		minLength: 1, // 최소 글자수
+		autoFocus : true, // 첫번째 항목 자동 포커시 기본값 false
+		classes: {
+			"ui-autocomplete" : "highlight"
+		},
+		delay: 500, // 검색창에 글자 써지고 나서 autocomplete 창 뜰때까지 delay시간(ms)
+		position: { my : "right top", at: "right bottom" },
+		close : function(event){
+			console.log(event);
+		}
+	}).autocomplete( "instance" )._renderItem = function( ul, item ){ // 요 부분이 ui를 마음대로 변경하는 부분
+		return $( "<li>" ) // 기본 tag가 li로 되어있음.
+		.append("<div>" + item.value  + "</div>")
+		.appendTo ( ul );
+	};
+});

@@ -32,7 +32,7 @@
 	<div class="container px-xl-0">
 		<div class="row justify-content-center justify-content-md-between align-items-center">
 			<div class="mb-15 mb-md-0 col-12 col-md-5 col-xl-6 d-flex justify-content-center">
-				<img srcset="/resources/i/application_2_img_1@2x.png 2x" src="/resources/i/about.jpg" alt="" class="application_2_left_img" data-aos-duration="600" data-aos="fade-down" data-aos-delay="750" />
+				<img srcset="/resources/i/application_2_img_1@2x.png 2x" src="/resources/i/about.jpg" alt="" class="img-fluid application_2_left_img" data-aos-duration="600" data-aos="fade-down" data-aos-delay="750" />
 			</div>
 			<div class="col-md-7 col-xl-6">
 				<h2 class="col-lg-11 color-main" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">우리동네 이벤트 ?</h2>

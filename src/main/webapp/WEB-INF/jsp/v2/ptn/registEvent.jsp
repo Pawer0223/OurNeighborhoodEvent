@@ -14,7 +14,7 @@
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/bootstrap.js"></script>
-<script src="/resources/js/validation.js"></script>
+<script src="/resources/js/custom.js"></script>
 
 </head>
 <body>
