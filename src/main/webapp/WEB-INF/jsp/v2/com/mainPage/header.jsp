@@ -25,7 +25,6 @@
 					<div class="d-inline-block px-20 dropdown">
 						<a href="#" class="link color-main  dropdown-toggle" id="navigation_2_dropdown_1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Regist</a>
 						<div class="bg-light dropdown-menu" aria-labelledby="navigation_2_dropdown_1">
-					
 							<!-- 가게 등록은, 사업자 등록하지않은 일반 사용자에게만 보인다.  -->
 							<sec:authorize access="!hasRole('ROLE_PARTNER')">
 							<div><a href="#" class="link color-main ">Store</a></div>
@@ -34,12 +33,10 @@
 							<sec:authorize access="hasAnyRole('ROLE_NORMAL', 'ROLE_PARTNER')">
 								<div><a href="#" class="link color-main ">Review</a></div>
 							</sec:authorize>
-
 							<!-- 이벤트 등록은 파트너만 할 수 있다.  -->
 							<sec:authorize access="hasRole('ROLE_PARTNER')">
 								<div><a href="#" class="link color-main ">Event</a></div>
 							</sec:authorize>
-
 						</div>
 					</div>
 					</sec:authorize>
