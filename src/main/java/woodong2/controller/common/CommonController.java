@@ -1,5 +1,10 @@
 package woodong2.controller.common;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
@@ -7,14 +12,21 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.Gson;
 
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.MenuListService;
@@ -46,9 +58,12 @@ public class CommonController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	private static final String PRIFLIE_SUB_DIR = "profile";
+	private final String PRIFLIE_SUB_DIR = "profile";
 	
 	private CommonFunctions comnFn = new CommonFunctions();
+	
+	// 주소검색 API , SERVICE_KEY
+	private final String SERVICE_KEY = "U01TX0FVVEgyMDIwMDMyMTE1MTgwMDEwOTU2NjE=";
 	
 	@RequestMapping(value = "/loginPage.do")
 	public String loginSuccess() throws Exception {
@@ -167,7 +182,91 @@ public class CommonController {
 			request.getSession().setAttribute("messageContent", "이미 존재하는 회원입니다.");
 			return mv;
 		}
+	}
+	
+	/**
+	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. 
+	 * 
+	 * @param request
+	 * @param model
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping(value="/getAddrApi.do", produces="text/plain;charset=UTF-8")
+	public String getAddrApi(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
 
+		String stringUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do";
+		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
+
+		int currentPage= 1;
+		int countPerPage= 10;
+		String keyword = request.getParameter("keyword");            //요청 변수 설정 (키워드)
+
+		log.info(" keyword : " + keyword);
+
+		String resultType= "json";
+
+		urlBuilder.append("?currentPage=" + currentPage ); /* 페이지 */
+		urlBuilder.append("&countPerPage=" + countPerPage ); /* 건수 */
+		urlBuilder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8")); /* 검색주소 */
+		urlBuilder.append("&confmKey=" + SERVICE_KEY ); /* 발급받은 key */
+		urlBuilder.append("&resultType=" + resultType ); /* 없으면 XML */
+
+		URL url = new URL(urlBuilder.toString());
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Content-type", "application/json");
+		System.out.println("Response code: " + conn.getResponseCode());
+		BufferedReader rd;
+
+		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+
+		log.info(sb.toString());
+
+		JSONObject jsonObject = new JSONObject();
+
+		JSONParser parser = new JSONParser();
+		jsonObject = (JSONObject)parser.parse(sb.toString());
+
+		JSONObject results = (JSONObject)jsonObject.get("results");
+
+		// 응답정보
+		JSONObject common = (JSONObject)results.get("common");
+
+		int totalCount= Integer.valueOf((String)common.get("totalCount"));
+
+		log.info(" totalCount : " + totalCount );
+
+		String[] jusos = new String[1];
+
+		if ( totalCount < 1 ) {
+			log.info(" 조회결과 없음. ");
+			jusos[0] = "검색결과가 존재하지 않습니다.";
+		}else {
+			JSONArray juso = (JSONArray)results.get("juso");
+			jusos = new String[juso.size()];
+
+			for ( int i = 0 ; i < juso.size(); i ++ ) {
+				JSONObject address = (JSONObject)juso.get(i);
+				String roadAddr = (String)address.get("roadAddr");
+				jusos[i] = roadAddr;
+			}
+		}
+		Gson gson = new Gson();
+		return gson.toJson(jusos);
 	}
 	
 }

@@ -15,4 +15,10 @@ public class TestController {
 		return "/test/apiSampleJSON";
 	}
 	
+	@RequestMapping(value = "/kakaoAddress.do")
+	public String kakaoAddress(HttpServletRequest request) throws Exception {
+		
+		return "/test/apiSampleJSON";
+	}
+	
 }
