@@ -161,5 +161,46 @@ public class apiSampleJSONController {
 
 		return gson.toJson(array);//["김치 볶음밥","신라면","진라면","라볶이","팥빙수","너구리","삼양라면","안성탕면","불닭볶음면","짜왕","라면사리"]
 	}
+	
+	private final String KAKAO_KEY = "87a1c0ac6fa481c008c408c7b819d530";
+	@ResponseBody
+	@RequestMapping(value="/sample/getKaKaoLocalApi.do", produces="text/plain;charset=UTF-8")
+	public void kakaoApi(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
 
+
+		String stringUrl = "https://dapi.kakao.com/v2/local/search/address.json";
+		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
+
+		String query = "구성로 184";
+		
+		String auth = "KakaoAK " + KAKAO_KEY;
+		
+		urlBuilder.append("?query=" + URLEncoder.encode(query,"UTF-8") ); /* 페이지 */
+
+		URL url = new URL(urlBuilder.toString());
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		
+		conn.setRequestProperty("User-Agent", "Java-Client");	// https 호출시 user-agent 필요
+		conn.setRequestProperty("X-Requested-With", "curl");
+		conn.setRequestProperty("Authorization", auth);
+		
+		System.out.println("Response code: " + conn.getResponseCode());
+		BufferedReader rd;
+
+		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+
+		System.out.println(sb.toString());
+	}
 }
