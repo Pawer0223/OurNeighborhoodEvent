@@ -65,6 +65,9 @@ public class CommonController {
 	// 주소검색 API , SERVICE_KEY
 	private final String SERVICE_KEY = "U01TX0FVVEgyMDIwMDMyMTE1MTgwMDEwOTU2NjE=";
 	
+	// 주소검색 API , KAKAO
+	private final String KAKAO_KEY = "87a1c0ac6fa481c008c408c7b819d530";
+	
 	@RequestMapping(value = "/loginPage.do")
 	public String loginSuccess() throws Exception {
 		return "/com/loginPage";
@@ -185,7 +188,90 @@ public class CommonController {
 	}
 	
 	/**
-	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. 
+	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. - 카카오 map
+	 * 
+	 * @param request
+	 * @param model
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping(value="/getAddrApiKaKao.do", produces="text/plain;charset=UTF-8")
+	public String getAddrApiKaKao(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
+		
+		String stringUrl = "https://dapi.kakao.com/v2/local/search/address.json";
+		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
+		
+		String query = request.getParameter("keyword");
+		
+		String auth = "KakaoAK " + KAKAO_KEY;
+		
+		urlBuilder.append("?query=" + URLEncoder.encode(query,"UTF-8") ); /* 페이지 */
+
+		URL url = new URL(urlBuilder.toString());
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		
+		conn.setRequestProperty("User-Agent", "Java-Client");	// https 호출시 user-agent 필요
+		conn.setRequestProperty("X-Requested-With", "curl");
+		conn.setRequestProperty("Authorization", auth);
+		
+		System.out.println("Response code: " + conn.getResponseCode());
+		BufferedReader rd;
+
+		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+
+		System.out.println(sb.toString());
+		
+		JSONObject jsonObject = new JSONObject();
+
+		JSONParser parser = new JSONParser();
+		jsonObject = (JSONObject)parser.parse(sb.toString());
+		
+		JSONObject meta = (JSONObject)jsonObject.get("meta");
+		long totalCount= (long)meta.get("total_count");
+		
+		log.info(" KaKao totalCount : " + totalCount );
+		
+		String[] jusos = new String[1];
+
+		if ( totalCount < 1 ) {
+			log.info(" 조회결과 없음. ");
+			jusos[0] = "검색결과가 존재하지 않습니다.";
+		}else {
+			
+			JSONArray documents = (JSONArray)jsonObject.get("documents");
+			
+			jusos = new String[documents.size()];
+
+			for ( int i = 0 ; i < documents.size(); i ++ ) {
+				JSONObject address = (JSONObject)documents.get(i);
+				
+				String addressNm = (String)address.get("address_name");
+				String x = (String)address.get("x");
+				String y = (String)address.get("y");
+				
+				jusos[i] = addressNm;
+			}
+		}
+		Gson gson = new Gson();
+		return gson.toJson(jusos);
+	}
+	
+	/**
+	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. - 주소포탈 용도.
 	 * 
 	 * @param request
 	 * @param model
@@ -202,7 +288,7 @@ public class CommonController {
 
 		int currentPage= 1;
 		int countPerPage= 10;
-		String keyword = request.getParameter("keyword");            //요청 변수 설정 (키워드)
+		String keyword = request.getParameter("keyword"); //요청 변수 설정 (키워드)
 
 		log.info(" keyword : " + keyword);
 

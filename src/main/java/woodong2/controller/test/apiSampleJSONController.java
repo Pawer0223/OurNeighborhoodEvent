@@ -78,8 +78,6 @@ public class apiSampleJSONController {
 
 		System.out.println(sb.toString());
 
-		//		response.getWriter().write(sb.toString());			// 응답결과 반환
-
 		System.out.println(" 여기타는지 일단보자구 ");
 
 		JSONObject jsonObject = new JSONObject();
@@ -171,7 +169,7 @@ public class apiSampleJSONController {
 		String stringUrl = "https://dapi.kakao.com/v2/local/search/address.json";
 		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
 
-		String query = "구성로 184";
+		String query = "경기 용인시 기흥구 언남동 490";
 		
 		String auth = "KakaoAK " + KAKAO_KEY;
 		
@@ -202,5 +200,31 @@ public class apiSampleJSONController {
 		conn.disconnect();
 
 		System.out.println(sb.toString());
+		
+		JSONObject jsonObject = new JSONObject();
+
+		JSONParser parser = new JSONParser();
+		jsonObject = (JSONObject)parser.parse(sb.toString());
+		
+		JSONObject meta = (JSONObject)jsonObject.get("meta");
+		long totalCount= (long)meta.get("total_count");
+		
+		System.out.println(" totalCount : " + totalCount );
+		
+		if( totalCount < 0 ) System.out.println("데이터 없음.");
+		else {
+			JSONArray documents = (JSONArray)jsonObject.get("documents");
+			
+			for( int i = 0 ; i < documents.size(); i++ ) {
+				JSONObject data = (JSONObject)documents.get(i);
+				String addressNm = (String)data.get("address_name");
+				String x = (String)data.get("x");
+				String y = (String)data.get("y");
+				
+				System.out.println(" addressNm : " + addressNm +", x : " + x + " , y : " + y);
+			}
+		}
+		
+		
 	}
 }
