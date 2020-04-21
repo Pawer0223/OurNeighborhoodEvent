@@ -33,6 +33,7 @@ import woodong2.service.common.MenuListService;
 import woodong2.service.common.ReviewInfosService;
 import woodong2.service.common.UserInfosService;
 import woodong2.utilities.function.CommonFunctions;
+import woodong2.vo.common.AddressInfo;
 import woodong2.vo.common.EventInfos;
 import woodong2.vo.common.Paging;
 import woodong2.vo.common.UserInfos;
@@ -245,16 +246,16 @@ public class CommonController {
 		
 		log.info(" KaKao totalCount : " + totalCount );
 		
-		String[] jusos = new String[1];
+		AddressInfo[] infos = new AddressInfo[1];
 
 		if ( totalCount < 1 ) {
 			log.info(" 조회결과 없음. ");
-			jusos[0] = "검색결과가 존재하지 않습니다.";
+			infos[0].setAddressNm("검색결과가 존재하지 않습니다.");
 		}else {
 			
 			JSONArray documents = (JSONArray)jsonObject.get("documents");
 			
-			jusos = new String[documents.size()];
+			infos = new AddressInfo[documents.size()];
 
 			for ( int i = 0 ; i < documents.size(); i ++ ) {
 				JSONObject address = (JSONObject)documents.get(i);
@@ -263,11 +264,13 @@ public class CommonController {
 				String x = (String)address.get("x");
 				String y = (String)address.get("y");
 				
-				jusos[i] = addressNm;
+				AddressInfo info = new AddressInfo(x,y,addressNm);
+				
+				infos[i] = info;
 			}
 		}
 		Gson gson = new Gson();
-		return gson.toJson(jusos);
+		return gson.toJson(infos);
 	}
 	
 	/**

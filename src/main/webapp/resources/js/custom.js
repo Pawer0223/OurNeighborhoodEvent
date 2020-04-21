@@ -242,9 +242,9 @@ $(function() {
 					response(
 							$.map(data, function(item) {  //json[i] 번째 에 있는게 item 임.
 								return {
-									label : item+"label",
-									value : item,
-									test  : item+"test"
+									value : item.addressNm,
+									x : item.x,
+									y  : item.y,
 								}
 							}
 
@@ -254,10 +254,10 @@ $(function() {
 			}); // ajax End
 		},
 		select: function(event,ui){
-			console.log(ui);//사용자가 오토컴플릿이 만들어준 목록에서 선택을 하면 반환되는 객체
-			console.log(ui.item.label);    //김치 볶음밥label
-			console.log(ui.item.value);    //김치 볶음밥
-			console.log(ui.item.test);    //김치 볶음밥test
+			console.log("ui : " + ui);//사용자가 오토컴플릿이 만들어준 목록에서 선택을 하면 반환되는 객체
+			console.log("x : " + ui.item.x);    //김치 볶음밥label
+			console.log("y : " + ui.item.y);    //김치 볶음밥
+			console.log("value : " + ui.item.value);    //김치 볶음밥test
 		},
 		focus: function(event,ui){
 			return false;
