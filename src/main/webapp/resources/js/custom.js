@@ -244,7 +244,7 @@ $(function() {
 								return {
 									value : item.addressNm,
 									x : item.x,
-									y  : item.y,
+									y : item.y,
 								}
 							}
 
@@ -259,7 +259,6 @@ $(function() {
 			console.log("y : " + ui.item.y);
 			console.log("value : " + ui.item.value);
 			$('#searchForm').attr('action' , 'searchEvent.do?x='+ui.item.x+'&y='+ui.item.y);
-			
 		},
 		focus: function(event,ui){
 			return false;

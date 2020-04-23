@@ -205,35 +205,9 @@ public class CommonController {
 		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
 		
 		String query = request.getParameter("keyword");
-		
-		String auth = "KakaoAK " + KAKAO_KEY;
-		
 		urlBuilder.append("?query=" + URLEncoder.encode(query,"UTF-8") ); /* 페이지 */
-
-		URL url = new URL(urlBuilder.toString());
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
+		StringBuilder sb = callKaKaoAPI(urlBuilder.toString());
 		
-		conn.setRequestProperty("User-Agent", "Java-Client");	// https 호출시 user-agent 필요
-		conn.setRequestProperty("X-Requested-With", "curl");
-		conn.setRequestProperty("Authorization", auth);
-		
-		System.out.println("Response code: " + conn.getResponseCode());
-		BufferedReader rd;
-
-		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
-		} else {
-			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
-		}
-		StringBuilder sb = new StringBuilder();
-		String line;
-		while ((line = rd.readLine()) != null) {
-			sb.append(line);
-		}
-		rd.close();
-		conn.disconnect();
-
 		System.out.println(sb.toString());
 		
 		JSONObject jsonObject = new JSONObject();
@@ -250,7 +224,9 @@ public class CommonController {
 
 		if ( totalCount < 1 ) {
 			log.info(" 조회결과 없음. ");
-			infos[0].setAddressNm("검색결과가 존재하지 않습니다.");
+			
+			AddressInfo info = new AddressInfo("0","0","검색결과가 존재하지 않습니다.");
+			infos[0]=info;
 		}else {
 			
 			JSONArray documents = (JSONArray)jsonObject.get("documents");
@@ -263,6 +239,25 @@ public class CommonController {
 				String addressNm = (String)address.get("address_name");
 				String x = (String)address.get("x");
 				String y = (String)address.get("y");
+				
+				System.out.println(" ### 변환 전 : x : " + x + " , y : " + y);
+				
+				String stringUrl2 = "https://dapi.kakao.com/v2/local/geo/transcoord.json";
+				StringBuilder urlBuilder2 = new StringBuilder(stringUrl2); /*URL*/
+				
+				urlBuilder.append("?x=" + x); 
+				urlBuilder.append("&y=" + y); 
+				urlBuilder.append("&input_coord=WTM"); 
+				urlBuilder.append("&output_coord=WGS84"); 
+				
+				StringBuilder sb2 = callKaKaoAPI(urlBuilder2.toString());
+				
+				JSONArray documents2 = (JSONArray)jsonObject.get("documents");
+				JSONObject address2 = (JSONObject)documents2.get(0);
+				x = (String)address2.get("x");
+				y = (String)address2.get("y");
+				
+				System.out.println("### 변환 후 : x : " + x + " , y : " + y);
 				
 				AddressInfo info = new AddressInfo(x,y,addressNm);
 				
@@ -359,16 +354,55 @@ public class CommonController {
 	}
 	
 	@RequestMapping(value="/searchEvent.do")
-	public void searchEvent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView searchEvent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		ModelAndView mv = new ModelAndView("/com/eventList");
 		
 		String x = request.getParameter("x"); //요청 변수 설정 (키워드)
 		String y = request.getParameter("y"); //요청 변수 설정 (키워드)
 		
 		System.out.println(" x 좌표 : " + x + ", y 좌표 : " + y );
 		
+		mv.addObject("x",x);
+		mv.addObject("y",y);
 		
 		// 반환할 jsp 페이지 명.
-		// return "";
+		return mv;
+	}
+	
+	private StringBuilder callKaKaoAPI(String stringUrl) throws Exception {
+		
+		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
+		
+		String auth = "KakaoAK " + KAKAO_KEY;
+		
+		URL url = new URL(urlBuilder.toString());
+		
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		
+		conn.setRequestProperty("User-Agent", "Java-Client");	// https 호출시 user-agent 필요
+		conn.setRequestProperty("X-Requested-With", "curl");
+		conn.setRequestProperty("Authorization", auth);
+		
+		System.out.println("Response code: " + conn.getResponseCode());
+		BufferedReader rd;
+
+		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+		
+		
+		return sb;
 	}
 	
 }
