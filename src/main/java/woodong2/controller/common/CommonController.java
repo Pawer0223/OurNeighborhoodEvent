@@ -358,4 +358,17 @@ public class CommonController {
 		return gson.toJson(jusos);
 	}
 	
+	@RequestMapping(value="/searchEvent.do")
+	public void searchEvent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		String x = request.getParameter("x"); //요청 변수 설정 (키워드)
+		String y = request.getParameter("y"); //요청 변수 설정 (키워드)
+		
+		System.out.println(" x 좌표 : " + x + ", y 좌표 : " + y );
+		
+		
+		// 반환할 jsp 페이지 명.
+		// return "";
+	}
+	
 }

@@ -21,7 +21,7 @@
 				class="row no-gutters slider-text justify-content-center align-items-center">
 				<div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
 					<div class="text text-center" style="width: 100%;">
-						<form action="#" class="search-location mt-md-5" method="post">
+						<form action="#" class="search-location mt-md-5" method="post" id="searchForm">
 							<div class="row justify-content-center">
 								<div class="col-lg-10 align-items-end" align="center">
 									<div class="form-group" style="width: 70%">

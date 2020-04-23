@@ -255,9 +255,11 @@ $(function() {
 		},
 		select: function(event,ui){
 			console.log("ui : " + ui);//사용자가 오토컴플릿이 만들어준 목록에서 선택을 하면 반환되는 객체
-			console.log("x : " + ui.item.x);    //김치 볶음밥label
-			console.log("y : " + ui.item.y);    //김치 볶음밥
-			console.log("value : " + ui.item.value);    //김치 볶음밥test
+			console.log("x : " + ui.item.x);
+			console.log("y : " + ui.item.y);
+			console.log("value : " + ui.item.value);
+			$('#searchForm').attr('action' , 'searchEvent.do?x='+ui.item.x+'&y='+ui.item.y);
+			
 		},
 		focus: function(event,ui){
 			return false;
