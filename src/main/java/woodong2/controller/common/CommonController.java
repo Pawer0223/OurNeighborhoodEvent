@@ -240,24 +240,24 @@ public class CommonController {
 				String x = (String)address.get("x");
 				String y = (String)address.get("y");
 				
-				System.out.println(" ### 변환 전 : x : " + x + " , y : " + y);
-				
-				String stringUrl2 = "https://dapi.kakao.com/v2/local/geo/transcoord.json";
-				StringBuilder urlBuilder2 = new StringBuilder(stringUrl2); /*URL*/
-				
-				urlBuilder.append("?x=" + x); 
-				urlBuilder.append("&y=" + y); 
-				urlBuilder.append("&input_coord=WTM"); 
-				urlBuilder.append("&output_coord=WGS84"); 
-				
-				StringBuilder sb2 = callKaKaoAPI(urlBuilder2.toString());
-				
-				JSONArray documents2 = (JSONArray)jsonObject.get("documents");
-				JSONObject address2 = (JSONObject)documents2.get(0);
-				x = (String)address2.get("x");
-				y = (String)address2.get("y");
-				
-				System.out.println("### 변환 후 : x : " + x + " , y : " + y);
+//				System.out.println(" ### 변환 전 : x : " + x + " , y : " + y);
+//				
+//				String stringUrl2 = "https://dapi.kakao.com/v2/local/geo/transcoord.json";
+//				StringBuilder urlBuilder2 = new StringBuilder(stringUrl2); /*URL*/
+//				
+//				urlBuilder.append("?x=" + x); 
+//				urlBuilder.append("&y=" + y); 
+//				urlBuilder.append("&input_coord=WTM"); 
+//				urlBuilder.append("&output_coord=WGS84"); 
+//				
+//				StringBuilder sb2 = callKaKaoAPI(urlBuilder2.toString());
+//				
+//				JSONArray documents2 = (JSONArray)jsonObject.get("documents");
+//				JSONObject address2 = (JSONObject)documents2.get(0);
+//				x = (String)address2.get("x");
+//				y = (String)address2.get("y");
+//				
+//				System.out.println("### 변환 후 : x : " + x + " , y : " + y);
 				
 				AddressInfo info = new AddressInfo(x,y,addressNm);
 				
