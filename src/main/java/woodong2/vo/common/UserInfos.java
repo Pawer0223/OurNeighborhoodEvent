@@ -15,46 +15,28 @@ public class UserInfos implements UserDetails {
 
 	// 사용자PW 
 	private String userPw;
-	
+
 	// 회원가입시 동일한 값 입력했는지 확인하기위한용도
 	private String userPw2;
 
 	// 사용자명 
 	private String userNm;
 
-	// 동네 
-	private String neighbor;
-
-	// 사용자구분코드 
-	private String userGbnCd;
-
 	// 사업자코드 
 	private String ptnCd;
-
-	// 이메일 
-	private String email;
-
-	// 프로필사진 
-	private String profilePic;
-	
-	// 프로필사진, 파일업로드하기위한 용도
-	private MultipartFile pictureFile;
-
-	// 휴대폰번호 
-	private String phoneNum;
 
 	// 이전 비밀번호 
 	private String prevPw;
 
 	// 로그인오류횟수 
 	private Integer lgnErrCnt;
-	
+
 	// 계정화성화여부
 	private boolean enabled;
-	
+
 	// 계정 잠금날짜
 	private Date LockDate;
-	
+
 	// 계정권한을 보관하기위한 참조변수
 	private Collection <? extends GrantedAuthority> authorities;
 
@@ -82,52 +64,12 @@ public class UserInfos implements UserDetails {
 		this.userNm = userNm;
 	}
 
-	public String getNeighbor() {
-		return neighbor;
-	}
-
-	public void setNeighbor(String neighbor) {
-		this.neighbor = neighbor;
-	}
-
-	public String getUserGbnCd() {
-		return userGbnCd;
-	}
-
-	public void setUserGbnCd(String userGbnCd) {
-		this.userGbnCd = userGbnCd;
-	}
-
 	public String getPtnCd() {
 		return ptnCd;
 	}
 
 	public void setPtnCd(String ptnCd) {
 		this.ptnCd = ptnCd;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getProfilePic() {
-		return profilePic;
-	}
-
-	public void setProfilePic(String profilePic) {
-		this.profilePic = profilePic;
-	}
-
-	public String getPhoneNum() {
-		return phoneNum;
-	}
-
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
 	}
 
 	public String getPrevPw() {
@@ -145,7 +87,7 @@ public class UserInfos implements UserDetails {
 	public void setLgnErrCnt(Integer lgnErrCnt) {
 		this.lgnErrCnt = lgnErrCnt;
 	}
-	
+
 	public String getUserPw2() {
 		return userPw2;
 	}
@@ -153,23 +95,15 @@ public class UserInfos implements UserDetails {
 	public void setUserPw2(String userPw2) {
 		this.userPw2 = userPw2;
 	}
-	
-	public MultipartFile getPictureFile() {
-		return pictureFile;
-	}
 
-	public void setPictureFile(MultipartFile pictureFile) {
-		this.pictureFile = pictureFile;
-	}
-	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
+
 	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
-	
+
 	public Date getLockDate() {
 		return LockDate;
 	}
@@ -223,10 +157,8 @@ public class UserInfos implements UserDetails {
 	@Override
 	public String toString() {
 		return "UserInfos [userId=" + userId + ", userPw=" + userPw + ", userPw2=" + userPw2 + ", userNm=" + userNm
-				+ ", neighbor=" + neighbor + ", userGbnCd=" + userGbnCd + ", ptnCd=" + ptnCd + ", email=" + email
-				+ ", profilePic=" + profilePic + ", pictureFile=" + pictureFile + ", phoneNum=" + phoneNum + ", prevPw="
-				+ prevPw + ", lgnErrCnt=" + lgnErrCnt + ", enabled=" + enabled + ", LockDate=" + LockDate
+				+ ", ptnCd=" + ptnCd +", prevPw=" + prevPw + ", lgnErrCnt=" + lgnErrCnt + ", enabled=" + enabled + ", LockDate=" + LockDate
 				+ ", authorities=" + authorities + "]";
 	}
-	
+
 }

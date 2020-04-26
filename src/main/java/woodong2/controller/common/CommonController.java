@@ -1,6 +1,8 @@
 package woodong2.controller.common;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -17,7 +19,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import woodong2.service.common.EventInfosService;
@@ -45,30 +46,30 @@ public class CommonController {
 
 	@Resource(name = "menuListService")
 	private MenuListService menuListService;
-	
+
 	@Resource(name = "userInfosService")
 	private UserInfosService userInfosService;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	private final String PRIFLIE_SUB_DIR = "profile";
-	
+	// private final String PRIFLIE_SUB_DIR = "profile";
+
 	private CommonFunctions comnFn = new CommonFunctions();
-	
+
 	private APICommons apiComn = new APICommons();
-	
+
 	private APIParse apiParse = new APIParse();
-	
+
 	public enum API_KIND {
 		Jusos, KaKao_Local;
 	};
-	
+
 	@RequestMapping(value = "/loginPage.do")
 	public String loginSuccess() throws Exception {
 		return "/com/loginPage";
 	}
-	
+
 	// services페이지 이동
 	@RequestMapping(value = "/about.do")
 	public ModelAndView about() throws Exception {
@@ -82,7 +83,7 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView("/com/mainPage/contact");
 		return mv;
 	}
-	
+
 	// 신규 계정등록
 	@RequestMapping(value = "/userRegistGo.do")
 	public ModelAndView userRegistGo() throws Exception {
@@ -95,25 +96,25 @@ public class CommonController {
 		ModelAndView mv = new ModelAndView("/com/loginFail");
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/logout.do")
 	public String logout(HttpServletRequest request) throws Exception {
-		
+
 		request.getSession().invalidate();
 		return "redirect:/com/start.do";
 	}
-	
+
 	// 권한 없는 경우 
 	@RequestMapping(value = "/accessDeniedPage.do")
 	public String accessDeniedPage(HttpServletRequest request) throws Exception {
-		
+
 		return "/com/accessDeniedPage";
 	}
-	
+
 	// 메인페이지 호출
 	@RequestMapping(value = "/start.do")
 	public ModelAndView start(String neighbor , HttpServletRequest request) throws Exception {
-		
+
 		ModelAndView mv = new ModelAndView("/com/mainPage/main");
 
 		Paging paging = new Paging();
@@ -121,17 +122,26 @@ public class CommonController {
 		// 최근 3건조회 !
 		paging.setStart(1);
 		paging.setEnd(3);
-		
-		// 이벤트 정보조회
-		List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
-		List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
 
+		// 이벤트 정보조회
+		
+		// List<EventInfos> latestEvents = eventInfosService.selectEventInfos(paging);
+		// List<Map<String, Object>> latestReviews = reviewInfosService.selectLatestReviews();
+		
+		List<EventInfos> latestEvents = new ArrayList<EventInfos>();
+		EventInfos eventInfo = new EventInfos();
+		latestEvents.add(eventInfo);
+		
+		List<Map<String, Object>> latestReviews = new ArrayList();
+		// EventInfos eventInfo = new EventInfos();
+		
+		
 		mv.addObject("latestEvents", latestEvents);
 		mv.addObject("latestReviews", latestReviews);
 
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/duplicateCheck.do")
 	public void duplicateCheck( HttpServletRequest request, HttpServletResponse reponse) throws Exception {
 
@@ -145,22 +155,22 @@ public class CommonController {
 		reponse.getWriter().write(result + "" );
 
 	}
-	
+
 	@RequestMapping(value = "/userRegist.do")
 	public ModelAndView userRegist( UserInfos userInfo , HttpServletRequest request ) throws Exception {
 
 		log.info(userInfo.toString());
 
 		ModelAndView mv = new ModelAndView("/com/registUser");
-		
-		MultipartFile profileUrl = userInfo.getPictureFile();
-		
-       //  String uploadPath=request.getSession().getServletContext().getRealPath("/resources/upload/")+PRIFLIE_SUB_DIR;     
-		String uploadPath = "C:\\KTS_DEV\\newWorkSpace\\OurNeighborhoodEvent\\src\\main\\webapp\\resources\\upload\\" + PRIFLIE_SUB_DIR;
-       // System.out.println(" request.getSession().getServletContext() : " + request.getSession().getServletContext() );
-        
-		log.info(" uploadPath : " + uploadPath );				
-        
+
+		/*
+	   MultipartFile profileUrl = userInfo.getPictureFile();
+
+       String uploadPath=request.getSession().getServletContext().getRealPath("/resources/upload/")+PRIFLIE_SUB_DIR;     
+	   String uploadPath = "C:\\KTS_DEV\\newWorkSpace\\OurNeighborhoodEvent\\src\\main\\webapp\\resources\\upload\\" + PRIFLIE_SUB_DIR;
+       System.out.println(" request.getSession().getServletContext() : " + request.getSession().getServletContext() );
+
+
 		if ( !profileUrl.isEmpty()) {
 			// 파일업로드 수행, 이상이없으면 계정정보 inert수행한다.
 			// url ="c:/"+comnFn.restore(userInfo.getPictureFile(),PRIFLIE_SUB_DIR);
@@ -168,6 +178,7 @@ public class CommonController {
 			userInfo.setProfilePic("\\resources\\upload\\" + PRIFLIE_SUB_DIR+"\\"+fileNm);
 		}
 
+		 */
 		// 비밀번호 암호화
 		userInfo.setUserPw(passwordEncoder.encode(userInfo.getUserPw()));
 
@@ -182,7 +193,7 @@ public class CommonController {
 			return mv;
 		}
 	}
-	
+
 	/**
 	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. - 카카오 map
 	 * 
@@ -195,24 +206,24 @@ public class CommonController {
 	@ResponseBody
 	@RequestMapping(value="/getAddrApiKaKao.do", produces="text/plain;charset=UTF-8")
 	public String getAddrApiKaKao(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
-		
+
 		String query = request.getParameter("keyword");
 		log.info("kakao 조회 조건 : " + query );
-		
+
 		Map<String,Object> params = new TreeMap<String,Object>();
-		
+
 		params.put("query", URLEncoder.encode(query,"UTF-8")); /* 주소 */
-		
+
 		// API 호출하여 데이터 가져오기.
 		StringBuilder sb = apiComn.callAPI(params,API_KIND.KaKao_Local.toString());
 		log.info(sb.toString());
-		
+
 		// 호출 데이터 parse하여 반환받기.
 		String result = apiParse.kakaoLocalParse(sb.toString());
 
 		return result;
 	}
-	
+
 	/**
 	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. - 도로명 주소 사이트.
 	 * 
@@ -230,42 +241,42 @@ public class CommonController {
 		int countPerPage= 10;
 		String resultType= "json";
 		String keyword = request.getParameter("keyword"); //요청 변수 설정 (키워드)
-		
+
 		Map<String,Object> params = new TreeMap<String,Object>();
-		
+
 		params.put("(INT)currentPage", currentPage);/* 페이지 */
 		params.put("(INT)countPerPage", countPerPage); /* 건수 */
 		params.put("keyword", URLEncoder.encode(keyword, "UTF-8"));/* 검색주소 */
 		params.put("confmKey", "MAIN_KEY"); /* 발급받은 key */
 		params.put("resultType", resultType);/* 없으면 XML */
-		
+
 		log.info(" keyword : " + keyword);
-		
+
 		// API 호출하여 데이터 가져오기.
 		StringBuilder sb = apiComn.callAPI(params,API_KIND.Jusos.toString());
 		log.info(sb.toString());
-		
+
 		// 호출데이터 파싱하여 사용가능한 객체로 반환받기.
 		String result = apiParse.jusosParse(sb.toString());
-		
+
 		return result;
 	}
-	
+
 	@RequestMapping(value="/searchEvent.do")
 	public ModelAndView searchEvent(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+
 		ModelAndView mv = new ModelAndView("/com/eventList");
-		
+
 		String x = request.getParameter("x"); //요청 변수 설정 (키워드)
 		String y = request.getParameter("y"); //요청 변수 설정 (키워드)
-		
+
 		log.info(" x 좌표 : " + x + ", y 좌표 : " + y );
-		
+
 		mv.addObject("x",x);
 		mv.addObject("y",y);
-		
+
 		// 반환할 jsp 페이지 명.
 		return mv;
 	}
-	
+
 }

@@ -1,6 +1,5 @@
 package woodong2.service.common;
 
-import woodong2.vo.common.Authority;
 import woodong2.vo.common.UserInfos;
 
 public interface UserInfosService {

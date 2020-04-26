@@ -39,11 +39,7 @@
 		VALUES ( #{ userId }
 			    ,#{ userPw } 
 			   	,#{ userNm }
-			   	,#{ neighbor }
 			   	,''
-			   	,#{ email }
-			   	,#{ profilePic }
-			   	,#{ phoneNum }
 			   	,''
 			   	,0
 			   	,1

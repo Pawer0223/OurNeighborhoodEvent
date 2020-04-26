@@ -57,7 +57,7 @@
 <body>
 	<br>
 
-	<div class="container" style="width: 40%; text-align: center; valign: center;">
+	<div class="container" style="width: 30%; text-align: center; valign: center;">
 
 		<form method="post" enctype="multipart/form-data" id="registUser" action="/com/userRegist.do?${_csrf.parameterName}=${_csrf.token}">
 
@@ -84,26 +84,32 @@
 						<h5 style="color : red; text-align : left;" id="passwordCheckMessage"></h5>
 						</td>
 					</tr>
+					<!-- 
 					<tr>
 						<td style="width: 110px; padding-top: 16px;">이메일</td>
 						<td colspan="2"><input class="form-control" type="email" id="email" name="email" maxLength="20" placeholder="email@example.com"></td>
 					</tr>
+					 -->
 					<tr>
 						<td style="width: 110px; padding-top: 16px;">이름</td>
 						<td colspan="2"><input class="form-control" type="text" id="userNm" name="userNm" maxLength="20" placeholder="이름"></td>
 					</tr>
+					<!-- 
 					<tr>
 						<td style="width: 110px; padding-top: 16px;">프로필 사진</td>
 						<td colspan="2"><input class="form-control" type="file" id="pictureFile" name="pictureFile" maxLength="20"></td>
 					</tr>
+					 -->
 					<tr>
 						<td style="width: 110px; padding-top: 16px;">휴대폰번호</td>
 						<td colspan="2"><input class="form-control" type="tel" id="phoneNum" name="phoneNum" maxLength="20" placeholder="010-0000-0000"></td>
 					</tr>
-					<tr>
+					<!-- 
+					<tr> 
 						<td style="width: 110px; padding-top: 16px;">동네</td>
 						<td colspan="2"><input onclick="sample6_execDaumPostcode()" type="text" class="form-control" placeholder="click 동네를 검색해주세요" id="sample6_address" name="neighbor" readonly ></td>
 					</tr>
+					 -->
 					<tr>
 						<td style="align:center;" colspan="3">
 						<input class="btn btn-primary pull-right" type="button" onclick="checkUserValidation()" style="margin-left: 10px;" value="회원가입">

@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import woodong2.dao.common.UserInfosDAO;
 import woodong2.service.common.UserInfosService;
@@ -25,14 +26,14 @@ public class UserInfosServiceImpl implements UserInfosService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public int registUser(UserInfos userInfo) throws Exception {
 		
-		int result = userInfosDAO.registUser(userInfo);
-		
-		if ( result != 0 )
-			userInfosDAO.insertAuthority(new Authority(userInfo.getUserId(), "ROLE_NORMAL"));
-		
-		return result;
+			int result = userInfosDAO.registUser(userInfo);
+			if ( result != 0 )
+				//userInfosDAO.insertAuthority(new Authority(userInfo.getUserId(), "ROLE_NORMAL"));
+				userInfosDAO.insertAuthority(new Authority("TTT", "ROLE_NORMAL"));
+			return result;
 		
 	}
 
