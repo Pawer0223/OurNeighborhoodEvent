@@ -1,20 +1,14 @@
 package woodong2.controller.common;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +26,8 @@ import woodong2.service.common.EventInfosService;
 import woodong2.service.common.MenuListService;
 import woodong2.service.common.ReviewInfosService;
 import woodong2.service.common.UserInfosService;
+import woodong2.utilities.function.APICommons;
+import woodong2.utilities.function.APIParse;
 import woodong2.utilities.function.CommonFunctions;
 import woodong2.vo.common.AddressInfo;
 import woodong2.vo.common.EventInfos;
@@ -63,11 +59,13 @@ public class CommonController {
 	
 	private CommonFunctions comnFn = new CommonFunctions();
 	
-	// 주소검색 API , SERVICE_KEY
-	private final String SERVICE_KEY = "U01TX0FVVEgyMDIwMDMyMTE1MTgwMDEwOTU2NjE=";
+	private APICommons apiComn = new APICommons();
 	
-	// 주소검색 API , KAKAO
-	private final String KAKAO_KEY = "87a1c0ac6fa481c008c408c7b819d530";
+	private APIParse apiParse = new APIParse();
+	
+	public enum API_KIND {
+		Jusos, KaKao_Local;
+	};
 	
 	@RequestMapping(value = "/loginPage.do")
 	public String loginSuccess() throws Exception {
@@ -201,69 +199,19 @@ public class CommonController {
 	@RequestMapping(value="/getAddrApiKaKao.do", produces="text/plain;charset=UTF-8")
 	public String getAddrApiKaKao(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
 		
-		String stringUrl = "https://dapi.kakao.com/v2/local/search/address.json";
-		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
-		
 		String query = request.getParameter("keyword");
-		urlBuilder.append("?query=" + URLEncoder.encode(query,"UTF-8") ); /* 페이지 */
-		StringBuilder sb = callKaKaoAPI(urlBuilder.toString());
+		log.info("kakao 조회 조건 : " + query );
 		
-		System.out.println(sb.toString());
+		Map<String,Object> params = new TreeMap<String,Object>();
 		
-		JSONObject jsonObject = new JSONObject();
+		params.put(query, URLEncoder.encode(query,"UTF-8")); /* 주소 */
+		
+		// API 호출하여 데이터 가져오기.
+		StringBuilder sb = apiComn.callAPI(params,API_KIND.KaKao_Local.toString());
+		log.info(sb.toString());
+		
+		AddressInfo[] infos = apiParse.kakaoLocalParse(sb.toString());
 
-		JSONParser parser = new JSONParser();
-		jsonObject = (JSONObject)parser.parse(sb.toString());
-		
-		JSONObject meta = (JSONObject)jsonObject.get("meta");
-		long totalCount= (long)meta.get("total_count");
-		
-		log.info(" KaKao totalCount : " + totalCount );
-		
-		AddressInfo[] infos = new AddressInfo[1];
-
-		if ( totalCount < 1 ) {
-			log.info(" 조회결과 없음. ");
-			
-			AddressInfo info = new AddressInfo("0","0","검색결과가 존재하지 않습니다.");
-			infos[0]=info;
-		}else {
-			
-			JSONArray documents = (JSONArray)jsonObject.get("documents");
-			
-			infos = new AddressInfo[documents.size()];
-
-			for ( int i = 0 ; i < documents.size(); i ++ ) {
-				JSONObject address = (JSONObject)documents.get(i);
-				
-				String addressNm = (String)address.get("address_name");
-				String x = (String)address.get("x");
-				String y = (String)address.get("y");
-				
-//				System.out.println(" ### 변환 전 : x : " + x + " , y : " + y);
-//				
-//				String stringUrl2 = "https://dapi.kakao.com/v2/local/geo/transcoord.json";
-//				StringBuilder urlBuilder2 = new StringBuilder(stringUrl2); /*URL*/
-//				
-//				urlBuilder.append("?x=" + x); 
-//				urlBuilder.append("&y=" + y); 
-//				urlBuilder.append("&input_coord=WTM"); 
-//				urlBuilder.append("&output_coord=WGS84"); 
-//				
-//				StringBuilder sb2 = callKaKaoAPI(urlBuilder2.toString());
-//				
-//				JSONArray documents2 = (JSONArray)jsonObject.get("documents");
-//				JSONObject address2 = (JSONObject)documents2.get(0);
-//				x = (String)address2.get("x");
-//				y = (String)address2.get("y");
-//				
-//				System.out.println("### 변환 후 : x : " + x + " , y : " + y);
-				
-				AddressInfo info = new AddressInfo(x,y,addressNm);
-				
-				infos[i] = info;
-			}
-		}
 		Gson gson = new Gson();
 		return gson.toJson(infos);
 	}
@@ -281,74 +229,28 @@ public class CommonController {
 	@RequestMapping(value="/getAddrApi.do", produces="text/plain;charset=UTF-8")
 	public String getAddrApi(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
 
-		String stringUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do";
-		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
-
 		int currentPage= 1;
 		int countPerPage= 10;
-		String keyword = request.getParameter("keyword"); //요청 변수 설정 (키워드)
-
-		log.info(" keyword : " + keyword);
-
 		String resultType= "json";
-
-		urlBuilder.append("?currentPage=" + currentPage ); /* 페이지 */
-		urlBuilder.append("&countPerPage=" + countPerPage ); /* 건수 */
-		urlBuilder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8")); /* 검색주소 */
-		urlBuilder.append("&confmKey=" + SERVICE_KEY ); /* 발급받은 key */
-		urlBuilder.append("&resultType=" + resultType ); /* 없으면 XML */
-
-		URL url = new URL(urlBuilder.toString());
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Content-type", "application/json");
-		System.out.println("Response code: " + conn.getResponseCode());
-		BufferedReader rd;
-
-		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
-		} else {
-			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
-		}
-		StringBuilder sb = new StringBuilder();
-		String line;
-		while ((line = rd.readLine()) != null) {
-			sb.append(line);
-		}
-		rd.close();
-		conn.disconnect();
-
+		String keyword = request.getParameter("keyword"); //요청 변수 설정 (키워드)
+		
+		Map<String,Object> params = new TreeMap<String,Object>();
+		
+		params.put("(INT)currentPage", currentPage);/* 페이지 */
+		params.put("(INT)countPerPage", countPerPage); /* 건수 */
+		params.put("keyword", URLEncoder.encode(keyword, "UTF-8"));/* 검색주소 */
+		params.put("confmKey", "MAIN_KEY"); /* 발급받은 key */
+		params.put("resultType", resultType);/* 없으면 XML */
+		
+		log.info(" keyword : " + keyword);
+		
+		// API 호출하여 데이터 가져오기.
+		StringBuilder sb = apiComn.callAPI(params,API_KIND.Jusos.toString());
 		log.info(sb.toString());
-
-		JSONObject jsonObject = new JSONObject();
-
-		JSONParser parser = new JSONParser();
-		jsonObject = (JSONObject)parser.parse(sb.toString());
-
-		JSONObject results = (JSONObject)jsonObject.get("results");
-
-		// 응답정보
-		JSONObject common = (JSONObject)results.get("common");
-
-		int totalCount= Integer.valueOf((String)common.get("totalCount"));
-
-		log.info(" totalCount : " + totalCount );
-
-		String[] jusos = new String[1];
-
-		if ( totalCount < 1 ) {
-			log.info(" 조회결과 없음. ");
-			jusos[0] = "검색결과가 존재하지 않습니다.";
-		}else {
-			JSONArray juso = (JSONArray)results.get("juso");
-			jusos = new String[juso.size()];
-
-			for ( int i = 0 ; i < juso.size(); i ++ ) {
-				JSONObject address = (JSONObject)juso.get(i);
-				String roadAddr = (String)address.get("roadAddr");
-				jusos[i] = roadAddr;
-			}
-		}
+		
+		// 호출데이터 파싱하여 사용가능한 객체로 반환받기.
+		String[] jusos = apiParse.jusosParse(sb.toString());
+		
 		Gson gson = new Gson();
 		return gson.toJson(jusos);
 	}
@@ -361,48 +263,13 @@ public class CommonController {
 		String x = request.getParameter("x"); //요청 변수 설정 (키워드)
 		String y = request.getParameter("y"); //요청 변수 설정 (키워드)
 		
-		System.out.println(" x 좌표 : " + x + ", y 좌표 : " + y );
+		log.info(" x 좌표 : " + x + ", y 좌표 : " + y );
 		
 		mv.addObject("x",x);
 		mv.addObject("y",y);
 		
 		// 반환할 jsp 페이지 명.
 		return mv;
-	}
-	
-	private StringBuilder callKaKaoAPI(String stringUrl) throws Exception {
-		
-		StringBuilder urlBuilder = new StringBuilder(stringUrl); /*URL*/
-		
-		String auth = "KakaoAK " + KAKAO_KEY;
-		
-		URL url = new URL(urlBuilder.toString());
-		
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		
-		conn.setRequestProperty("User-Agent", "Java-Client");	// https 호출시 user-agent 필요
-		conn.setRequestProperty("X-Requested-With", "curl");
-		conn.setRequestProperty("Authorization", auth);
-		
-		System.out.println("Response code: " + conn.getResponseCode());
-		BufferedReader rd;
-
-		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-			rd = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
-		} else {
-			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(),"UTF-8"));
-		}
-		StringBuilder sb = new StringBuilder();
-		String line;
-		while ((line = rd.readLine()) != null) {
-			sb.append(line);
-		}
-		rd.close();
-		conn.disconnect();
-		
-		
-		return sb;
 	}
 	
 }
