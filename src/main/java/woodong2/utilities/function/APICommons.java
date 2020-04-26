@@ -7,17 +7,20 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class APICommons {
+	
+	private Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	// 주소검색 API , 도로명주소 사이트  SERVICE_KEY
 	private final String JUSOS_KEY =  "U01TX0FVVEgyMDIwMDMyMTE1MTgwMDEwOTU2NjE=";
-	
-	// KAKAO LOCAL 검색 KEY
-	private final String KAKAO_LOCAL_KEY =  "87a1c0ac6fa481c008c408c7b819d530";
-	
 	// 도로명주소 사이트 URL
 	private final String JUSOS_URL = "http://www.juso.go.kr/addrlink/addrLinkApi.do";
 	
+	// KAKAO LOCAL 검색 KEY
+	private final String KAKAO_LOCAL_KEY =  "87a1c0ac6fa481c008c408c7b819d530";
 	// KAKAO LOCAL 검색 URL
 	private final String KAKAO_LOCAL_URL = "https://dapi.kakao.com/v2/local/search/address.json";
 	
@@ -40,7 +43,7 @@ public class APICommons {
 			conn.setRequestProperty("Authorization", auth);
 		}
 		
-		System.out.println("Response code: " + conn.getResponseCode());
+		log.info("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
 
 		if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
@@ -92,6 +95,9 @@ public class APICommons {
 			 }
 			 index++;
 		}
+		
+		log.info( " 수행되는 url : " + urlBuilder.toString());
+		
 		return urlBuilder;
 	}
 	

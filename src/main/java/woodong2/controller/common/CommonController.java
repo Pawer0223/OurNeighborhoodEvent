@@ -204,7 +204,7 @@ public class CommonController {
 		
 		Map<String,Object> params = new TreeMap<String,Object>();
 		
-		params.put(query, URLEncoder.encode(query,"UTF-8")); /* 주소 */
+		params.put("query", URLEncoder.encode(query,"UTF-8")); /* 주소 */
 		
 		// API 호출하여 데이터 가져오기.
 		StringBuilder sb = apiComn.callAPI(params,API_KIND.KaKao_Local.toString());
@@ -217,7 +217,7 @@ public class CommonController {
 	}
 	
 	/**
-	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. - 주소포탈 용도.
+	 * 주소검색시 Ajax를 통해 주소정보를 호출해온다. - 도로명 주소 사이트.
 	 * 
 	 * @param request
 	 * @param model
