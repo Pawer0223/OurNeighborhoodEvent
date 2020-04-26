@@ -6,13 +6,15 @@ import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.gson.Gson;
+
 import woodong2.vo.common.AddressInfo;
 
 public class APIParse {
 
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	public String[] jusosParse(String data) {
+	public String jusosParse(String data) {
 
 		String[] jusos = new String[1];
 
@@ -48,10 +50,11 @@ public class APIParse {
 				jusos[i] = roadAddr;
 			}
 		}
-		return jusos;
+		Gson gson = new Gson();
+		return gson.toJson(jusos);
 	}
 
-	public AddressInfo[] kakaoLocalParse(String data) {
+	public String kakaoLocalParse(String data) {
 
 		JSONObject jsonObject = new JSONObject();
 		JSONParser parser = new JSONParser();
@@ -90,7 +93,8 @@ public class APIParse {
 				infos[i] = info;
 			}
 		}
-		return infos;
+		Gson gson = new Gson();
+		return gson.toJson(infos);
 	}
 
 }

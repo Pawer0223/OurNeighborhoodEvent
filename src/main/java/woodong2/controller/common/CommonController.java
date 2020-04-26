@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.Gson;
-
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.MenuListService;
 import woodong2.service.common.ReviewInfosService;
@@ -29,7 +27,6 @@ import woodong2.service.common.UserInfosService;
 import woodong2.utilities.function.APICommons;
 import woodong2.utilities.function.APIParse;
 import woodong2.utilities.function.CommonFunctions;
-import woodong2.vo.common.AddressInfo;
 import woodong2.vo.common.EventInfos;
 import woodong2.vo.common.Paging;
 import woodong2.vo.common.UserInfos;
@@ -210,10 +207,10 @@ public class CommonController {
 		StringBuilder sb = apiComn.callAPI(params,API_KIND.KaKao_Local.toString());
 		log.info(sb.toString());
 		
-		AddressInfo[] infos = apiParse.kakaoLocalParse(sb.toString());
+		// 호출 데이터 parse하여 반환받기.
+		String result = apiParse.kakaoLocalParse(sb.toString());
 
-		Gson gson = new Gson();
-		return gson.toJson(infos);
+		return result;
 	}
 	
 	/**
@@ -249,10 +246,9 @@ public class CommonController {
 		log.info(sb.toString());
 		
 		// 호출데이터 파싱하여 사용가능한 객체로 반환받기.
-		String[] jusos = apiParse.jusosParse(sb.toString());
+		String result = apiParse.jusosParse(sb.toString());
 		
-		Gson gson = new Gson();
-		return gson.toJson(jusos);
+		return result;
 	}
 	
 	@RequestMapping(value="/searchEvent.do")
