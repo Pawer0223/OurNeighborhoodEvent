@@ -207,7 +207,7 @@ public class CommonController {
 	@RequestMapping(value="/getAddrApiKaKao.do", produces="text/plain;charset=UTF-8")
 	public String getAddrApiKaKao(HttpServletRequest request, ModelMap model, HttpServletResponse response) throws Exception {
 
-		String query = request.getParameter("keyword");
+		String query = request.getParameter("addressNm");
 		log.info("kakao 조회 조건 : " + query );
 
 		Map<String,Object> params = new TreeMap<String,Object>();

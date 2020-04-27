@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +9,13 @@
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
 <link rel="stylesheet" href="/resources/css/custom.css">
 
-
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/resources/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/mapAPI.js"></script>
 <script src="/resources/js/custom.js"></script>
+
 
 <!--검색어 자동완성을위해서 추가 -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -42,13 +41,11 @@
 			url : '/nor/bizrNoDuplicateCheck.do' ,
 			data : { bizrRegNo : bizrRegNo },
 			success : function(result){
+				
 				if ( result == 1 ){
-					$('#checkMessage').html('해당 사업자번호는 기등록된 정보입니다.');
-					$('#checkType').attr('class' , 'modal-content panel-warning');
-					$('#bizrRegNo').val('');
+					alert('해당 사업자번호는 기등록된 정보입니다.');
 				}else{
-					$('#checkMessage').html('사용할 수 있는 사업자정보입니다.');
-					$('#checkType').attr('class' , 'modal-content panel-success');
+					alert('사용할 수 있는 사업자정보입니다.');
 				}
 				$('#checkModal').modal("show"); 
 			}
@@ -61,7 +58,7 @@
 <body>
 	<br>
 
-	<div class="container" style="width: 55%; text-align: center;">
+	<div class="container" style="width: 30%; text-align: center;">
 
 		<form method="post" id="registStore" action="/nor/registPtnInfos.do">
 
@@ -75,7 +72,7 @@
 				<tbody>
 					<tr>
 						<td style="width: 110px;">사업자 등록번호</td>
-						<td><input class="form-control" type="text" id="bizrRegNo" name="bizrRegNo"  maxlength="10" placeholder ="-를 제외한 10자리 입력해주세요" oninput="checkFlagChange(this);"></td>
+						<td><input class="form-control" type="text" id="bizrRegNo" name="bizrRegNo"  maxlength="10" placeholder ="-를 제외한 10자리 입력해주세요" onkeyup="checkFlagChange(this);"></td>
 						<td style="width: 110px;"><button class="btn btn-primary" type="button" onclick="registerCheckFunction();">중복체크</button></td>
 					</tr>
 					<tr>
@@ -93,25 +90,20 @@
 						</td>
 					</tr>
 					<tr>
-						<td style="width: 110px;">FAX</td>
-						<td colspan="2"><input class="form-control" type="text" id="faxNo" name="faxNo" maxLength="20" placeholder="FAX번호를 입력해 주세요, 없으면 공백"></td>
-					</tr>
-					<tr>
 						<td style="width: 110px;">동네</td>
 						<!-- 
 							<td colspan="2"><input onclick="sample7_execDaumPostcode()" type="text" class="form-control" placeholder="click 동네를 검색해주세요" id="sample6_address" name="neighbor" readonly ></td>
  						-->
 						<td colspan="2">
 							<form action="#" method="post" id="searchForm">
-								<input name="keyword" id="keyword" type="text" class="form-control" placeholder="동네를 검색해주세요""> 
+								<input name="addressNm" id="addressNm" type="text" class="form-control" placeholder="동네를 검색해주세요""> 
 								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 							</form>
 						</td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">우편번호</td>
-						<td colspan="2"><input type="text" class="form-control" placeholder="상단의 동네를 선택해 주세요." id="zoneNo" name="zoneNo" readonly ></td>
-						<td id="addressInfoParent"></td>
+						<td colspan="2" id="addressInfoParent"><input type="text" class="form-control" placeholder="상단의 동네를 선택해 주세요." id="zoneNo" name="zoneNo" readonly ></td>
 					</tr>
 					<tr>
 						<td style="text-align: left" colspan="3">
@@ -140,69 +132,16 @@
 
 		if (messageContent != null) {
 	%>
-	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="vertical-alignment-helper">
-			<div class="modal-dialog vertical-align-center">
-				<div class="modal-content <%if (messageType.equals("error_message")) out.println("panel-warning"); else out.println("panel-success");%>">
-				
-					<div class="modal-header panel-heading">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span> 
-							<span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title">
-							<%=messageType%>
-						</h4>
-					</div>
-					
-					<div class="modal-body">
-						<%=messageContent%>
-					</div>
-					
-					<div class="modal-footer">
-						<a type="button" class="btn btn-primary" href="/com/start.do">확인</a>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<script>
-			$('#messageModal').modal("show"); 
+	<script type="text/javascript">
+		var messageContent = '<%=(String)session.getAttribute("messageContent")%>';
+		alert(messageContent);
+		window.location = '/com/start.do';
 	</script>
-		<%
-			session.removeAttribute("messageContent");
-			session.removeAttribute("messageType");
-			}
-		%>
-		
-	<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="vertical-alignment-helper">
-			<div class="modal-dialog vertical-align-center">
-				<div id="checkType" class="modal-content panel-info">
-				
-					<div class="modal-header panel-heading">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span> 
-							<span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title">
-							확인 메시지
-						</h4>
-					</div>
-					
-					<div class="modal-body" id="checkMessage">
-					</div>
-					
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
+	<%
+		session.removeAttribute("messageContent");
+		session.removeAttribute("messageType");
+		}
+	%>
 
 </body>
 </html>

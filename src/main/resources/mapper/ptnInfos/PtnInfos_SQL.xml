@@ -15,9 +15,14 @@
 			, PTN_NM
 			, RPST_NM
 			, RPST_TEL
-			, FAX_NO
-			, ADD_NO
-			, NEIGHBOR
+			, ZONE_NO
+			, ADDRESS_NM
+			, LATITUDE
+			, LONGITUDE
+			, REGION_1DEPTH_NM
+			, REGION_2DEPTH_NM
+			, REGION_3DEPTH_NM
+			, ROAD_NM
 			, CREATION_DATE	
 		)VALUES (
 			  #{ ptnCd }
@@ -25,9 +30,14 @@
 			, #{ ptnNm }
 			, #{ rpstNm }
 			, #{ rpstTel }
-			, #{ faxNo }
-			, #{ addNo }
-			, #{ neighbor }
+			, #{ zoneNo }
+			, #{ addressNm }
+			, #{ latitude }
+			, #{ longitude }
+			, #{ region1depthNm }
+			, #{ region2depthNm }
+			, #{ region3depthNm }
+			, #{ roadNm }
 			, SYSDATE		
 			)
 		]]>

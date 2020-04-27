@@ -25,7 +25,7 @@
 								<div class="col-lg-10 align-items-end" align="center">
 									<div class="form-group" style="width: 70%">
 										<div class="form-field" id="addressInfoParent">
-											<input name="keyword" id="keyword" type="text" class="form-control" placeholder="우리동네를 검색해주세요">
+											<input name="addressNm" id="addressNm" type="text" class="form-control" placeholder="우리동네를 검색해주세요">
 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 											<input type="hidden" name="zoneNo" id="zoneNo" value="" />
 											<button><span class="ion-ios-search"></span></button>

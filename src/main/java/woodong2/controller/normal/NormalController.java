@@ -151,7 +151,7 @@ public class NormalController {
 	public ModelAndView registPtnInfos( PtnInfos ptnInfo, HttpServletRequest request , Authentication authentication ) throws Exception {
 		
 		log.info(ptnInfo.toString());
-
+		
 		ModelAndView mv = new ModelAndView("/nor/registStore");
 		
 		//등록될 ptnCd 값 가져오기 max+1
@@ -161,12 +161,13 @@ public class NormalController {
 		
 		UserInfos userInfos = (UserInfos)authentication.getPrincipal();
 		String userId = userInfos.getUserId();
-
+		
 		// 성공시1, 실패시0반환
 		if( ptnInfosService.registPtnInfos(ptnInfo, userId) == 1 ) {
 			
 			// Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			
+			// 파트너 등록 시, 로그인 계정의 정보에 ROLB_PARTNER를 추가해준다.
 			List<GrantedAuthority> updatedAuthorities = new ArrayList<>(authentication.getAuthorities());
 			updatedAuthorities.add(new SimpleGrantedAuthority("ROLE_PARTNER"));
 			Authentication newAuth = new UsernamePasswordAuthenticationToken(authentication.getPrincipal(), authentication.getCredentials(), updatedAuthorities);

@@ -35,9 +35,7 @@ function checkBizrRegNoValidation(){
 	var bizrRegNo = $('#bizrRegNo').val();
 	
 	if ( bizrRegNo == "" ){
-		$('#checkMessage').html('사업자등록번호를 입력해 주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
+		alert("사업자등록번호를 입력해 주세요.");
 		return false;
 	}
 	
@@ -138,43 +136,37 @@ function checkReviewValidation(){
 
 
 function checkStoreValidation(){
-	
+
 	var bizrRegNo = $('#bizrRegNo').val();
 	var ptnNm = $('#ptnNm').val();
 	var rpstNm = $('#rpstNm').val();
-	var rpstTel = $('#rpstTel').val();
-	var sample6_address = $('#sample6_address').val();
-	var sample6_postcode = $('#sample6_postcode').val();
+	var rpstTel = $('#rpstTel').val();	
+	var addressNm = $('#addressNm').val();
+	var zoneNo = $('#zoneNo').val();
+	
+	if( !duplicateCheck ){
+		alert(" 중복체크를 해주세요.");
+		return false;
+	}
+	
 	
 	if ( bizrRegNo == "" ){
-		$('#checkMessage').html('사업자 등록번호를 입력해주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
+		alert("사업자 등록번호를 입력해주세요.");
 		return false;
 	}else if ( ptnNm == "" ){
-		$('#checkMessage').html('상호 명을 입력해주세요');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
+		alert("상호 명을 입력해주세요");
 		return false;
 	}else if ( rpstNm == "" ){
-		$('#checkMessage').html('대표자 명을 입력해주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
+		alert("대표자 명을 입력해주세요.");
 		return false;
 	}else if ( rpstTel == "" ){
-		$('#checkMessage').html('휴대번호를 입력해주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
+		alert("휴대번호를 입력해주세요.");
 		return false;
-	}else if ( sample6_address == "" ){
-		$('#checkMessage').html('동네를 검색해주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
+	}else if ( addressNm == "" ){
+		alert("동네를 검색해주세요.");
 		return false;
-	}else if ( sample6_postcode == "" ){
-		$('#checkMessage').html('우편번호를 입력해주세요.');
-		$('#checkType').attr('class' , 'modal-content panel-warning');
-		$('#checkModal').modal("show"); 
+	}else if ( zoneNo == "" ){
+		alert("동네 검색 후 선택하시면 우편번호가 자동입력 됩니다.");
 		return false;
 	}
 	
@@ -230,11 +222,11 @@ function checkEventValidation(){
 }
 
 $(function() {
-	$('#keyword').autocomplete({
+	$('#addressNm').autocomplete({
 		source: function( request, response ){
 			$.ajax({
 				type: 'get',
-				url : '/com/getAddrApiKaKao.do?keyword='+$('#keyword').val(),
+				url : '/com/getAddrApiKaKao.do?addressNm='+$('#addressNm').val(),
 				dataType: "json", // 지정안하면 자동 parsing된다는데 ?
 				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 

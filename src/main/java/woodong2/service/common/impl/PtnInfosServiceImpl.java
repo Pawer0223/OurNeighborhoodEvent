@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import woodong2.dao.common.PtnInfosDAO;
 import woodong2.dao.common.UserInfosDAO;
@@ -25,8 +26,9 @@ public class PtnInfosServiceImpl implements PtnInfosService {
 	 */
 	@Resource(name="userInfosDAO")
 	private UserInfosDAO userInfosDAO;
-
+	
 	@Override
+	@Transactional
 	public int registPtnInfos(PtnInfos ptninfo, String userId) throws Exception {
 		
 		int result = 0;
