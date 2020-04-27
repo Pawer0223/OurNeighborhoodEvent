@@ -270,9 +270,8 @@
 ### 파일 업로드
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/FileUpload.md">[ FileUpload ]</a>
 
-### 공공 API 활용
-- <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DaumAPI.md">[ DaumAPI ]</a>
-- <a href="https://www.juso.go.kr/addrlink/devAddrLinkRequestGuide.do?menu=roadApi">[ 도로명주소 API ]</a>
+### OPEN API 활용
+- <a href="#">[ KaKao Local, 지도 API ]</a>
 
 ### 개발환경 설정정보
 - <a href="https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/FunctionMD/DevConfig.md">[ DevConfig ]</a>
