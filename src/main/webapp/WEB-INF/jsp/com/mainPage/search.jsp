@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,13 +20,14 @@
 				class="row no-gutters slider-text justify-content-center align-items-center">
 				<div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
 					<div class="text text-center" style="width: 100%;">
-						<form action="#" class="search-location mt-md-5" method="post" id="searchForm">
+						<form action="/com/searchEvent.do" class="search-location mt-md-5" method="post" id="searchForm">
 							<div class="row justify-content-center">
 								<div class="col-lg-10 align-items-end" align="center">
 									<div class="form-group" style="width: 70%">
-										<div class="form-field">
+										<div class="form-field" id="addressInfoParent">
 											<input name="keyword" id="keyword" type="text" class="form-control" placeholder="우리동네를 검색해주세요">
 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+											<input type="hidden" name="zoneNo" id="zoneNo" value="" />
 											<button><span class="ion-ios-search"></span></button>
 										</div>
 									</div>

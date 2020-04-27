@@ -154,10 +154,6 @@ public class NormalController {
 
 		ModelAndView mv = new ModelAndView("/nor/registStore");
 		
-		if ( ptnInfo.getFaxNo().isEmpty() ) {
-			ptnInfo.setFaxNo("");
-		}
-		
 		//등록될 ptnCd 값 가져오기 max+1
 		String maxPtnCd = "";
 		maxPtnCd = ptnInfosService.getMaxPtnCd();

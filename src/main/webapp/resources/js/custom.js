@@ -243,8 +243,13 @@ $(function() {
 							$.map(data, function(item) {  //json[i] 번째 에 있는게 item 임.
 								return {
 									value : item.addressNm,
-									x : item.x,
-									y : item.y,
+									latitude : item.latitude,
+									longitude : item.longitude,
+									zoneNo : item.zoneNo,
+									region1depthNm : item.region1depthNm,
+									region2depthNm : item.region2depthNm,
+									region3depthNm : item.region3depthNm,
+									roadNm : item.roadNm
 								}
 							}
 
@@ -254,11 +259,20 @@ $(function() {
 			}); // ajax End
 		},
 		select: function(event,ui){
+			
+			var $appendInput = $('<input type="hidden" name="zoneNo" value="'+ui.zoneNo+'" />'); 
 			console.log("ui : " + ui);//사용자가 오토컴플릿이 만들어준 목록에서 선택을 하면 반환되는 객체
-			console.log("x : " + ui.item.x);
-			console.log("y : " + ui.item.y);
+			console.log("latitude : " + ui.item.latitude);
+			console.log("longitude : " + ui.item.longitude);
 			console.log("value : " + ui.item.value);
-			$('#searchForm').attr('action' , 'searchEvent.do?x='+ui.item.x+'&y='+ui.item.y);
+			//$('#searchForm').attr('action' , 'searchEvent.do?x='+ui.item.x+'&y='+ui.item.y);
+			$('#zoneNo').attr('value', ui.item.zoneNo );
+			$('#addressInfoParent').append('<input type="hidden" name="latitude" value="'+ui.item.latitude+'" />');
+			$('#addressInfoParent').append('<input type="hidden" name="longitude" value="'+ui.item.longitude+'" />');
+			$('#addressInfoParent').append('<input type="hidden" name="region1depthNm" value="'+ui.item.region1depthNm+'" />');
+			$('#addressInfoParent').append('<input type="hidden" name="region2depthNm" value="'+ui.item.region2depthNm+'" />');
+			$('#addressInfoParent').append('<input type="hidden" name="region3depthNm" value="'+ui.item.region3depthNm+'" />');
+			$('#addressInfoParent').append('<input type="hidden" name="roadNm" value="'+ui.item.roadNm+'" />');
 		},
 		focus: function(event,ui){
 			return false;

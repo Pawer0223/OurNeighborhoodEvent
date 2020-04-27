@@ -18,8 +18,9 @@
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-				
+					<!-- 				
 					<li class="nav-item"><a href="/com/loginPage.do" class="nav-link">Event</a></li>
+					 -->
 					<!--비로그인 사용자한테만 Login 메뉴가 보인다.  -->
 					<sec:authorize access="isAnonymous()">
 						<li class="nav-item"><a href="/com/loginPage.do" class="nav-link">Login</a></li>

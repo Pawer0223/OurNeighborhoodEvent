@@ -11,6 +11,17 @@ public class AddressInfo {
 	// 주소명
 	private String addressNm;
 	
+	// 지역명1
+	private String region1Dept;
+	
+	// 지역명2
+	private String region2Dept;
+	
+	// 지역명3
+	private String region3Dept;
+	
+	// 
+	
 	public AddressInfo(String x, String y, String addressNm){
 		this.x=x;
 		this.y=y;

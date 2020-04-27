@@ -31,10 +31,8 @@ public class UserInfosServiceImpl implements UserInfosService {
 		
 			int result = userInfosDAO.registUser(userInfo);
 			if ( result != 0 )
-				//userInfosDAO.insertAuthority(new Authority(userInfo.getUserId(), "ROLE_NORMAL"));
-				userInfosDAO.insertAuthority(new Authority("TTT", "ROLE_NORMAL"));
+				userInfosDAO.insertAuthority(new Authority(userInfo.getUserId(), "ROLE_NORMAL"));
 			return result;
-		
 	}
 
 	@Override

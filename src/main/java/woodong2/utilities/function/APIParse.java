@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
 
 import woodong2.vo.common.AddressInfo;
+import woodong2.vo.common.PtnInfos;
 
 public class APIParse {
 
@@ -71,24 +72,31 @@ public class APIParse {
 
 		log.info(" KaKao totalCount : " + totalCount );
 
-		AddressInfo[] infos = new AddressInfo[1];
+		PtnInfos[] infos = new PtnInfos[1];
 
 		if ( totalCount < 1 ) {
 			log.info(" 조회결과 없음. ");
-			AddressInfo info = new AddressInfo("0","0","검색결과가 존재하지 않습니다.");
+			PtnInfos info = new PtnInfos();
+			info.setAddressNm("검색결과가 존재하지 않습니다.");
 			infos[0]=info;
 		}else {
 			JSONArray documents = (JSONArray)jsonObject.get("documents");
-			infos = new AddressInfo[documents.size()];
+			infos = new PtnInfos[documents.size()];
 
 			for ( int i = 0 ; i < documents.size(); i ++ ) {
-				JSONObject address = (JSONObject)documents.get(i);
-
-				String addressNm = (String)address.get("address_name");
-				String x = (String)address.get("x");
-				String y = (String)address.get("y");
-
-				AddressInfo info = new AddressInfo(x,y,addressNm);
+				JSONObject document = (JSONObject)documents.get(i);
+				JSONObject roadAddress = (JSONObject)document.get("road_address");
+				
+				String addressNm = (String)roadAddress.get("address_name");
+				String region1depthNm = (String)roadAddress.get("region_1depth_name");
+				String region2depthNm = (String)roadAddress.get("region_2depth_name");
+				String region3depthNm = (String)roadAddress.get("region_3depth_name");
+				String roadNm = (String)roadAddress.get("region_3depth_name");
+				String zoneNo = (String)roadAddress.get("zone_no");
+				String longitude = (String)roadAddress.get("x"); //x가 경도 longitude
+				String latitude = (String)roadAddress.get("y"); //y가 위도 latitude
+				
+				PtnInfos info = new PtnInfos(addressNm,zoneNo,latitude,longitude,region1depthNm,region2depthNm,region3depthNm,roadNm);
 
 				infos[i] = info;
 			}

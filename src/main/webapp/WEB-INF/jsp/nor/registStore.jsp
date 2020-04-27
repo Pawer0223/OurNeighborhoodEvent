@@ -18,6 +18,11 @@
 <script src="/resources/js/mapAPI.js"></script>
 <script src="/resources/js/custom.js"></script>
 
+<!--검색어 자동완성을위해서 추가 -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <script type ="text/javascript">
 
 	function registerCheckFunction(){
@@ -70,7 +75,7 @@
 				<tbody>
 					<tr>
 						<td style="width: 110px;">사업자 등록번호</td>
-						<td><input class="form-control" type="number" id="bizrRegNo" name="bizrRegNo"  maxlength="10" placeholder ="-를 제외한 10자리 입력해주세요" oninput="checkFlagChange(this);"></td>
+						<td><input class="form-control" type="text" id="bizrRegNo" name="bizrRegNo"  maxlength="10" placeholder ="-를 제외한 10자리 입력해주세요" oninput="checkFlagChange(this);"></td>
 						<td style="width: 110px;"><button class="btn btn-primary" type="button" onclick="registerCheckFunction();">중복체크</button></td>
 					</tr>
 					<tr>
@@ -93,14 +98,20 @@
 					</tr>
 					<tr>
 						<td style="width: 110px;">동네</td>
-						<td colspan="2"><input onclick="sample7_execDaumPostcode()"
-							type="text" class="form-control" placeholder="click 동네를 검색해주세요"
-							id="sample6_address" name="neighbor" readonly ></td>
+						<!-- 
+							<td colspan="2"><input onclick="sample7_execDaumPostcode()" type="text" class="form-control" placeholder="click 동네를 검색해주세요" id="sample6_address" name="neighbor" readonly ></td>
+ 						-->
+						<td colspan="2">
+							<form action="#" method="post" id="searchForm">
+								<input name="keyword" id="keyword" type="text" class="form-control" placeholder="동네를 검색해주세요""> 
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+							</form>
+						</td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">우편번호</td>
-						<td colspan="2"><input type="text" class="form-control" placeholder="상단의 동네를 검색해주세요"
-							id="sample6_postcode" name="addNo" readonly ></td>
+						<td colspan="2"><input type="text" class="form-control" placeholder="상단의 동네를 선택해 주세요." id="zoneNo" name="zoneNo" readonly ></td>
+						<td id="addressInfoParent"></td>
 					</tr>
 					<tr>
 						<td style="text-align: left" colspan="3">

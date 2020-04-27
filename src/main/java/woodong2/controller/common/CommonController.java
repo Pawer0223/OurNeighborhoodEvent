@@ -267,13 +267,13 @@ public class CommonController {
 
 		ModelAndView mv = new ModelAndView("/com/eventList");
 
-		String x = request.getParameter("x"); //요청 변수 설정 (키워드)
-		String y = request.getParameter("y"); //요청 변수 설정 (키워드)
+		String latitude = request.getParameter("latitude"); //요청 변수 설정 (키워드)
+		String longitude = request.getParameter("longitude"); //요청 변수 설정 (키워드)
 
-		log.info(" x 좌표 : " + x + ", y 좌표 : " + y );
+		log.info(" 위도(latitude) : " + latitude + ", 경도(longitude) : " + longitude );
 
-		mv.addObject("x",x);
-		mv.addObject("y",y);
+		mv.addObject("latitude",latitude);
+		mv.addObject("longitude",longitude);
 
 		// 반환할 jsp 페이지 명.
 		return mv;

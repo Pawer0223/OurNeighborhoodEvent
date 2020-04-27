@@ -17,7 +17,7 @@
 	<select id="getUserInfo" parameterType="String" resultMap="userInfosModel">
 	<![CDATA[
 		SELECT 
-			USER_ID,USER_PW,USER_NM,NEIGHBOR,PTN_CD,PROFILE_PIC,ENABLED,LGN_ERR_CNT
+			USER_ID,USER_PW,USER_NM,PTN_CD,ENABLED,LGN_ERR_CNT
 		FROM 
 			USER_INFOS
 		WHERE 
