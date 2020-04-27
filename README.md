@@ -132,7 +132,7 @@
     </tr>
 </table>
 
-- 개발환경 Setting시 ISSUE 내역
+- 추가 ISSUE 내역
 <table>
     <tr>
         <td>분류</td>
@@ -153,6 +153,20 @@
             </ul>
         </td>
     </tr>
+    <tr>
+        <td>Transaction 적용</td>
+        <td>
+            <ul>
+                <li>Service에서 2개의 INSERT수행 중 에러발생 시 ROLLBACK 되도록 구현</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="#"> [ Spring+MyBatis Transaction 적용 ] </a></li>          
+            </ul>
+        </td>
+    </tr>
+    
 </table>
 
 ## ERD 및 테이블 설명
