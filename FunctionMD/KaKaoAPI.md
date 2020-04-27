@@ -9,4 +9,4 @@
 - 주소검색 ( AutoComplete )
 - 이벤트 검색 시 
 
-![kakaoAPI](../readmeSource/kakao_api.gif)
+![kakaoAPI](../readmeSource/gif/kakao_api.gif)
