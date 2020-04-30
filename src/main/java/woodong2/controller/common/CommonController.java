@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.MenuListService;
 import woodong2.service.common.PtnInfosService;
@@ -285,9 +290,9 @@ public class CommonController {
 		ptnInfo.setLongitude(longitude);
 		
 		// 위도 경도 범위 내에 있는 가게의 위도,경도, 이벤트 정보를 조회 해오기.
-		List<Map<String, Object>> nearEvents = ptnInfosService.getNearEvents(ptnInfo);
+		JsonArray nearEvents = ptnInfosService.getNearEvents(ptnInfo);
 		
-		System.out.println("##### " + nearEvents.toString());
+		mv.addObject("nearEvents",nearEvents);
 
 		// 반환할 jsp 페이지 명.
 		return mv;

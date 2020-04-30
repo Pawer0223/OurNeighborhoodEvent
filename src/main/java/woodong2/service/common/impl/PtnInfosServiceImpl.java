@@ -10,6 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+
 import woodong2.dao.common.PtnInfosDAO;
 import woodong2.dao.common.UserInfosDAO;
 import woodong2.service.common.PtnInfosService;
@@ -59,8 +63,18 @@ public class PtnInfosServiceImpl implements PtnInfosService {
 	}
 
 	@Override
-	public List<Map<String, Object>> getNearEvents(PtnInfos ptnInfo) {
-		return ptnInfosDAO.getNearEvents(ptnInfo);
+	public JsonArray getNearEvents(PtnInfos ptnInfo) {
+		List<Map<String,Object>> nearEvents = ptnInfosDAO.getNearEvents(ptnInfo);
+		
+		// JSON 객체를 JSONArray로 바꿔준다.
+		JsonParser parser = new JsonParser();
+
+		// 받아온 List타입의 데이터를 JSON 객체로 변환을해야 parser기능을 사용할 수 있다.
+		Gson gson = new Gson();
+		JsonArray jsonArray = (JsonArray)parser.parse(gson.toJson(nearEvents));
+		
+		return jsonArray;
+		
 	}
 	
 }
