@@ -2,7 +2,6 @@ package woodong2.controller.common;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -23,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import woodong2.service.common.EventInfosService;
 import woodong2.service.common.MenuListService;
+import woodong2.service.common.PtnInfosService;
 import woodong2.service.common.ReviewInfosService;
 import woodong2.service.common.UserInfosService;
 import woodong2.utilities.function.APICommons;
@@ -30,6 +30,7 @@ import woodong2.utilities.function.APIParse;
 import woodong2.utilities.function.CommonFunctions;
 import woodong2.vo.common.EventInfos;
 import woodong2.vo.common.Paging;
+import woodong2.vo.common.PtnInfos;
 import woodong2.vo.common.UserInfos;
 
 @Controller
@@ -49,6 +50,9 @@ public class CommonController {
 
 	@Resource(name = "userInfosService")
 	private UserInfosService userInfosService;
+	
+	@Resource(name= "ptnInfosService")
+	private PtnInfosService ptnInfosService;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -274,6 +278,16 @@ public class CommonController {
 
 		mv.addObject("latitude",latitude);
 		mv.addObject("longitude",longitude);
+		
+		PtnInfos ptnInfo = new PtnInfos();
+		
+		ptnInfo.setLatitude(latitude);
+		ptnInfo.setLongitude(longitude);
+		
+		// 위도 경도 범위 내에 있는 가게의 위도,경도, 이벤트 정보를 조회 해오기.
+		List<Map<String, Object>> nearEvents = ptnInfosService.getNearEvents(ptnInfo);
+		
+		System.out.println("##### " + nearEvents.toString());
 
 		// 반환할 jsp 페이지 명.
 		return mv;

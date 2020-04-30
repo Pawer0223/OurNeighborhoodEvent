@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 
-
 <!--검색어 자동완성을위해서 추가 -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -39,7 +38,7 @@
 			</div>
 		</div>
 		<div class="mouse">
-			<a href="/main/start.do" class="mouse-icon">
+			<a href="/com/start.do" class="mouse-icon">
 				<div class="mouse-wheel">
 					<span class="ion-ios-arrow-round-down"></span>
 				</div>

@@ -73,5 +73,30 @@
 				BIZR_REG_NO=#{ bizrRegNo }
 		]]>
 	</select>
+	
+	<select id="getNearEvents" resultType="hashmap">
+		<![CDATA[	  
+		SELECT
+		    EVENT.EVENT_SEQ,
+		    PTN.PTN_NM,
+		    PTN.LATITUDE,
+		    PTN.LONGITUDE,
+		    EVENT_NM,
+		    EVENT_DESC,
+		    EVENT.PRODUCT,
+		    EVENT.ORIGIN_PRICE,
+		    EVENT.EVENT_PRICE,
+		    EVENT.AMOUNT,
+		    EVENT.DELIVERY_YN,
+		FROM 
+		    EVENT_INFOS EVENT,PTN_INFOS PTN
+		WHERE
+		    (PTN.LATITUDE BETWEEN #{ latitude }-50 AND #{ latitude }+50)    
+		AND (PTN.LONGITUDE BETWEEN #{ longitude }-50 AND #{ longitude }+50)    
+		AND EVENT.PTN_CD = PTN.PTN_CD
+		AND EVENT.EVENT_STATUS='WORK'
+		]]>
+	</select>
+	
 
 </mapper>

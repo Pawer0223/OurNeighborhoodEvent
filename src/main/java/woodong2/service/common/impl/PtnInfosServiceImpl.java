@@ -1,5 +1,8 @@
 package woodong2.service.common.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -53,6 +56,11 @@ public class PtnInfosServiceImpl implements PtnInfosService {
 	@Override
 	public int bizrNoDuplicateCheck(String bizrRegNo) {
 		return ptnInfosDAO.bizrNoDuplicateCheck(bizrRegNo);
+	}
+
+	@Override
+	public List<Map<String, Object>> getNearEvents(PtnInfos ptnInfo) {
+		return ptnInfosDAO.getNearEvents(ptnInfo);
 	}
 	
 }

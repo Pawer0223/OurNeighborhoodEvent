@@ -1,5 +1,8 @@
 package woodong2.dao.common;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 
 import woodong2.vo.common.PtnInfos;
@@ -25,6 +28,10 @@ public class PtnInfosDAO extends AbstractDAO{
 		
 		if ( (Integer)selectOne("ptnInfos.bizrNoDuplicateCheck", bizrRegNo) == null ) return 0;
 		else return 1;
+	}
+
+	public List<Map<String, Object>> getNearEvents(PtnInfos ptnInfo) {
+		return (List<Map<String, Object>>)selectList("ptnInfos.getNearEvents",ptnInfo);
 	}
 
 }
