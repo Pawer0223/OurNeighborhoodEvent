@@ -10,11 +10,8 @@ public class EventInfos implements Serializable {
     // 이벤트 번호 
     private String eventSeq;
 
-    // 사업자ID 
+    // 사업자코드
     private String ptnCd;
-
-    // 사업자 명 
-    private String ptnNm;
 
     // 이벤트 명 
     private String eventNm;
@@ -43,9 +40,6 @@ public class EventInfos implements Serializable {
     // 이벤트 진행상태 
     private String eventStatus;
 
-    // 동네 
-    private String neighbor;
-
     // 배달가능여부 
     private String deliveryYn;
 
@@ -63,14 +57,6 @@ public class EventInfos implements Serializable {
 
     public void setPtnCd(String ptnCd) {
         this.ptnCd = ptnCd;
-    }
-
-    public String getPtnNm() {
-        return ptnNm;
-    }
-
-    public void setPtnNm(String ptnNm) {
-        this.ptnNm = ptnNm;
     }
 
     public String getEventNm() {
@@ -137,14 +123,6 @@ public class EventInfos implements Serializable {
         this.eventStatus = eventStatus;
     }
 
-    public String getNeighbor() {
-        return neighbor;
-    }
-
-    public void setNeighbor(String neighbor) {
-        this.neighbor = neighbor;
-    }
-
     public String getDeliveryYn() {
         return deliveryYn;
     }
@@ -163,10 +141,10 @@ public class EventInfos implements Serializable {
 
 	@Override
 	public String toString() {
-		return "EventInfos [eventSeq=" + eventSeq + ", ptnCd=" + ptnCd + ", ptnNm=" + ptnNm + ", eventNm=" + eventNm
-				+ ", eventDesc=" + eventDesc + ", product=" + product + ", productPic=" + productPic + ", pictureFile="
-				+ pictureFile + ", originPrice=" + originPrice + ", eventPrice=" + eventPrice + ", amount=" + amount
-				+ ", eventStatus=" + eventStatus + ", neighbor=" + neighbor + ", deliveryYn=" + deliveryYn + "]";
+		return "EventInfos [eventSeq=" + eventSeq + ", ptnCd=" + ptnCd + ", eventNm=" + eventNm + ", eventDesc="
+				+ eventDesc + ", product=" + product + ", productPic=" + productPic + ", pictureFile=" + pictureFile
+				+ ", originPrice=" + originPrice + ", eventPrice=" + eventPrice + ", amount=" + amount
+				+ ", eventStatus=" + eventStatus + ", deliveryYn=" + deliveryYn + "]";
 	}
 	
 }

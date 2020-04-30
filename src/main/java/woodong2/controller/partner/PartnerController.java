@@ -46,7 +46,8 @@ public class PartnerController {
 		UserInfos loginInfo = (UserInfos)authentication.getPrincipal();
 		
 		// 로그인 계정의 PTN_CD값으로 파트너 명, 동네정보조회
-		PtnInfos ptnInfo = ptnInfosService.getPtnInfo(loginInfo.getPtnCd());
+		// PtnInfos ptnInfo = ptnInfosService.getPtnInfo(loginInfo.getPtnCd());
+		PtnInfos ptnInfo = new PtnInfos() ;
 		
 		ModelAndView mv = new ModelAndView("/ptn/registEvent");
 		
@@ -69,8 +70,8 @@ public class PartnerController {
 
 		ModelAndView mv = new ModelAndView("/ptn/registEvent");
 		
-		if ( eventInfo.getAmount()==null ) {
-			eventInfo.setAmount(99999); // default Amount는 99999로 설정.
+		if ( eventInfo.getAmount()==null || eventInfo.getAmount()==0 ) {
+			eventInfo.setAmount(999); // default Amount는 99999로 설정.
 		}
 
 		//등록될 EVENT_SEQ 값 가져오기 max+1
@@ -78,6 +79,7 @@ public class PartnerController {
 		maxEventSeq = eventInfosService.getMaxEventSeq();
 		eventInfo.setEventSeq(maxEventSeq);
 		
+		// local
 		String uploadPath = "C:\\KTS_DEV\\newWorkSpace\\OurNeighborhoodEvent\\src\\main\\webapp\\resources\\upload\\" + EVENT_PIC_SUB_DIR;
 		//이미지업로드
 		String fileNm =comnFn.restore(eventInfo.getPictureFile(),uploadPath);
@@ -86,9 +88,10 @@ public class PartnerController {
 
 		eventInfo.setProductPic("\\resources\\upload\\" + EVENT_PIC_SUB_DIR+"\\"+fileNm);
 		
-		//로그인 세션에서 ptnCd값 등록
+		// 로그인 세션에서 ptnCd값 등록
 		UserInfos loginInfo = (UserInfos)authentication.getPrincipal();
 		eventInfo.setPtnCd(loginInfo.getPtnCd());
+		
 		
 		// 성공시1, 실패시0반환
 		if( eventInfosService.registEventInfos(eventInfo) == 1 ) {

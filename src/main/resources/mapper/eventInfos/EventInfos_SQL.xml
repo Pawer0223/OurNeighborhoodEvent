@@ -80,7 +80,6 @@
 		INSERT INTO EVENT_INFOS 
 		VALUES ( #{ eventSeq }
 			    ,#{ ptnCd } 
-			   	,#{ ptnNm }
 			   	,#{ eventNm }
 			   	,#{ eventDesc }
 			   	,#{ product }
@@ -89,7 +88,6 @@
 			   	,#{ eventPrice }
 			   	,#{ amount }
 			   	,'WORK'
-			   	,#{ neighbor }
 			   	,#{ deliveryYn }
 			   	,SYSDATE
 			   	,'' 

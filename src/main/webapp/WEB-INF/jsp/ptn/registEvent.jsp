@@ -33,14 +33,6 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td style="width: 110px;">상호 명</td>
-						<td colspan="2"><input class="form-control" type="text" id="ptnNm" name="ptnNm" maxLength="20" value="${ ptnInfo.ptnNm }" readonly></td>
-					</tr>
-					<tr>
-						<td style="width: 110px;">동네</td>
-						<td colspan="2"><input type="text" class="form-control" placeholder="상단의 동네를 검색해주세요"  name="neighbor" value="${ ptnInfo.neighbor }"  readonly ></td>
-					</tr>
-					<tr>
 						<td style="width: 110px;">제목</td>
 						<td colspan="2"><input class="form-control" type="text" id="eventNm" name="eventNm" maxLength="20"></td>
 					</tr>					
@@ -62,19 +54,19 @@
 					<tr>
 						<td style="width: 110px;">원 가격</td>
 						<td colspan="2">
-						<input class="form-control" type="number" id="originPrice" name="originPrice" maxLength="20" placeholder="상품 원 가격">
+						<input class="form-control" type="text" id="originPrice" name="originPrice" maxLength="20" placeholder="상품 원 가격">
 						</td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">행사 가격</td>
 						<td colspan="2">
-						<input class="form-control" type="number" id="eventPrice" name="eventPrice" maxLength="20" placeholder="행사 가격">
+						<input class="form-control" type="text" id="eventPrice" name="eventPrice" maxLength="20" placeholder="행사 가격">
 						</td>
 					</tr>
 					<tr>
 						<td style="width: 110px;">수량</td>
 						<td colspan="2">
-						<input class="form-control" type="number" id="amount" name="amount" maxLength="20" placeholder="수량 제한 없을시  공백">
+						<input class="form-control" type="number" id="amount" name="amount" min="0" max="999" maxLength="20" placeholder="수량 제한 없을시  공백">
 						</td>
 					</tr>
 					<tr>
@@ -89,7 +81,7 @@
 					</tr>
 					
 					<tr>
-					<td colspan="3"><a href="/main/start.do">홈 화면으로 가기</a></td>
+					<td colspan="3"><a href="/com/start.do">홈 화면으로 가기</a></td>
 					</tr>
 				</tbody>
 			</table>

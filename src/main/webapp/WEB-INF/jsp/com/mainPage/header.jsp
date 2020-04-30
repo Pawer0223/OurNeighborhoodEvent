@@ -43,7 +43,7 @@
 								</sec:authorize>
 								<!-- 이벤트 등록은 파트너만 할 수 있다.  -->
 								<sec:authorize access="hasRole('ROLE_PARTNER')">
-									<a class="dropdown-item" href="#">Event</a>
+									<a class="dropdown-item" href="/ptn/registEventPage.do">Event</a>
 								</sec:authorize>
 							</div>
 						</div>
