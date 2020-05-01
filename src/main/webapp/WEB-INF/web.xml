@@ -22,6 +22,11 @@
 
 	-->
 	
+	<!-- 
+	 contextConfigLocation의 name으로 설정된 xml파일들은 ContextLoaderListner클래스에 의해서  Root Application Context 컨테이너에
+	 생성 된다. 여기는 웹과 관련이 없는 ( DAO와 같은 ) 객체들이 관리되는 영역이다 !! 
+	 -->
+	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:config/spring/context-*.xml</param-value>

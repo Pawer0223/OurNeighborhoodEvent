@@ -17,7 +17,7 @@
 		<result property="neighbor" column="NEIGHBOR" />
 		<result property="deliveryYn" column="DELIVERY_YN" />
 	</resultMap>
-
+	
 	<select id="selectEventInfos" parameterType="woodong2.vo.common.Paging" resultMap="eventInfos">
 		<![CDATA[	  
 		SELECT EVENT_SEQ
