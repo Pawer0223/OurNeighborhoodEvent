@@ -12,7 +12,7 @@
 		<property name="username" value="DB접속 계정 ID" />
 		<property name="password" value="DB접속 계정PW" />
 	</bean>
-	
+
 	<bean id="dataSource"
 		class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
 		<constructor-arg ref="dataSourceSpied" />
@@ -23,5 +23,12 @@
 			</bean>
 		</property>
 	</bean>
+
+	<!-- 트랜젝션 관리 객체 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 </beans>
 
