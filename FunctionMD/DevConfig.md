@@ -52,5 +52,12 @@
      - resources파일 location 정보
      
   ### filter 정보
+  - 필터는 스프링 컨텍스트 외부에 존재하여 스프링과 무관한 자원에 대해 동작한다.
+  - Servlet Filter는 DispatcherServlet이전에 실행이 되는데, 필터가 동작하도록 지정된 자원의 앞단에서 요청내용을 변경하거나, 여러가지 체크를 수행할 수 있다.
+  - 또한 자원의 처리가 끝난 후 응답내용에 대해서도 변경하는 처리를 할 수가 있다.
+  - 인코딩 변환처리, XSS방어 등의 요청에 대한 처리로 사용된다.
+  - [ Filter, Interceptor, Aop의 차이점 ]( https://goddaehee.tistory.com/154 )
+  
+  
   
 
