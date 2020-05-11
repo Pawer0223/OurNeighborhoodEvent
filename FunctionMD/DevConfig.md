@@ -17,25 +17,25 @@
   - context-\*.xml 로 지정된 파일들에 객체 정보들을 구분하여 정의하였음.
   - ContextLoaderListner를 통해 context-\*.xml 들을 읽어들이고, RootApplicationContext 컨테이너에 웹과 관련이 없는 객체들이 생성된다.
   
-  
+  **Listner클래스가 RootApplicationContext 컨테이너를 생성 후, contextConfigLocation에 설정된 정보들을 읽어들여서 객체들을 생성한다.**
 
-      1.[ context-datasource.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/Sample_context-datasource_for_Git.xml )
+     1.[ context-datasource.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/Sample_context-datasource_for_Git.xml )
 
-       - dataSourceSpied > 커넥션 풀(connection pool) 라이브러리 [ [ 참조 ] ](https://d2.naver.com/helloworld/5102792)
-       - datasource > log4jdbc-remix > 수행 쿼리 및 결과 테이블을 출력해준다.
-       - transactionManager > 트랜잭션 관리하기 위함.
+     - dataSourceSpied > 커넥션 풀(connection pool) 라이브러리 [ [ 참조 ] ](https://d2.naver.com/helloworld/5102792)
+     - datasource > log4jdbc-remix > 수행 쿼리 및 결과 테이블을 출력해준다.
+     - transactionManager > 트랜잭션 관리하기 위함.
 
-      2.[ context-mapper.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-mapper.xml )
+     2.[ context-mapper.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-mapper.xml )
 
-      - sqlSession객체 [ [ 참조 ] ]( http://mybatis.org/spring/ko/sqlsession.html )
+     - sqlSession객체 [ [ 참조 ] ]( http://mybatis.org/spring/ko/sqlsession.html )
       
-      3.[ countext-security.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-security.xml )
+     3.[ countext-security.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-security.xml )
 
-      - SpringSecurity 설정정보
+     - SpringSecurity 설정정보
       
-      4.[ context-root.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-root.xml )
+     4.[ context-root.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/context-root.xml )
 
-      - messageSource > Security에러메시지를 정의한 properties파일의 경로를 정의 함.
+     - messageSource > Security에러메시지를 정의한 properties파일의 경로를 정의 함.
 
   ### 호출 서블릿 설정정보
   - temp
