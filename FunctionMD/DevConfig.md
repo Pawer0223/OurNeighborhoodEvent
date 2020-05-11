@@ -35,8 +35,9 @@
       - messageSource > Security에러메시지를 정의한 properties파일의 경로를 정의 함.
 
   ## 호출 서블릿 설정정보
-     
-     1.[ action-servlet.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/config/action-servlet.xml )
+  - temp
+  
+      1.[ action-servlet.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/config/action-servlet.xml )
       
      - Annotation의 Scan 범위 지정
      - @Transactional 어노테이션 적용을 위한 Proxy설정
