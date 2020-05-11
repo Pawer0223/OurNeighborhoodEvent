@@ -1,20 +1,23 @@
 ## 개발 작업환경 설정정보
 
-### [ web.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/web.xml )
+## [ web.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/web.xml )
 - 모든 Web Application은 반드시 하나의 web.xml파일을 가져야 한다.
 - web.xml파일의 설정들은 Web Application 시작시 메모리에 로딩.
 
-  ## Listner클래스 정보
-  - 1
-  - 2
-  - 3
+  ### Listner클래스 정보
+  - WAS 수행 시 &lt;listener&gt; 태그가 등록되어있는 ContextLoaderListner 객체를 호출한다.
+  - 이 객체는 내부적으로 ContextLoader부모 객체를 실행한다.
+  - 이 객체에서 RootApplicationContext를 생성한다.
+  - 이 컨테이너에는 웹과 관련이 없는 객체들을 저장한다.
   
-  ## contextConfigLocation
+  ### contextConfigLocation
   - WAS를 실행하기 전, &lt;context-param&gt; 태그에 전역 파라미터를 설정.
   - 파라미터의 이름은 contextConfigLocation.
   - 미리 생성할 객체들의 정보가 정의 된 설정파일의 경로를 value로 작성.
   - context-\*.xml 로 지정된 파일들에 객체 정보들을 구분하여 정의하였음.
   - ContextLoaderListner를 통해 context-\*.xml 들을 읽어들이고, RootApplicationContext 컨테이너에 웹과 관련이 없는 객체들이 생성된다.
+  
+  
 
       1.[ context-datasource.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/resources/config/spring/Sample_context-datasource_for_Git.xml )
 
@@ -34,7 +37,7 @@
 
       - messageSource > Security에러메시지를 정의한 properties파일의 경로를 정의 함.
 
-  ## 호출 서블릿 설정정보
+  ### 호출 서블릿 설정정보
   - temp
   
       1.[ action-servlet.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/config/action-servlet.xml )
