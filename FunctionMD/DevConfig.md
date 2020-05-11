@@ -38,9 +38,11 @@
      - messageSource > Security에러메시지를 정의한 properties파일의 경로를 정의 함.
 
   ### 호출 서블릿 설정정보
-  - temp
+  - &lt;servlet-mapping&gt;태그에 요청 Servlet의 url-pattern을 지정한다.
+  - &lt;servlet&gt;태그에 Servlet요청을 받아 Controller에게 전달 시켜 줄 수 있는 DispatcherServlet클래스 정보를 지정해준다.
+  - DispatcherServlet은 param의 contextConfigLocation의 위치에 지정된 파일을 해석하여 servlet요청을 HandlerMapping을 통해 해당하는 Controller가 있는지 확인하여, 수행시킨다.
   
-      1.[ action-servlet.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/config/action-servlet.xml )
+     1.[ action-servlet.xml ]( https://github.com/Taesan94/OurNeighborhoodEvent/blob/master/src/main/webapp/WEB-INF/config/action-servlet.xml )
       
      - Annotation의 Scan 범위 지정
      - @Transactional 어노테이션 적용을 위한 Proxy설정
@@ -48,3 +50,7 @@
      - ViewResolver객체 정보
      - 파일업로드시 참조되는 MultipartResolver정보
      - resources파일 location 정보
+     
+  ### filter 정보
+  
+
